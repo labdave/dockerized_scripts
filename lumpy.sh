@@ -1,4 +1,5 @@
-sample=$1 | sed 's/.bam//g'
+bam=$1
+sample=$(echo "${bam}" | sed 's/.bam//g')
 read_length=$2
 
 echo "${sample}"
