@@ -1,4 +1,4 @@
-sample=$1 | tr '.bam' ''
+sample=$1 | sed 's/.bam//g'
 read_length=$2
 
 scripts="lumpy-sv/scripts"
