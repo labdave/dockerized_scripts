@@ -1,6 +1,10 @@
 bam=$1
 sample=$(echo "${bam}" | sed 's/.bam//g')
 read_length=$2
+discordant_z=$3
+back_distance=$4
+weight=$5
+min_mapping_threshold=$6
 
 echo "${sample}"
 echo "${read_length}"
@@ -9,7 +13,7 @@ scripts="lumpy-sv/scripts"
 samtools index "${sample}".bam
 
 # extract the discordant paired-end alignments.
-samtools view -b -F 1294 "${sample}" > "${sample}".discordant.bam
+samtools view -b -F 1294 "${sample}".bam > "${sample}".discordant.bam
 
 # extract the split-read alignments
 samtools view -h "${sample}".bam | "${scripts}"/extractSplitReads_BwaMem -i stdin | samtools view -Sb - > "${sample}".split.bam
