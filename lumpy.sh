@@ -1,6 +1,8 @@
 sample=$1 | sed 's/.bam//g'
 read_length=$2
 
+echo "${sample}"
+echo "${read_length}"
 scripts="lumpy-sv/scripts"
 # index bam file
 samtools index "${sample}".bam
