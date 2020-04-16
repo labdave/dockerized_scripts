@@ -1,3 +1,4 @@
+# obtain parameters
 bam=$1
 sample=$(echo "${bam}" | sed 's/.bam//g')
 read_length=$2
@@ -6,7 +7,9 @@ back_distance=$4
 weight=$5
 min_mapping_threshold=$6
 
+# locate lumpy scripts directory
 scripts="lumpy-sv/scripts"
+
 # index bam file
 samtools index "${sample}".bam
 

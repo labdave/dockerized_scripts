@@ -1,15 +1,85 @@
-# work from miniconda
-FROM continuumio/miniconda3
-ARG app_version
+# work from amcpherson's docker image
+FROM amcpherson/destruct:0.4.17
 
-# install destruct
-RUN conda config --add channels https://conda.anaconda.org/dranew && conda config --add channels bioconda
-RUN conda install destruct==$app_version
-RUN conda install destruct_utils==$app_version
-RUN conda install openssl=1.0
-RUN mkdir -p /root/.config/matplotlib
-RUN echo "backend : Agg" > /root/.config/matplotlib/matplotlibrc
+# reset entrypoint
+ENTRYPOINT ["/usr/bin/env"]
 
-ENV NAME destruct
+# run update and install necessary tools
+RUN apt-get update -y && apt-get install -y \
+    build-essential \
+    libnss-sss \
+    curl \
+    vim \
+    less \
+    wget \
+    unzip \
+    cmake \
+    python \
+    gawk \
+    python-pip \
+    zlib1g-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    libnss-sss \
+    libbz2-dev \
+    liblzma-dev \
+    bzip2 \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    git \
+    autoconf \
+    bsdmainutils \
+    zip
 
-ENTRYPOINT ["destruct"]
+# install samtools
+ENV samtools_version 1.9
+WORKDIR /usr/local/bin/
+RUN curl -SL https://github.com/samtools/samtools/releases/download/${samtools_version}/samtools-${samtools_version}.tar.bz2 \
+    > /usr/local/bin/samtools-${samtools_version}.tar.bz2
+RUN tar -xjf /usr/local/bin/samtools-${samtools_version}.tar.bz2 -C /usr/local/bin/
+RUN cd /usr/local/bin/samtools-${samtools_version}/ && ./configure
+RUN cd /usr/local/bin/samtools-${samtools_version}/ && make
+RUN cd /usr/local/bin/samtools-${samtools_version}/ && make install
+
+# change reference
+# location 1
+RUN mkdir -p temp/
+RUN unzip /opt/conda/pkgs/destruct-0.4.17-py37_1/lib/python3.7/site-packages/destruct-0.4.17-py3.7.egg -d temp/
+RUN rm /opt/conda/pkgs/destruct-0.4.17-py37_1/lib/python3.7/site-packages/destruct-0.4.17-py3.7.egg
+
+RUN sed -i 's/70/93/g' temp/destruct/utils/download.py
+RUN sed -i 's/37/38/g' temp/destruct/utils/download.py
+RUN sed -i 's/70/93/g' temp/destruct/defaultconfig.py
+RUN sed -i 's/GRCh37/GRCh38/g' temp/destruct/defaultconfig.py
+RUN sed -i 's/hg19/hg38/g' temp/destruct/defaultconfig.py
+
+RUN rm temp/destruct/utils/__pycache__/download.cpython-37.pyc
+RUN python -m compileall temp/destruct/utils/download.py
+RUN rm temp/destruct/__pycache__/defaultconfig.cpython-37.pyc
+RUN python -m compileall temp/destruct/defaultconfig.py
+
+WORKDIR temp/
+RUN zip -r destruct-0.4.17-py3.7.egg destruct EGG-INFO
+WORKDIR /usr/local/bin/
+RUN cp temp/destruct-0.4.17-py3.7.egg /opt/conda/pkgs/destruct-0.4.17-py37_1/lib/python3.7/site-packages/
+
+# location 2
+RUN mkdir -p temp1/
+RUN unzip /opt/conda/lib/python3.7/site-packages/destruct-0.4.17-py3.7.egg -d temp1/
+RUN rm /opt/conda/lib/python3.7/site-packages/destruct-0.4.17-py3.7.egg
+
+RUN sed -i 's/70/93/g' temp1/destruct/utils/download.py
+RUN sed -i 's/37/38/g' temp1/destruct/utils/download.py
+RUN sed -i 's/70/93/g' temp1/destruct/defaultconfig.py
+RUN sed -i 's/GRCh37/GRCh38/g' temp1/destruct/defaultconfig.py
+RUN sed -i 's/hg19/hg38/g' temp1/destruct/defaultconfig.py
+
+RUN rm temp1/destruct/utils/__pycache__/download.cpython-37.pyc
+RUN python -m compileall temp1/destruct/utils/download.py
+RUN rm temp1/destruct/__pycache__/defaultconfig.cpython-37.pyc
+RUN python -m compileall temp1/destruct/defaultconfig.py
+
+WORKDIR temp1/
+RUN zip -r destruct-0.4.17-py3.7.egg destruct EGG-INFO
+WORKDIR /usr/local/bin/
+RUN cp temp/destruct-0.4.17-py3.7.egg /opt/conda/lib/python3.7/site-packages/
