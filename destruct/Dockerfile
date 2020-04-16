@@ -51,10 +51,7 @@ RUN unzip /opt/conda/pkgs/destruct-0.4.17-py37_1/lib/python3.7/site-packages/des
 RUN rm /opt/conda/pkgs/destruct-0.4.17-py37_1/lib/python3.7/site-packages/destruct-0.4.17-py3.7.egg
 RUN cp translocation_scripts/destruct/hg38_chr_map.tsv temp/destruct/data/
 RUN cp translocation_scripts/destruct/download.py temp/destruct/utils/
-
-RUN sed -i 's/70/93/g' temp/destruct/defaultconfig.py
-RUN sed -i 's/GRCh37/GRCh38/g' temp/destruct/defaultconfig.py
-RUN sed -i 's/hg19/hg38/g' temp/destruct/defaultconfig.py
+RUN cp translocation_scripts/destruct/defaultconfig.py temp/destruct/
 
 RUN rm temp/destruct/utils/__pycache__/download.cpython-37.pyc
 RUN python -m compileall temp/destruct/utils/download.py
@@ -72,10 +69,7 @@ RUN unzip /opt/conda/lib/python3.7/site-packages/destruct-0.4.17-py3.7.egg -d te
 RUN rm /opt/conda/lib/python3.7/site-packages/destruct-0.4.17-py3.7.egg
 RUN cp translocation_scripts/destruct/hg38_chr_map.tsv temp1/destruct/data/
 RUN cp translocation_scripts/destruct/download.py temp1/destruct/utils/
-
-RUN sed -i 's/70/93/g' temp1/destruct/defaultconfig.py
-RUN sed -i 's/GRCh37/GRCh38/g' temp1/destruct/defaultconfig.py
-RUN sed -i 's/hg19/hg38/g' temp1/destruct/defaultconfig.py
+RUN cp translocation_scripts/destruct/defaultconfig.py temp1/destruct/
 
 RUN rm temp1/destruct/utils/__pycache__/download.cpython-37.pyc
 RUN python -m compileall temp1/destruct/utils/download.py
