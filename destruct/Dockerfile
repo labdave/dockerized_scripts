@@ -42,13 +42,16 @@ RUN cd /usr/local/bin/samtools-${samtools_version}/ && make
 RUN cd /usr/local/bin/samtools-${samtools_version}/ && make install
 
 # change reference
+ADD https://api.github.com/repos/DevangThakkar/translocation_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/DevangThakkar/translocation_scripts.git
+
 # location 1
 RUN mkdir -p temp/
 RUN unzip /opt/conda/pkgs/destruct-0.4.17-py37_1/lib/python3.7/site-packages/destruct-0.4.17-py3.7.egg -d temp/
 RUN rm /opt/conda/pkgs/destruct-0.4.17-py37_1/lib/python3.7/site-packages/destruct-0.4.17-py3.7.egg
+RUN cp translocation_scripts/destruct/hg38_chr_map.tsv temp/destruct/data/
+RUN cp translocation_scripts/destruct/download.py temp/destruct/utils/
 
-RUN sed -i 's/70/93/g' temp/destruct/utils/download.py
-RUN sed -i 's/37/38/g' temp/destruct/utils/download.py
 RUN sed -i 's/70/93/g' temp/destruct/defaultconfig.py
 RUN sed -i 's/GRCh37/GRCh38/g' temp/destruct/defaultconfig.py
 RUN sed -i 's/hg19/hg38/g' temp/destruct/defaultconfig.py
@@ -67,9 +70,9 @@ RUN cp temp/destruct-0.4.17-py3.7.egg /opt/conda/pkgs/destruct-0.4.17-py37_1/lib
 RUN mkdir -p temp1/
 RUN unzip /opt/conda/lib/python3.7/site-packages/destruct-0.4.17-py3.7.egg -d temp1/
 RUN rm /opt/conda/lib/python3.7/site-packages/destruct-0.4.17-py3.7.egg
+RUN cp translocation_scripts/destruct/hg38_chr_map.tsv temp1/destruct/data/
+RUN cp translocation_scripts/destruct/download.py temp1/destruct/utils/
 
-RUN sed -i 's/70/93/g' temp1/destruct/utils/download.py
-RUN sed -i 's/37/38/g' temp1/destruct/utils/download.py
 RUN sed -i 's/70/93/g' temp1/destruct/defaultconfig.py
 RUN sed -i 's/GRCh37/GRCh38/g' temp1/destruct/defaultconfig.py
 RUN sed -i 's/hg19/hg38/g' temp1/destruct/defaultconfig.py
