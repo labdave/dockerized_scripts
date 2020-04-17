@@ -46,4 +46,4 @@ ADD https://api.github.com/repos/DevangThakkar/translocation_scripts/git/refs/he
 RUN git clone https://github.com/DevangThakkar/translocation_scripts.git
 
 # get ref data
-RUN destruct create_ref_data destruct_ref/ translocation_scripts/destruct/user.config
+RUN destruct create_ref_data destruct_ref/ --config translocation_scripts/destruct/user.config
