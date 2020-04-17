@@ -62,6 +62,7 @@ WORKDIR temp/
 RUN zip -r destruct-0.4.17-py3.7.egg destruct EGG-INFO
 WORKDIR /usr/local/bin/
 RUN cp temp/destruct-0.4.17-py3.7.egg /opt/conda/pkgs/destruct-0.4.17-py37_1/lib/python3.7/site-packages/
+WORKDIR /usr/local/bin/
 
 # location 2
 RUN mkdir -p temp1/
@@ -80,3 +81,7 @@ WORKDIR temp1/
 RUN zip -r destruct-0.4.17-py3.7.egg destruct EGG-INFO
 WORKDIR /usr/local/bin/
 RUN cp temp/destruct-0.4.17-py3.7.egg /opt/conda/lib/python3.7/site-packages/
+WORKDIR /usr/local/bin/
+
+# get ref data
+RUN destruct create_ref_data destruct_ref/
