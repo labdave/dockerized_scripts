@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # obtain parameters
 bam=$1
 sample=$(echo "${bam}" | sed 's/.bam//g')
