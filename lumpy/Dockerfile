@@ -88,5 +88,6 @@ CMD ["lumpy --help"]
 # get lumpy script
 ADD https://api.github.com/repos/DevangThakkar/translocation_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/translocation_scripts.git
-RUN mv translocation_scripts/lumpy/lumpy.sh .
+RUN cp translocation_scripts/lumpy/lumpy.sh .
+RUN cp translocation_scripts/lumpy/lumpy.sh /home/lumpy.sh
 RUN chmod +x lumpy.sh

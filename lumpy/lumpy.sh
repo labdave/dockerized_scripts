@@ -7,6 +7,8 @@ discordant_z=$3
 back_distance=$4
 weight=$5
 min_mapping_threshold=$6
+lumpy_vcf=$7
+gt_vcf=$8
 
 # locate lumpy scripts directory
 scripts="lumpy-sv/scripts"
@@ -42,9 +44,9 @@ echo "library statistics generated" 1>&2
 lumpy -mw 4 -tt 0 \
 -pe id:sample,bam_file:discordant.sorted.bam,histo_file:lib.histo,mean:$mean,stdev:$std,read_length:"${read_length}",min_non_overlap:"${read_length}",discordant_z:"${discordant_z}",back_distance:"${back_distance}",weight:"${weight}",min_mapping_threshold:"${min_mapping_threshold}" \
 -sr id:sample,bam_file:split.sorted.bam,back_distance:"${back_distance}",weight:"${weight}",min_mapping_threshold:"${min_mapping_threshold}" \
-> lumpy.vcf
+> "${lumpy_vcf}"
 echo "lumpy call finished" 1>&2
 
 # post procesing with SVTyper to make GT Calls from the Lumpy vcf  using a Bayesian maximum likelihood algorithm.
-svtyper -B "${bam}" -S split.sorted.bam -i lumpy.vcf > gt.vcf
+svtyper -B "${bam}" -S split.sorted.bam -i "${lumpy_vcf}" > "${gt_vcf}"
 echo "svtyper call finished" 1>&2
