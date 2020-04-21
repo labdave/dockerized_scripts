@@ -16,6 +16,7 @@ scripts="lumpy-sv/scripts"
 # index bam file
 samtools index "${bam}"
 echo "sample indexed" 1>&2
+echo "${bam}"
 
 # extract the discordant paired-end alignments.
 samtools view -b -F 1294 "${bam}" > discordant.bam
@@ -34,6 +35,7 @@ samtools sort split.bam > split.sorted.bam
 samtools index split.sorted.bam
 echo "split reads sorted" 1>&2
 echo "$(pwd)"
+ls -lt
 
 # generate empirical insert size statistics on each library in the BAM file 
 samtools view "${bam}" | tail -n+100000 | "${scripts}"/pairend_distro.py -r "${read_length}" -X 4 -N 10000 -o lib.histo > tmp.out 2>&1
@@ -43,8 +45,8 @@ echo "library statistics generated" 1>&2
 
 # lumpy call (traditional)
 lumpy -mw 4 -tt 0 \
--pe id:sample,bam_file:discordant.sorted.bam,histo_file:lib.histo,mean:$mean,stdev:$std,read_length:"${read_length}",min_non_overlap:"${read_length}",discordant_z:"${discordant_z}",back_distance:"${back_distance}",weight:"${weight}",min_mapping_threshold:"${min_mapping_threshold}" \
--sr id:sample,bam_file:split.sorted.bam,back_distance:"${back_distance}",weight:"${weight}",min_mapping_threshold:"${min_mapping_threshold}" \
+-pe bam_file:discordant.sorted.bam,histo_file:lib.histo,mean:$mean,stdev:$std,read_length:"${read_length}",min_non_overlap:"${read_length}",discordant_z:"${discordant_z}",back_distance:"${back_distance}",weight:"${weight}",min_mapping_threshold:"${min_mapping_threshold}" \
+-sr bam_file:split.sorted.bam,back_distance:"${back_distance}",weight:"${weight}",min_mapping_threshold:"${min_mapping_threshold}" \
 > "${lumpy_vcf}"
 echo "lumpy call finished" 1>&2
 
