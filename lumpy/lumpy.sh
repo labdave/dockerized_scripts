@@ -52,6 +52,6 @@ lumpy -mw 4 -tt 0 \
 > "${lumpy_vcf}"
 echo "lumpy call finished" 1>&2
 
-# post procesing with SVTyper to make GT Calls from the Lumpy vcf  using a Bayesian maximum likelihood algorithm.
-svtyper -B "${bam}" -S sample.split.sorted.bam -i "${lumpy_vcf}" > "${gt_vcf}"
+# # post procesing with SVTyper to make GT Calls from the Lumpy vcf  using a Bayesian maximum likelihood algorithm.
+# svtyper -B "${bam}" -S sample.split.sorted.bam -i "${lumpy_vcf}" > "${gt_vcf}"
 echo "svtyper call finished" 1>&2
