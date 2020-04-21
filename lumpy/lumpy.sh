@@ -18,16 +18,16 @@ cp "${bam}" /usr/local/bin/sample.bam
 cd /usr/local/bin/
 
 # index bam file
-samtools index /usr/local/bin/"${bam}"
+samtools index /usr/local/bin/sample.bam
 echo "sample indexed" 1>&2
 echo "${bam}"
 
 # extract the discordant paired-end alignments.
-samtools view -b -F 1294 "${bam}" > /usr/local/bin/sample.discordant.bam
+samtools view -b -F 1294 /usr/local/bin/sample.bam > /usr/local/bin/sample.discordant.bam
 echo "discordant reads extracted" 1>&2
 
 # extract the split-read alignments
-samtools view -h "${bam}" | "${scripts}"/extractSplitReads_BwaMem -i stdin | samtools view -Sb - > /usr/local/bin/sample.split.bam
+samtools view -h /usr/local/bin/sample.bam | "${scripts}"/extractSplitReads_BwaMem -i stdin | samtools view -Sb - > /usr/local/bin/sample.split.bam
 echo "split reads extracted" 1>&2
 
 # sort both alignments
@@ -40,7 +40,7 @@ samtools index /usr/local/bin/sample.split.sorted.bam
 echo "split reads sorted" 1>&2
 
 # generate empirical insert size statistics on each library in the BAM file 
-samtools view "${bam}" | tail -n+100000 | "${scripts}"/pairend_distro.py -r "${read_length}" -X 4 -N 10000 -o /usr/local/bin/sample.lib.histo > tmp.out 2>&1
+samtools view /usr/local/bin/sample.bam | tail -n+100000 | "${scripts}"/pairend_distro.py -r "${read_length}" -X 4 -N 10000 -o /usr/local/bin/sample.lib.histo > tmp.out 2>&1
 mean=`tail -1 tmp.out | cut -f1 | cut -f2 -d ':' | cut -f1 -d '.'`
 std=`tail -1 tmp.out | cut -f2 | cut -f2 -d ':' | cut -f1 -d '.'`
 echo "library statistics generated" 1>&2
@@ -56,5 +56,5 @@ lumpy -mw 4 -tt 0 \
 echo "lumpy call finished" 1>&2
 
 # post procesing with SVTyper to make GT Calls from the Lumpy vcf  using a Bayesian maximum likelihood algorithm.
-svtyper -B "${bam}" -S /usr/local/bin/sample.split.sorted.bam -i "${lumpy_vcf}" > "${gt_vcf}"
+svtyper -B /usr/local/bin/sample.bam -S /usr/local/bin/sample.split.sorted.bam -i "${lumpy_vcf}" > "${gt_vcf}"
 echo "svtyper call finished" 1>&2
