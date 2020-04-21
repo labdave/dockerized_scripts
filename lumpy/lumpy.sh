@@ -43,7 +43,7 @@ echo "library statistics generated" 1>&2
 
 echo "$(pwd)"
 ls -lt
-which lumpy
+lumpy -h
 
 # lumpy call (traditional)
 lumpy -mw 4 -tt 0 \
