@@ -33,6 +33,7 @@ echo "discordant reads sorted" 1>&2
 samtools sort split.bam > split.sorted.bam
 samtools index split.sorted.bam
 echo "split reads sorted" 1>&2
+echo "$(pwd)"
 
 # generate empirical insert size statistics on each library in the BAM file 
 samtools view "${bam}" | tail -n+100000 | "${scripts}"/pairend_distro.py -r "${read_length}" -X 4 -N 10000 -o lib.histo > tmp.out 2>&1
