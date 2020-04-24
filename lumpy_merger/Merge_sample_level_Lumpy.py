@@ -21,7 +21,7 @@ def main():
 	print(str(sys.argv))
 	input_files = []
 	output_file = sys.argv[1]
-	davelab_id = sys.argv[2]
+	davelab_ids = sys.argv[2].split('?')
 	chr_switch = sys.argv[3]
 	for i in range(len(sys.argv)-4):
 		input_files.append(sys.argv[i+4])
@@ -42,7 +42,9 @@ def main():
 	myfile.write("Lumpy_CHROM1\tLumpy_POS1\tLumpy_CHROM2\tLumpy_POS2\tLumpy_PRECISE_status\tLumpy_QUAL\tLumpy_FILTER\t")
 	myfile.write("Lumpy_GT\tLumpy_SU\tLumpy_PE\tLumpy_SR\tLumpy_GQ\tLumpy_SQ\tLumpy_GL\tLumpy_DP\tLumpy_RO\tLumpy_AO\tLumpy_QR\tLumpy_QA\tLumpy_RS\tLumpy_AS\tLumpy_ASC\tLumpy_RP\tLumpy_AP\tLumpy_AB\tLumpy_Distance1\tLumpy_Distance2\n")
 	
+	i = 0
 	for file_ in input_files:
+		i += 1
 		'''Input Lumpy File'''
 		lumpy_file = file_
 		
@@ -119,7 +121,7 @@ def main():
 						ln = chr1+"\t"+str(pos1)+"\t"+chr2+"\t"+str(pos2)
 					if not ln in dict_clean:
 						dict_clean[ln]=1	
-						myfile.write(dave_lab_id+"\t"+ln+"\t")
+						myfile.write(davelab_ids[i]+"\t"+ln+"\t")
 						myfile.write(precise+"\t"+qual+"\t"+filter+"\t"+gt+"\t"+str(dist1)+"\t"+str(dist2)+"\n")
 		fobj1.close()
 	myfile.close()
