@@ -23,15 +23,20 @@ def main():
 	output_file = sys.argv[1]
 	davelab_ids = sys.argv[2].split('?')
 	chr_switch = sys.argv[3]
-	for i in range(len(sys.argv)-4):
-		input_files.append(sys.argv[i+4])
+	# Filter translocations by chr3, chr8, chr18
+	chr_filter = sys.argv[4]
+	for i in range(len(sys.argv)-5):
+		input_files.append(sys.argv[i+5])
 
 	print(output_file)
 	print(input_files)
 	gene_list=['bcl6','myc','bcl2']
 	gene_start_list = [187721377,127735434,63123346]
 	gene_stop_list = [187745725,127742951,63320128]
-	chr_list = ['chr3','chr8','chr18']
+	if chr_filter:
+		chr_list = ['chr3','chr8','chr18']
+	else:
+		chr_list = ['chr1','chr2','chr3','chr4','chr5','chr6','chr7','chr8','chr9','chr10','chr11','chr12','chr13','chr14','chr15','chr16','chr17','chr18','chr19','chr20','chr21','chr22','chrX','chrY']
 	chr_list_all = ['chr1','chr2','chr3','chr4','chr5','chr6','chr7','chr8','chr9','chr10','chr11','chr12','chr13','chr14','chr15','chr16','chr17','chr18','chr19','chr20','chr21','chr22','chrX','chrY']
 
 	'''Output  file'''
@@ -85,7 +90,7 @@ def main():
 					'''Ignoring translocation events between same primary and alt chrs'''
 					chr1_list = chr1.split("_")
 					chr2_list = chr2.split("_")
-					if chr1 != chr2 and ( chr1 in chr_list or chr2 in chr_list) and ( chr1_list[0] != chr2_list[0]) and (chr1_list[0] in chr_list_all and chr2_list[0] in chr_list_all):
+					if (chr1 != chr2) and ( chr1 in chr_list or chr2 in chr_list) and ( chr1_list[0] != chr2_list[0]) and (chr1_list[0] in chr_list_all and chr2_list[0] in chr_list_all):
 						'''Ignore the Distance, it is going to be recalculated in the later steps'''
 						dist1=-1
 						dist2=-1
