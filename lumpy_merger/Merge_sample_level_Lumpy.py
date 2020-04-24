@@ -42,7 +42,7 @@ def main():
 	myfile.write("Lumpy_CHROM1\tLumpy_POS1\tLumpy_CHROM2\tLumpy_POS2\tLumpy_PRECISE_status\tLumpy_QUAL\tLumpy_FILTER\t")
 	myfile.write("Lumpy_GT\tLumpy_SU\tLumpy_PE\tLumpy_SR\tLumpy_GQ\tLumpy_SQ\tLumpy_GL\tLumpy_DP\tLumpy_RO\tLumpy_AO\tLumpy_QR\tLumpy_QA\tLumpy_RS\tLumpy_AS\tLumpy_ASC\tLumpy_RP\tLumpy_AP\tLumpy_AB\tLumpy_Distance1\tLumpy_Distance2\n")
 	
-	i = 0
+	i = -1
 	for file_ in input_files:
 		i += 1
 
