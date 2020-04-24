@@ -45,7 +45,7 @@ class Destruct(Module):
 		cmd = destruct
 
 		# add arguments
-		cmd += " run /usr/local/bin/destruct_ref/ {0} {1} {2} --bam {3}".format(
+		cmd += " run /usr/local/bin/destruct_ref/ {0} {1} {2} --bam_files {3}".format(
 			breaks, break_libs, break_reads, bam)
 
 		cmd += " --lib_ids {0} --submit {1}".format(lib_ids, submit)
