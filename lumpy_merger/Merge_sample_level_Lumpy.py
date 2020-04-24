@@ -45,19 +45,14 @@ def main():
 	i = 0
 	for file_ in input_files:
 		i += 1
-		'''Input Lumpy File'''
-		lumpy_file = file_
-		
-		'''Reading the lumpy file'''
-		fobj1 = open(lumpy_file)
 
 		dict_clean = {}
-		for file in fobj1:
-			file=file.strip()
+		for line in open(file_, 'r'):
+			line=line.strip()
 			''' Selecting rows with Translocations'''
-			if "SVTYPE=BND" in file:
+			if "SVTYPE=BND" in line:
 				'''Extracting fields'''
-				p = file.split("\t")
+				p = line.split("\t")
 				chr1 = p[0]
 				pos1 = int(p[1])
 				id = p[2]
@@ -123,7 +118,6 @@ def main():
 						dict_clean[ln]=1	
 						myfile.write(davelab_ids[i]+"\t"+ln+"\t")
 						myfile.write(precise+"\t"+qual+"\t"+filter+"\t"+gt+"\t"+str(dist1)+"\t"+str(dist2)+"\n")
-		fobj1.close()
 	myfile.close()
 	
 	
