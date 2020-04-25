@@ -84,11 +84,11 @@ def main():
 					'''Ignoring translocation events between same primary and alt chrs'''
 					chr1_list = chr1.split("_")
 					chr2_list = chr2.split("_")
-					dist1 = -1
-					dist2 = -1
-					if chr_filter:
-						if chr1 != chr2 and ( chr1 in chr_list or chr2 in chr_list) and ( chr1_list[0] != chr2_list[0]) and (chr1_list[0] in chr_list_all and chr2_list[0] in chr_list_all):
-							'''Ignore the Distance, it is going to be recalculated in the later steps'''
+					if chr1 != chr2 and ( chr1 in chr_list or chr2 in chr_list) and ( chr1_list[0] != chr2_list[0]) and (chr1_list[0] in chr_list_all and chr2_list[0] in chr_list_all):
+						'''Ignore the Distance, it is going to be recalculated in the later steps'''
+						dist1 = -1
+						dist2 = -1
+						if chr_filter == 1:
 							if chr1 in chr_list:
 								indx1 = chr_list.index(chr1)
 								indx_pos1 = pos1
@@ -110,7 +110,7 @@ def main():
 		
 						myfile.write(davelab_ids[i]+"\t")
 						'''Switch breakpoints if required, First BP MYC, BCL2, BCL6'''
-						if chr_switch:
+						if chr_switch == 1:
 							if chr1 in chr_list :
 								myfile.write(chr1+"\t"+str(pos1)+"\t"+chr2+"\t"+str(pos2))
 							else:
