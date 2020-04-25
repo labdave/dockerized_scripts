@@ -20,9 +20,9 @@ def main():
 	input_files = []
 	output_file = sys.argv[1]
 	davelab_ids = sys.argv[2].split('?')
-	chr_switch = sys.argv[3]
+	chr_switch = int(sys.argv[3])
 	# Filter translocations by chr3, chr8, chr18
-	chr_filter = sys.argv[4]
+	chr_filter = int(sys.argv[4])
 	for i in range(len(sys.argv)-5):
 		input_files.append(sys.argv[i+5])
 
