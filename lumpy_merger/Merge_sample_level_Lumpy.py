@@ -125,6 +125,32 @@ def main():
 							myfile.write(precise+"\t"+qual+"\t"+filter+"\t"+gt+"\t"+str(dist1)+"\t"+str(dist2)+"\n")
 	myfile.close()
 	
-	
+	''' Remove duplicates '''
+	pos1 = -1
+	pos2 = -1
+	i = 0
+	myfile = open(output_file, mode='wt')
+	with open(temp_file, 'r') as f:
+		for line in f:
+			# print header line
+			if i == 0:
+				i += 1
+				myfile.write(line)
+				continue
+			# print first line
+			if i == 1:
+				pos1 = line_arr[2]
+				pos2 = line_arr[4]
+				myfile.write(line)
+				continue
+			# every other line
+			line_arr = line.strip().split()
+			if line_arr[2] != pos2 or line_arr[4] != pos1:
+				myfile.write(line)
+			pos1 = line_arr[2]
+			pos2 = line_arr[4]
+	myfile.close()
+
+
 if __name__ == "__main__":
 	main()
