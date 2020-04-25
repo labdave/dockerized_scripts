@@ -107,7 +107,7 @@ def main():
 							else:
 								dist2 = 0
 		
-						myfile.write(dave_lab_id+"\t")
+						myfile.write(davelab_ids[i]+"\t")
 						'''Switch breakpoints if required, First BP MYC, BCL2, BCL6'''
 						if chr_switch:
 							if chr1 in chr_list :
