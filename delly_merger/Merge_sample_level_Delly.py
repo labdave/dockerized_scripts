@@ -19,6 +19,7 @@ import logging
 def main():	
 	input_files = []
 	output_file = sys.argv[1]
+	temp_file = output_file+'.tmp'
 	davelab_ids = sys.argv[2].split('?')
 	chr_switch = int(sys.argv[3])
 	# Filter translocations by chr3, chr8, chr18
@@ -26,8 +27,6 @@ def main():
 	for i in range(len(sys.argv)-5):
 		input_files.append(sys.argv[i+5])
 
-	print(output_file)
-	print(input_files)
 	gene_list=['bcl6','myc','bcl2']
 	gene_start_list = [187721377,127735434,63123346]
 	gene_stop_list = [187745725,127742951,63320128]
@@ -37,8 +36,8 @@ def main():
 		chr_list = ['chr1','chr2','chr3','chr4','chr5','chr6','chr7','chr8','chr9','chr10','chr11','chr12','chr13','chr14','chr15','chr16','chr17','chr18','chr19','chr20','chr21','chr22','chrX','chrY']
 	chr_list_all = ['chr1','chr2','chr3','chr4','chr5','chr6','chr7','chr8','chr9','chr10','chr11','chr12','chr13','chr14','chr15','chr16','chr17','chr18','chr19','chr20','chr21','chr22','chrX','chrY']
 		
-	'''Output  file'''
-	myfile = open(output_file, mode='wt')
+	'''Temp output file'''
+	myfile = open(temp_file, mode='wt')
 	
 	'''Header'''
 	myfile.write("dave_lab_id\t")
@@ -121,6 +120,33 @@ def main():
 						myfile.write(pe+"\t"+pemq+"\t"+sr+"\t"+srmq+"\t"+gt_list+"\n")
 
 	myfile.close()
+
+	''' Remove duplicates '''
+	pos1 = -1
+	pos2 = -1
+	i = 0
+	myfile = open(output_file, mode='wt')
+	with open(temp_file, 'r') as f:
+		for line in f:
+			# print header line
+			if i == 0:
+				i += 1
+				myfile.write(line)
+				continue
+			# print first line
+			if i == 1:
+				pos1 = line_arr[2]
+				pos2 = line_arr[4]
+				myfile.write(line)
+				continue
+			# every other line
+			line_arr = line.strip().split()
+			if line_arr[2] != pos2 or line_arr[4] != pos1:
+				myfile.write(line)
+			pos1 = line_arr[2]
+			pos2 = line_arr[4]
+	myfile.close()
+
 	
 if __name__ == "__main__":
 	main()
