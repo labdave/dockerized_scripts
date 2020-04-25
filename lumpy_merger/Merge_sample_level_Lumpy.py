@@ -88,28 +88,30 @@ def main():
 					'''Ignoring translocation events between same primary and alt chrs'''
 					chr1_list = chr1.split("_")
 					chr2_list = chr2.split("_")
-					if (chr1 != chr2) and ( chr1 in chr_list or chr2 in chr_list) and ( chr1_list[0] != chr2_list[0]) and (chr1_list[0] in chr_list_all and chr2_list[0] in chr_list_all):
-						'''Ignore the Distance, it is going to be recalculated in the later steps'''
-						dist1=-1
-						dist2=-1
-						if chr1 in chr_list:
-							indx1 = chr_list.index(chr1)
-							indx_pos1 = pos1
-							if indx_pos1 < gene_start_list[indx1]:
-								dist1=indx_pos1-gene_start_list[indx1]
-							elif indx_pos1 > gene_stop_list[indx1]:
-								dist1=indx_pos1-gene_stop_list[indx1]
-							else:
-								dist1=0
-						if chr2 in chr_list:
-							indx2 = chr_list.index(chr2)
-							indx_pos2 = pos2
-							if indx_pos2 < gene_start_list[indx2]:
-								dist2=indx_pos2-gene_start_list[indx2]
-							elif indx_pos2 > gene_stop_list[indx2]:
-								dist2=indx_pos2-gene_stop_list[indx2]
-							else:
-								dist2=0	
+					dist1 = -1
+					dist2 = -1
+					if chr_filter:
+						if (chr1 != chr2) and ( chr1 in chr_list or chr2 in chr_list) and ( chr1_list[0] != chr2_list[0]) and (chr1_list[0] in chr_list_all and chr2_list[0] in chr_list_all):
+							'''Ignore the Distance, it is going to be recalculated in the later steps'''
+							if chr1 in chr_list:
+								indx1 = chr_list.index(chr1)
+								indx_pos1 = pos1
+								if indx_pos1 < gene_start_list[indx1]:
+									dist1=indx_pos1-gene_start_list[indx1]
+								elif indx_pos1 > gene_stop_list[indx1]:
+									dist1=indx_pos1-gene_stop_list[indx1]
+								else:
+									dist1=0
+							if chr2 in chr_list:
+								indx2 = chr_list.index(chr2)
+								indx_pos2 = pos2
+								if indx_pos2 < gene_start_list[indx2]:
+									dist2=indx_pos2-gene_start_list[indx2]
+								elif indx_pos2 > gene_stop_list[indx2]:
+									dist2=indx_pos2-gene_stop_list[indx2]
+								else:
+									dist2=0
+
 						'''Switch breakpoints if required, First BP MYC, BCL2, BCL6'''
 						if chr_switch:
 							if chr1 in chr_list :
