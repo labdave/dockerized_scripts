@@ -128,6 +128,7 @@ def main():
 	myfile = open(output_file, mode='wt')
 	with open(temp_file, 'r') as f:
 		for line in f:
+			line_arr = line.strip().split()
 			# print header line
 			if i == 0:
 				i += 1
@@ -140,7 +141,6 @@ def main():
 				myfile.write(line)
 				continue
 			# every other line
-			line_arr = line.strip().split()
 			if line_arr[2] != pos2 or line_arr[4] != pos1:
 				myfile.write(line)
 			pos1 = line_arr[2]
