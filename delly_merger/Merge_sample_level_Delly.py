@@ -71,7 +71,7 @@ def main():
 					if info.startswith("PRECISE"):
 						precise = '1'
 					chr2 = re.search(';CHR2=(.+?);', info).group(1)
-					pos2 = int(re.search(';END=(.+?);', info).group(1))
+					pos2 = int(re.search(';POS2=(.+?);', info).group(1))
 					pe = re.search(';PE=(.+?);', info).group(1)
 					try:
 						sr = re.search(';SR=(.+?);', info).group(1)
