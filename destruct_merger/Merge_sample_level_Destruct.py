@@ -57,7 +57,7 @@ def main():
 					prediction_id = p[0]   
 					chr1 = p[1]
 					chr1 = chr1.replace('.','v')
-					if chr1.isnumeric():
+					if chr1.is_number():
 						chr1 = 'chr'+chr1
 					if not chr1 in chr_list:
 						chr1 = chr1
@@ -67,7 +67,7 @@ def main():
 					pos1 = int(p[3])      
 					chr2 = p[4]
 					chr2 = chr2.replace('.','v')
-					if chr1.isnumeric():
+					if chr1.is_number():
 						chr1 = 'chr'+chr1
 					if not chr2 in chr_list:
 						chr2 = chr2
