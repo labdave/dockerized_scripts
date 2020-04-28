@@ -51,8 +51,9 @@ def main():
 	myfile.write("dave_lab_id\tanalysis_id\t")
 	myfile.write("Destruct_chromosome_1\tDestruct_position_1\tDestruct_chromosome_2\tDestruct_position_2\tDestruct_strand_1\tDestruct_strand_2\tDestruct_prediction_id\tDestruct_homology\tDestruct_num_split\tDestruct_mate_score\tDestruct_template_length_1\tDestruct_log_cdf\tDestruct_template_length_2\tDestruct_log_likelihood\tDestruct_template_length_min\tDestruct_num_reads\tDestruct_num_unique_reads\n")
 	
-	print(input_files)
+	i = -1
 	for file_ in input_files:
+		i += 1
 		dict_clean = {}
 		with open(file_, 'r') as f:
 			for line in f:
@@ -101,7 +102,7 @@ def main():
 							ln = chr1+"\t"+str(pos1)+"\t"+chr2+"\t"+str(pos2)
 						if not ln in dict_clean:
 							dict_clean[ln]=1
-							myfile.write(dave_lab_id+"\t"+analysis_id+"\t"+fish_bcl6+"\t"+fish_myc+"\t"+fish_bcl2+"\t")
+							myfile.write(davelab_ids[i]+"\t")
 							myfile.write(ln+"\t"+strand_1+"\t"+strand_2+"\t"+prediction_id+"\t"+homology+"\t"+num_split+"\t"+mate_score+"\t"+template_length_1+"\t"+log_cdf+"\t"+template_length_2)
 							myfile.write("\t"+log_likelihood+"\t"+template_length_min+"\t"+num_reads+"\t"+num_unique_reads+"\n")
 	myfile.close()
