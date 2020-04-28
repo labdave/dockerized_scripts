@@ -87,13 +87,13 @@ def main():
 					chr2_list = chr2.split("_")
 					if chr1 != chr2 and (chr1 in chr_list or chr2 in chr_list) and (chr1_list[0] != chr2_list[0]) and (chr1_list[0] in chr_list_all and chr2_list[0] in chr_list_all) and int(num_reads)>=2 and int(num_split)>=2 and float(log_likelihood) > -20.0 and int(template_length_min)>70:
 						'''Switch breakpoints if required, First BP MYC, BCL2, BCL6'''
-							if chr_switch == 1:
-								if chr1 in chr_list :
-									ln = chr1+"\t"+str(pos1)+"\t"+chr2+"\t"+str(pos2)
-								else:
-									ln = chr2+"\t"+str(pos2)+"\t"+chr1+"\t"+str(pos1)
-							else:
+						if chr_switch == 1:
+							if chr1 in chr_list :
 								ln = chr1+"\t"+str(pos1)+"\t"+chr2+"\t"+str(pos2)
+							else:
+								ln = chr2+"\t"+str(pos2)+"\t"+chr1+"\t"+str(pos1)
+						else:
+							ln = chr1+"\t"+str(pos1)+"\t"+chr2+"\t"+str(pos2)
 						if not ln in dict_clean:
 							dict_clean[ln]=1
 							myfile.write(dave_lab_id+"\t"+analysis_id+"\t"+fish_bcl6+"\t"+fish_myc+"\t"+fish_bcl2+"\t")
