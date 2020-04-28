@@ -67,20 +67,12 @@ def main():
 					chr1 = chr1.replace('.','v')
 					if is_number(chr1):
 						chr1 = 'chr'+chr1
-					if not chr1 in chr_list:
-						chr1 = chr1
-					else:
-						chr1 = chr_list[chr1]	
 					strand_1 = p[2]
 					pos1 = int(p[3])      
 					chr2 = p[4]
 					chr2 = chr2.replace('.','v')
 					if is_number(chr2):
 						chr2 = 'chr'+chr2
-					if not chr2 in chr_list:
-						chr2 = chr2
-					else:
-						chr2 = chr_list[chr2]			
 					strand_2 = p[5]        
 					pos2 = int(p[6])      
 					homology = p[7]        
