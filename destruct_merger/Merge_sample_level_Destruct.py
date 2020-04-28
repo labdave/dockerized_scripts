@@ -48,7 +48,7 @@ def main():
 	myfile = open(temp_file, mode='wt')
 	
 	'''Header'''
-	myfile.write("dave_lab_id\tanalysis_id\t")
+	myfile.write("dave_lab_id\t")
 	myfile.write("Destruct_chromosome_1\tDestruct_position_1\tDestruct_chromosome_2\tDestruct_position_2\tDestruct_strand_1\tDestruct_strand_2\tDestruct_prediction_id\tDestruct_homology\tDestruct_num_split\tDestruct_mate_score\tDestruct_template_length_1\tDestruct_log_cdf\tDestruct_template_length_2\tDestruct_log_likelihood\tDestruct_template_length_min\tDestruct_num_reads\tDestruct_num_unique_reads\n")
 	
 	i = -1
@@ -66,13 +66,13 @@ def main():
 					prediction_id = p[0]   
 					chr1 = p[1]
 					chr1 = chr1.replace('.','v')
-					if is_number(chr1):
+					if is_number(chr1) or chr1 == 'X' or chr1 == 'Y':
 						chr1 = 'chr'+chr1
 					strand_1 = p[2]
 					pos1 = int(p[3])      
 					chr2 = p[4]
 					chr2 = chr2.replace('.','v')
-					if is_number(chr2):
+					if is_number(chr2) or chr2 == 'X' or chr2 == 'Y':
 						chr2 = 'chr'+chr2
 					strand_2 = p[5]        
 					pos2 = int(p[6])      
@@ -91,7 +91,9 @@ def main():
 					'''Ignoring translocation events between same primary and alt chrs'''		
 					chr1_list = chr1.split("_")
 					chr2_list = chr2.split("_")
-					if chr1 != chr2 and (chr1 in chr_list or chr2 in chr_list) and (chr1_list[0] != chr2_list[0]) and (chr1_list[0] in chr_list_all and chr2_list[0] in chr_list_all) and int(num_reads)>=2 and int(num_split)>=2 and float(log_likelihood) > -20.0 and int(template_length_min)>70:
+					print(chr1_list)
+					print(chr2_list)
+					if (chr1 != chr2) and (chr1 in chr_list or chr2 in chr_list) and (chr1_list[0] != chr2_list[0]) and ((chr1_list[0] in chr_list_all) and (chr2_list[0] in chr_list_all)) and (int(num_reads)>=2) and (int(num_split)>=2) and (float(log_likelihood) > -20.0) and (int(template_length_min)>70):
 						'''Switch breakpoints if required, First BP MYC, BCL2, BCL6'''
 						if chr_switch == 1:
 							if chr1 in chr_list :
