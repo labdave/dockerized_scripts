@@ -43,6 +43,7 @@ def main():
 	myfile.write("dave_lab_id\tanalysis_id\t")
 	myfile.write("Destruct_chromosome_1\tDestruct_position_1\tDestruct_chromosome_2\tDestruct_position_2\tDestruct_strand_1\tDestruct_strand_2\tDestruct_prediction_id\tDestruct_homology\tDestruct_num_split\tDestruct_mate_score\tDestruct_template_length_1\tDestruct_log_cdf\tDestruct_template_length_2\tDestruct_log_likelihood\tDestruct_template_length_min\tDestruct_num_reads\tDestruct_num_unique_reads\n")
 	
+	print(input_files)
 	for file_ in input_files:
 		dict_clean = {}
 		with open(file_, 'r') as f:
@@ -56,14 +57,18 @@ def main():
 					prediction_id = p[0]   
 					chr1 = p[1]
 					chr1 = chr1.replace('.','v')
+					if chr1.isnumeric():
+						chr1 = 'chr'+chr1
 					if not chr1 in chr_list:
 						chr1 = chr1
 					else:
 						chr1 = chr_list[chr1]	
-					strand_1 = p[2]        
+					strand_1 = p[2]
 					pos1 = int(p[3])      
 					chr2 = p[4]
 					chr2 = chr2.replace('.','v')
+					if chr1.isnumeric():
+						chr1 = 'chr'+chr1
 					if not chr2 in chr_list:
 						chr2 = chr2
 					else:
