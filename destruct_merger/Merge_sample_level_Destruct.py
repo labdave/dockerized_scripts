@@ -91,8 +91,11 @@ def main():
 					'''Ignoring translocation events between same primary and alt chrs'''		
 					chr1_list = chr1.split("_")
 					chr2_list = chr2.split("_")
-					print(chr1_list)
-					print(chr2_list)
+					print(chr1 in chr_list or chr2 in chr_list)
+					# print((chr1_list[0] in chr_list_all) and (chr2_list[0] in chr_list_all))
+					# print(int(num_reads)>=2 and int(num_split)>=2)
+					# print(float(log_likelihood) > -20.0)
+					# print(int(template_length_min)>70)
 					if (chr1 != chr2) and (chr1 in chr_list or chr2 in chr_list) and (chr1_list[0] != chr2_list[0]) and ((chr1_list[0] in chr_list_all) and (chr2_list[0] in chr_list_all)) and (int(num_reads)>=2) and (int(num_split)>=2) and (float(log_likelihood) > -20.0) and (int(template_length_min)>70):
 						'''Switch breakpoints if required, First BP MYC, BCL2, BCL6'''
 						if chr_switch == 1:
