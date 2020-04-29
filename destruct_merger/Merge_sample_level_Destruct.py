@@ -59,8 +59,8 @@ def main():
 			print(file_)
 			for line in f:
 				line=line.strip()
-				print(line)
-				p=line.split()
+				# print(line)
+				p=line.split('\t')
 				type_ = p[18]
 				''' Selecting rows with Translocations'''
 				if type_ == 'translocation':
@@ -93,7 +93,7 @@ def main():
 					'''Ignoring translocation events between same primary and alt chrs'''		
 					chr1_list = chr1.split("_")
 					chr2_list = chr2.split("_")
-					print(chr1 in chr_list or chr2 in chr_list)
+					# print(chr1 in chr_list or chr2 in chr_list)
 					# print((chr1_list[0] in chr_list_all) and (chr2_list[0] in chr_list_all))
 					# print(int(num_reads)>=2 and int(num_split)>=2)
 					# print(float(log_likelihood) > -20.0)
