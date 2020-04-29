@@ -56,8 +56,10 @@ def main():
 		i += 1
 		dict_clean = {}
 		with open(file_, 'r') as f:
+			print(file_)
 			for line in f:
 				line=line.strip()
+				print(line)
 				p=line.split()
 				type_ = p[18]
 				''' Selecting rows with Translocations'''
