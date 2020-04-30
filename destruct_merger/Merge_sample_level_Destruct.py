@@ -24,7 +24,8 @@ def is_number(s):
         return False
 
 
-def main():	
+def main():
+	print(sys.argv)
 	input_files = []
 	output_file = sys.argv[1]
 	temp_file = output_file+'.tmp'
@@ -33,7 +34,7 @@ def main():
 	# Filter translocations by chr3, chr8, chr18
 	chr_filter = int(sys.argv[4])
 	if len(sys.argv) == 6:
-		input_files = [sys.argv[5]]
+		input_files = [].append(sys.argv[5])
 	else:
 		for i in range(len(sys.argv)-5):
 			input_files.append(sys.argv[i+5])
