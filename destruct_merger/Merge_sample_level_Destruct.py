@@ -34,10 +34,8 @@ def main():
 	# Filter translocations by chr3, chr8, chr18
 	chr_filter = int(sys.argv[4])
 	if len(sys.argv) == 6:
-		print('len 6')
 		input_files = [sys.argv[5]]
 	else:
-		print(len(sys.argv))
 		for i in range(len(sys.argv)-5):
 			input_files.append(sys.argv[i+5])
 
