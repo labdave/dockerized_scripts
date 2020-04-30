@@ -35,6 +35,8 @@ def main():
 	for i in range(len(sys.argv)-5):
 		input_files.append(sys.argv[i+5])
 
+	print(input_files)
+
 	gene_list=['bcl6','myc','bcl2']
 	gene_start_list = [187721377,127735434,63123346]
 	gene_stop_list = [187745725,127742951,63320128]
