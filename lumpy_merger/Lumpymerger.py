@@ -5,7 +5,7 @@ class Lumpymerger(Merger):
 	def __init__(self, module_id, is_docker=False):
 		super(Lumpymerger, self).__init__(module_id, is_docker)
 		# Add output keys here if needed
-		self.output_keys = ["lumpy_merged_vcf"]
+		self.output_keys = ["destruct_merged_vcf"]
 
 
 	def define_input(self):

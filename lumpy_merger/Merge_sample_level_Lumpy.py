@@ -24,8 +24,11 @@ def main():
 	chr_switch = int(sys.argv[3])
 	# Filter translocations by chr3, chr8, chr18
 	chr_filter = int(sys.argv[4])
-	for i in range(len(sys.argv)-5):
-		input_files.append(sys.argv[i+5])
+	if len(sys.argv) == 6:
+		input_files = [sys.argv[5]]
+	else:
+		for i in range(len(sys.argv)-5):
+			input_files.append(sys.argv[i+5])
 
 	print(output_file)
 	print(input_files)
