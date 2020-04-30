@@ -27,17 +27,19 @@ def is_number(s):
 def main():
 	print(sys.argv)
 	input_files = []
-	output_file = sys.argv[1]
+	len_sample_id = sys.argv[1]
+	print(len_sample_id)
+	output_file = sys.argv[2]
 	temp_file = output_file+'.tmp'
-	davelab_ids = sys.argv[2].split('?')
-	chr_switch = int(sys.argv[3])
+	davelab_ids = sys.argv[3].split('?')
+	chr_switch = int(sys.argv[4])
 	# Filter translocations by chr3, chr8, chr18
-	chr_filter = int(sys.argv[4])
-	if len(sys.argv) == 6:
-		input_files = [].append(sys.argv[5])
+	chr_filter = int(sys.argv[5])
+	if len(sys.argv) == 7:
+		input_files = [].append(sys.argv[6])
 	else:
-		for i in range(len(sys.argv)-5):
-			input_files.append(sys.argv[i+5])
+		for i in range(len(sys.argv)-6):
+			input_files.append(sys.argv[i+6])
 
 	print(input_files)
 
