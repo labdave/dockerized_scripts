@@ -14,6 +14,7 @@ import subprocess
 import re
 import shutil	
 import logging
+from __future__ import print_function
 
 
 def main():
