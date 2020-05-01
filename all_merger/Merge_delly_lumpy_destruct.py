@@ -183,6 +183,9 @@ def main():
 	linenum = 0
 	with open(delly_file, 'r') as f:
 		for i in f:
+			if linenum == 0:
+				linenum += 1
+				continue
 			i = i.strip()
 			arr = i.split("\t")
 			linenum = linenum + 1
