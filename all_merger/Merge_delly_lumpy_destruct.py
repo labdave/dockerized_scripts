@@ -128,7 +128,7 @@ def main():
 	tmp_bed = output_file+'.tmp.bed'
 	tmp1_bed = output_file+'.tmp1.bed'
 	tmp1_cp_bed = output_file+'.tmp1.cp.bed'
-	tmp_all_bed = output_file+'tmp.all.bed'
+	tmp_all_bed = output_file+'.tmp.all.bed'
 	myfile = open(tmp_bed, mode='wt')
 	header = fobj.readline()
 	linenum = 0
