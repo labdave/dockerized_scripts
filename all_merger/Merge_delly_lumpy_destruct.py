@@ -52,6 +52,7 @@ def main():
 	myfile = open(output_file, mode='wt')
 	'''Output Header'''
 	myfile.write("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t")
+	print("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t"+str_header_delly+"\t"+str_header_lumpy+"\t"+str_header_destruct)
 	myfile.write(str_header_delly+"\t"+str_header_lumpy+"\t"+str_header_destruct+"\n")
 
 	'''Read Delly'''
@@ -137,7 +138,9 @@ def main():
 		arr = i.split("\t")
 		'''merging the sample id with chromosome to do intersect bed at sample level'''
 		myfile.write(arr[0]+"__"+arr[1]+"\t"+str(int(arr[2])-distance_num)+"\t"+str(int(arr[2])+distance_num)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8]+"\n")
+		print(arr[0]+"__"+arr[1]+"\t"+str(int(arr[2])-distance_num)+"\t"+str(int(arr[2])+distance_num)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8])
 		myfile.write(arr[0]+"__"+arr[3]+"\t"+str(int(arr[4])-distance_num)+"\t"+str(int(arr[4])+distance_num)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8]+"\n")
+		print(arr[0]+"__"+arr[3]+"\t"+str(int(arr[4])-distance_num)+"\t"+str(int(arr[4])+distance_num)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8])
 	fobj.close()
 	myfile.close()
 	
