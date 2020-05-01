@@ -151,7 +151,7 @@ def main():
 	cmd = 'cp ' + tmp1_bed + ' ' + tmp1_cp_bed
 	os.system(cmd)
 	
-	cmd = 'intersectBed -a ' + tmp1_bed + ' -b ' + tmp1_cp_bed + ' -wao > '+ tmp_all_bed
+	cmd = 'bedtools intersect -a ' + tmp1_bed + ' -b ' + tmp1_cp_bed + ' -wao > '+ tmp_all_bed
 	os.system(cmd)
 	
 	'''Reading the intersect bed output file'''

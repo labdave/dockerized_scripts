@@ -25,7 +25,8 @@ RUN apt-get update -y && apt-get install -y \
     libssl-dev \
     git \
     autoconf \
-    bsdmainutils
+    bsdmainutils \
+    bedtools
 
 # install numpy and pysam
 WORKDIR /usr/local/bin
