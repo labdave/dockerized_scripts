@@ -1,6 +1,7 @@
 # editing Naresh's scripts for compatilibility with CC -Devang
 
 #!/usr/bin/python3
+from __future__ import print_function
 __author__ = "Naresh Prodduturi"
 __email__ = "naresh.prodduturi@ddb.bio"
 __status__ = "Dev"
@@ -14,7 +15,7 @@ import subprocess
 import re
 import shutil	
 import logging
-from __future__ import print_function
+
 
 
 def main():
