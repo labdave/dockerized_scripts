@@ -25,10 +25,10 @@ def main():
 	lumpy_file = sys.argv[4]
 	destruct_file = sys.argv[5]
 
-	print(delly_file)
-	print(lumpy_file)
-	print(destruct_file)
-	print(output_file)
+	# print(delly_file)
+	# print(lumpy_file)
+	# print(destruct_file)
+	# print(output_file)
 	gene_list=['bcl6','myc','bcl2']
 	gene_start_list = [187721377,127735434,63123346]
 	gene_stop_list = [187745725,127742951,63320128]
@@ -66,9 +66,13 @@ def main():
 			sr=p1[13]
 			total=str(int(pe)+int(sr))
 			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY")
+			print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY", end='')
 			myfile.write("\t"+str.join("\t",p1[5:]))
+			print("\t"+str.join("\t",p1[5:]), end='')
 			myfile.write("\tNA"*len(list_head_lumpy[5:]))
+			print("\tNA"*len(list_head_lumpy[5:]), end='')
 			myfile.write("\tNA"*len(list_head_destruct[5:])+"\n")
+			print("\tNA"*len(list_head_destruct[5:])+"\n", end='')
 	
 	'''Read Lumpy'''
 	with open(lumpy_file, 'r') as f:
@@ -84,9 +88,13 @@ def main():
 			sr=p1[11]
 			total=str(int(pe)+int(sr))
 			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY")
+			print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='')
 			myfile.write("\tNA"*len(list_head_delly[5:]))
+			print("\tNA"*len(list_head_delly[5:]), end='')
 			myfile.write("\t"+str.join("\t",p1[5:]))
+			print("\t"+str.join("\t",p1[5:]), end='')
 			myfile.write("\tNA"*len(list_head_destruct[5:])+"\n")
+			print("\tNA"*len(list_head_destruct[5:])+"\n", end='')
 	
 	'''Read Destruct'''
 	with open(destruct_file, 'r') as f:
@@ -101,9 +109,13 @@ def main():
 			sr=p1[9]
 			total=str(int(pe)+int(sr))
 			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDESTRUCT")
+			print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDESTRUCT", end='')
 			myfile.write("\tNA"*len(list_head_delly[5:]))
+			print("\tNA"*len(list_head_delly[5:]), end='')
 			myfile.write("\tNA"*len(list_head_lumpy[5:]))
+			print("\tNA"*len(list_head_lumpy[5:]), end='')
 			myfile.write("\t"+str.join("\t",p1[5:])+"\n")
+			print("\t"+str.join("\t",p1[5:])+"\n", end='')
 	
 	myfile.close()
 
