@@ -176,7 +176,7 @@ def main():
 	fobj.close()
 	
 	'''Creating new output file for other caller information'''
-	header = [line for line in open(delly_file, 'r')][0].strip()
+	header = [line for line in open(output_file, 'r')][0].strip()
 
 	myfile = open(output_cons_file, mode='wt')
 	myfile.write(header + "\tNum_Callers\tCallers\n")
