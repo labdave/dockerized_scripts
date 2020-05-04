@@ -181,7 +181,7 @@ def main():
 	myfile = open(output_cons_file, mode='wt')
 	myfile.write(header + "\tNum_Callers\tCallers\n")
 	linenum = 0
-	with open(delly_file, 'r') as f:
+	with open(output_file, 'r') as f:
 		for i in f:
 			if linenum == 0:
 				linenum += 1
