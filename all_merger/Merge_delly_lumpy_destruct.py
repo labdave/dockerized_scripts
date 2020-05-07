@@ -137,9 +137,9 @@ def main():
 		i = i.strip()
 		arr = i.split("\t")
 		'''merging the sample id with chromosome to do intersect bed at sample level'''
-		myfile.write(arr[0]+"__"+arr[1]+"\t"+str(int(arr[2])-distance_num)+"\t"+str(int(arr[2])+distance_num)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8]+"\n")
+		myfile.write(arr[0].split("_")[0]+"__"+arr[1]+"\t"+str(int(arr[2])-distance_num)+"\t"+str(int(arr[2])+distance_num)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8]+"\n")
 		# print(arr[0]+"__"+arr[1]+"\t"+str(int(arr[2])-distance_num)+"\t"+str(int(arr[2])+distance_num)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8])
-		myfile.write(arr[0]+"__"+arr[3]+"\t"+str(int(arr[4])-distance_num)+"\t"+str(int(arr[4])+distance_num)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8]+"\n")
+		myfile.write(arr[0].split("_")[0]+"__"+arr[3]+"\t"+str(int(arr[4])-distance_num)+"\t"+str(int(arr[4])+distance_num)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8]+"\n")
 		# print(arr[0]+"__"+arr[3]+"\t"+str(int(arr[4])-distance_num)+"\t"+str(int(arr[4])+distance_num)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8])
 	fobj.close()
 	myfile.close()
@@ -164,7 +164,7 @@ def main():
 		lst1 = arr[0].split("__")
 		lst2 = arr[6].split("__")
 		'''Overlap > 0, for same sample, and ignoring same caller'''
-		if int(arr[12]) > 0 and lst1[0]==lst2[0] and arr[5]!=arr[11]:
+		if int(arr[12]) > 0 and lst1.split("_")[0]==lst2.split("_")[0] and arr[5]!=arr[11]:
 			'''Creating key sample_caller_linenumber_BP(1 or 2)'''
 			key = lst1[0]+' '+arr[5]+' '+arr[3]+' '+arr[4]
 			'''Other caller information'''
@@ -179,7 +179,7 @@ def main():
 	header = [line for line in open(output_file, 'r')][0].strip()
 
 	myfile = open(output_cons_file, mode='wt')
-	myfile.write(header + "\tNum_Callers\tCallers\n")
+	myfile.write(header + "\tCallers\tNum_Callers\n")
 	linenum = 0
 	with open(output_file, 'r') as f:
 		for i in f:
