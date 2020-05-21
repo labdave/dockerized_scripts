@@ -178,8 +178,8 @@ def main():
 			line=line.strip()
 			rw_lst = line.split("\t")
 			linenum = linenum+1
-			write_tmp.write(rw_lst[5]+"\t"+str(int(rw_lst[6])-1)+"\t"+rw_lst[6]+"\t"+str(linenum)+"\t"+str(1)+"\n")
-			write_tmp.write(rw_lst[7]+"\t"+str(int(rw_lst[8])-1)+"\t"+rw_lst[8]+"\t"+str(linenum)+"\t"+str(2)+"\n")
+			write_tmp.write(rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\t"+str(linenum)+"\t"+str(1)+"\n")
+			write_tmp.write(rw_lst[3]+"\t"+str(int(rw_lst[4])-1)+"\t"+rw_lst[4]+"\t"+str(linenum)+"\t"+str(2)+"\n")
 		read_input.close()
 		write_tmp.close()
 	
@@ -275,32 +275,32 @@ def main():
 				if capture_kit != None :
 					val1="0"
 					'''if bp1 in capture kit dict'''
-					if rw_lst[5]+' '+rw_lst[6] in dict_bed:
+					if rw_lst[1]+' '+rw_lst[2] in dict_bed:
 						val1="1"
 					val2="0"
 					'''if bp2 in capture kit dict'''
-					if rw_lst[7]+' '+rw_lst[8] in dict_bed:
+					if rw_lst[3]+' '+rw_lst[4] in dict_bed:
 						val2="1"
 					write_out.write("\t"+val1+"\t"+val2)
 				
 				if dac_gap != None :
 					val3="0"
 					'''if bp1 in dac kit dict'''
-					if rw_lst[5]+' '+rw_lst[6] in dict_dac:
+					if rw_lst[1]+' '+rw_lst[2] in dict_dac:
 						val3="1"	
 					val4="0"
 					'''if bp2 in dac kit dict'''
-					if rw_lst[7]+' '+rw_lst[8] in dict_dac:
+					if rw_lst[3]+' '+rw_lst[4] in dict_dac:
 						val4="1"
 					write_out.write("\t"+val3+"\t"+val4)
 				if rep_mas != None:
 					val5="0"
 					'''if bp1 in rep dict'''
-					if rw_lst[5]+' '+rw_lst[6] in dict_rep:
+					if rw_lst[1]+' '+rw_lst[2] in dict_rep:
 						val5="1"
 					val6="0"
 					'''if bp2 in rep dict'''
-					if rw_lst[7]+' '+rw_lst[8] in dict_rep:
+					if rw_lst[3]+' '+rw_lst[4] in dict_rep:
 						val6="1"
 					write_out.write("\t"+val5+"\t"+val6)
 				
@@ -325,12 +325,12 @@ def main():
 		for line in fobj:
 			line = line.strip()
 			rw_lst = line.split("\t")
-			samp = rw_lst[1]
-			chr1 = rw_lst[5]
-			pos1 = rw_lst[6]
-			chr2 = rw_lst[7]
-			pos2 = rw_lst[8]
-			caller = rw_lst[12]
+			samp = rw_lst[0]
+			chr1 = rw_lst[1]
+			pos1 = rw_lst[2]
+			chr2 = rw_lst[3]
+			pos2 = rw_lst[4]
+			caller = rw_lst[8]
 			
 			'''sort primary and mate chr to account for same bp with different chr order'''
 			x=[chr1,chr2]
@@ -372,12 +372,12 @@ def main():
 		for line in fobj:
 			line = line.strip()
 			rw_lst = line.split("\t")
-			samp = rw_lst[1]
-			chr1 = rw_lst[5]
-			pos1 = rw_lst[6]
-			chr2 = rw_lst[7]
-			pos2 = rw_lst[8]
-			caller = rw_lst[12]
+			samp = rw_lst[0]
+			chr1 = rw_lst[1]
+			pos1 = rw_lst[2]
+			chr2 = rw_lst[3]
+			pos2 = rw_lst[4]
+			caller = rw_lst[8]
 			pos1_num=0
 			pos2_num=0
 			pos1_samp='NA'
@@ -434,16 +434,16 @@ def main():
 			line = line.strip()
 			rw_lst = line.split("\t")
 			linenum = linenum+1
-			tmp1=int(rw_lst[6])-distance
+			tmp1=int(rw_lst[2])-distance
 			if tmp1 < 1:
 				tmp1=1
-			tmp2=int(rw_lst[6])+distance                
-			myfile.write(rw_lst[5]+"\t"+str(tmp1)+"\t"+str(tmp2)+"\t"+str(linenum)+"\t"+rw_lst[1]+'__'+str(1)+"\n")
-			tmp1=int(rw_lst[8])-distance
+			tmp2=int(rw_lst[2])+distance                
+			myfile.write(rw_lst[1]+"\t"+str(tmp1)+"\t"+str(tmp2)+"\t"+str(linenum)+"\t"+rw_lst[0]+'__'+str(1)+"\n")
+			tmp1=int(rw_lst[4])-distance
 			if tmp1 < 1:
 				tmp1=1			
-			tmp2=int(rw_lst[8])+distance
-			myfile.write(rw_lst[7]+"\t"+str(tmp1)+"\t"+str(tmp2)+"\t"+str(linenum)+"\t"+rw_lst[1]+'__'+str(2)+"\n")
+			tmp2=int(rw_lst[4])+distance
+			myfile.write(rw_lst[3]+"\t"+str(tmp1)+"\t"+str(tmp2)+"\t"+str(linenum)+"\t"+rw_lst[0]+'__'+str(2)+"\n")
 		fobj.close()
 		myfile.close()
 		'''creating the bed coordinates for normal sample breakpoint file'''
@@ -455,16 +455,16 @@ def main():
 			line = line.strip()
 			rw_lst = line.split("\t")
 			linenum = linenum+1
-			tmp1=int(rw_lst[6])-distance
+			tmp1=int(rw_lst[2])-distance
 			if tmp1 < 1:
 				tmp1=1
-			tmp2=int(rw_lst[6])+distance                
-			myfile.write(rw_lst[5]+"\t"+str(tmp1)+"\t"+str(tmp2)+"\t"+str(linenum)+"\t"+rw_lst[1]+'__'+str(1)+"\n")
-			tmp1=int(rw_lst[8])-distance
+			tmp2=int(rw_lst[2])+distance                
+			myfile.write(rw_lst[1]+"\t"+str(tmp1)+"\t"+str(tmp2)+"\t"+str(linenum)+"\t"+rw_lst[0]+'__'+str(1)+"\n")
+			tmp1=int(rw_lst[4])-distance
 			if tmp1 < 1:
 				tmp1=1			
-			tmp2=int(rw_lst[8])+distance
-			myfile.write(rw_lst[7]+"\t"+str(tmp1)+"\t"+str(tmp2)+"\t"+str(linenum)+"\t"+rw_lst[1]+'__'+str(2)+"\n")
+			tmp2=int(rw_lst[4])+distance
+			myfile.write(rw_lst[3]+"\t"+str(tmp1)+"\t"+str(tmp2)+"\t"+str(linenum)+"\t"+rw_lst[0]+'__'+str(2)+"\n")
 		fobj.close()
 		myfile.close()
 		
@@ -553,7 +553,7 @@ def main():
 			line=line.strip()
 			rw_lst = line.split("\t")
 			linenum = linenum+1
-			write_tmp.write(rw_lst[5]+"\t"+str(int(rw_lst[6])-1)+"\t"+rw_lst[6]+"\t"+str(linenum)+"\t"+str(1)+"\n")
+			write_tmp.write(rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\t"+str(linenum)+"\t"+str(1)+"\n")
 			#write_tmp.write(rw_lst[7]+"\t"+str(int(rw_lst[8])-1)+"\t"+rw_lst[8]+"\t"+str(linenum)+"\t"+str(2)+"\n")
 		read_input.close()
 		write_tmp.close()
@@ -588,7 +588,7 @@ def main():
 			rw_lst = line.split("\t")
 			level1_col=len(rw_lst)
 			val1="0"
-			if rw_lst[5]+' '+rw_lst[6] in dict_rep:
+			if rw_lst[1]+' '+rw_lst[2] in dict_rep:
 				val1="1"
 			write_out.write(line+"\t"+val1+"\n")
 		fobj.close()
@@ -609,7 +609,7 @@ def main():
 			line=line.strip()
 			rw_lst = line.split("\t")
 			linenum = linenum+1
-			write_tmp.write(rw_lst[1]+'__'+rw_lst[5]+"\t"+str(int(rw_lst[6])-1)+"\t"+rw_lst[6]+"\t"+str(linenum)+"\t"+str(1)+"\n")
+			write_tmp.write(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\t"+str(linenum)+"\t"+str(1)+"\n")
 		read_input.close()
 		write_tmp.close()
 		
@@ -652,8 +652,8 @@ def main():
 			write_out.write(line)
 			val1="NA\tNA\tNA\tNA\tNA\tNA"
 			'''if bp1 in capture kit dict'''
-			if rw_lst[1]+'__'+rw_lst[5]+' '+rw_lst[6] in dict_det_trans:
-				val1=dict_det_trans[rw_lst[1]+'__'+rw_lst[5]+' '+rw_lst[6]]
+			if rw_lst[0]+'__'+rw_lst[1]+' '+rw_lst[2] in dict_det_trans:
+				val1=dict_det_trans[rw_lst[0]+'__'+rw_lst[1]+' '+rw_lst[2]]
 			write_out.write("\t"+val1+"\n")
 		read_input.close()
 		write_out.close()
@@ -715,8 +715,8 @@ def main():
 		for line in fobj:
 			line = line.strip()
 			rw_lst = line.split("\t")
-			myfile.write(rw_lst[5]+"\t"+str(int(rw_lst[6])-1)+"\t"+rw_lst[6]+"\n")
-			myfile.write(rw_lst[7]+"\t"+str(int(rw_lst[8])-1)+"\t"+rw_lst[8]+"\n")
+			myfile.write(rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\n")
+			myfile.write(rw_lst[3]+"\t"+str(int(rw_lst[4])-1)+"\t"+rw_lst[4]+"\n")
 		fobj.close()
 		myfile.close()
 
@@ -775,9 +775,9 @@ def main():
 			gene_2_col_num=len(rw_lst)+1
 			gn1=["NA"]
 			gn2=["NA"]
-			if rw_lst[5]+' '+rw_lst[6] in dict_bed:
-				gn1= dict_bed[rw_lst[5]+' '+rw_lst[6]].split(",")
-				dst_list1= dict_bed_dist[rw_lst[5]+' '+rw_lst[6]].split(",")
+			if rw_lst[1]+' '+rw_lst[2] in dict_bed:
+				gn1= dict_bed[rw_lst[1]+' '+rw_lst[2]].split(",")
+				dst_list1= dict_bed_dist[rw_lst[1]+' '+rw_lst[2]].split(",")
 				dst_list1 = list(map(int, dst_list1))
 				sort_index = np.argsort(np.array(dst_list1))
 				gna=[gn1[i] for i in sort_index if dst_list1[i] == 0]
@@ -790,9 +790,9 @@ def main():
 				else:
 					gn1=gna
 					dist1=dista
-			if rw_lst[7]+' '+rw_lst[8] in dict_bed:
-				gn2= dict_bed[rw_lst[7]+' '+rw_lst[8]].split(",")
-				dst_list1= dict_bed_dist[rw_lst[7]+' '+rw_lst[8]].split(",")
+			if rw_lst[3]+' '+rw_lst[4] in dict_bed:
+				gn2= dict_bed[rw_lst[3]+' '+rw_lst[4]].split(",")
+				dst_list1= dict_bed_dist[rw_lst[3]+' '+rw_lst[4]].split(",")
 				dst_list1 = list(map(int, dst_list1))
 				sort_index = np.argsort(np.array(dst_list1))
 				gna=[gn2[i] for i in sort_index if dst_list1[i] == 0]
