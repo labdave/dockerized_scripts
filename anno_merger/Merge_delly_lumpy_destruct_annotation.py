@@ -149,7 +149,11 @@ def main():
 
 	if arg.detected_trans != None:
 		detected_trans = arg.detected_trans
-		logger.info("detected_trans file: "+detected_trans)			
+		logger.info("detected_trans file: "+detected_trans)		
+
+	if arg.chr_filter != None:
+		chr_filter = int(arg.chr_filter)
+		# logger.info("chr_filter: "+chr_filter)		
 
 	''''''
 	gene_list=['bcl6','myc','bcl2']
