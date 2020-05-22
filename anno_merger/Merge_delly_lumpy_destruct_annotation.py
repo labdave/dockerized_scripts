@@ -111,6 +111,7 @@ def main():
 		rep_mas = arg.rep_mas
 		logger.info("Input Rep_mask file: "+rep_mas)
 
+	other_sample = False
 	if arg.other_sample != None:
 		other_sample = arg.other_sample
 		logger.info("Other Sample: "+other_sample)
