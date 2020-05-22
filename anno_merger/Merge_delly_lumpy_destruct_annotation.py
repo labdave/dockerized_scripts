@@ -116,6 +116,7 @@ def main():
 		other_sample = arg.other_sample
 		logger.info("Other Sample: "+other_sample)
 	
+	normal_samp = None
 	if arg.normal_samp != None:
 		normal_samp = arg.normal_samp
 		logger.info("Normal Sample: "+normal_samp)
@@ -132,6 +133,7 @@ def main():
 		chr_names = arg.chr_names
 		logger.info("Chr_names file: "+chr_names)		
 		
+	var_files = None
 	if arg.var_files != None:
 		var_files = arg.var_files
 		logger.info("var_files file: "+var_files)
@@ -140,14 +142,17 @@ def main():
 		paper_freq_pairs = arg.paper_freq_pairs
 		logger.info("paper_freq_pairs file: "+paper_freq_pairs)
 
+	gene_expr = None
 	if arg.gene_expr != None:
 		gene_expr = arg.gene_expr
 		logger.info("gene_expr: "+gene_expr)
 
+	fusion_out_dir = None
 	if arg.fusion_out_dir != None:
 		fusion_out_dir = arg.fusion_out_dir
 		logger.info("fusion_out_dir: "+fusion_out_dir)
 
+	detected_trans = None
 	if arg.detected_trans != None:
 		detected_trans = arg.detected_trans
 		logger.info("detected_trans file: "+detected_trans)		
