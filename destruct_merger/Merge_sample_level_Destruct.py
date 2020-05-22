@@ -55,7 +55,7 @@ def main():
 	
 	'''Header'''
 	myfile.write("dave_lab_id\t")
-	myfile.write("Destruct_chromosome_1\tDestruct_position_1\tDestruct_chromosome_2\tDestruct_position_2\tDestruct_strand_1\tDestruct_strand_2\tDestruct_prediction_id\tDestruct_homology\tDestruct_num_split\tDestruct_mate_score\tDestruct_template_length_1\tDestruct_log_cdf\tDestruct_template_length_2\tDestruct_log_likelihood\tDestruct_template_length_min\tDestruct_num_reads\tDestruct_num_unique_reads\n")
+	myfile.write("Destruct_chromosome_1\tDestruct_position_1\tDestruct_chromosome_2\tDestruct_position_2\tDestruct_strand_1\tDestruct_strand_2\tDestruct_prediction_id\tDestruct_homology\tDestruct_num_split\tDestruct_mate_score\tDestruct_log_likelihood\tDestruct_log_cdf\tDestruct_template_length_1\tDestruct_template_length_2\tDestruct_template_length_min\tDestruct_num_reads\tDestruct_num_unique_reads\n")
 	
 	i = -1
 	for file_ in input_files:
