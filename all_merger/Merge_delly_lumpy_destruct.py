@@ -164,7 +164,7 @@ def main():
 		lst1 = arr[0].split("__")
 		lst2 = arr[6].split("__")
 		'''Overlap > 0, for same sample, and ignoring same caller'''
-		if int(arr[12]) > 0 and lst1.split("_")[0]==lst2.split("_")[0] and arr[5]!=arr[11]:
+		if int(arr[12]) > 0 and lst1[0].split("_")[0]==lst2[0].split("_")[0] and arr[5]!=arr[11]:
 			'''Creating key sample_caller_linenumber_BP(1 or 2)'''
 			key = lst1[0]+' '+arr[5]+' '+arr[3]+' '+arr[4]
 			'''Other caller information'''
