@@ -191,8 +191,8 @@ def main():
 			arr = i.split("\t")
 			linenum = linenum + 1
 			'''checking if both BPs in the dict'''
-			key1 = arr[0]+' '+arr[12]+' '+str(linenum)+' '+"1"
-			key2 = arr[0]+' '+arr[12]+' '+str(linenum)+' '+"2"
+			key1 = arr[0].split('_')[0]+' '+arr[8]+' '+str(linenum)+' '+"1"
+			key2 = arr[0].split('_')[0]+' '+arr[8]+' '+str(linenum)+' '+"2"
 			val = "NA\tNA"
 			print(key1)
 			print(key2)
