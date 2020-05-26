@@ -169,6 +169,7 @@ def main():
 			key = lst1[0]+' '+arr[5]+' '+arr[3]+' '+arr[4]
 			'''Other caller information'''
 			val = arr[11]
+			print(key)
 			if key in merged_bed :
 				merged_bed[key]=merged_bed[key]+','+val
 			else:
@@ -193,6 +194,8 @@ def main():
 			key1 = arr[0]+' '+arr[12]+' '+str(linenum)+' '+"1"
 			key2 = arr[0]+' '+arr[12]+' '+str(linenum)+' '+"2"
 			val = "NA\tNA"
+			print(key1)
+			print(key2)
 			if key1 in merged_bed and key2 in merged_bed:
 				tmp1 = arr[12] + ',' + merged_bed[key1]
 				tmp1_list = tmp1.split(',')
