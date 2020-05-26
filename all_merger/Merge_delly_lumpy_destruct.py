@@ -159,6 +159,7 @@ def main():
 	fobj = open(tmp_all_bed)
 	for i in fobj:
 		i = i.strip()
+		print(i)
 		arr = i.split("\t")
 		'''separating sample & chr of first & second chr'''
 		lst1 = arr[0].split("__")
