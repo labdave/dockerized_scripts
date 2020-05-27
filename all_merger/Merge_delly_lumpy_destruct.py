@@ -144,6 +144,11 @@ def main():
 	fobj.close()
 	myfile.close()
 	
+	# debug
+	with open(tmp_bed, 'r') as f:
+		for line in f:
+			print(line)
+
 	'''Intersect bed'''
 	cmd = 'sort -k2,2n -k3,3n  ' + tmp_bed + ' > ' + tmp1_bed
 	os.system(cmd)
@@ -171,7 +176,7 @@ def main():
 			'''Other caller information'''
 			val = arr[11]
 			print(key)
-			if key in merged_bed :
+			if key in merged_bed:
 				merged_bed[key]=merged_bed[key]+','+val
 			else:
 				merged_bed[key]=val	
@@ -189,6 +194,7 @@ def main():
 				linenum += 1
 				continue
 			i = i.strip()
+			print(i)
 			arr = i.split("\t")
 			linenum = linenum + 1
 			'''checking if both BPs in the dict'''
