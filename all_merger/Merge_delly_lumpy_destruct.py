@@ -124,6 +124,123 @@ def main():
 
 	'''preparing input file for intersect bed'''
 	distance_num = 100
+
+	# devang's code for merging and fixing number of callers:
+	# this code assumes the presence of only three callers,
+	# in this case - delly, lumpy, destruct.
+	
+	'''
+	========== heuristic for merging calls ==========
+	-> Merge calls with both breakpoints within 100bp of each other
+	-> Can only merge if called from same sample and different caller
+	-> The BP positions are defined by the following hierarchy
+		- The one with more split reads; if equal:
+		- The one with more paired reads; if equal:
+		- Lumpy > Delly > Destruct
+	-> Collapse rows into one for merged reads
+	'''
+
+
+	# check if two lines are valid calls from two different callers
+	def check_proximity(line_arr1, line_arr2, line_arr3=None):
+		# check sample
+		# works only when used from inside SV_calling due to difference in analysis IDs
+		if line_arr1[0] != line_arr2[0]:
+			return False
+			return True
+		return False
+
+	# read output_file and create dict
+	with open(output_file, 'r') as f:
+		i = True
+		lumpy_dict = dict()
+		delly_dict = dict()
+		destruct_dict = dict()
+		for line in f:
+			if i:
+				i = False
+				continue
+			arr = line.strip().split()
+			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
+			if arr[8] == 'DELLY':
+				delly_dict[key] = line
+			if arr[8] == 'LUMPY':
+				lumpy_dict[key] = line
+			if arr[8] == 'DESTRUCT':
+				destruct_dict[key] = line
+
+	# complex procedure to get merge-able rows
+	delly_destruct_dict = dict()
+	delly_lumpy_dict = dict()
+	destruct_lumpy_dict = dict()
+	delly_destruct_lumpy_dict = dict()
+
+	# all three callers
+	delly_remove, destruct_remove, lumpy_remove = [], [], []
+	for delly_item in delly_dict:
+		for destruct_item in destruct_dict:
+			for lumpy_item in lumpy_dict:
+				if check_proximity(delly_item, destruct_item, lumpy_item):
+					joint_key = delly_item+'|'+destruct_item+'|'+lumpy_item
+					delly_destruct_lumpy_dict[joint_key] = [delly_dict[delly_item], destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
+					delly_remove.append(delly_item)
+					destruct_remove.append(destruct_item)
+					lumpy_remove.append(lumpy_item)
+	for item in delly_remove:
+		delly_dict.pop(item)
+	for item in destruct_remove:
+		destruct_dict.pop(item)
+	for item in lumpy_dict:
+		lumpy_dict.pop(item)
+
+	# three pairs of two callers each
+	# delly destruct
+	for delly_item in delly_dict:
+		for destruct_item in destruct_dict:
+			if check_proximity(delly_item, destruct_item):
+				joint_key = delly_item+'|'+destruct_item
+				delly_destruct_dict[joint_key] = [delly_dict[delly_item], destruct_dict[destruct_item]]
+				continue
+	# delly lumpy
+	for delly_item in delly_dict:
+		for lumpy_item in lumpy_dict:
+			if check_proximity(delly_item, lumpy_item):
+				joint_key = delly_item+'|'+lumpy_item
+				delly_lumpy_dict[joint_key] = [delly_dict[delly_item], lumpy_dict[lumpy_item]]
+				continue
+	# destruct lumpy
+	for destruct_item in destruct_dict:
+		for lumpy_item in lumpy_dict:
+			if check_proximity(destruct_item, lumpy_item):
+				joint_key = destruct_item+'|'+lumpy_item
+				destruct_lumpy_dict[joint_key] = [destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
+				continue
+
+
+
+	# read output file and check for matches
+	with open(output_file, 'r') as f:
+		i = True
+		for line in f:
+			if i:
+				output_cons_text = line.strip()+'\tNum_Callers\tCallers\n'
+				i = False
+				continue
+			arr = line.strip().split()
+			callers = [arr[8]]
+			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]+';'+arr[8]
+			for item in output_dict:
+				if check_proximity(item, key):
+					callers.append(item.split(';')[-1])
+			callers = list(set(callers))
+			n_callers = len(callers)
+			callers_str = ','.join(callers)
+			output_cons_text += (line.strip()+'\t{0}\t{1}\n'.format(n_callers, callers_str))
+
+
+
+
+	# naresh's code for number of callers:
 	fobj = open(output_file)
 	tmp_bed = output_file+'.tmp.bed'
 	tmp1_bed = output_file+'.tmp1.bed'
