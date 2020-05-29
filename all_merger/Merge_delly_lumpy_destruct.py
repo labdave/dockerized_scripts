@@ -145,7 +145,10 @@ def main():
 	# works only when used from inside SV_calling due to difference in analysis IDs
 	def check_proximity(line1, line2, line3=None):
 		dist = distance_num
+		line1 = line1.replace(':', ';').split(';')
+		line2 = line2.replace(':', ';').split(';')
 		if line3:
+			line3 = line3.replace(':', ';').split(';')
 			# check sample
 			if line1[0] != line2[0] or line2[0] != line3[0] or line3[0] != line1[0]:
 				return False
@@ -156,10 +159,10 @@ def main():
 			if line1[3] != line2[3] or line2[3] != line3[3] or line3[3] != line1[3]:
 				return False
 			# check pos1
-			if abs(line1[2]-line2[2]) > dist or abs(line2[2]-line3[2]) > dist or abs(line3[2]-line1[2]) > dist:
+			if abs(int(line1[2])-int(line2[2])) > dist or abs(int(line2[2])-int(line3[2])) > dist or abs(int(line3[2])-int(line1[2])) > dist:
 				return False
 			# check pos2
-			if abs(line1[4]-line2[4]) > dist or abs(line2[4]-line3[2]) > dist or abs(line3[4]-line1[4]) > dist:
+			if abs(int(line1[4])-int(line2[4])) > dist or abs(int(line2[4])-int(line3[4])) > dist or abs(int(line3[4])-int(line1[4])) > dist:
 				return False
 		else:
 			# check sample
@@ -172,10 +175,10 @@ def main():
 			if line1[3] != line2[3] or line2[3] != line1[3]:
 				return False
 			# check pos1
-			if abs(line1[2]-line2[2]) > dist or abs(line2[2]-line1[2]) > dist:
+			if abs(int(line1[2])-int(line2[2])) > dist or abs(int(line2[2])-int(line1[2])) > dist:
 				return False
 			# check pos2
-			if abs(line1[4]-line2[4]) > dist or abs(line2[4]-line1[4]) > dist:
+			if abs(int(line1[4])-int(line2[4])) > dist or abs(int(line2[4])-int(line1[4])) > dist:
 				return False
 		return True
 
@@ -212,10 +215,11 @@ def main():
 			# create merged row:
 			merged = chosen[:9]
 			merged.extend(delly_arr[9:31])
-			merged.extend(lumpy_arr[32:54])
-			merged.extend(destruct_arr[55:])
+			merged.extend(lumpy_arr[31:54])
+			merged.extend(destruct_arr[54:])
 
 			# return merged line
+			merged = '\t'.join(merged).strip()+'\tDELLY, DESTRUCT, LUMPY\t3\n'
 			return merged
 
 		if type_ == 1:
@@ -243,15 +247,16 @@ def main():
 			# create merged row:
 			merged = chosen[:9]
 			merged.extend(delly_arr[9:54])
-			merged.extend(destruct_arr[55:])
+			merged.extend(destruct_arr[54:])
 
 			# return merged line
+			merged = '\t'.join(merged).strip()+'\tDELLY, DESTRUCT\t2\n'
 			return merged
 
 		if type_ == 2:
 			# we know passed order is [delly, lumpy]
 			delly_arr = joint_val[0].split('\t')
-			lumpy_arr = joint_val[2].split('\t')
+			lumpy_arr = joint_val[1].split('\t')
 
 			# check using hierarchy:
 			delly_sr, delly_pe = delly_arr[6], delly_arr[5]
@@ -273,15 +278,16 @@ def main():
 			# create merged row:
 			merged = chosen[:9]
 			merged.extend(delly_arr[9:31])
-			merged.extend(lumpy_arr[32:])
+			merged.extend(lumpy_arr[31:])
 
 			# return merged line
+			merged = '\t'.join(merged).strip()+'\tDELLY, LUMPY\t2\n'
 			return merged
 
 		if type_ == 3:
 			# we know passed order is [destruct, lumpy]
-			destruct_arr = joint_val[1].split('\t')
-			lumpy_arr = joint_val[2].split('\t')
+			destruct_arr = joint_val[0].split('\t')
+			lumpy_arr = joint_val[1].split('\t')
 
 			# check using hierarchy:
 			destruct_sr, destruct_pe = destruct_arr[6], destruct_arr[5]
@@ -303,9 +309,10 @@ def main():
 			# create merged row:
 			merged = chosen[:9]
 			merged.extend(lumpy_arr[9:54])
-			merged.extend(destruct_arr[55:])
+			merged.extend(destruct_arr[54:])
 
 			# return merged line
+			merged = '\t'.join(merged).strip()+'\tDESTRUCT, LUMPY\t2\n'
 			return merged
 			
 
@@ -317,6 +324,7 @@ def main():
 		destruct_dict = dict()
 		for line in f:
 			if i:
+				lines = line.strip()+'\tCallers\tNum_callers\n'
 				i = False
 				continue
 			arr = line.strip().split()
@@ -331,7 +339,6 @@ def main():
 	''' complex procedure to get merge-able rows '''
 	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
 	delly_destruct_lumpy_dict = dict()
-	lines = ''
 
 	# all three callers
 	delly_remove, destruct_remove, lumpy_remove = [], [], []
@@ -339,6 +346,7 @@ def main():
 		for destruct_item in destruct_dict:
 			for lumpy_item in lumpy_dict:
 				if check_proximity(delly_item, destruct_item, lumpy_item):
+					print('yes')
 					joint_key = delly_item+'|'+destruct_item+'|'+lumpy_item
 					joint_val = [delly_dict[delly_item], destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
 					delly_destruct_lumpy_dict[joint_key] = joint_val
@@ -346,11 +354,14 @@ def main():
 					delly_remove.append(delly_item)
 					destruct_remove.append(destruct_item)
 					lumpy_remove.append(lumpy_item)
+	print(list(set(delly_remove)))
+	print(list(set(destruct_remove)))
+	print(list(set(lumpy_remove)))
 	for item in delly_remove:
 		delly_dict.pop(item)
 	for item in destruct_remove:
 		destruct_dict.pop(item)
-	for item in lumpy_dict:
+	for item in lumpy_remove:
 		lumpy_dict.pop(item)
 
 
@@ -390,14 +401,31 @@ def main():
 				destruct_remove.append(destruct_item)
 				lumpy_remove.append(lumpy_item)
 				continue
+	print(list(set(delly_remove)))
+	print(list(set(destruct_remove)))
+	print(list(set(lumpy_remove)))
 	for item in delly_remove:
 		delly_dict.pop(item)
 	for item in destruct_remove:
 		destruct_dict.pop(item)
-	for item in lumpy_dict:
+	for item in lumpy_remove:
 		lumpy_dict.pop(item)
 
+	# print all other single call lines
+	for item in delly_dict:
+		# print(delly_dict[item])
+		lines += delly_dict[item].strip()+'\tDELLY\t1\n'
+	for item in lumpy_dict:
+		print(item)
+		lines += lumpy_dict[item].strip()+'\tLUMPY\t1\n'
+	for item in destruct_dict:
+		# print(item)
+		lines += destruct_dict[item].strip()+'\tDESTRUCT\t1\n'
 
+	# print output
+	with open(output_cons_file, 'w') as f:
+		f.write(lines)
+	"""
 	# read output file and check for matches
 	with open(output_file, 'r') as f:
 		i = True
@@ -442,9 +470,9 @@ def main():
 	myfile.close()
 	
 	# debug
-	with open(tmp_bed, 'r') as f:
-		for line in f:
-			print(line)
+	# with open(tmp_bed, 'r') as f:
+	# 	for line in f:
+	# 		print(line)
 
 	'''Intersect bed'''
 	cmd = 'sort -k2,2n -k3,3n  ' + tmp_bed + ' > ' + tmp1_bed
@@ -461,7 +489,7 @@ def main():
 	fobj = open(tmp_all_bed)
 	for i in fobj:
 		i = i.strip()
-		print(i)
+		# print(i)
 		arr = i.split("\t")
 		'''separating sample & chr of first & second chr'''
 		lst1 = arr[0].split("__")
@@ -472,7 +500,7 @@ def main():
 			key = lst1[0]+' '+arr[5]+' '+arr[3]+' '+arr[4]
 			'''Other caller information'''
 			val = arr[11]
-			print(key)
+			# print(key)
 			if key in merged_bed:
 				merged_bed[key]=merged_bed[key]+','+val
 			else:
@@ -491,15 +519,15 @@ def main():
 				linenum += 1
 				continue
 			i = i.strip()
-			print(i)
+			# print(i)
 			arr = i.split("\t")
 			linenum = linenum + 1
 			'''checking if both BPs in the dict'''
 			key1 = arr[0].split('_')[0]+' '+arr[8]+' '+str(linenum)+' '+"1"
 			key2 = arr[0].split('_')[0]+' '+arr[8]+' '+str(linenum)+' '+"2"
 			val = "NA\tNA"
-			print(key1)
-			print(key2)
+			# print(key1)
+			# print(key2)
 			if key1 in merged_bed and key2 in merged_bed:
 				tmp1 = arr[12] + ',' + merged_bed[key1]
 				tmp1_list = tmp1.split(',')
@@ -511,6 +539,6 @@ def main():
 					val = tmp + "\t" + str(len(tmp_list))
 			myfile.write(i + "\t" + val + "\n")	
 	myfile.close()
-	
+	"""
 if __name__ == "__main__":
 	main()
