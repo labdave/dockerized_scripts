@@ -147,8 +147,10 @@ def main():
 				pos1 = line_arr[2]
 				pos2 = line_arr[4]
 				myfile.write(line)
+				i += 1
 				continue
 			# every other line
+
 			if line_arr[2] != pos2 or line_arr[4] != pos1:
 				myfile.write(line)
 			pos1 = line_arr[2]
