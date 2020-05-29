@@ -140,6 +140,33 @@ def main():
 	-> Collapse rows into one for merged reads
 	'''
 
+	# order chr1 < chr2
+	def switch_chr_asc(line):
+		arr = line.split()
+		print(arr[1], arr[3])
+		if arr[1] == 'chrX' or arr[1] == 'chrY':
+			temp_chr = arr[1]
+			temp_pos = arr[2]
+			arr[1] = arr[3]
+			arr[2] = arr[4]
+			arr[3] = temp_chr
+			arr[4] = temp_pos
+			return '\t'.join(arr), arr
+		if arr[3] == 'chrX' or arr[3] == 'chrY':
+			return '\t'.join(arr), arr
+		chr1 = int(arr[1].replace('chr', ''))
+		chr2 = int(arr[3].replace('chr', ''))
+		if chr1 > chr2:
+			temp_chr = arr[1]
+			temp_pos = arr[2]
+			arr[1] = arr[3]
+			arr[2] = arr[4]
+			arr[3] = temp_chr
+			arr[4] = temp_pos
+			print(arr[1], arr[3])
+			print('-')
+		return '\t'.join(arr), arr
+
 
 	# check if two lines are valid calls from two different callers
 	# works only when used from inside SV_calling due to difference in analysis IDs
@@ -327,7 +354,7 @@ def main():
 				lines = line.strip()+'\tCallers\tNum_callers\n'
 				i = False
 				continue
-			arr = line.strip().split()
+			line, arr = switch_chr_asc(line)
 			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
 			if arr[8] == 'DELLY':
 				delly_dict[key] = line
