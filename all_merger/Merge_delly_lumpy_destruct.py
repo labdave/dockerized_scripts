@@ -142,13 +142,172 @@ def main():
 
 
 	# check if two lines are valid calls from two different callers
-	def check_proximity(line_arr1, line_arr2, line_arr3=None):
-		# check sample
-		# works only when used from inside SV_calling due to difference in analysis IDs
-		if line_arr1[0] != line_arr2[0]:
-			return False
-			return True
-		return False
+	# works only when used from inside SV_calling due to difference in analysis IDs
+	def check_proximity(line1, line2, line3=None):
+		dist = distance_num
+		if line3:
+			# check sample
+			if line1[0] != line2[0] or line2[0] != line3[0] or line3[0] != line1[0]:
+				return False
+			# check chr1
+			if line1[1] != line2[1] or line2[1] != line3[1] or line3[1] != line1[1]:
+				return False
+			# check chr2
+			if line1[3] != line2[3] or line2[3] != line3[3] or line3[3] != line1[3]:
+				return False
+			# check pos1
+			if abs(line1[2]-line2[2]) > dist or abs(line2[2]-line3[2]) > dist or abs(line3[2]-line1[2]) > dist:
+				return False
+			# check pos2
+			if abs(line1[4]-line2[4]) > dist or abs(line2[4]-line3[2]) > dist or abs(line3[4]-line1[4]) > dist:
+				return False
+		else:
+			# check sample
+			if line1[0] != line2[0] or line2[0] != line1[0]:
+				return False
+			# check chr1
+			if line1[1] != line2[1] or line2[1] != line1[1]:
+				return False
+			# check chr2
+			if line1[3] != line2[3] or line2[3] != line1[3]:
+				return False
+			# check pos1
+			if abs(line1[2]-line2[2]) > dist or abs(line2[2]-line1[2]) > dist:
+				return False
+			# check pos2
+			if abs(line1[4]-line2[4]) > dist or abs(line2[4]-line1[4]) > dist:
+				return False
+		return True
+
+	# parse a list of lines to get merged line
+	def get_merged_line(joint_val, type_):
+		if type_ == 0:
+			# we know passed order is [delly, destruct, lumpy]
+			delly_arr = joint_val[0].split('\t')
+			destruct_arr = joint_val[1].split('\t')
+			lumpy_arr = joint_val[2].split('\t')
+
+			# check using hierarchy:
+			delly_sr, delly_pe = delly_arr[6], delly_arr[5]
+			destruct_sr, destruct_pe = destruct_arr[6], destruct_arr[5]
+			lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
+
+			# split reads
+			if (delly_sr > destruct_sr) and (delly_sr > lumpy_sr):
+				chosen = delly_arr
+			elif (destruct_sr > delly_sr) and (destruct_sr > lumpy_sr):
+				chosen = destruct_arr
+			elif (lumpy_sr > delly_sr) and (lumpy_sr > destruct_sr):
+				chosen = lumpy_arr
+			# paired reads
+			elif (delly_pe > destruct_pe) and (delly_pe > lumpy_pe):
+				chosen = delly_arr
+			elif (destruct_pe > delly_pe) and (destruct_pe > lumpy_pe):
+				chosen = destruct_arr
+			elif (lumpy_pe > delly_pe) and (lumpy_pe > destruct_pe):
+				chosen = lumpy_arr
+			else:
+				chosen = lumpy_arr
+
+			# create merged row:
+			merged = chosen[:9]
+			merged.extend(delly_arr[9:31])
+			merged.extend(lumpy_arr[32:54])
+			merged.extend(destruct_arr[55:])
+
+			# return merged line
+			return merged
+
+		if type_ == 1:
+			# we know passed order is [delly, destruct]
+			delly_arr = joint_val[0].split('\t')
+			destruct_arr = joint_val[1].split('\t')
+
+			# check using hierarchy:
+			delly_sr, delly_pe = delly_arr[6], delly_arr[5]
+			destruct_sr, destruct_pe = destruct_arr[6], destruct_arr[5]
+
+			# split reads
+			if (delly_sr > destruct_sr):
+				chosen = delly_arr
+			elif (destruct_sr > delly_sr):
+				chosen = destruct_arr
+			# paired reads
+			elif (delly_pe > destruct_pe):
+				chosen = delly_arr
+			elif (destruct_pe > delly_pe):
+				chosen = destruct_arr
+			else:
+				chosen = delly_arr
+
+			# create merged row:
+			merged = chosen[:9]
+			merged.extend(delly_arr[9:54])
+			merged.extend(destruct_arr[55:])
+
+			# return merged line
+			return merged
+
+		if type_ == 2:
+			# we know passed order is [delly, lumpy]
+			delly_arr = joint_val[0].split('\t')
+			lumpy_arr = joint_val[2].split('\t')
+
+			# check using hierarchy:
+			delly_sr, delly_pe = delly_arr[6], delly_arr[5]
+			lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
+
+			# split reads
+			if (delly_sr > lumpy_sr):
+				chosen = delly_arr
+			elif (lumpy_sr > delly_sr):
+				chosen = lumpy_arr
+			# paired reads
+			elif (delly_pe > lumpy_pe):
+				chosen = delly_arr
+			elif (lumpy_pe > delly_pe):
+				chosen = lumpy_arr
+			else:
+				chosen = lumpy_arr
+
+			# create merged row:
+			merged = chosen[:9]
+			merged.extend(delly_arr[9:31])
+			merged.extend(lumpy_arr[32:])
+
+			# return merged line
+			return merged
+
+		if type_ == 3:
+			# we know passed order is [destruct, lumpy]
+			destruct_arr = joint_val[1].split('\t')
+			lumpy_arr = joint_val[2].split('\t')
+
+			# check using hierarchy:
+			destruct_sr, destruct_pe = destruct_arr[6], destruct_arr[5]
+			lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
+
+			# split reads
+			if (destruct_sr > lumpy_sr):
+				chosen = destruct_arr
+			elif (lumpy_sr > destruct_sr):
+				chosen = lumpy_arr
+			# paired reads
+			elif (destruct_pe > lumpy_pe):
+				chosen = destruct_arr
+			elif (lumpy_pe > destruct_pe):
+				chosen = lumpy_arr
+			else:
+				chosen = lumpy_arr
+
+			# create merged row:
+			merged = chosen[:9]
+			merged.extend(lumpy_arr[9:54])
+			merged.extend(destruct_arr[55:])
+
+			# return merged line
+			return merged
+			
 
 	# read output_file and create dict
 	with open(output_file, 'r') as f:
@@ -169,11 +328,10 @@ def main():
 			if arr[8] == 'DESTRUCT':
 				destruct_dict[key] = line
 
-	# complex procedure to get merge-able rows
-	delly_destruct_dict = dict()
-	delly_lumpy_dict = dict()
-	destruct_lumpy_dict = dict()
+	''' complex procedure to get merge-able rows '''
+	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
 	delly_destruct_lumpy_dict = dict()
+	lines = ''
 
 	# all three callers
 	delly_remove, destruct_remove, lumpy_remove = [], [], []
@@ -182,7 +340,9 @@ def main():
 			for lumpy_item in lumpy_dict:
 				if check_proximity(delly_item, destruct_item, lumpy_item):
 					joint_key = delly_item+'|'+destruct_item+'|'+lumpy_item
-					delly_destruct_lumpy_dict[joint_key] = [delly_dict[delly_item], destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
+					joint_val = [delly_dict[delly_item], destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
+					delly_destruct_lumpy_dict[joint_key] = joint_val
+					lines += get_merged_line(joint_val, type_=0)
 					delly_remove.append(delly_item)
 					destruct_remove.append(destruct_item)
 					lumpy_remove.append(lumpy_item)
@@ -193,29 +353,49 @@ def main():
 	for item in lumpy_dict:
 		lumpy_dict.pop(item)
 
+
 	# three pairs of two callers each
+	delly_remove, destruct_remove, lumpy_remove = [], [], []
+
 	# delly destruct
 	for delly_item in delly_dict:
 		for destruct_item in destruct_dict:
 			if check_proximity(delly_item, destruct_item):
 				joint_key = delly_item+'|'+destruct_item
-				delly_destruct_dict[joint_key] = [delly_dict[delly_item], destruct_dict[destruct_item]]
+				joint_val = [delly_dict[delly_item], destruct_dict[destruct_item]]
+				delly_destruct_dict[joint_key] = joint_val
+				lines += get_merged_line(joint_val, type_=1)
+				delly_remove.append(delly_item)
+				destruct_remove.append(destruct_item)
 				continue
 	# delly lumpy
 	for delly_item in delly_dict:
 		for lumpy_item in lumpy_dict:
 			if check_proximity(delly_item, lumpy_item):
 				joint_key = delly_item+'|'+lumpy_item
-				delly_lumpy_dict[joint_key] = [delly_dict[delly_item], lumpy_dict[lumpy_item]]
+				joint_val = [delly_dict[delly_item], lumpy_dict[lumpy_item]]
+				delly_lumpy_dict[joint_key] = joint_val
+				lines += get_merged_line(joint_val, type_=2)
+				delly_remove.append(delly_item)
+				lumpy_remove.append(lumpy_item)
 				continue
 	# destruct lumpy
 	for destruct_item in destruct_dict:
 		for lumpy_item in lumpy_dict:
 			if check_proximity(destruct_item, lumpy_item):
 				joint_key = destruct_item+'|'+lumpy_item
-				destruct_lumpy_dict[joint_key] = [destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
+				joint_val = [destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
+				destruct_lumpy_dict[joint_key] = joint_val
+				lines += get_merged_line(joint_val, type_=3)
+				destruct_remove.append(destruct_item)
+				lumpy_remove.append(lumpy_item)
 				continue
-
+	for item in delly_remove:
+		delly_dict.pop(item)
+	for item in destruct_remove:
+		destruct_dict.pop(item)
+	for item in lumpy_dict:
+		lumpy_dict.pop(item)
 
 
 	# read output file and check for matches
