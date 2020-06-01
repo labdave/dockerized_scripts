@@ -824,8 +824,6 @@ def main():
 		os.remove(temp_dir+'/tmpfile')
 		'''fix naresh's messed up merged merging ugh'''
 
-		out_file = 'anno.vcf'
-		out_file1 = 'anno1.vcf'
 		old_key = ''
 		vals = []
 		min_bp1, min_bp2 = 100000000, 100000000
