@@ -672,6 +672,200 @@ def main():
 		os.remove(temp_dir+'/tmpfile')
 		input_file = out_file
 		
+
+	'''GTF File annotation'''
+	if gtf_file != None and chr_names != None:
+		shutil.copyfile(input_file, temp_dir+'/tmpfile')	
+		gene_list=['BCL6','MYC','BCL2']
+		dist=1000000
+		chrlist = {}
+		'''loading chr names'''
+		fobj = open(chr_names)
+		for file0 in fobj:
+			file0=file0.strip()
+			rw_lst = file0.split("_")
+			if len(rw_lst)>1:
+				rw_lst[1]=rw_lst[1].replace("v1",".1")
+				rw_lst[1]=rw_lst[1].replace("v2",".2")
+				rw_lst[1]=rw_lst[1].replace("v3",".3")
+				chrlist[rw_lst[1]]=file0
+			else:
+				chrlist[file0]=file0
+		fobj.close()
+			
+		'''Gene names start and stop coord from gtf file'''	
+		fobj = open(gtf_file)
+		myfile = open(temp_dir+'/tmp1.bed', mode='wt')
+		for line in fobj:
+			line = line.strip()
+			rw_lst = line.split("\t")
+			if not line.startswith("##") and rw_lst[2] == "gene":
+				gn=re.search('gene_name "(.+?)"', rw_lst[8]).group(1)
+				chr=rw_lst[0]
+				if chr in chrlist:
+					chr = chrlist[chr]
+				start=int(rw_lst[3])-dist
+				stop=int(rw_lst[4])+dist
+				if start<1:
+					start=1
+				if stop<1:
+					stop=1
+				myfile.write(chr+"\t"+str(start)+"\t"+str(stop)+"\t"+str(gn)+'___'+rw_lst[3]+'___'+rw_lst[4]+"\n")
+		fobj.close()
+		myfile.close()
+		
+		'''BP coords from input file'''	
+		fobj = open(temp_dir+'/tmpfile')
+		myfile = open(temp_dir+'/tmp2.bed', mode='wt')
+		header = fobj.readline()
+		for line in fobj:
+			line = line.strip()
+			rw_lst = line.split("\t")
+			myfile.write(rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\n")
+			myfile.write(rw_lst[3]+"\t"+str(int(rw_lst[4])-1)+"\t"+rw_lst[4]+"\n")
+		fobj.close()
+		myfile.close()
+
+		'''Run intersect bed'''
+		intersectBed_run(temp_dir+'/tmp2.bed',temp_dir+'/tmp1.bed',temp_dir+'/tmp_out.bed',temp_dir)
+		
+		dict_bed={}
+		dict_bed_dist={}
+		dict_bed2={}
+		dict_bed_dist2={}
+		dict_dup={}
+		'''Loading the intersect regions and adding the gene information to dict'''
+		fobj = open(temp_dir +'/tmp_out.bed')
+		for line in fobj:
+			line = line.strip()
+			rw_lst = line.split("\t")
+			if int(rw_lst[7]) > 0:
+				start1 = int(rw_lst[1])
+				stop1 = int(rw_lst[2])
+				rw_lst1 = rw_lst[6].split("___")
+				start2 = int(rw_lst1[1])
+				stop2 = int(rw_lst1[2])
+				gn = rw_lst1[0]
+				key = rw_lst[0]+' '+rw_lst[2]
+				dist = 0
+				if (start1 >= start2 and start1 <=stop2) or (stop1 >= start2 and stop1 <=stop2):
+					dist=0
+				else:
+					dist=min([abs(start1-start2),abs(start1-stop2),abs(stop1-start2),abs(stop1-stop2)])
+				if not key+' '+gn in dict_dup:
+					dict_dup[key+' '+gn]=1
+					if key in dict_bed_dist:
+						dict_bed[key]=dict_bed[key]+','+gn
+						dict_bed_dist[key]=dict_bed_dist[key]+','+str(dist)
+					else:	
+						dict_bed[key]=gn
+						dict_bed_dist[key]=str(dist)
+		fobj.close()
+
+		'''removing temp files'''
+		os.remove(temp_dir+'/tmp1.bed')
+		os.remove(temp_dir+'/tmp2.bed')
+		os.remove(temp_dir+'/tmp_out.bed')
+		
+		'''Output file with gene annotations'''
+		fobj = open(temp_dir+'/tmpfile')
+		myfile = open(out_file, mode='wt')
+		header = fobj.readline()
+		header = header.strip()
+		myfile.write(header+"\tBP1_Gene\tBP2_Gene\tBP1_Dist\tBP2_Dist\n")
+		for line in fobj:
+			line = line.strip()
+			rw_lst = line.split("\t")
+			'''getting col number for gene1 and gene2 and will be used later in the next few steps'''
+			gene_1_col_num=len(rw_lst)
+			gene_2_col_num=len(rw_lst)+1
+			gn1=["NA"]
+			gn2=["NA"]
+			if rw_lst[1]+' '+rw_lst[2] in dict_bed:
+				gn1= dict_bed[rw_lst[1]+' '+rw_lst[2]].split(",")
+				dst_list1= dict_bed_dist[rw_lst[1]+' '+rw_lst[2]].split(",")
+				dst_list1 = list(map(int, dst_list1))
+				sort_index = np.argsort(np.array(dst_list1))
+				gna=[gn1[i] for i in sort_index if dst_list1[i] == 0]
+				dista=[dst_list1[i] for i in sort_index if dst_list1[i] == 0]
+				gnb=[gn1[i] for i in sort_index if dst_list1[i] != 0][:2]
+				distb=[dst_list1[i] for i in sort_index if dst_list1[i] != 0][:2]
+				if len(gna)<2:
+					gn1=gna+gnb
+					dist1=dista+distb
+				else:
+					gn1=gna
+					dist1=dista
+			if rw_lst[3]+' '+rw_lst[4] in dict_bed:
+				gn2= dict_bed[rw_lst[3]+' '+rw_lst[4]].split(",")
+				dst_list1= dict_bed_dist[rw_lst[3]+' '+rw_lst[4]].split(",")
+				dst_list1 = list(map(int, dst_list1))
+				sort_index = np.argsort(np.array(dst_list1))
+				gna=[gn2[i] for i in sort_index if dst_list1[i] == 0]
+				dista=[dst_list1[i] for i in sort_index if dst_list1[i] == 0]
+				gnb=[gn2[i] for i in sort_index if dst_list1[i] != 0][:2]
+				distb=[dst_list1[i] for i in sort_index if dst_list1[i] != 0][:2]
+				if len(gna)<2:
+					gn2=gna+gnb
+					dist2=dista+distb
+				else:
+					gn2=gna
+					dist2=dista
+			for x in range(len(gn1)):
+				for y in range(len(gn2)):
+					myfile.write(line+"\t"+gn1[x]+"\t"+gn2[y]+"\t"+str(dist1[x])+"\t"+str(dist2[y])+"\n")
+		fobj.close()
+		myfile.close()
+		del dict_bed
+		del dict_bed_dist
+		del dict_bed2
+		del dict_bed_dist2
+		del dict_dup
+		os.remove(temp_dir+'/tmpfile')
+		'''fix naresh's messed up merged merging ugh'''
+
+		out_file = 'anno.vcf'
+		out_file1 = 'anno1.vcf'
+		old_key = ''
+		vals = []
+		min_bp1, min_bp2 = 100000000, 100000000
+		bp1_gene, bp2_gene = '', ''
+		i = 0
+		with open(out_file, 'r') as f:
+			for line in f:
+				if i == 0:
+					file_str = line
+					i += 1
+					continue
+				line_arr = line.strip().split('\t')
+				new_key = '\t'.join(line_arr[:-4])
+				val = line_arr[-4:]
+				bp1 = [val[0], val[2]]
+				bp2 = [val[1], val[3]]
+				if (new_key == old_key) or (i == 1):
+					vals.append([bp1, bp2])
+					old_key = new_key
+					i += 1
+				else:
+					for item in vals:
+						if int(item[0][1]) < min_bp1:
+							min_bp1 = int(item[0][1])
+							bp1_gene = item[0][0]
+						if int(item[1][1]) < min_bp2:
+							min_bp2 = int(item[1][1])
+							bp2_gene = item[1][0]
+					new_line = '{0}\t{1}\t{2}\t{3}\t{4}\n'.format(old_key, bp1_gene, bp2_gene, min_bp1, min_bp2)
+					file_str += new_line
+					vals = [[bp1, bp2]]
+					min_bp1, min_bp2 = 100000000, 100000000
+					bp1_gene, bp2_gene = '', ''
+					old_key = new_key
+
+		with open(out_file, 'w') as f:
+			f.write(file_str)
+
+		input_file = out_file
+
 		
 	'''Variant file annotation'''
 	if gtf_file != None and chr_names != None and var_files != None:
@@ -993,200 +1187,6 @@ def main():
 					myfile.write(i+"\n")				
 		fobj.close()
 		myfile.close()
-
-
-	'''GTF File annotation'''
-	if gtf_file != None and chr_names != None:
-		shutil.copyfile(input_file, temp_dir+'/tmpfile')	
-		gene_list=['BCL6','MYC','BCL2']
-		dist=1000000
-		chrlist = {}
-		'''loading chr names'''
-		fobj = open(chr_names)
-		for file0 in fobj:
-			file0=file0.strip()
-			rw_lst = file0.split("_")
-			if len(rw_lst)>1:
-				rw_lst[1]=rw_lst[1].replace("v1",".1")
-				rw_lst[1]=rw_lst[1].replace("v2",".2")
-				rw_lst[1]=rw_lst[1].replace("v3",".3")
-				chrlist[rw_lst[1]]=file0
-			else:
-				chrlist[file0]=file0
-		fobj.close()
-			
-		'''Gene names start and stop coord from gtf file'''	
-		fobj = open(gtf_file)
-		myfile = open(temp_dir+'/tmp1.bed', mode='wt')
-		for line in fobj:
-			line = line.strip()
-			rw_lst = line.split("\t")
-			if not line.startswith("##") and rw_lst[2] == "gene":
-				gn=re.search('gene_name "(.+?)"', rw_lst[8]).group(1)
-				chr=rw_lst[0]
-				if chr in chrlist:
-					chr = chrlist[chr]
-				start=int(rw_lst[3])-dist
-				stop=int(rw_lst[4])+dist
-				if start<1:
-					start=1
-				if stop<1:
-					stop=1
-				myfile.write(chr+"\t"+str(start)+"\t"+str(stop)+"\t"+str(gn)+'___'+rw_lst[3]+'___'+rw_lst[4]+"\n")
-		fobj.close()
-		myfile.close()
-		
-		'''BP coords from input file'''	
-		fobj = open(temp_dir+'/tmpfile')
-		myfile = open(temp_dir+'/tmp2.bed', mode='wt')
-		header = fobj.readline()
-		for line in fobj:
-			line = line.strip()
-			rw_lst = line.split("\t")
-			myfile.write(rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\n")
-			myfile.write(rw_lst[3]+"\t"+str(int(rw_lst[4])-1)+"\t"+rw_lst[4]+"\n")
-		fobj.close()
-		myfile.close()
-
-		'''Run intersect bed'''
-		intersectBed_run(temp_dir+'/tmp2.bed',temp_dir+'/tmp1.bed',temp_dir+'/tmp_out.bed',temp_dir)
-		
-		dict_bed={}
-		dict_bed_dist={}
-		dict_bed2={}
-		dict_bed_dist2={}
-		dict_dup={}
-		'''Loading the intersect regions and adding the gene information to dict'''
-		fobj = open(temp_dir +'/tmp_out.bed')
-		for line in fobj:
-			line = line.strip()
-			rw_lst = line.split("\t")
-			if int(rw_lst[7]) > 0:
-				start1 = int(rw_lst[1])
-				stop1 = int(rw_lst[2])
-				rw_lst1 = rw_lst[6].split("___")
-				start2 = int(rw_lst1[1])
-				stop2 = int(rw_lst1[2])
-				gn = rw_lst1[0]
-				key = rw_lst[0]+' '+rw_lst[2]
-				dist = 0
-				if (start1 >= start2 and start1 <=stop2) or (stop1 >= start2 and stop1 <=stop2):
-					dist=0
-				else:
-					dist=min([abs(start1-start2),abs(start1-stop2),abs(stop1-start2),abs(stop1-stop2)])
-				if not key+' '+gn in dict_dup:
-					dict_dup[key+' '+gn]=1
-					if key in dict_bed_dist:
-						dict_bed[key]=dict_bed[key]+','+gn
-						dict_bed_dist[key]=dict_bed_dist[key]+','+str(dist)
-					else:	
-						dict_bed[key]=gn
-						dict_bed_dist[key]=str(dist)
-		fobj.close()
-
-		'''removing temp files'''
-		os.remove(temp_dir+'/tmp1.bed')
-		os.remove(temp_dir+'/tmp2.bed')
-		os.remove(temp_dir+'/tmp_out.bed')
-		
-		'''Output file with gene annotations'''
-		fobj = open(temp_dir+'/tmpfile')
-		myfile = open(out_file, mode='wt')
-		header = fobj.readline()
-		header = header.strip()
-		myfile.write(header+"\tBP1_Gene\tBP2_Gene\tBP1_Dist\tBP2_Dist\n")
-		for line in fobj:
-			line = line.strip()
-			rw_lst = line.split("\t")
-			'''getting col number for gene1 and gene2 and will be used later in the next few steps'''
-			gene_1_col_num=len(rw_lst)
-			gene_2_col_num=len(rw_lst)+1
-			gn1=["NA"]
-			gn2=["NA"]
-			if rw_lst[1]+' '+rw_lst[2] in dict_bed:
-				gn1= dict_bed[rw_lst[1]+' '+rw_lst[2]].split(",")
-				dst_list1= dict_bed_dist[rw_lst[1]+' '+rw_lst[2]].split(",")
-				dst_list1 = list(map(int, dst_list1))
-				sort_index = np.argsort(np.array(dst_list1))
-				gna=[gn1[i] for i in sort_index if dst_list1[i] == 0]
-				dista=[dst_list1[i] for i in sort_index if dst_list1[i] == 0]
-				gnb=[gn1[i] for i in sort_index if dst_list1[i] != 0][:2]
-				distb=[dst_list1[i] for i in sort_index if dst_list1[i] != 0][:2]
-				if len(gna)<2:
-					gn1=gna+gnb
-					dist1=dista+distb
-				else:
-					gn1=gna
-					dist1=dista
-			if rw_lst[3]+' '+rw_lst[4] in dict_bed:
-				gn2= dict_bed[rw_lst[3]+' '+rw_lst[4]].split(",")
-				dst_list1= dict_bed_dist[rw_lst[3]+' '+rw_lst[4]].split(",")
-				dst_list1 = list(map(int, dst_list1))
-				sort_index = np.argsort(np.array(dst_list1))
-				gna=[gn2[i] for i in sort_index if dst_list1[i] == 0]
-				dista=[dst_list1[i] for i in sort_index if dst_list1[i] == 0]
-				gnb=[gn2[i] for i in sort_index if dst_list1[i] != 0][:2]
-				distb=[dst_list1[i] for i in sort_index if dst_list1[i] != 0][:2]
-				if len(gna)<2:
-					gn2=gna+gnb
-					dist2=dista+distb
-				else:
-					gn2=gna
-					dist2=dista
-			for x in range(len(gn1)):
-				for y in range(len(gn2)):
-					myfile.write(line+"\t"+gn1[x]+"\t"+gn2[y]+"\t"+str(dist1[x])+"\t"+str(dist2[y])+"\n")
-		fobj.close()
-		myfile.close()
-		del dict_bed
-		del dict_bed_dist
-		del dict_bed2
-		del dict_bed_dist2
-		del dict_dup
-		os.remove(temp_dir+'/tmpfile')
-		'''fix naresh's messed up merged merging ugh'''
-
-		out_file = 'anno.vcf'
-		out_file1 = 'anno1.vcf'
-		old_key = ''
-		vals = []
-		min_bp1, min_bp2 = 100000000, 100000000
-		bp1_gene, bp2_gene = '', ''
-		i = 0
-		with open(out_file, 'r') as f:
-			for line in f:
-				if i == 0:
-					file_str = line
-					i += 1
-					continue
-				line_arr = line.strip().split('\t')
-				new_key = '\t'.join(line_arr[:-4])
-				val = line_arr[-4:]
-				bp1 = [val[0], val[2]]
-				bp2 = [val[1], val[3]]
-				if (new_key == old_key) or (i == 1):
-					vals.append([bp1, bp2])
-					old_key = new_key
-					i += 1
-				else:
-					for item in vals:
-						if int(item[0][1]) < min_bp1:
-							min_bp1 = int(item[0][1])
-							bp1_gene = item[0][0]
-						if int(item[1][1]) < min_bp2:
-							min_bp2 = int(item[1][1])
-							bp2_gene = item[1][0]
-					new_line = '{0}\t{1}\t{2}\t{3}\t{4}\n'.format(old_key, bp1_gene, bp2_gene, min_bp1, min_bp2)
-					file_str += new_line
-					vals = [[bp1, bp2]]
-					min_bp1, min_bp2 = 100000000, 100000000
-					bp1_gene, bp2_gene = '', ''
-					old_key = new_key
-
-		with open(out_file, 'w') as f:
-			f.write(file_str)
-
-		input_file = out_file
 
 
 if __name__ == "__main__":
