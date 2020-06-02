@@ -38,7 +38,8 @@ def argument_parse():
 	parser.add_argument("-o","--output_file",help="Output file")
 	parser.add_argument("-t","--temp_dir",help="Temp Directory")
 	parser.add_argument("-g","--dac_gap",help="DAC, GAP, Delly blacklist")
-	parser.add_argument("-r","--rep_mas",help="Repeat masker,seg dup blacklist")
+	parser.add_argument("-r","--rep_mas",help="Repeat masker blacklist")
+	parser.add_argument("-s","--seg_dup",help="Seg dup blacklist")
 	parser.add_argument("-O","--other_sample",help="Other Sample",type=bool)
 	parser.add_argument("-n","--normal_samp",help="normal Samples")
 	parser.add_argument("-l","--level1_bp",help="Level1 BP file")
@@ -111,6 +112,10 @@ def main():
 		rep_mas = arg.rep_mas
 		logger.info("Input Rep_mask file: "+rep_mas)
 
+	if arg.seg_dup != None:
+		seg_dup = arg.seg_dup
+		logger.info("Input Rep_mask file: "+seg_dup)
+
 	other_sample = False
 	if arg.other_sample != None:
 		other_sample = arg.other_sample
@@ -174,7 +179,7 @@ def main():
 	'''printing the config param'''	
 	if not os.path.exists(temp_dir):
 		os.makedirs(temp_dir)
-	if capture_kit != None or dac_gap != None or rep_mas != None:
+	if capture_kit != None or dac_gap != None or rep_mas != None or seg_dup != None:
 		'''Reading the input files'''
 		read_input = open(input_file)
 		header = read_input.readline()
@@ -254,7 +259,30 @@ def main():
 			'''removing temp files'''
 			os.remove(temp_dir+'/tmp_rep.bed')
 			os.remove(temp_dir+'/tmp_out.bed')
-		if capture_kit != None or dac_gap != None or rep_mas != None:
+
+		dict_seg={}
+		if seg_dup != None:
+			'''Preparing DAC exclude file'''
+			shutil.copyfile(seg_dup, temp_dir+'/tmp_seg.bed') 
+				
+			'''Run intersect bed'''
+			intersectBed_run(temp_dir+'/tmp.bed',temp_dir+'/tmp_seg.bed',temp_dir+'/tmp_out.bed',temp_dir)
+			
+			'''reading the intersectBed output SegmentalDuplications file'''	
+			read_seg_out = open(temp_dir +'/tmp_out.bed')
+			for line in read_seg_out:
+				line = line.strip()
+				rw_lst = line.split("\t")
+				if int(rw_lst[9]) > 0:
+					dict_seg[rw_lst[0]+' '+rw_lst[2]]=1
+			read_seg_out.close()
+			
+			'''removing temp files'''
+			os.remove(temp_dir+'/tmp_seg.bed')
+			os.remove(temp_dir+'/tmp_out.bed')
+
+
+		if capture_kit != None or dac_gap != None or rep_mas != None or seg_dup != None:
 			os.remove(temp_dir+'/tmp.bed')
 			'''Reading input'''
 			read_input = open(input_file)
@@ -269,7 +297,10 @@ def main():
 				write_out.write("\tBP1_DAC_DellyEx_Gap\tBP2_DAC_DellyEx_Gap")
 			
 			if rep_mas != None:
-				write_out.write("\tBP1_RepMaskSegDup\tBP2_RepMaskSegDup")
+				write_out.write("\tBP1_RepMask\tBP2_RepMask")
+
+			if seg_dup != None:
+				write_out.write("\tBP1SegDup\tSegDup")
 			
 			write_out.write("\n")
 			for line in read_input:
@@ -309,6 +340,16 @@ def main():
 					if rw_lst[3]+' '+rw_lst[4] in dict_rep:
 						val6="1"
 					write_out.write("\t"+val5+"\t"+val6)
+				if seg_dup != None:
+					val7="0"
+					'''if bp1 in rep dict'''
+					if rw_lst[1]+' '+rw_lst[2] in dict_seg:
+						val7="1"
+					val8="0"
+					'''if bp2 in rep dict'''
+					if rw_lst[3]+' '+rw_lst[4] in dict_seg:
+						val8="1"
+					write_out.write("\t"+val7+"\t"+val8)
 				
 				write_out.write("\n")
 			read_input.close()
