@@ -300,7 +300,7 @@ def main():
 				write_out.write("\tBP1_RepMask\tBP2_RepMask")
 
 			if seg_dup != None:
-				write_out.write("\tBP1SegDup\tSegDup")
+				write_out.write("\tBP1_SegDup\tBP2_SegDup")
 			
 			write_out.write("\n")
 			for line in read_input:
