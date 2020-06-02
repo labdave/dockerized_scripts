@@ -39,5 +39,5 @@ RUN pip install pysam
 ADD https://api.github.com/repos/DevangThakkar/translocation_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/translocation_scripts.git
 RUN cp translocation_scripts/filter_chrom_reads/filter_chrom_reads.sh .
-RUN cp translocation_scripts/all_merger/filter_chrom_reads.sh /home/filter_chrom_reads.sh
+RUN cp translocation_scripts/filter_chrom_reads/filter_chrom_reads.sh /home/filter_chrom_reads.sh
 RUN chmod +x filter_chrom_reads.sh
