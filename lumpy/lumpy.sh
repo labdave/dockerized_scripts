@@ -41,6 +41,8 @@ samtools view -@ "${threads}" "${bam}" | tail -n+100000 | "${scripts}"/pairend_d
 mean=`tail -1 tmp.out | cut -f1 | cut -f2 -d ':' | cut -f1 -d '.'`
 std=`tail -1 tmp.out | cut -f2 | cut -f2 -d ':' | cut -f1 -d '.'`
 echo "library statistics generated" 1>&2
+echo "${mean}"
+echo "${std}"
 
 echo "$(pwd)"
 ls -lt
