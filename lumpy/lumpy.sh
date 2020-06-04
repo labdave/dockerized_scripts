@@ -9,34 +9,35 @@ weight=$5
 min_mapping_threshold=$6
 lumpy_vcf=$7
 gt_vcf=$8
+threads=$9
 
 # locate lumpy scripts directory
 scripts="lumpy-sv/scripts"
 
 # index bam file
-samtools index "${bam}"
+samtools index -@ "${threads}" "${bam}"
 echo "sample indexed" 1>&2
 echo "${bam}"
 
 # extract the discordant paired-end alignments.
-samtools view -b -F 1294 "${bam}" > sample.discordant.bam
+samtools view -@ "${threads}" -b -F 1294 "${bam}" > sample.discordant.bam
 echo "discordant reads extracted" 1>&2
 
 # extract the split-read alignments
-samtools view -h "${bam}" | "${scripts}"/extractSplitReads_BwaMem -i stdin | samtools view -Sb - > sample.split.bam
+samtools view -@ "${threads}" -h "${bam}" | "${scripts}"/extractSplitReads_BwaMem -i stdin | samtools view -@ "${threads}" -Sb - > sample.split.bam
 echo "split reads extracted" 1>&2
 
 # sort both alignments
-samtools sort sample.discordant.bam > sample.discordant.sorted.bam
-samtools index sample.discordant.sorted.bam
+samtools sort -@ "${threads}" sample.discordant.bam > sample.discordant.sorted.bam
+samtools index -@ "${threads}" sample.discordant.sorted.bam
 echo "discordant reads sorted" 1>&2
 
-samtools sort sample.split.bam > sample.split.sorted.bam
-samtools index sample.split.sorted.bam
+samtools sort -@ "${threads}" sample.split.bam > sample.split.sorted.bam
+samtools index -@ "${threads}" sample.split.sorted.bam
 echo "split reads sorted" 1>&2
 
 # generate empirical insert size statistics on each library in the BAM file 
-samtools view "${bam}" | tail -n+100000 | "${scripts}"/pairend_distro.py -r "${read_length}" -X 4 -N 10000 -o sample.lib.histo > tmp.out 2>&1
+samtools view -@ "${threads}" "${bam}" | tail -n+100000 | "${scripts}"/pairend_distro.py -r "${read_length}" -X 4 -N 10000 -o sample.lib.histo > tmp.out 2>&1
 mean=`tail -1 tmp.out | cut -f1 | cut -f2 -d ':' | cut -f1 -d '.'`
 std=`tail -1 tmp.out | cut -f2 | cut -f2 -d ':' | cut -f1 -d '.'`
 echo "library statistics generated" 1>&2
