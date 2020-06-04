@@ -37,7 +37,7 @@ samtools index -@ "${threads}" sample.split.sorted.bam
 echo "split reads sorted" 1>&2
 
 # generate empirical insert size statistics on each library in the BAM file 
-samtools view -@ "${threads}" "${bam}" | tail -n+100000 | "${scripts}"/pairend_distro.py -r "${read_length}" -X 4 -N 10000 -o sample.lib.histo > tmp.out 2>&1
+samtools view -@ "${threads}" "${bam}" | "${scripts}"/pairend_distro.py -r "${read_length}" -X 4 -N 10000 -o sample.lib.histo > tmp.out 2>&1
 cat tmp.out
 mean=`tail -1 tmp.out | cut -f1 | cut -f2 -d ':' | cut -f1 -d '.'`
 std=`tail -1 tmp.out | cut -f2 | cut -f2 -d ':' | cut -f1 -d '.'`
