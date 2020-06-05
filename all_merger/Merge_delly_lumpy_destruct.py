@@ -380,7 +380,7 @@ def main():
 	for delly_item in delly_dict:
 		for destruct_item in destruct_dict:
 			for lumpy_item in lumpy_dict:
-				if count % 1000 == 0:
+				if count % 100000 == 0:
 					print(count, file=sys.stderr)
 				count += 1
 				if check_proximity(delly_item, destruct_item, lumpy_item):
