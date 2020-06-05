@@ -27,7 +27,7 @@ def main():
 	lumpy_file = sys.argv[4]
 	destruct_file = sys.argv[5]
 
-	print(delly_file)
+	print(delly_file, file=sys.stderr)
 	print(lumpy_file)
 	print(destruct_file)
 	print(output_file)
