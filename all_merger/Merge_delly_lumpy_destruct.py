@@ -143,7 +143,7 @@ def main():
 	# order chr1 < chr2
 	def switch_chr_asc(line):
 		arr = line.split()
-		print(arr[1], arr[3])
+		# print(arr[1], arr[3])
 		if arr[1] == 'chrX' or arr[1] == 'chrY':
 			temp_chr = arr[1]
 			temp_pos = arr[2]
@@ -163,8 +163,8 @@ def main():
 			arr[2] = arr[4]
 			arr[3] = temp_chr
 			arr[4] = temp_pos
-			print(arr[1], arr[3])
-			print('-')
+			# print(arr[1], arr[3])
+			# print('-')
 		return '\t'.join(arr), arr
 
 
