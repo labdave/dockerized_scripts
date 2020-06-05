@@ -351,11 +351,7 @@ def main():
 		lumpy_dict = dict()
 		delly_dict = dict()
 		destruct_dict = dict()
-		count = 0
 		for line in f:
-			count += 1
-			if count % 1000 == 0:
-				print(count)
 			if i:
 				lines = line.strip()+'\tCallers\tNum_callers\n'
 				i = False
@@ -370,6 +366,9 @@ def main():
 				destruct_dict[key] = line
 
 	print('dict created')
+	print(len(delly_dict))
+	print(len(lumpy_dict))
+	print(len(destruct_dict))
 
 	''' complex procedure to get merge-able rows '''
 	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
