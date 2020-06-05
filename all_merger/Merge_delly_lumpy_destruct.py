@@ -27,10 +27,10 @@ def main():
 	lumpy_file = sys.argv[4]
 	destruct_file = sys.argv[5]
 
-	# print(delly_file)
-	# print(lumpy_file)
-	# print(destruct_file)
-	# print(output_file)
+	print(delly_file)
+	print(lumpy_file)
+	print(destruct_file)
+	print(output_file)
 	gene_list=['bcl6','myc','bcl2']
 	gene_start_list = [187721377,127735434,63123346]
 	gene_stop_list = [187745725,127742951,63320128]
@@ -55,6 +55,7 @@ def main():
 	# print("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t"+str_header_delly+"\t"+str_header_lumpy+"\t"+str_header_destruct)
 	myfile.write(str_header_delly+"\t"+str_header_lumpy+"\t"+str_header_destruct+"\n")
 
+	print('header written')
 	'''Read Delly'''
 	with open(delly_file, 'r') as f:
 		i = 0
@@ -76,7 +77,7 @@ def main():
 			# print("\tNA"*len(list_head_lumpy[5:]), end='')
 			myfile.write("\tNA"*len(list_head_destruct[5:])+"\n")
 			# print("\tNA"*len(list_head_destruct[5:])+"\n", end='')
-	
+	print('delly written')
 	'''Read Lumpy'''
 	with open(lumpy_file, 'r') as f:
 		i = 0
@@ -98,7 +99,7 @@ def main():
 			# print("\t"+str.join("\t",p1[5:]), end='')
 			myfile.write("\tNA"*len(list_head_destruct[5:])+"\n")
 			# print("\tNA"*len(list_head_destruct[5:])+"\n", end='')
-	
+	print('lumpy written')
 	'''Read Destruct'''
 	with open(destruct_file, 'r') as f:
 		i = 0
@@ -119,9 +120,8 @@ def main():
 			# print("\tNA"*len(list_head_lumpy[5:]), end='')
 			myfile.write("\t"+str.join("\t",p1[5:])+"\n")
 			# print("\t"+str.join("\t",p1[5:])+"\n", end='')
-	
+	print('Destruct written')
 	myfile.close()
-	print('out created')
 
 	'''preparing input file for intersect bed'''
 	distance_num = 100
