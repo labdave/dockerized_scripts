@@ -178,35 +178,35 @@ def main():
 		if line3:
 			line3 = line3.replace(':', ';').split(';')
 			# check sample
-			if line1[0] != line2[0] or line2[0] != line3[0] or line3[0] != line1[0]:
+			if (line1[0] != line2[0]) or (line2[0] != line3[0]) or (line3[0] != line1[0]):
 				return False
 			# check chr1
-			if line1[1] != line2[1] or line2[1] != line3[1] or line3[1] != line1[1]:
+			if (line1[1] != line2[1]) or (line2[1] != line3[1]) or (line3[1] != line1[1]):
 				return False
 			# check chr2
-			if line1[3] != line2[3] or line2[3] != line3[3] or line3[3] != line1[3]:
+			if (line1[3] != line2[3]) or (line2[3] != line3[3]) or (line3[3] != line1[3]):
 				return False
 			# check pos1
-			if abs(int(line1[2])-int(line2[2])) > dist or abs(int(line2[2])-int(line3[2])) > dist or abs(int(line3[2])-int(line1[2])) > dist:
+			if (abs(int(line1[2])-int(line2[2])) > dist) or (abs(int(line2[2])-int(line3[2])) > dist) or (abs(int(line3[2])-int(line1[2])) > dist):
 				return False
 			# check pos2
-			if abs(int(line1[4])-int(line2[4])) > dist or abs(int(line2[4])-int(line3[4])) > dist or abs(int(line3[4])-int(line1[4])) > dist:
+			if (abs(int(line1[4])-int(line2[4])) > dist) or (abs(int(line2[4])-int(line3[4])) > dist) or (abs(int(line3[4])-int(line1[4])) > dist):
 				return False
 		else:
 			# check sample
-			if line1[0] != line2[0] or line2[0] != line1[0]:
+			if (line1[0] != line2[0]) or (line2[0] != line1[0]):
 				return False
 			# check chr1
-			if line1[1] != line2[1] or line2[1] != line1[1]:
+			if (line1[1] != line2[1]) or (line2[1] != line1[1]):
 				return False
 			# check chr2
-			if line1[3] != line2[3] or line2[3] != line1[3]:
+			if (line1[3] != line2[3]) or (line2[3] != line1[3]):
 				return False
 			# check pos1
-			if abs(int(line1[2])-int(line2[2])) > dist or abs(int(line2[2])-int(line1[2])) > dist:
+			if (abs(int(line1[2])-int(line2[2])) > dist) or (abs(int(line2[2])-int(line1[2])) > dist):
 				return False
 			# check pos2
-			if abs(int(line1[4])-int(line2[4])) > dist or abs(int(line2[4])-int(line1[4])) > dist:
+			if (abs(int(line1[4])-int(line2[4])) > dist) or (abs(int(line2[4])-int(line1[4])) > dist):
 				return False
 		return True
 
@@ -380,8 +380,8 @@ def main():
 	for delly_item in delly_dict:
 		for destruct_item in destruct_dict:
 			for lumpy_item in lumpy_dict:
-				if count % 100000 == 0:
-					print(count, file=sys.stderr)
+				if count % 1000000 == 0:
+					print(str(count/1000000), file=sys.stderr)
 				count += 1
 				if check_proximity(delly_item, destruct_item, lumpy_item):
 					print('yes', file=sys.stderr)
