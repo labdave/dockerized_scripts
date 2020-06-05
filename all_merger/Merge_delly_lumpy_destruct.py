@@ -121,6 +121,7 @@ def main():
 			# print("\t"+str.join("\t",p1[5:])+"\n", end='')
 	
 	myfile.close()
+	print('out created')
 
 	'''preparing input file for intersect bed'''
 	distance_num = 100
@@ -349,7 +350,11 @@ def main():
 		lumpy_dict = dict()
 		delly_dict = dict()
 		destruct_dict = dict()
+		count = 0
 		for line in f:
+			count += 1
+			if count % 1000 == 0:
+				print(count)
 			if i:
 				lines = line.strip()+'\tCallers\tNum_callers\n'
 				i = False
