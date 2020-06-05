@@ -70,7 +70,7 @@ def main():
 					filter = p[6]	
 					info = p[7]    
 					format = p[8]
-					sample = p[9]
+					sample = p[10]
 					gt_list = sample.split(":")
 					info_list = info.split(";")
 					su_info = info_list[len(info_list)-3].replace("SU=","")
