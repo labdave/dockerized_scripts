@@ -369,6 +369,10 @@ def main():
 	print(len(delly_dict), file=sys.stderr)
 	print(len(lumpy_dict), file=sys.stderr)
 	print(len(destruct_dict), file=sys.stderr)
+	for item in delly_dict:
+		print(item, file=sys.stderr)
+		print(delly_dict[item], file=sys.stderr)
+		break
 
 	''' complex procedure to get merge-able rows '''
 	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
@@ -467,5 +471,115 @@ def main():
 	# print output
 	with open(output_cons_file, 'w') as f:
 		f.write(lines)
+
+	"""
+	# read output file and check for matches
+	with open(output_file, 'r') as f:
+		i = True
+		for line in f:
+			if i:
+				output_cons_text = line.strip()+'\tNum_Callers\tCallers\n'
+				i = False
+				continue
+			arr = line.strip().split()
+			callers = [arr[8]]
+			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]+';'+arr[8]
+			for item in output_dict:
+				if check_proximity(item, key):
+					callers.append(item.split(';')[-1])
+			callers = list(set(callers))
+			n_callers = len(callers)
+			callers_str = ','.join(callers)
+			output_cons_text += (line.strip()+'\t{0}\t{1}\n'.format(n_callers, callers_str))
+	# naresh's code for number of callers:
+	fobj = open(output_file)
+	tmp_bed = output_file+'.tmp.bed'
+	tmp1_bed = output_file+'.tmp1.bed'
+	tmp1_cp_bed = output_file+'.tmp1.cp.bed'
+	tmp_all_bed = output_file+'.tmp.all.bed'
+	myfile = open(tmp_bed, mode='wt')
+	header = fobj.readline()
+	linenum = 0
+	for i in fobj:
+		linenum = linenum+1
+		i = i.strip()
+		arr = i.split("\t")
+		'''merging the sample id with chromosome to do intersect bed at sample level'''
+		myfile.write(arr[0].split("_")[0]+"__"+arr[1]+"\t"+str(int(arr[2])-distance_num)+"\t"+str(int(arr[2])+distance_num)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8]+"\n")
+		# print(arr[0]+"__"+arr[1]+"\t"+str(int(arr[2])-distance_num)+"\t"+str(int(arr[2])+distance_num)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8])
+		myfile.write(arr[0].split("_")[0]+"__"+arr[3]+"\t"+str(int(arr[4])-distance_num)+"\t"+str(int(arr[4])+distance_num)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8]+"\n")
+		# print(arr[0]+"__"+arr[3]+"\t"+str(int(arr[4])-distance_num)+"\t"+str(int(arr[4])+distance_num)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8])
+	fobj.close()
+	myfile.close()
+	
+	# debug
+	# with open(tmp_bed, 'r') as f:
+	# 	for line in f:
+	# 		print(line)
+	'''Intersect bed'''
+	cmd = 'sort -k2,2n -k3,3n  ' + tmp_bed + ' > ' + tmp1_bed
+	os.system(cmd)
+	
+	cmd = 'cp ' + tmp1_bed + ' ' + tmp1_cp_bed
+	os.system(cmd)
+	
+	cmd = 'bedtools intersect -a ' + tmp1_bed + ' -b ' + tmp1_cp_bed + ' -wao > '+ tmp_all_bed
+	os.system(cmd)
+	
+	'''Reading the intersect bed output file'''
+	merged_bed={}
+	fobj = open(tmp_all_bed)
+	for i in fobj:
+		i = i.strip()
+		# print(i)
+		arr = i.split("\t")
+		'''separating sample & chr of first & second chr'''
+		lst1 = arr[0].split("__")
+		lst2 = arr[6].split("__")
+		'''Overlap > 0, for same sample, and ignoring same caller'''
+		if int(arr[12]) > 0 and lst1[0].split("_")[0]==lst2[0].split("_")[0] and arr[5]!=arr[11]:
+			'''Creating key sample_caller_linenumber_BP(1 or 2)'''
+			key = lst1[0]+' '+arr[5]+' '+arr[3]+' '+arr[4]
+			'''Other caller information'''
+			val = arr[11]
+			# print(key)
+			if key in merged_bed:
+				merged_bed[key]=merged_bed[key]+','+val
+			else:
+				merged_bed[key]=val	
+	fobj.close()
+	
+	'''Creating new output file for other caller information'''
+	header = [line for line in open(output_file, 'r')][0].strip()
+	myfile = open(output_cons_file, mode='wt')
+	myfile.write(header + "\tCallers\tNum_Callers\n")
+	linenum = 0
+	with open(output_file, 'r') as f:
+		for i in f:
+			if linenum == 0:
+				linenum += 1
+				continue
+			i = i.strip()
+			# print(i)
+			arr = i.split("\t")
+			linenum = linenum + 1
+			'''checking if both BPs in the dict'''
+			key1 = arr[0].split('_')[0]+' '+arr[8]+' '+str(linenum)+' '+"1"
+			key2 = arr[0].split('_')[0]+' '+arr[8]+' '+str(linenum)+' '+"2"
+			val = "NA\tNA"
+			# print(key1)
+			# print(key2)
+			if key1 in merged_bed and key2 in merged_bed:
+				tmp1 = arr[12] + ',' + merged_bed[key1]
+				tmp1_list = tmp1.split(',')
+				tmp2 = arr[12] + ',' + merged_bed[key2]
+				tmp2_list = tmp2.split(',')
+				tmp_list = list(set(tmp1_list) & set(tmp2_list))
+				tmp = str.join(',', tmp_list)
+				if len(tmp_list) > 1:
+					val = tmp + "\t" + str(len(tmp_list))
+			myfile.write(i + "\t" + val + "\n")	
+	myfile.close()
+	"""
 if __name__ == "__main__":
 	main()
