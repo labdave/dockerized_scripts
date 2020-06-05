@@ -363,6 +363,8 @@ def main():
 			if arr[8] == 'DESTRUCT':
 				destruct_dict[key] = line
 
+	print('dict created')
+
 	''' complex procedure to get merge-able rows '''
 	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
 	delly_destruct_lumpy_dict = dict()
@@ -392,6 +394,7 @@ def main():
 		lumpy_dict.pop(item)
 
 
+	print('three callers done')
 	# three pairs of two callers each
 	delly_remove, destruct_remove, lumpy_remove = [], [], []
 
@@ -406,6 +409,7 @@ def main():
 				delly_remove.append(delly_item)
 				destruct_remove.append(destruct_item)
 				continue
+	print('two callers done')
 	# delly lumpy
 	for delly_item in delly_dict:
 		for lumpy_item in lumpy_dict:
@@ -417,6 +421,7 @@ def main():
 				delly_remove.append(delly_item)
 				lumpy_remove.append(lumpy_item)
 				continue
+	print('two callers done')
 	# destruct lumpy
 	for destruct_item in destruct_dict:
 		for lumpy_item in lumpy_dict:
@@ -428,6 +433,7 @@ def main():
 				destruct_remove.append(destruct_item)
 				lumpy_remove.append(lumpy_item)
 				continue
+	print('two callers done')
 	print(list(set(delly_remove)))
 	print(list(set(destruct_remove)))
 	print(list(set(lumpy_remove)))
