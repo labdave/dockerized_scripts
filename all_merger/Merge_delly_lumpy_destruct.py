@@ -376,9 +376,13 @@ def main():
 
 	# all three callers
 	delly_remove, destruct_remove, lumpy_remove = [], [], []
+	count = 1
 	for delly_item in delly_dict:
 		for destruct_item in destruct_dict:
 			for lumpy_item in lumpy_dict:
+				if count % 1000 == 0:
+					print(count, file=sys.stderr)
+				count += 1
 				if check_proximity(delly_item, destruct_item, lumpy_item):
 					print('yes', file=sys.stderr)
 					joint_key = delly_item+'|'+destruct_item+'|'+lumpy_item
