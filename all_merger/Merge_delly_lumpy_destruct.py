@@ -401,7 +401,7 @@ def main():
 	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, lumpy_bed_file))
 
 	# find triplicate intersections
-	os.system('bedtools intersect -u -a {0} - b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
 
 
 	"""
