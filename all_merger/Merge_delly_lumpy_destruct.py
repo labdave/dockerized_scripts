@@ -381,6 +381,8 @@ def main():
 	
 	destruct_lumpy_bed = temp_file.replace('.tmp', '.destruct.lumpy.bed')
 	delly_lumpy_bed = temp_file.replace('.tmp', '.delly.lumpy.bed')
+	destruct_delly_bed = temp_file.replace('.tmp', '.destruct.delly.bed')
+	delly_destruct_bed = temp_file.replace('.tmp', '.delly.destruct.bed')
 	lumpy_destruct_bed = temp_file.replace('.tmp', '.lumpy.destruct.bed')
 	lumpy_delly_bed = temp_file.replace('.tmp', '.lumpy.delly.bed')
 
@@ -414,6 +416,8 @@ def main():
 	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, lumpy_bed_file, destruct_lumpy_bed))
 	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, delly_bed_file, lumpy_delly_bed))
 	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, destruct_bed_file, lumpy_destruct_bed))
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, delly_bed_file, destruct_delly_bed))
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, destruct_bed_file, delly_destruct_bed))
 	
 	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(delly_lumpy_bed, destruct_lumpy_bed, delly_all_bed))
 	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(destruct_lumpy_bed, delly_lumpy_bed, destruct_all_bed))
@@ -473,14 +477,16 @@ def main():
 	print(list(set(destruct_remove)), file=sys.stderr)
 	print(list(set(lumpy_remove)), file=sys.stderr)
 	for item in delly_remove:
-		delly_all_dict.pop(item)
+		delly_dict.pop(item)
 	for item in destruct_remove:
-		destruct_all_dict.pop(item)
+		destruct_dict.pop(item)
 	for item in lumpy_remove:
-		lumpy_all_dict.pop(item)
-
-	"""
+		lumpy_dict.pop(item)
+	
 	print('three callers done', file=sys.stderr)
+	print(lines, file=sys.stderr)
+	
+	"""
 	# three pairs of two callers each
 	delly_remove, destruct_remove, lumpy_remove = [], [], []
 
