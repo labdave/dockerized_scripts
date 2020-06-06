@@ -28,6 +28,7 @@ def main():
 	destruct_lumpy_bed = temp_file.replace('.tmp', '.destruct.lumpy.bed')
 	delly_lumpy_bed = temp_file.replace('.tmp', '.delly.lumpy.bed')
 	delly_destruct_bed = temp_file.replace('.tmp', '.delly.destruct.bed')
+	destruct_delly_bed = temp_file.replace('.tmp', '.destruct.delly.bed')
 	# Filter translocations by chr3, chr8, chr18
 	chr_filter = int(sys.argv[2])
 	delly_file = sys.argv[3]
@@ -387,30 +388,25 @@ def main():
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
-	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, delly_bed_file))
+	os.system('sleep 10; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, delly_bed_file))
 	with open(temp_file, 'w') as f:
 		for item in destruct_dict:
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
-	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, destruct_bed_file))
+	os.system('sleep 10; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, destruct_bed_file))
 	with open(temp_file, 'w') as f:
 		for item in lumpy_dict:
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
-	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, lumpy_bed_file))
+	os.system('sleep 10; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, lumpy_bed_file))
 
 	# find triplicate intersections
-	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
-	os.system('sleep 10')
-	print('1')
-	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, lumpy_bed_file, destruct_lumpy_bed))
-	os.system('sleep 10')
-	print('2')
-	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_lumpy_bed, destruct_lumpy_bed, delly_destruct_bed))
-	os.system('sleep 10')
-	print('3')
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, lumpy_bed_file, destruct_lumpy_bed))
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_lumpy_bed, destruct_lumpy_bed, delly_destruct_bed))
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_lumpy_bed, delly_lumpy_bed, destruct_delly_bed))
 
 	"""
 	''' complex procedure to get merge-able rows '''
