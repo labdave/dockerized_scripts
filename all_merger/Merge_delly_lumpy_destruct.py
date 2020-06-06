@@ -381,8 +381,8 @@ def main():
 	
 	destruct_lumpy_bed = temp_file.replace('.tmp', '.destruct.lumpy.bed')
 	delly_lumpy_bed = temp_file.replace('.tmp', '.delly.lumpy.bed')
-	lumpy_destruct_bed = temp_file.replace('.tmp', '.destruct.lumpy.bed')
-	lumpy_delly_bed = temp_file.replace('.tmp', '.delly.lumpy.bed')
+	lumpy_destruct_bed = temp_file.replace('.tmp', '.lumpy.destruct.bed')
+	lumpy_delly_bed = temp_file.replace('.tmp', '.lumpy.delly.bed')
 
 	delly_all_bed = temp_file.replace('.tmp', '.delly.all.bed')
 	destruct_all_bed = temp_file.replace('.tmp', '.destruct.all.bed')
@@ -422,24 +422,24 @@ def main():
 
 	delly_all_list, destruct_all_list, lumpy_all_list = [], [], []
 	delly_all_dict, destruct_all_dict, lumpy_all_dict = dict(), dict(), dict()
-	with open(delly_destruct_bed, 'r') as f:
+	with open(delly_all_bed, 'r') as f:
 		for line in f:
 			delly_all_list.append(line.strip())
 	delly_all_list = list(set(delly_all_list))
 	for item in delly_all_list:
 		delly_all_dict[item] = delly_dict[item]
 
-	with open(destruct_delly_bed, 'r') as f:
+	with open(destruct_all_bed, 'r') as f:
 		for line in f:
 			destruct_all_list.append(line.strip())
 	destruct_all_list = list(set(destruct_all_list))
 	for item in destruct_all_list:
 		destruct_all_dict[item] = destruct_dict[item]
 
-	with open(lumpy_destruct_bed_1, 'r') as f:
+	with open(lumpy_all_bed_1, 'r') as f:
 		for line in f:
 			lumpy_all_list.append(line.strip())
-	with open(lumpy_destruct_bed_2, 'r') as f:
+	with open(lumpy_all_bed_2, 'r') as f:
 		for line in f:
 			lumpy_all_list.append(line.strip())
 	lumpy_all_list = list(set(lumpy_all_list))
