@@ -21,14 +21,6 @@ import logging
 def main():
 	output_file = sys.argv[1]
 	output_cons_file = output_file.replace('.vcf', '_cons.vcf')
-	temp_file = output_file.replace('.vcf', '.tmp')
-	delly_bed_file = temp_file.replace('.tmp', '.delly.bed')
-	lumpy_bed_file = temp_file.replace('.tmp', '.lumpy.bed')
-	destruct_bed_file = temp_file.replace('.tmp', '.destruct.bed')
-	destruct_lumpy_bed = temp_file.replace('.tmp', '.destruct.lumpy.bed')
-	delly_lumpy_bed = temp_file.replace('.tmp', '.delly.lumpy.bed')
-	delly_destruct_bed = temp_file.replace('.tmp', '.delly.destruct.bed')
-	destruct_delly_bed = temp_file.replace('.tmp', '.destruct.delly.bed')
 	# Filter translocations by chr3, chr8, chr18
 	chr_filter = int(sys.argv[2])
 	delly_file = sys.argv[3]
@@ -382,6 +374,21 @@ def main():
 		break
 
 	''' bed file method to get mergeable rows '''
+	temp_file = output_file.replace('.vcf', '.tmp')
+	delly_bed_file = temp_file.replace('.tmp', '.delly.bed')
+	lumpy_bed_file = temp_file.replace('.tmp', '.lumpy.bed')
+	destruct_bed_file = temp_file.replace('.tmp', '.destruct.bed')
+	
+	destruct_lumpy_bed = temp_file.replace('.tmp', '.destruct.lumpy.bed')
+	delly_lumpy_bed = temp_file.replace('.tmp', '.delly.lumpy.bed')
+	lumpy_destruct_bed = temp_file.replace('.tmp', '.destruct.lumpy.bed')
+	lumpy_delly_bed = temp_file.replace('.tmp', '.delly.lumpy.bed')
+
+	delly_all_bed = temp_file.replace('.tmp', '.delly.all.bed')
+	destruct_all_bed = temp_file.replace('.tmp', '.destruct.all.bed')
+	lumpy_all_bed_1 = temp_file.replace('.tmp', '.lumpy.all.1.bed')
+	lumpy_all_bed_2 = temp_file.replace('.tmp', '.lumpy.all.2.bed')
+	
 	# get bed files
 	with open(temp_file, 'w') as f:
 		for item in delly_dict:
@@ -405,43 +412,73 @@ def main():
 	# find triplicate intersections
 	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
 	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, lumpy_bed_file, destruct_lumpy_bed))
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_lumpy_bed, destruct_lumpy_bed, delly_destruct_bed))
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_lumpy_bed, delly_lumpy_bed, destruct_delly_bed))
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, delly_bed_file, lumpy_delly_bed))
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, destruct_bed_file, lumpy_destruct_bed))
+	
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(delly_lumpy_bed, destruct_lumpy_bed, delly_all_bed))
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(destruct_lumpy_bed, delly_lumpy_bed, destruct_all_bed))
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_delly_bed, lumpy_destruct_bed, lumpy_all_bed_1))
+	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_destruct_bed, lumpy_delly_bed, lumpy_all_bed_2))
 
-	"""
+	delly_all_list, destruct_all_list, lumpy_all_list = [], [], []
+	delly_all_dict, destruct_all_dict, lumpy_all_dict = dict(), dict(), dict()
+	with open(delly_destruct_bed, 'r') as f:
+		for line in f:
+			delly_all_list.append(line.strip())
+	delly_all_list = list(set(delly_all_list))
+	for item in delly_all_list:
+		delly_all_dict[item] = delly_dict[item]
+
+	with open(destruct_delly_bed, 'r') as f:
+		for line in f:
+			destruct_all_list.append(line.strip())
+	destruct_all_list = list(set(destruct_all_list))
+	for item in destruct_all_list:
+		destruct_all_dict[item] = destruct_dict[item]
+
+	with open(lumpy_destruct_bed_1, 'r') as f:
+		for line in f:
+			lumpy_all_list.append(line.strip())
+	with open(lumpy_destruct_bed_2, 'r') as f:
+		for line in f:
+			lumpy_all_list.append(line.strip())
+	lumpy_all_list = list(set(lumpy_all_list))
+	for item in lumpy_all_list:
+		lumpy_all_dict[item] = lumpy_dict[item]
+
+
 	''' complex procedure to get merge-able rows '''
 	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
 	delly_destruct_lumpy_dict = dict()
 
 	# all three callers
-	# delly_remove, destruct_remove, lumpy_remove = [], [], []
-	# count = 1
-	# for delly_item in delly_dict:
-	# 	for destruct_item in destruct_dict:
-	# 		for lumpy_item in lumpy_dict:
-	# 			if count % 1000000 == 0:
-	# 				print(str(count/1000000), file=sys.stderr)
-	# 			count += 1
-	# 			if check_proximity(delly_item, destruct_item, lumpy_item):
-	# 				print('yes', file=sys.stderr)
-	# 				joint_key = delly_item+'|'+destruct_item+'|'+lumpy_item
-	# 				joint_val = [delly_dict[delly_item], destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
-	# 				delly_destruct_lumpy_dict[joint_key] = joint_val
-	# 				lines += get_merged_line(joint_val, type_=0)
-	# 				delly_remove.append(delly_item)
-	# 				destruct_remove.append(destruct_item)
-	# 				lumpy_remove.append(lumpy_item)
-	# print(list(set(delly_remove)), file=sys.stderr)
-	# print(list(set(destruct_remove)), file=sys.stderr)
-	# print(list(set(lumpy_remove)), file=sys.stderr)
-	# for item in delly_remove:
-	# 	delly_dict.pop(item)
-	# for item in destruct_remove:
-	# 	destruct_dict.pop(item)
-	# for item in lumpy_remove:
-	# 	lumpy_dict.pop(item)
+	delly_remove, destruct_remove, lumpy_remove = [], [], []
+	count = 1
+	for delly_item in delly_dict:
+		for destruct_item in destruct_dict:
+			for lumpy_item in lumpy_dict:
+				print(str(count), file=sys.stderr)
+				count += 1
+				if check_proximity(delly_item, destruct_item, lumpy_item):
+					print('yes', file=sys.stderr)
+					joint_key = delly_item+'|'+destruct_item+'|'+lumpy_item
+					joint_val = [delly_dict[delly_item], destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
+					delly_destruct_lumpy_dict[joint_key] = joint_val
+					lines += get_merged_line(joint_val, type_=0)
+					delly_remove.append(delly_item)
+					destruct_remove.append(destruct_item)
+					lumpy_remove.append(lumpy_item)
+	print(list(set(delly_remove)), file=sys.stderr)
+	print(list(set(destruct_remove)), file=sys.stderr)
+	print(list(set(lumpy_remove)), file=sys.stderr)
+	for item in delly_remove:
+		delly_dict.pop(item)
+	for item in destruct_remove:
+		destruct_dict.pop(item)
+	for item in lumpy_remove:
+		lumpy_dict.pop(item)
 
-
+	"""
 	print('three callers done', file=sys.stderr)
 	# three pairs of two callers each
 	delly_remove, destruct_remove, lumpy_remove = [], [], []
