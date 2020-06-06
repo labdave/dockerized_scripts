@@ -374,6 +374,7 @@ def main():
 		print(delly_dict[item], file=sys.stderr)
 		break
 
+	"""
 	''' complex procedure to get merge-able rows '''
 	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
 	delly_destruct_lumpy_dict = dict()
@@ -471,7 +472,7 @@ def main():
 	# print output
 	with open(output_cons_file, 'w') as f:
 		f.write(lines)
-
+	"""
 	"""
 	# read output file and check for matches
 	with open(output_file, 'r') as f:
