@@ -404,7 +404,7 @@ def main():
 	# find triplicate intersections
 	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
 	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, lumpy_bed_file, destruct_lumpy_bed))
-	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, destruct_bed_file, delly_destruct_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_lumpy_bed, destruct_lumpy_bed, delly_destruct_bed))
 
 
 	"""
