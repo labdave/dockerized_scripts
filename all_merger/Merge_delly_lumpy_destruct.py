@@ -27,6 +27,7 @@ def main():
 	destruct_bed_file = temp_file.replace('.tmp', '.destruct.bed')
 	destruct_lumpy_bed = temp_file.replace('.tmp', '.destruct.lumpy.bed')
 	delly_lumpy_bed = temp_file.replace('.tmp', '.delly.lumpy.bed')
+	delly_destruct_bed = temp_file.replace('.tmp', '.delly.destruct.bed')
 	# Filter translocations by chr3, chr8, chr18
 	chr_filter = int(sys.argv[2])
 	delly_file = sys.argv[3]
@@ -402,6 +403,8 @@ def main():
 
 	# find triplicate intersections
 	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, lumpy_bed_file, destruct_lumpy_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, destruct_bed_file, delly_destruct_bed))
 
 
 	"""
