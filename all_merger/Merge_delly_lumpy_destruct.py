@@ -380,6 +380,7 @@ def main():
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
+	os.system('sort -k1,1 -k2,2n /data/temp.delly.bed -o /data/temp.delly.bed1')
 
 
 	"""
