@@ -21,6 +21,12 @@ import logging
 def main():
 	output_file = sys.argv[1]
 	output_cons_file = output_file.replace('.vcf', '_cons.vcf')
+	temp_file = output_file.replace('.vcf', '.tmp')
+	delly_bed_file = temp_file.replace('.tmp', '.delly.bed')
+	lumpy_bed_file = temp_file.replace('.tmp', '.lumpy.bed')
+	destruct_bed_file = temp_file.replace('.tmp', '.destruct.bed')
+	destruct_lumpy_bed = temp_file.replace('.tmp', '.destruct.lumpy.bed')
+	delly_lumpy_bed = temp_file.replace('.tmp', '.delly.lumpy.bed')
 	# Filter translocations by chr3, chr8, chr18
 	chr_filter = int(sys.argv[2])
 	delly_file = sys.argv[3]
@@ -375,12 +381,27 @@ def main():
 
 	''' bed file method to get mergeable rows '''
 	# get bed files
-	with open('/data/temp.delly.bed', 'w') as f:
+	with open(temp_file, 'w') as f:
 		for item in delly_dict:
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
-	os.system('sort -k1,1 -k2,2n /data/temp.delly.bed -o /data/temp.delly.bed1')
+	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, delly_bed_file))
+	with open(temp_file, 'w') as f:
+		for item in destruct_dict:
+			a = item.replace(';',':').split(':')
+			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
+			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
+	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, destruct_bed_file))
+	with open(temp_file, 'w') as f:
+		for item in lumpy_dict:
+			a = item.replace(';',':').split(':')
+			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
+			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
+	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, lumpy_bed_file))
+
+	# find triplicate intersections
+	os.system('bedtools intersect -u -a {0} - b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
 
 
 	"""
