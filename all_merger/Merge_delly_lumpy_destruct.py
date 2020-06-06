@@ -124,7 +124,7 @@ def main():
 	myfile.close()
 
 	'''preparing input file for intersect bed'''
-	distance_num = 100
+	dist = 100
 
 	# devang's code for merging and fixing number of callers:
 	# this code assumes the presence of only three callers,
@@ -172,7 +172,6 @@ def main():
 	# check if two lines are valid calls from two different callers
 	# works only when used from inside SV_calling due to difference in analysis IDs
 	def check_proximity(line1, line2, line3=None):
-		dist = distance_num
 		line1 = line1.replace(':', ';').split(';')
 		line2 = line2.replace(':', ';').split(';')
 		if line3:
@@ -374,6 +373,15 @@ def main():
 		print(delly_dict[item], file=sys.stderr)
 		break
 
+	''' bed file method to get mergeable rows '''
+	# get bed files
+	with open('/data/temp.delly.bed', 'w') as f:
+		for item in delly_dict:
+			a = item.replace(';',':').split(':')
+			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
+			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
+
+
 	"""
 	''' complex procedure to get merge-able rows '''
 	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
@@ -506,10 +514,10 @@ def main():
 		i = i.strip()
 		arr = i.split("\t")
 		'''merging the sample id with chromosome to do intersect bed at sample level'''
-		myfile.write(arr[0].split("_")[0]+"__"+arr[1]+"\t"+str(int(arr[2])-distance_num)+"\t"+str(int(arr[2])+distance_num)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8]+"\n")
-		# print(arr[0]+"__"+arr[1]+"\t"+str(int(arr[2])-distance_num)+"\t"+str(int(arr[2])+distance_num)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8])
-		myfile.write(arr[0].split("_")[0]+"__"+arr[3]+"\t"+str(int(arr[4])-distance_num)+"\t"+str(int(arr[4])+distance_num)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8]+"\n")
-		# print(arr[0]+"__"+arr[3]+"\t"+str(int(arr[4])-distance_num)+"\t"+str(int(arr[4])+distance_num)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8])
+		myfile.write(arr[0].split("_")[0]+"__"+arr[1]+"\t"+str(int(arr[2])-dist)+"\t"+str(int(arr[2])+dist)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8]+"\n")
+		# print(arr[0]+"__"+arr[1]+"\t"+str(int(arr[2])-dist)+"\t"+str(int(arr[2])+dist)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8])
+		myfile.write(arr[0].split("_")[0]+"__"+arr[3]+"\t"+str(int(arr[4])-dist)+"\t"+str(int(arr[4])+dist)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8]+"\n")
+		# print(arr[0]+"__"+arr[3]+"\t"+str(int(arr[4])-dist)+"\t"+str(int(arr[4])+dist)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8])
 	fobj.close()
 	myfile.close()
 	
