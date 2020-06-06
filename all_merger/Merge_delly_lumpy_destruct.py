@@ -454,15 +454,15 @@ def main():
 	# all three callers
 	delly_remove, destruct_remove, lumpy_remove = [], [], []
 	count = 1
-	for delly_item in delly_dict:
-		for destruct_item in destruct_dict:
-			for lumpy_item in lumpy_dict:
+	for delly_item in delly_all_dict:
+		for destruct_item in destruct_all_dict:
+			for lumpy_item in lumpy_all_dict:
 				print(str(count), file=sys.stderr)
 				count += 1
 				if check_proximity(delly_item, destruct_item, lumpy_item):
 					print('yes', file=sys.stderr)
 					joint_key = delly_item+'|'+destruct_item+'|'+lumpy_item
-					joint_val = [delly_dict[delly_item], destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
+					joint_val = [delly_all_dict[delly_item], destruct_all_dict[destruct_item], lumpy_all_dict[lumpy_item]]
 					delly_destruct_lumpy_dict[joint_key] = joint_val
 					lines += get_merged_line(joint_val, type_=0)
 					delly_remove.append(delly_item)
@@ -472,11 +472,11 @@ def main():
 	print(list(set(destruct_remove)), file=sys.stderr)
 	print(list(set(lumpy_remove)), file=sys.stderr)
 	for item in delly_remove:
-		delly_dict.pop(item)
+		delly_all_dict.pop(item)
 	for item in destruct_remove:
-		destruct_dict.pop(item)
+		destruct_all_dict.pop(item)
 	for item in lumpy_remove:
-		lumpy_dict.pop(item)
+		lumpy_all_dict.pop(item)
 
 	"""
 	print('three callers done', file=sys.stderr)
