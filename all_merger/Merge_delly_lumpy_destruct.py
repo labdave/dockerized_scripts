@@ -224,18 +224,18 @@ def main():
 			lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
 
 			# split reads
-			if (delly_sr > destruct_sr) and (delly_sr > lumpy_sr):
+			if (delly_sr >= destruct_sr) and (delly_sr >= lumpy_sr):
 				chosen = delly_arr
-			elif (destruct_sr > delly_sr) and (destruct_sr > lumpy_sr):
+			elif (destruct_sr >= delly_sr) and (destruct_sr >= lumpy_sr):
 				chosen = destruct_arr
-			elif (lumpy_sr > delly_sr) and (lumpy_sr > destruct_sr):
+			elif (lumpy_sr >= delly_sr) and (lumpy_sr >= destruct_sr):
 				chosen = lumpy_arr
 			# paired reads
-			elif (delly_pe > destruct_pe) and (delly_pe > lumpy_pe):
+			elif (delly_pe >= destruct_pe) and (delly_pe >= lumpy_pe):
 				chosen = delly_arr
-			elif (destruct_pe > delly_pe) and (destruct_pe > lumpy_pe):
+			elif (destruct_pe >= delly_pe) and (destruct_pe >= lumpy_pe):
 				chosen = destruct_arr
-			elif (lumpy_pe > delly_pe) and (lumpy_pe > destruct_pe):
+			elif (lumpy_pe >= delly_pe) and (lumpy_pe >= destruct_pe):
 				chosen = lumpy_arr
 			else:
 				chosen = lumpy_arr
@@ -260,14 +260,14 @@ def main():
 			destruct_sr, destruct_pe = destruct_arr[6], destruct_arr[5]
 
 			# split reads
-			if (delly_sr > destruct_sr):
+			if (delly_sr >= destruct_sr):
 				chosen = delly_arr
-			elif (destruct_sr > delly_sr):
+			elif (destruct_sr >= delly_sr):
 				chosen = destruct_arr
 			# paired reads
-			elif (delly_pe > destruct_pe):
+			elif (delly_pe >= destruct_pe):
 				chosen = delly_arr
-			elif (destruct_pe > delly_pe):
+			elif (destruct_pe >= delly_pe):
 				chosen = destruct_arr
 			else:
 				chosen = delly_arr
