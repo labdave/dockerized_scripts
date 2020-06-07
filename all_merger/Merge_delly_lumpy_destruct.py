@@ -424,8 +424,10 @@ def main():
 	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_delly_bed, lumpy_destruct_bed, lumpy_all_bed_1))
 	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_destruct_bed, lumpy_delly_bed, lumpy_all_bed_2))
 
+	# get list of caller specific all-caller ids
 	delly_all_list, destruct_all_list, lumpy_all_list = [], [], []
 	delly_all_dict, destruct_all_dict, lumpy_all_dict = dict(), dict(), dict()
+	
 	with open(delly_all_bed, 'r') as f:
 		for line in f:
 			delly_all_list.append(line.strip())
@@ -450,6 +452,39 @@ def main():
 	for item in lumpy_all_list:
 		lumpy_all_dict[item] = lumpy_dict[item]
 
+	# get list of caller specific 2-caller ids
+	delly_2_list, destruct_2_list, lumpy_2_list = [], [], []
+	delly_2_dict, destruct_2_dict, lumpy_2_dict = dict(), dict(), dict()
+	
+	with open(delly_destruct_bed, 'r') as f:
+		for line in f:
+			delly_2_list.append(line.strip().split()[-1])
+	with open(delly_lumpy_bed, 'r') as f:
+		for line in f:
+			delly_2_list.append(line.strip().split()[-1])
+	delly_2_list = list(set(lumpy_2_list))
+	for item in delly_2_list:
+		delly_2_dict[item] = delly_dict[item]
+
+	with open(destruct_delly_bed, 'r') as f:
+		for line in f:
+			destruct_2_list.append(line.strip().split()[-1])
+	with open(destruct_lumpy_bed_2, 'r') as f:
+		for line in f:
+			destruct_2_list.append(line.strip().split()[-1])
+	destruct_2_list = list(set(destruct_2_list))
+	for item in destruct_2_list:
+		destruct_2_dict[item] = destruct_dict[item]
+
+	with open(lumpy_delly_bed, 'r') as f:
+		for line in f:
+			lumpy_2_list.append(line.strip().split()[-1])
+	with open(lumpy_destruct_bed, 'r') as f:
+		for line in f:
+			lumpy_2_list.append(line.strip().split()[-1])
+	lumpy_2_list = list(set(lumpy_2_list))
+	for item in lumpy_2_list:
+		lumpy_2_dict[item] = lumpy_dict[item]
 
 	''' complex procedure to get merge-able rows '''
 	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
@@ -486,13 +521,12 @@ def main():
 	print('three callers done', file=sys.stderr)
 	print(lines, file=sys.stderr)
 	
-	"""
 	# three pairs of two callers each
 	delly_remove, destruct_remove, lumpy_remove = [], [], []
 
 	# delly destruct
-	for delly_item in delly_dict:
-		for destruct_item in destruct_dict:
+	for delly_item in delly_2_dict:
+		for destruct_item in destruct_2_dict:
 			if check_proximity(delly_item, destruct_item):
 				joint_key = delly_item+'|'+destruct_item
 				joint_val = [delly_dict[delly_item], destruct_dict[destruct_item]]
@@ -503,8 +537,8 @@ def main():
 				continue
 	print('two callers done', file=sys.stderr)
 	# delly lumpy
-	for delly_item in delly_dict:
-		for lumpy_item in lumpy_dict:
+	for delly_item in delly_2_dict:
+		for lumpy_item in lumpy_2_dict:
 			if check_proximity(delly_item, lumpy_item):
 				joint_key = delly_item+'|'+lumpy_item
 				joint_val = [delly_dict[delly_item], lumpy_dict[lumpy_item]]
@@ -515,8 +549,8 @@ def main():
 				continue
 	print('two callers done', file=sys.stderr)
 	# destruct lumpy
-	for destruct_item in destruct_dict:
-		for lumpy_item in lumpy_dict:
+	for destruct_item in destruct_2_dict:
+		for lumpy_item in lumpy_2_dict:
 			if check_proximity(destruct_item, lumpy_item):
 				joint_key = destruct_item+'|'+lumpy_item
 				joint_val = [destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
@@ -535,7 +569,8 @@ def main():
 		destruct_dict.pop(item)
 	for item in lumpy_remove:
 		lumpy_dict.pop(item)
-
+	print(lines, file=sys.stderr)
+	"""
 	# print all other single call lines
 	for item in delly_dict:
 		# print(delly_dict[item], file=sys.stderr)
