@@ -397,32 +397,32 @@ def main():
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
-	os.system('sleep 10; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, delly_bed_file))
+	os.system('sleep 5; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, delly_bed_file))
 	with open(temp_file, 'w') as f:
 		for item in destruct_dict:
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
-	os.system('sleep 10; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, destruct_bed_file))
+	os.system('sleep 5; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, destruct_bed_file))
 	with open(temp_file, 'w') as f:
 		for item in lumpy_dict:
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
-	os.system('sleep 10; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, lumpy_bed_file))
+	os.system('sleep 5; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, lumpy_bed_file))
 
 	# find triplicate intersections
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, lumpy_bed_file, destruct_lumpy_bed))
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, delly_bed_file, lumpy_delly_bed))
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, destruct_bed_file, lumpy_destruct_bed))
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, delly_bed_file, destruct_delly_bed))
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, destruct_bed_file, delly_destruct_bed))
+	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
+	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, lumpy_bed_file, destruct_lumpy_bed))
+	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, delly_bed_file, lumpy_delly_bed))
+	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, destruct_bed_file, lumpy_destruct_bed))
+	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, delly_bed_file, destruct_delly_bed))
+	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, destruct_bed_file, delly_destruct_bed))
 	
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(delly_lumpy_bed, destruct_lumpy_bed, delly_all_bed))
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(destruct_lumpy_bed, delly_lumpy_bed, destruct_all_bed))
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_delly_bed, lumpy_destruct_bed, lumpy_all_bed_1))
-	os.system('sleep 10; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_destruct_bed, lumpy_delly_bed, lumpy_all_bed_2))
+	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(delly_lumpy_bed, destruct_lumpy_bed, delly_all_bed))
+	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(destruct_lumpy_bed, delly_lumpy_bed, destruct_all_bed))
+	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_delly_bed, lumpy_destruct_bed, lumpy_all_bed_1))
+	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_destruct_bed, lumpy_delly_bed, lumpy_all_bed_2))
 
 	# get list of caller specific all-caller ids
 	delly_all_list, destruct_all_list, lumpy_all_list = [], [], []
