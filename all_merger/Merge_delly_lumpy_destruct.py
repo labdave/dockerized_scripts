@@ -585,7 +585,7 @@ def main():
 		if item in lumpy_dict:
 			lumpy_dict.pop(item)
 	print(lines, file=sys.stderr)
-	"""
+	
 	# print all other single call lines
 	for item in delly_dict:
 		# print(delly_dict[item], file=sys.stderr)
@@ -600,7 +600,6 @@ def main():
 	# print output
 	with open(output_cons_file, 'w') as f:
 		f.write(lines)
-	"""
 	"""
 	# read output file and check for matches
 	with open(output_file, 'r') as f:
