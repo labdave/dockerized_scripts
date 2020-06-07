@@ -462,7 +462,7 @@ def main():
 	with open(delly_lumpy_bed, 'r') as f:
 		for line in f:
 			delly_2_list.append(line.strip().split()[-1])
-	delly_2_list = list(set(lumpy_2_list))
+	delly_2_list = list(set(delly_2_list))
 	for item in delly_2_list:
 		delly_2_dict[item] = delly_dict[item]
 
@@ -486,9 +486,9 @@ def main():
 	for item in lumpy_2_list:
 		lumpy_2_dict[item] = lumpy_dict[item]
 
-	print(len(delly_2_dict))
-	print(len(destruct_2_dict))
-	print(len(lumpy_2_dict))
+	print(len(delly_2_dict), file=sys.stderr)
+	print(len(destruct_2_dict), file=sys.stderr)
+	print(len(lumpy_2_dict), file=sys.stderr)
 	''' complex procedure to get merge-able rows '''
 	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
 	delly_destruct_lumpy_dict = dict()
