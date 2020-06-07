@@ -202,10 +202,10 @@ def main():
 			if (line1[3] != line2[3]) or (line2[3] != line1[3]):
 				return False
 			# check pos1
-			if (abs(int(line1[2])-int(line2[2])) > dist) or (abs(int(line2[2])-int(line1[2])) > dist):
+			if (abs(int(line1[2])-int(line2[2])) > dist):
 				return False
 			# check pos2
-			if (abs(int(line1[4])-int(line2[4])) > dist) or (abs(int(line2[4])-int(line1[4])) > dist):
+			if (abs(int(line1[4])-int(line2[4])) > dist):
 				return False
 		return True
 
@@ -486,6 +486,9 @@ def main():
 	for item in lumpy_2_list:
 		lumpy_2_dict[item] = lumpy_dict[item]
 
+	print(len(delly_2_dict))
+	print(len(destruct_2_dict))
+	print(len(lumpy_2_dict))
 	''' complex procedure to get merge-able rows '''
 	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
 	delly_destruct_lumpy_dict = dict()
