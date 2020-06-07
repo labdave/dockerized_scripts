@@ -512,11 +512,20 @@ def main():
 	print(list(set(destruct_remove)), file=sys.stderr)
 	print(list(set(lumpy_remove)), file=sys.stderr)
 	for item in delly_remove:
-		delly_dict.pop(item)
+		if item in delly_dict:
+			delly_dict.pop(item)
+		if item in delly_2_dict:
+			delly_2_dict.pop(item)
 	for item in destruct_remove:
-		destruct_dict.pop(item)
+		if item in destruct_dict:
+			destruct_dict.pop(item)
+		if item in destruct_2_dict:
+			destruct_2_dict.pop(item)
 	for item in lumpy_remove:
-		lumpy_dict.pop(item)
+		if item in lumpy_dict:
+			lumpy_dict.pop(item)
+		if item in lumpy_2_dict:
+			lumpy_2_dict.pop(item)
 	
 	print('three callers done', file=sys.stderr)
 	print(lines, file=sys.stderr)
