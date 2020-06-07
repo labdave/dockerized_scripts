@@ -469,7 +469,7 @@ def main():
 	with open(destruct_delly_bed, 'r') as f:
 		for line in f:
 			destruct_2_list.append(line.strip().split()[-1])
-	with open(destruct_lumpy_bed_2, 'r') as f:
+	with open(destruct_lumpy_bed, 'r') as f:
 		for line in f:
 			destruct_2_list.append(line.strip().split()[-1])
 	destruct_2_list = list(set(destruct_2_list))
