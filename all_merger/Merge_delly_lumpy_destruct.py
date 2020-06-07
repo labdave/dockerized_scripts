@@ -499,11 +499,11 @@ def main():
 	for delly_item in delly_all_dict:
 		for destruct_item in destruct_all_dict:
 			for lumpy_item in lumpy_all_dict:
-				if count%1000 == 0:
-					print(str(count), file=sys.stderr)
+				# if count%1000 == 0:
+					# print(str(count), file=sys.stderr)
 				count += 1
 				if check_proximity(delly_item, destruct_item, lumpy_item):
-					print('yes', file=sys.stderr)
+					# print('yes', file=sys.stderr)
 					joint_key = delly_item+'|'+destruct_item+'|'+lumpy_item
 					joint_val = [delly_all_dict[delly_item], destruct_all_dict[destruct_item], lumpy_all_dict[lumpy_item]]
 					delly_destruct_lumpy_dict[joint_key] = joint_val
@@ -511,9 +511,9 @@ def main():
 					delly_remove.append(delly_item)
 					destruct_remove.append(destruct_item)
 					lumpy_remove.append(lumpy_item)
-	print(list(set(delly_remove)), file=sys.stderr)
-	print(list(set(destruct_remove)), file=sys.stderr)
-	print(list(set(lumpy_remove)), file=sys.stderr)
+	# print(list(set(delly_remove)), file=sys.stderr)
+	# print(list(set(destruct_remove)), file=sys.stderr)
+	# print(list(set(lumpy_remove)), file=sys.stderr)
 	for item in delly_remove:
 		if item in delly_dict:
 			delly_dict.pop(item)
@@ -531,7 +531,7 @@ def main():
 			lumpy_2_dict.pop(item)
 	
 	print('three callers done', file=sys.stderr)
-	print(lines, file=sys.stderr)
+	# print(lines, file=sys.stderr)
 	
 	# three pairs of two callers each
 	delly_remove, destruct_remove, lumpy_remove = [], [], []
@@ -584,14 +584,14 @@ def main():
 	for item in lumpy_remove:
 		if item in lumpy_dict:
 			lumpy_dict.pop(item)
-	print(lines, file=sys.stderr)
+	# print(lines, file=sys.stderr)
 	
 	# print all other single call lines
 	for item in delly_dict:
 		# print(delly_dict[item], file=sys.stderr)
 		lines += delly_dict[item].strip()+'\tDELLY\t1\n'
 	for item in lumpy_dict:
-		print(item, file=sys.stderr)
+		# print(item, file=sys.stderr)
 		lines += lumpy_dict[item].strip()+'\tLUMPY\t1\n'
 	for item in destruct_dict:
 		# print(item, file=sys.stderr)
