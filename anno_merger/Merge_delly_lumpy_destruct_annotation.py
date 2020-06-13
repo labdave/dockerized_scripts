@@ -266,10 +266,10 @@ def main():
 			shutil.copyfile(seg_dup, temp_dir+'/tmp_seg.bed') 
 				
 			'''Run intersect bed'''
-			intersectBed_run(temp_dir+'/tmp.bed',temp_dir+'/tmp_seg.bed',temp_dir+'/tmp_out111.bed',temp_dir)
+			intersectBed_run(temp_dir+'/tmp.bed',temp_dir+'/tmp_seg.bed',temp_dir+'/tmp_out.bed',temp_dir)
 			
 			'''reading the intersectBed output SegmentalDuplications file'''	
-			read_seg_out = open(temp_dir +'/tmp_out111.bed')
+			read_seg_out = open(temp_dir +'/tmp_out.bed')
 			for line in read_seg_out:
 				line = line.strip()
 				rw_lst = line.split("\t")
@@ -278,8 +278,8 @@ def main():
 			read_seg_out.close()
 			
 			'''removing temp files'''
-			# os.remove(temp_dir+'/tmp_seg.bed')
-			# os.remove(temp_dir+'/tmp_out.bed')
+			os.remove(temp_dir+'/tmp_seg.bed')
+			os.remove(temp_dir+'/tmp_out.bed')
 
 
 		if capture_kit != None or dac_gap != None or rep_mas != None or seg_dup != None:
