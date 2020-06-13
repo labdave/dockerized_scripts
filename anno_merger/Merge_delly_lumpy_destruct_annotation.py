@@ -262,14 +262,14 @@ def main():
 
 		dict_seg={}
 		if seg_dup != None:
-			'''Preparing DAC exclude file'''
+			'''Preparing seg dup file'''
 			shutil.copyfile(seg_dup, temp_dir+'/tmp_seg.bed') 
 				
 			'''Run intersect bed'''
-			intersectBed_run(temp_dir+'/tmp.bed',temp_dir+'/tmp_seg.bed',temp_dir+'/tmp_out.bed',temp_dir)
+			intersectBed_run(temp_dir+'/tmp.bed',temp_dir+'/tmp_seg.bed',temp_dir+'/tmp_out111.bed',temp_dir)
 			
 			'''reading the intersectBed output SegmentalDuplications file'''	
-			read_seg_out = open(temp_dir +'/tmp_out.bed')
+			read_seg_out = open(temp_dir +'/tmp_out111.bed')
 			for line in read_seg_out:
 				line = line.strip()
 				rw_lst = line.split("\t")
@@ -278,8 +278,8 @@ def main():
 			read_seg_out.close()
 			
 			'''removing temp files'''
-			os.remove(temp_dir+'/tmp_seg.bed')
-			os.remove(temp_dir+'/tmp_out.bed')
+			# os.remove(temp_dir+'/tmp_seg.bed')
+			# os.remove(temp_dir+'/tmp_out.bed')
 
 
 		if capture_kit != None or dac_gap != None or rep_mas != None or seg_dup != None:
@@ -342,11 +342,11 @@ def main():
 					write_out.write("\t"+val5+"\t"+val6)
 				if seg_dup != None:
 					val7="0"
-					'''if bp1 in rep dict'''
+					'''if bp1 in seg dict'''
 					if rw_lst[1]+' '+rw_lst[2] in dict_seg:
 						val7="1"
 					val8="0"
-					'''if bp2 in rep dict'''
+					'''if bp2 in seg dict'''
 					if rw_lst[3]+' '+rw_lst[4] in dict_seg:
 						val8="1"
 					write_out.write("\t"+val7+"\t"+val8)
@@ -358,6 +358,7 @@ def main():
 		del dict_dac
 		del dict_bed
 		del dict_rep
+		del dict_seg
 	'''Same BP in Other samples'''
 	if other_sample==True:
 		'''Preparing file for other sample step'''
@@ -610,15 +611,15 @@ def main():
 		'''Run intersect bed'''
 		intersectBed_run(temp_dir+'/tmp.bed',temp_dir+'/tmp_l1.bed',temp_dir+'/tmp_out.bed',temp_dir)
 		
-		dict_rep={}
+		dict_bpl1={}
 		'''reading the intersectBed output RepeatMasker file'''	
-		read_rep_out = open(temp_dir +'/tmp_out.bed')
-		for line in read_rep_out:
+		read_bpl1_out = open(temp_dir +'/tmp_out.bed')
+		for line in read_bpl1_out:
 			line = line.strip()
 			rw_lst = line.split("\t")
 			if int(rw_lst[9]) > 0:
-				dict_rep[rw_lst[0]+' '+rw_lst[2]]=1
-		read_rep_out.close()
+				dict_bpl1[rw_lst[0]+' '+rw_lst[2]]=1
+		read_bpl1_out.close()
 		
 		'''removing temp files'''
 		os.remove(temp_dir+'/tmp.bed')
@@ -635,12 +636,12 @@ def main():
 			rw_lst = line.split("\t")
 			level1_col=len(rw_lst)
 			val1="0"
-			if rw_lst[1]+' '+rw_lst[2] in dict_rep:
+			if rw_lst[1]+' '+rw_lst[2] in dict_bpl1:
 				val1="1"
 			write_out.write(line+"\t"+val1+"\n")
 		fobj.close()
 		write_out.close()
-		del dict_rep
+		del dict_bpl1
 		os.remove(temp_dir+'/tmpfile')
 		input_file = out_file
 
