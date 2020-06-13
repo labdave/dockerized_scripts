@@ -1,29 +1,23 @@
 import sys
+import numpy as np
 
-input_file = sys.argv[1]
-output_file = sys.argv[2]
+dv = sys.argv[1]
+s2 = sys.argv[2]
+hc = sys.argv[3]
+output_file = sys.argv[4]
 
-new_file = ''
-with open(input_file, 'r') as f:
+purity_arr = []
+with open(dv, 'r') as f:
 	for line in f:
-		if '#' in line:
-			new_file += line
-			continue
-		line_arr = line.strip().split()
-		if len(line_arr[3]) > 1 or len(line_arr[4]) > 1:
-			continue
-		if ',' in line_arr[3] or ',' in line_arr[4]:
-			continue
-		info = line_arr[9].split(':')
-		if info[0] == '0/0' or info[0] == '1/1':
-			continue
-		ref = info[5].split(',')[0]
-		alt = info[5].split(',')[1]
-		af = float(alt)/(float(alt)+float(ref))
-		new_file += '{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\n'.format(
-			line_arr[0], line_arr[1], line_arr[3], line_arr[4],
-			line_arr[6].replace('LowGQX;NoPassedVariantGTs', 'FAIL'),
-			ref, alt, af)
+		purity_arr.append(100*float(line.strip().split()[-1]))
+with open(s2, 'r') as f:
+	for line in f:
+		purity_arr.append(100*float(line.strip().split()[-1]))
+with open(hc, 'r') as f:
+	for line in f:
+		purity_arr.append(100*float(line.strip().split()[-1]))
 
+mean = np.mean(purity_arr)
+std = np.std(purity_arr)
 with open(output_file, 'w') as f:
-	f.write(new_file)
+	f.write('Mean Purity\t Standard deviation\n{0}\t{1}'.format(mean, std))

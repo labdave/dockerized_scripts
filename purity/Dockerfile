@@ -34,9 +34,10 @@ RUN pip install numpy
 RUN pip install cython
 RUN pip install pysam
 
-# get lumpy script
-ADD https://api.github.com/repos/DevangThakkar/translocation_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/translocation_scripts.git
-RUN cp translocation_scripts/all_merger/Merge_delly_lumpy_destruct.py .
-RUN cp translocation_scripts/all_merger/Merge_delly_lumpy_destruct.py /home/Merge_delly_lumpy_destruct.py
-RUN chmod +x Merge_delly_lumpy_destruct.py
+# get purity scripts
+ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+RUN cp dockerized_scripts/purity/vcf_pipeline.sh .
+RUN cp dockerized_scripts/purity/*.py .
+RUN cp dockerized_scripts/purity/vcf_pipeline.sh /home/
+RUN cp dockerized_scripts/purity/*.py /home/
