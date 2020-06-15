@@ -11,13 +11,14 @@ while getopts ":w:e:d:g:s:o:" opt; do
     ;;
     s) st="$OPTARG"
     ;;
-    i) output="$OPTARG"
+    o) output="$OPTARG"
 	;;
     \?) echo "Invalid option -$OPTARG" >&2
     ;;
   esac
 done
 
+echo "$ext_flag"
 ### DEEPVARIANT ###
 gunzip -f "${dv}".gz
 sed '/##/d' "${dv}" > "${dv}"_dv_noheader.vcf
