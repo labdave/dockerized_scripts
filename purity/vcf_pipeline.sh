@@ -1,5 +1,5 @@
 ext_flag="FALSE"
-while getopts ":w:e:d:g:s:i:" opt; do
+while getopts ":w:e:d:g:s:o:" opt; do
   case $opt in
     w) whitelist="$OPTARG"
     ;;
@@ -11,7 +11,7 @@ while getopts ":w:e:d:g:s:i:" opt; do
     ;;
     s) st="$OPTARG"
     ;;
-    i) sample_id="$OPTARG"
+    i) output="$OPTARG"
 	;;
     \?) echo "Invalid option -$OPTARG" >&2
     ;;
@@ -58,4 +58,4 @@ fi
 echo "HC done"
 
 ### MERGER ###
-python final_parser.py "${dv}"_hc_intersect.vcf "${s2}"_hc_intersect.vcf "${hc}"_hc_intersect.vcf "${sample_id}".purity.tsv
+python final_parser.py "${dv}"_hc_intersect.vcf "${s2}"_hc_intersect.vcf "${hc}"_hc_intersect.vcf "${output}"
