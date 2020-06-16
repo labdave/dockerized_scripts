@@ -1,9 +1,6 @@
-ext_flag="FALSE"
 while getopts ":w:e:d:g:s:o:" opt; do
   case $opt in
     w) whitelist="$OPTARG"
-    ;;
-    e) extended_whitelist="$OPTARG"; ext_flag="TRUE"
     ;;
     d) dv="$OPTARG"
     ;;
@@ -18,44 +15,25 @@ while getopts ":w:e:d:g:s:o:" opt; do
   esac
 done
 
-echo "$ext_flag"
 ### DEEPVARIANT ###
 gunzip -f "${dv}".gz
 sed '/##/d' "${dv}" > "${dv}"_dv_noheader.vcf
 python reformat_deepvariant.py "${dv}"_dv_noheader.vcf "${dv}"_dv_reformat.vcf
-if ((ext_flag == "TRUE"))
-then
-	python intersect_vcf.py "${whitelist}" "${dv}"_dv_reformat.vcf "${dv}"_dv_intersect.vcf "${extended_whitelist}"
-else
-	python intersect_vcf.py "${whitelist}" "${dv}"_dv_reformat.vcf "${dv}"_dv_intersect.vcf
-fi
-
+python intersect_vcf.py "${whitelist}" "${dv}"_dv_reformat.vcf "${dv}"_dv_intersect.vcf
 echo "DV done"
 
 ### STRELKA2 ###
 gunzip -f "${st}".gz
 sed '/##/d' "${st}" > "${st}"_s2_noheader.vcf
 python reformat_strelka.py "${st}"_s2_noheader.vcf "${st}"_s2_reformat.vcf
-if ((ext_flag == "TRUE"))
-then
-	python intersect_vcf.py "${whitelist}" "${st}"_s2_reformat.vcf "${st}"_s2_intersect.vcf "${extended_whitelist}"
-else
-	python intersect_vcf.py "${whitelist}" "${st}"_s2_reformat.vcf "${st}"_s2_intersect.vcf
-fi
-
+python intersect_vcf.py "${whitelist}" "${st}"_s2_reformat.vcf "${st}"_s2_intersect.vcf
 echo "S2 done"
 
 ### HAPLOTYPECALLER ###
 gunzip -f "${hc}".gz
 sed '/##/d' "${hc}" > "${hc}"_hc_noheader.vcf
 python reformat_haplotypecaller.py "${hc}"_hc_noheader.vcf "${hc}"_hc_reformat.vcf
-if ((ext_flag == "TRUE"))
-then
-	python intersect_vcf.py "${whitelist}" "${hc}"_hc_reformat.vcf "${hc}"_hc_intersect.vcf "${extended_whitelist}"
-else
-	python intersect_vcf.py "${whitelist}" "${hc}"_hc_reformat.vcf "${hc}"_hc_intersect.vcf
-fi
-
+python intersect_vcf.py "${whitelist}" "${hc}"_hc_reformat.vcf "${hc}"_hc_intersect.vcf
 echo "HC done"
 
 ### MERGER ###

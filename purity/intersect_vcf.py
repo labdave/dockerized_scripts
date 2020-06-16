@@ -13,15 +13,6 @@ with open(whitelist_file, 'r') as f:
 		line_arr = line.strip().split()
 		whitelist.append(line_arr[1]+':'+line_arr[2])
 
-if len(sys.argv) == 5:
-	extended_whitelist_file = sys.argv[4]
-	with open(extended_whitelist_file, 'r') as f:
-		for line in f:
-			if 'Start' in line:
-				continue
-			line_arr = line.strip().split()
-			whitelist.append(line_arr[0]+':'+line_arr[1])
-
 new_file = ''
 with open(input_file, 'r') as f:
 	for line in f:
