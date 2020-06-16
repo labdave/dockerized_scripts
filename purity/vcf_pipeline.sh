@@ -59,4 +59,4 @@ fi
 echo "HC done"
 
 ### MERGER ###
-python final_parser.py "${dv}"_hc_intersect.vcf "${s2}"_hc_intersect.vcf "${hc}"_hc_intersect.vcf "${output}"
+python final_parser.py "${dv}"_dv_intersect.vcf "${s2}"_s2_intersect.vcf "${hc}"_hc_intersect.vcf "${output}"
