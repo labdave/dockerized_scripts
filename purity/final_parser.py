@@ -33,15 +33,15 @@ with open(output_file, 'w') as f:
 	f.write('Mean Purity\t Standard deviation\tDeepvariant support\tStrelka2 support\tHaplotypecaller support\n')
 	f.write('{0}\t{1}\t{2}\t{3}\t{4}\n\n\n\n\n'.format(mean, std, dv_count, s2_count, hc_count))
 
-	f.write('\n\nDeepvariant calls')
+	f.write('\n\nDeepvariant calls\n')
 	with open(dv, 'r') as g:
 		for line in g:
 			f.write(line)
-	f.write('\n\nStrelka2 calls')
+	f.write('\n\nStrelka2 calls\n')
 	with open(s2, 'r') as g:
 		for line in g:
 			f.write(line)
-	f.write('\n\nHaplotypecaller calls')
+	f.write('\n\nHaplotypecaller calls\n')
 	with open(hc, 'r') as g:
 		for line in g:
 			f.write(line)
