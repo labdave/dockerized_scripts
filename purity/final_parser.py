@@ -10,15 +10,15 @@ purity_arr = []
 with open(dv, 'r') as f:
 	for line in f:
 		est = 2*100*float(line.strip().split()[-1])
-		purity_arr.append(min(50, est))
+		purity_arr.append(min(100, est))
 with open(s2, 'r') as f:
 	for line in f:
 		est = 2*100*float(line.strip().split()[-1])
-		purity_arr.append(min(50, est))
+		purity_arr.append(min(100, est))
 with open(hc, 'r') as f:
 	for line in f:
 		est = 2*100*float(line.strip().split()[-1])
-		purity_arr.append(min(50, est))
+		purity_arr.append(min(100, est))
 
 mean = np.mean(purity_arr)
 std = np.std(purity_arr)
