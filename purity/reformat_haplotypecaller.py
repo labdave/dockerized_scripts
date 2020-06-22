@@ -17,6 +17,7 @@ with open(input_file, 'r') as f:
 		info = line_arr[9].split(':')
 		if info[0] == '0/0' or info[0] == '1/1':
 			continue
+		print(line)
 		ref = info[1].split(',')[0]
 		alt = info[1].split(',')[1]
 		af = float(alt)/(float(alt)+float(ref))
