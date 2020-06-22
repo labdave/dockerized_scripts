@@ -14,7 +14,7 @@
    "client_secret": "1po94si81l8scg0t47ikb9m45q2kgsokm2s8oifnie7f80cd2gds",
    "authorization_endpoint": "https://igv-demo-davelab.auth.us-east-1.amazoncognito.com/login",
    "token_endpoint": "https://igv-demo-davelab.auth.us-east-1.amazoncognito.com/token",
-   "aws_cognito_fed_pool_id": "us-east-1:fa007a6f-932c-4c32-a3f2-a76fa062eb60",
+   "aws_cognito_fed_pool_id": "us-east-1:680a48a4-32ca-4cb3-9d48-8aff8030a440",
    "aws_cognito_pool_id": "us-east-1_ft2eU5BII",
    "aws_cognito_role_arn": "arn:aws:cognito-idp:us-east-1:647039563248:userpool/us-east-1_ft2eU5BII"
 }
