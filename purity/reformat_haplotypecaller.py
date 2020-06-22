@@ -20,6 +20,8 @@ with open(input_file, 'r') as f:
 		print(line)
 		ref = info[1].split(',')[0]
 		alt = info[1].split(',')[1]
+		if float(alt) + float(ref) == 0:
+			continue
 		af = float(alt)/(float(alt)+float(ref))
 		new_file += '{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\n'.format(
 			line_arr[0], line_arr[1], line_arr[3], line_arr[4],

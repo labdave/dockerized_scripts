@@ -1,4 +1,4 @@
-while getopts ":w:e:d:g:s:o:" opt; do
+while getopts ":w:d:g:s:o:" opt; do
   case $opt in
     w) whitelist="$OPTARG"
     ;;
