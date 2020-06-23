@@ -16,5 +16,5 @@
    "token_endpoint": "https://igv-demo-davelab.auth.us-east-1.amazoncognito.com/token",
    "aws_cognito_fed_pool_id": "us-east-1:fa007a6f-932c-4c32-a3f2-a76fa062eb60",
    "aws_cognito_pool_id": "us-east-1_ft2eU5BII",
-   "aws_cognito_role_arn": "arn:aws:iam::647039563248:role/Cognito_IGVIdPoolUnauth_Role"
+   "aws_cognito_role_arn": "arn:aws:iam::647039563248:role/Cognito_IGVIdPoolAauth_Role"
 }
