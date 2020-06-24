@@ -818,6 +818,7 @@ def main():
 		header = fobj.readline()
 		header = header.strip()
 		myfile.write(header+"\tBP1_Gene\tBP2_Gene\tBP1_Dist\tBP2_Dist\n")
+		print(dict_bed)
 		for line in fobj:
 			line = line.strip()
 			rw_lst = line.split("\t")
@@ -826,6 +827,7 @@ def main():
 			gene_2_col_num=len(rw_lst)+1
 			gn1=["NA"]
 			gn2=["NA"]
+			print(rw_lst[1]+' '+rw_lst[2])
 			if rw_lst[1]+' '+rw_lst[2] in dict_bed:
 				gn1= dict_bed[rw_lst[1]+' '+rw_lst[2]].split(",")
 				dst_list1= dict_bed_dist[rw_lst[1]+' '+rw_lst[2]].split(",")
