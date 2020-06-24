@@ -829,6 +829,8 @@ def main():
 			gene_2_col_num=len(rw_lst)+1
 			gn1=["NA"]
 			gn2=["NA"]
+			dist1=["NA"]
+			dist2=["NA"]
 			if rw_lst[1]+' '+rw_lst[2] in dict_bed:
 				gn1= dict_bed[rw_lst[1]+' '+rw_lst[2]].split(",")
 				dst_list1= dict_bed_dist[rw_lst[1]+' '+rw_lst[2]].split(",")
