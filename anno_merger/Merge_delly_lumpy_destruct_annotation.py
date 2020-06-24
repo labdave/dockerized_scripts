@@ -679,14 +679,14 @@ def main():
 		
 		'''reading the intersectBed output DAC file'''
 		
-		read_dac_out = open(temp_dir +'/tmp_out.bed')
+		read_rach_out = open(temp_dir +'/tmp_out.bed')
 		dict_det_trans={}
-		for line in read_dac_out:
+		for line in read_rach_out:
 			line = line.strip()
 			rw_lst = line.split("\t")
 			if int(rw_lst[15]) > 0:
 				dict_det_trans[rw_lst[0]+' '+rw_lst[2]]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[12]+"\t"+rw_lst[13]+"\t"+rw_lst[14]
-		read_dac_out.close()
+		read_rach_out.close()
 		
 		'''Reading input'''
 		read_input = open(temp_dir+'/tmpfile')
