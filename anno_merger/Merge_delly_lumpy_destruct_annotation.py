@@ -186,7 +186,7 @@ def main():
 		write_tmp = open(temp_dir+'/tmp.bed', mode='wt')
 		linenum = 0
 		for line in read_input:
-			line=line.strip()
+			line=line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			linenum = linenum+1
 			write_tmp.write(rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\t"+str(linenum)+"\t"+str(1)+"\n")
@@ -205,7 +205,7 @@ def main():
 			
 			read_tmp = open(temp_dir+'/tmp_out.bed')
 			for line in read_tmp:
-				line = line.strip()
+				line = line.strip().replace('\"', '')
 				rw_lst = line.split("\t")
 				'''ignoring rows with no overlap'''
 				if rw_lst[5] != '.':
@@ -229,7 +229,7 @@ def main():
 			
 			read_dac_out = open(temp_dir +'/tmp_out.bed')
 			for line in read_dac_out:
-				line = line.strip()
+				line = line.strip().replace('\"', '')
 				rw_lst = line.split("\t")
 				if int(rw_lst[9]) > 0:
 					dict_dac[rw_lst[0]+' '+rw_lst[2]]=1
@@ -250,7 +250,7 @@ def main():
 			'''reading the intersectBed output RepeatMasker file'''	
 			read_rep_out = open(temp_dir +'/tmp_out.bed')
 			for line in read_rep_out:
-				line = line.strip()
+				line = line.strip().replace('\"', '')
 				rw_lst = line.split("\t")
 				if int(rw_lst[9]) > 0:
 					dict_rep[rw_lst[0]+' '+rw_lst[2]]=1
@@ -271,7 +271,7 @@ def main():
 			'''reading the intersectBed output SegmentalDuplications file'''	
 			read_seg_out = open(temp_dir +'/tmp_out.bed')
 			for line in read_seg_out:
-				line = line.strip()
+				line = line.strip().replace('\"', '')
 				rw_lst = line.split("\t")
 				if int(rw_lst[9]) > 0:
 					dict_seg[rw_lst[0]+' '+rw_lst[2]]=1
@@ -304,7 +304,7 @@ def main():
 			
 			write_out.write("\n")
 			for line in read_input:
-				line = line.strip()
+				line = line.strip().replace('\"', '')
 				rw_lst = line.split("\t")
 				
 				write_out.write(line)
@@ -371,7 +371,7 @@ def main():
 		dict_othersamp_first = {}
 		dict_othersamp_sec = {}
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			samp = rw_lst[0]
 			chr1 = rw_lst[1]
@@ -418,7 +418,7 @@ def main():
 		myfile.write(header+"\tOther_samp_num_pos1\tOther_samp_ID_pos1\tOther_samp_num_pos2\tOther_samp_ID_pos2\tOther_samp_num_pos_both\tOther_samp_ID_pos_both\n")
 		linenum = 0
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			samp = rw_lst[0]
 			chr1 = rw_lst[1]
@@ -479,7 +479,7 @@ def main():
 		distance=300
 		linenum = 0
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			linenum = linenum+1
 			tmp1=int(rw_lst[2])-distance
@@ -500,7 +500,7 @@ def main():
 		header = fobj.readline()
 		linenum = 0
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			linenum = linenum+1
 			tmp1=int(rw_lst[2])-distance
@@ -526,7 +526,7 @@ def main():
 		vl=""
 		fobj = open(temp_dir +'/tmp_out.bed')
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			if rw_lst[5] != '.':
 				line_num1 = rw_lst[3]
@@ -569,7 +569,7 @@ def main():
 		myfile.write(header+"\tNormal_samp_num\tNormal_samp_ID\n")
 		linenum = 0
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			linenum = linenum+1
 			if str(linenum)+'__'+rw_lst[1] in dict_norm2:
@@ -598,7 +598,7 @@ def main():
 		write_tmp = open(temp_dir+'/tmp.bed', mode='wt')
 		linenum = 0
 		for line in read_input:
-			line=line.strip()
+			line=line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			linenum = linenum+1
 			write_tmp.write(rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\t"+str(linenum)+"\t"+str(1)+"\n")
@@ -615,7 +615,7 @@ def main():
 		'''reading the intersectBed output RepeatMasker file'''	
 		read_bpl1_out = open(temp_dir +'/tmp_out.bed')
 		for line in read_bpl1_out:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			if int(rw_lst[9]) > 0:
 				dict_bpl1[rw_lst[0]+' '+rw_lst[2]]=1
@@ -632,7 +632,7 @@ def main():
 		header = header.strip()
 		write_out.write(header+"\tBP1_L1_Genic\n")
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			level1_col=len(rw_lst)
 			val1="0"
@@ -654,7 +654,7 @@ def main():
 		write_tmp = open(temp_dir+'/tmp.bed', mode='wt')
 		linenum = 0
 		for line in read_input:
-			line=line.strip()
+			line=line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			rw_lst = [i.replace('\"', '') for i in rw_lst]
 			linenum = linenum+1
@@ -668,7 +668,7 @@ def main():
 		write_tmp = open(temp_dir+'/tmp1.bed', mode='wt')
 		linenum = 0
 		for line in read_input:
-			line=line.strip()
+			line=line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			rw_lst = [i.replace('\"', '') for i in rw_lst]
 			linenum = linenum+1
@@ -684,7 +684,7 @@ def main():
 		read_rach_out = open(temp_dir +'/tmp_out.bed')
 		dict_det_trans={}
 		for line in read_rach_out:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			rw_lst = [i.replace('\"', '') for i in rw_lst]
 			if int(rw_lst[-1]) > 0:
@@ -698,7 +698,7 @@ def main():
 		header = header.strip()
 		write_out.write(header+"\tdetected_trans_chrom\tdetected_trans_start\tdetected_trans_stop\tdetected_trans_all\tdetected_trans_max_pct\tdetected_trans_max_pct_chrom\n")
 		for line in read_input:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			write_out.write(line)
 			val1="NA\tNA\tNA\tNA\tNA\tNA"
@@ -742,7 +742,7 @@ def main():
 		fobj = open(gtf_file)
 		myfile = open(temp_dir+'/tmp1.bed', mode='wt')
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			if not line.startswith("##") and rw_lst[2] == "gene":
 				gn=re.search('gene_name "(.+?)"', rw_lst[8]).group(1)
@@ -764,7 +764,7 @@ def main():
 		myfile = open(temp_dir+'/tmp2.bed', mode='wt')
 		header = fobj.readline()
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			print(rw_lst)
 			myfile.write(rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\n")
@@ -783,7 +783,7 @@ def main():
 		'''Loading the intersect regions and adding the gene information to dict'''
 		fobj = open(temp_dir +'/tmp_out.bed')
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			if int(rw_lst[7]) > 0:
 				start1 = int(rw_lst[1])
@@ -821,7 +821,7 @@ def main():
 		myfile.write(header+"\tBP1_Gene\tBP2_Gene\tBP1_Dist\tBP2_Dist\n")
 		print(dict_bed)
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			'''getting col number for gene1 and gene2 and will be used later in the next few steps'''
 			gene_1_col_num=len(rw_lst)
@@ -935,7 +935,7 @@ def main():
 		fobj = open(gtf_file)
 		myfile = open(temp_dir+'/tmp.bed', mode='wt')
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			arr = line.split("\t")
 			if not line.startswith("##") and arr[2] == "exon":
 				gn=re.search('gene_name "(.+?)"', arr[8]).group(1)
@@ -961,7 +961,7 @@ def main():
 			fobj = open(var_files+'/'+line)
 			header = fobj.readline()
 			for line in fobj:
-				line = line.strip()
+				line = line.strip().replace('\"', '')
 				if line!="":
 					rw_lst = line.split("\t")
 					rw_lst = rw_lst[:3]+rw_lst
@@ -1004,7 +1004,7 @@ def main():
 		dict_gene={}
 		fobj = open(temp_dir+'/tmp_out.bed')
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			arr = line.split("\t")
 			if int(arr[8]) > 0:
 				gene = arr[3]
@@ -1033,7 +1033,7 @@ def main():
 		header = header.strip()
 		myfile.write(header+"\tBP1_NumVar\tBP2_NumVar\n")
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			arr = line.split("\t")
 			samp=arr[1]
 			gn1=samp+'__'+arr[gene_1_col_num]
@@ -1061,7 +1061,7 @@ def main():
 		fobj = open(paper_freq_pairs)
 		header = fobj.readline()
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			dict_mate_freq[rw_lst[0]+'__'+rw_lst[1]]=1
 		fobj.close()				
@@ -1072,7 +1072,7 @@ def main():
 		header = header.strip()
 		myfile.write(header+"\tChong_et_al_freq_mate\n")
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			val3=0
 			if rw_lst[gene_1_col_num]+'__'+rw_lst[gene_2_col_num] in dict_mate_freq:
@@ -1110,7 +1110,7 @@ def main():
 		header = header.strip()
 		myfile.write(header+"\tBP1_FC\tBP1_Pval\tBP2_FC\tBP2_Pval\n")
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			samp=rw_lst[1]
 			#flag=rw_lst[87]
@@ -1148,7 +1148,7 @@ def main():
 			
 			for line in fobj:
 				linenum = linenum+1
-				line = line.strip()
+				line = line.strip().replace('\"', '')
 				rw_lst = line.split("\t")
 				gn1 = rw_lst[0]
 				gn2 = rw_lst[1]
@@ -1179,7 +1179,7 @@ def main():
 		header = header.strip()
 		myfile.write(header+"\tFusion_Present_Gene\n")
 		for line in fobj:
-			line = line.strip()
+			line = line.strip().replace('\"', '')
 			arr = line.split("\t")
 			linenum = linenum+1
 			gn1=arr[gene_1_col_num]
