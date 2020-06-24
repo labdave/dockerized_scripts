@@ -657,7 +657,6 @@ def main():
 			line=line.strip()
 			rw_lst = line.split("\t")
 			rw_lst = [i.replace('\"', '') for i in rw_lst]
-			print(rw_lst)
 			linenum = linenum+1
 			write_tmp.write(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\t"+str(linenum)+"\t"+str(1)+"\n")
 		read_input.close()
@@ -672,7 +671,6 @@ def main():
 			line=line.strip()
 			rw_lst = line.split("\t")
 			rw_lst = [i.replace('\"', '') for i in rw_lst]
-			print(rw_lst)
 			linenum = linenum+1
 			write_tmp.write(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[3]+"\t"+line+"\n")
 		read_input.close()
@@ -689,7 +687,6 @@ def main():
 			line = line.strip()
 			rw_lst = line.split("\t")
 			rw_lst = [i.replace('\"', '') for i in rw_lst]
-			print(rw_lst)
 			if int(rw_lst[-1]) > 0:
 				dict_det_trans[rw_lst[0]+' '+rw_lst[2]]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[12]+"\t"+rw_lst[13]+"\t"+rw_lst[14]
 		read_rach_out.close()
@@ -896,6 +893,8 @@ def main():
 					i += 1
 				else:
 					for item in vals:
+						if item[0][1] =='NA' or item[1][1] == 'NA':
+							continue
 						if int(item[0][1]) < min_bp1:
 							min_bp1 = int(item[0][1])
 							bp1_gene = item[0][0]
