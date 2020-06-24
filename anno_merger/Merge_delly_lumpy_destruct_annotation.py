@@ -784,6 +784,7 @@ def main():
 		for line in fobj:
 			line = line.strip()
 			rw_lst = line.split("\t")
+			print(rw_lst)
 			if int(rw_lst[7]) > 0:
 				start1 = int(rw_lst[1])
 				stop1 = int(rw_lst[2])
