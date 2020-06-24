@@ -75,7 +75,7 @@ def intersectBed_run(file1,file2,out,temp):
 	cmd = 'mv temp.bed ' + file2
 	os.system(cmd)
 	
-	cmd = 'bedtools intersect -a ' + file1 + ' -b ' + file2 + ' -wao >' + out
+	cmd = 'bedtools intersect -a ' + file1 + ' -b ' + file2 + ' -wo >' + out
 	os.system(cmd)
 	
 	return out
