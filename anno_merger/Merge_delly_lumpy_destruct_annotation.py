@@ -670,6 +670,8 @@ def main():
 		for line in read_input:
 			line=line.strip()
 			rw_lst = line.split("\t")
+			rw_lst = [i.replace('\"', '') for i in rw_lst]
+			print(rw_lst)
 			linenum = linenum+1
 			write_tmp.write(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[3]+"\t"+line+"\n")
 		read_input.close()
