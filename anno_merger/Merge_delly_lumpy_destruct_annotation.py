@@ -744,6 +744,7 @@ def main():
 		for line in fobj:
 			line = line.strip()
 			rw_lst = line.split("\t")
+			print(rw_lst)
 			if not line.startswith("##") and rw_lst[2] == "gene":
 				gn=re.search('gene_name "(.+?)"', rw_lst[8]).group(1)
 				chr=rw_lst[0]
@@ -766,6 +767,7 @@ def main():
 		for line in fobj:
 			line = line.strip()
 			rw_lst = line.split("\t")
+			print(rw_lst)
 			myfile.write(rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\n")
 			myfile.write(rw_lst[3]+"\t"+str(int(rw_lst[4])-1)+"\t"+rw_lst[4]+"\n")
 		fobj.close()
@@ -784,7 +786,6 @@ def main():
 		for line in fobj:
 			line = line.strip()
 			rw_lst = line.split("\t")
-			print(rw_lst)
 			if int(rw_lst[7]) > 0:
 				start1 = int(rw_lst[1])
 				stop1 = int(rw_lst[2])
@@ -828,7 +829,6 @@ def main():
 			gene_2_col_num=len(rw_lst)+1
 			gn1=["NA"]
 			gn2=["NA"]
-			print(rw_lst[1]+' '+rw_lst[2])
 			if rw_lst[1]+' '+rw_lst[2] in dict_bed:
 				gn1= dict_bed[rw_lst[1]+' '+rw_lst[2]].split(",")
 				dst_list1= dict_bed_dist[rw_lst[1]+' '+rw_lst[2]].split(",")
