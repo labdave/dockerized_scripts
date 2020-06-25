@@ -656,7 +656,6 @@ def main():
 		for line in read_input:
 			line=line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
-			rw_lst = [i.replace('\"', '') for i in rw_lst]
 			linenum = linenum+1
 			write_tmp.write(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\t"+str(linenum)+"\t"+str(1)+"\n")
 		read_input.close()
@@ -670,7 +669,6 @@ def main():
 		for line in read_input:
 			line=line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
-			rw_lst = [i.replace('\"', '') for i in rw_lst]
 			linenum = linenum+1
 			write_tmp.write(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[3]+"\t"+line+"\n")
 		read_input.close()
@@ -686,7 +684,7 @@ def main():
 		for line in read_rach_out:
 			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
-			rw_lst = [i.replace('\"', '') for i in rw_lst]
+			print(rw_lst)
 			if int(rw_lst[-1]) > 0:
 				dict_det_trans[rw_lst[0]+' '+rw_lst[2]]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[12]+"\t"+rw_lst[13]+"\t"+rw_lst[14]
 		read_rach_out.close()
@@ -766,7 +764,6 @@ def main():
 		for line in fobj:
 			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
-			print(rw_lst)
 			myfile.write(rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\n")
 			myfile.write(rw_lst[3]+"\t"+str(int(rw_lst[4])-1)+"\t"+rw_lst[4]+"\n")
 		fobj.close()
@@ -819,7 +816,6 @@ def main():
 		header = fobj.readline()
 		header = header.strip()
 		myfile.write(header+"\tBP1_Gene\tBP2_Gene\tBP1_Dist\tBP2_Dist\n")
-		print(dict_bed)
 		for line in fobj:
 			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
