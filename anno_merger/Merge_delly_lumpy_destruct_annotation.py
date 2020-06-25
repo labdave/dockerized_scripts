@@ -658,9 +658,9 @@ def main():
 			rw_lst = line.split("\t")
 			linenum = linenum+1
 			write_tmp.write(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-50)+"\t"+str(int(rw_lst[2])+50)+"\t"+str(linenum)+"\t"+str(1)+"\n")
-			write_tmp.write(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[8])-50)+"\t"+str(int(rw_lst[8])+50)+"\t"+str(linenum)+"\t"+str(2)+"\n")
+			write_tmp.write(rw_lst[0]+'__'+rw_lst[3]+"\t"+str(int(rw_lst[4])-50)+"\t"+str(int(rw_lst[4])+50)+"\t"+str(linenum)+"\t"+str(2)+"\n")
 			print(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-50)+"\t"+str(int(rw_lst[2])+50)+"\t"+str(linenum)+"\t"+str(1))
-			print(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[8])-50)+"\t"+str(int(rw_lst[8])+50)+"\t"+str(linenum)+"\t"+str(2))
+			print(rw_lst[0]+'__'+rw_lst[3]+"\t"+str(int(rw_lst[4])-50)+"\t"+str(int(rw_lst[4])+50)+"\t"+str(linenum)+"\t"+str(2))
 		read_input.close()
 		write_tmp.close()
 		
