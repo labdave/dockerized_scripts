@@ -690,7 +690,6 @@ def main():
 		read_rach_out.close()
 		
 		'''Reading input'''
-		print(dict_det_trans)
 		read_input = open(temp_dir+'/tmpfile')
 		write_out = open(out_file, mode='wt')
 		header = read_input.readline()
@@ -704,10 +703,8 @@ def main():
 			'''if bp1 in capture kit dict'''
 			if rw_lst[0]+'__'+rw_lst[1]+' '+rw_lst[2] in dict_det_trans:
 				val1=dict_det_trans[rw_lst[0]+'__'+rw_lst[1]+' '+rw_lst[2]]
-				print(val1)
 			if rw_lst[0]+'__'+rw_lst[3]+' '+rw_lst[4] in dict_det_trans:
 				val1=dict_det_trans[rw_lst[0]+'__'+rw_lst[3]+' '+rw_lst[4]]
-				print(val1)
 			write_out.write("\t"+val1+"\n")
 		read_input.close()
 		write_out.close()
