@@ -656,9 +656,9 @@ def main():
 		for line in read_input:
 			line=line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
-			print(rw_lst)
 			linenum = linenum+1
 			write_tmp.write(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\t"+str(linenum)+"\t"+str(1)+"\n")
+			print(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[2]+"\t"+str(linenum)+"\t"+str(1))
 		read_input.close()
 		write_tmp.close()
 		
@@ -670,9 +670,9 @@ def main():
 		for line in read_input:
 			line=line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
-			print(rw_lst)
 			linenum = linenum+1
 			write_tmp.write(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[3]+"\t"+line+"\n")
+			print(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[3]+"\t"+line)
 		read_input.close()
 		write_tmp.close()
 		
