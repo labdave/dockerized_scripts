@@ -688,7 +688,7 @@ def main():
 			print(rw_lst)
 			if int(rw_lst[-1]) > 0:
 				print('yes')
-				dict_det_trans[rw_lst[0]+' '+rw_lst[2]]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[12]+"\t"+rw_lst[13]+"\t"+rw_lst[14]
+				dict_det_trans[rw_lst[0]+' 'rw_ls[1]+' '+rw_lst[2]]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[12]+"\t"+rw_lst[13]+"\t"+rw_lst[14]
 		read_rach_out.close()
 		
 		'''Reading input'''
