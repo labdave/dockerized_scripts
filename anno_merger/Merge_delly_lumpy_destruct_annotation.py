@@ -685,13 +685,12 @@ def main():
 		for line in read_rach_out:
 			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
-			print(rw_lst)
 			if int(rw_lst[-1]) > 0:
-				print('yes')
 				dict_det_trans[rw_lst[0]+' '+rw_lst[1]+' '+rw_lst[2]]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[12]+"\t"+rw_lst[13]+"\t"+rw_lst[14]
 		read_rach_out.close()
 		
 		'''Reading input'''
+		print(dict_det_trans)
 		read_input = open(temp_dir+'/tmpfile')
 		write_out = open(out_file, mode='wt')
 		header = read_input.readline()
@@ -703,6 +702,7 @@ def main():
 			write_out.write(line)
 			val1="NA\tNA\tNA\tNA\tNA\tNA"
 			'''if bp1 in capture kit dict'''
+			print(rw_lst[0]+'__'+rw_lst[1]+' '+rw_lst[2])
 			if rw_lst[0]+'__'+rw_lst[1]+' '+rw_lst[2] in dict_det_trans:
 				val1=dict_det_trans[rw_lst[0]+'__'+rw_lst[1]+' '+rw_lst[2]]
 			write_out.write("\t"+val1+"\n")
