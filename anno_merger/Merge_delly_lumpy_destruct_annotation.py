@@ -742,7 +742,7 @@ def main():
 		fobj = open(gtf_file)
 		myfile = open(temp_dir+'/tmp1.bed', mode='wt')
 		for line in fobj:
-			line = line.strip().replace('\"', '')
+			line = line.strip()
 			rw_lst = line.split("\t")
 			if not line.startswith("##") and rw_lst[2] == "gene":
 				gn=re.search('gene_name "(.+?)"', rw_lst[8]).group(1)
