@@ -686,7 +686,7 @@ def main():
 			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			if int(rw_lst[-1]) > 0:
-				dict_det_trans[rw_lst[0]+' '+str(int(rw_lst[1])+50)]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[12]+"\t"+rw_lst[13]+"\t"+rw_lst[14]
+				dict_det_trans[rw_lst[0]+' '+str(int(rw_lst[1])+50)]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[13]+"\t"+rw_lst[14]+"\t"+rw_lst[15]
 		read_rach_out.close()
 		
 		'''Reading input'''
