@@ -504,7 +504,7 @@ def main():
 				# if count%1000 == 0:
 					# print(str(count), file=sys.stderr)
 				count += 1
-				if check_proximity(delly_item, destruct_item, lumpy_item):
+				if check_proximity(delly_item, destruct_item, lumpy_item) and delly_item not in delly_remove and lumpy_item not in lumpy_remove and destruct_item not in destruct_remove:
 					joint_key = delly_item+'|'+destruct_item+'|'+lumpy_item
 					print(joint_key)
 					joint_val = [delly_all_dict[delly_item], destruct_all_dict[destruct_item], lumpy_all_dict[lumpy_item]]
