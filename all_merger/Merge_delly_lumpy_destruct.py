@@ -541,7 +541,7 @@ def main():
 	# delly destruct
 	for delly_item in delly_2_dict:
 		for destruct_item in destruct_2_dict:
-			if check_proximity(delly_item, destruct_item):
+			if check_proximity(delly_item, destruct_item) and delly_item not in delly_remove and destruct_item not in destruct_remove:
 				joint_key = delly_item+'|'+destruct_item
 				joint_val = [delly_dict[delly_item], destruct_dict[destruct_item]]
 				delly_destruct_dict[joint_key] = joint_val
@@ -553,7 +553,7 @@ def main():
 	# delly lumpy
 	for delly_item in delly_2_dict:
 		for lumpy_item in lumpy_2_dict:
-			if check_proximity(delly_item, lumpy_item):
+			if check_proximity(delly_item, lumpy_item) and delly_item not in delly_remove and lumpy_item not in lumpy_remove:
 				joint_key = delly_item+'|'+lumpy_item
 				joint_val = [delly_dict[delly_item], lumpy_dict[lumpy_item]]
 				delly_lumpy_dict[joint_key] = joint_val
@@ -565,7 +565,7 @@ def main():
 	# destruct lumpy
 	for destruct_item in destruct_2_dict:
 		for lumpy_item in lumpy_2_dict:
-			if check_proximity(destruct_item, lumpy_item):
+			if check_proximity(destruct_item, lumpy_item) and destruct_item not in destruct_remove and lumpy_item not in lumpy_remove:
 				joint_key = destruct_item+'|'+lumpy_item
 				joint_val = [destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
 				destruct_lumpy_dict[joint_key] = joint_val
