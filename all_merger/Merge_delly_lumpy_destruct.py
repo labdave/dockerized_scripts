@@ -505,8 +505,8 @@ def main():
 					# print(str(count), file=sys.stderr)
 				count += 1
 				if check_proximity(delly_item, destruct_item, lumpy_item):
-					# print('yes', file=sys.stderr)
 					joint_key = delly_item+'|'+destruct_item+'|'+lumpy_item
+					print(joint_key)
 					joint_val = [delly_all_dict[delly_item], destruct_all_dict[destruct_item], lumpy_all_dict[lumpy_item]]
 					delly_destruct_lumpy_dict[joint_key] = joint_val
 					lines += get_merged_line(joint_val, type_=0)
