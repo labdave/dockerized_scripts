@@ -41,4 +41,5 @@ RUN git clone https://github.com/stevekm/IGV-snapshot-automator.git
 WORKDIR IGV-snapshot-automator/bin
 RUN bash get_IGV.sh
 WORKDIR /IGV-snapshot-automator
+RUN time
 RUN wget https://raw.githubusercontent.com/DevangThakkar/dockerized_scripts/master/igv_docker/test.script
