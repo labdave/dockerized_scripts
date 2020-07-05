@@ -1,0 +1,4 @@
+new
+genome hg38
+snapshotDirectory .
+snapshot
