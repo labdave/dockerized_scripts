@@ -2,3 +2,4 @@ new
 genome hg38
 snapshotDirectory /data
 snapshot
+exit
