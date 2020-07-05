@@ -1,4 +1,4 @@
 new
 genome hg38
-snapshotDirectory .
+snapshotDirectory /data
 snapshot

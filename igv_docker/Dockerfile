@@ -1,5 +1,5 @@
 # work from latest LTS ubuntu release
-FROM openjdk:11-jdk-slim
+FROM openjdk:8-jdk-slim
 
 # run update and install necessary tools
 RUN apt-get update -y && apt-get install -y \
@@ -41,3 +41,4 @@ RUN git clone https://github.com/stevekm/IGV-snapshot-automator.git
 WORKDIR IGV-snapshot-automator/bin
 RUN bash get_IGV.sh
 WORKDIR /IGV-snapshot-automator
+RUN wget https://raw.githubusercontent.com/DevangThakkar/dockerized_scripts/master/igv_docker/test.script
