@@ -6,8 +6,12 @@ out_file = sys.argv[3]
 
 new_str = ''
 
+i = 0
 with open(anno_file, 'r') as f:
 	for line in f:
+		if not i:
+			i = 1
+			continue
 		line_arr = line.split()
 		if int(line_arr[7]) > thresh:
 			new_str += '\t'.join(line_arr[:5])+'\n'
