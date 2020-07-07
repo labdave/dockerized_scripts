@@ -110,14 +110,11 @@ for analyis_id in analyis_dict:
 		if args.squished:
 			script += 'squish\n'
 		else:
-			script += 'collapse\n'
+			script += 'expand\n'
 		
 		# group my mate chromosome
 		if args.group:
 			script += 'group MATE_CHROMOSOME\n'
-		
-		# sleep
-		script += 'sleep 5000\n'
 		
 		# get snapshot
 		script += 'snapshot {0}_{1}_{2}-{3}_{4}'.format(analyis_id, chr1, pos1, chr2, pos2)
