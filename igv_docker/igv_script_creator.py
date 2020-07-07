@@ -76,7 +76,7 @@ for analyis_id in analyis_dict:
 	script += 'genome hg38\n'
 	
 	# load file
-	script += 'load {0}'.format(args.bam)
+	script += 'load {0}\n'.format(args.bam)
 	
 	# load bed file
 	script += 'load gs://davelab_data/ref/human/hg38/capture_baits/twist/maskPAR/Twist_8MB_panel_with_ERCCs.maskPAR.bed\n'
