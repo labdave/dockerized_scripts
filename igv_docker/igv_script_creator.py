@@ -12,6 +12,8 @@ parser.add_argument('-f', '--file', required=True, help='translocation input fil
 parser.add_argument('-z', '--zoom', required=True, help='zoom amount', type=int)
 parser.add_argument('-d', '--dir', required=True, help='image locations')
 parser.add_argument('-o', '--out', required=True, help='output name')
+parser.add_argument('-r', '--repeat', required=True, help='repeat masker exclude list')
+parser.add_argument('-t', '--target', required=True, help='target bed')
 args = parser.parse_args()
 
 
@@ -79,8 +81,8 @@ for analyis_id in analyis_dict:
 	script += 'load {0}\n'.format(args.bam)
 	
 	# load bed file
-	# script += 'load gs://davelab_data/ref/human/hg38/capture_baits/twist/maskPAR/Twist_8MB_panel_with_ERCCs.maskPAR.bed\n'
-	# script += 'load gs://davelab_data/ref/naresh_sv/hg38_repeat_masker.sorted.bed\n'
+	script += 'load {}\n'.format(args.target)
+	script += 'load {}\n'.format(args.repeat)
 
 	# set screenshot directory
 	script += 'snapshotDirectory '
