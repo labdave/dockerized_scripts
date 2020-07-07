@@ -75,7 +75,7 @@ for analyis_id in analyis_dict:
 	script += 'new\n'
 		
 	# increase max panel height
-	script += 'maxPanelHeight 5000\n'
+	script += 'max PanelHeight 5000\n'
 	
 	# load genome
 	script += 'genome hg38\n'
@@ -110,7 +110,7 @@ for analyis_id in analyis_dict:
 		
 		# add sort position
 		script += 'sort position\n'
-		
+
 		# add squished or collapsed
 		if args.squished:
 			script += 'squish\n'
