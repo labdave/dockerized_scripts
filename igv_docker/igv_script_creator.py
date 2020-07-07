@@ -73,9 +73,6 @@ script = ''
 for analyis_id in analyis_dict:
 	# start igv
 	script += 'new\n'
-		
-	# increase max panel height
-	script += 'max PanelHeight 5000\n'
 	
 	# load genome
 	script += 'genome hg38\n'
