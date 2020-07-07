@@ -79,8 +79,8 @@ for analyis_id in analyis_dict:
 	script += 'load {0}\n'.format(args.bam)
 	
 	# load bed file
-	script += 'load gs://davelab_data/ref/human/hg38/capture_baits/twist/maskPAR/Twist_8MB_panel_with_ERCCs.maskPAR.bed\n'
-	script += 'load gs://davelab_data/ref/naresh_sv/hg38_repeat_masker.sorted.bed\n'
+	# script += 'load gs://davelab_data/ref/human/hg38/capture_baits/twist/maskPAR/Twist_8MB_panel_with_ERCCs.maskPAR.bed\n'
+	# script += 'load gs://davelab_data/ref/naresh_sv/hg38_repeat_masker.sorted.bed\n'
 
 	# set screenshot directory
 	script += 'snapshotDirectory '
