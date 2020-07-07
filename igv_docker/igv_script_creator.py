@@ -112,7 +112,7 @@ for analyis_id in analyis_dict:
 		if args.squished:
 			script += 'squish\n'
 		else:
-			script += 'collapse\n'
+			script += 'collapse\nmaxPanelHeight 3000\n'
 		
 		# group my mate chromosome
 		if args.group:
