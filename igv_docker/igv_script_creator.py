@@ -73,6 +73,9 @@ script = ''
 for analyis_id in analyis_dict:
 	# start igv
 	script += 'new\n'
+		
+	# increase max panel height
+	script += 'maxPanelHeight 5000\n'
 	
 	# load genome
 	script += 'genome hg38\n'
@@ -122,6 +125,7 @@ for analyis_id in analyis_dict:
 		script += 'collapse Gene\n'
 		script += 'expand Twist_8MB_panel_with_ERCCs.maskPAR.bed\n'
 		script += 'expand hg38_repeat_masker.sorted.bed\n'
+
 		# get snapshot
 		script += 'snapshot {0}_{1}_{2}-{3}_{4}'.format(analyis_id, chr1, pos1, chr2, pos2)
 		if args.split:
