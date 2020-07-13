@@ -4,6 +4,6 @@ load /data/small.bam index=/data/small.bam.bai
 #load s3://davelab-analysis-results/33391/AAC096_A_A32844/discowave/AAC096_A_A32844/discowave.AAC096_A_A32844.AAC096_A_A32844.discordant_reads.diff_chrom.bam index=s3://davelab-analysis-results/33391/AAC096_A_A32844/discowave/AAC096_A_A32844/discowave.AAC096_A_A32844.AAC096_A_A32844.discordant_reads.diff_chrom.bam.bai
 goto chr8:12779037-12779097 chr11:3321026-3321086
 #goto chr2:3291-3991 chr3:10000
-snapshotDirectory /data
+#snapshotDirectory /data
 snapshot /data/test.png
 exit
