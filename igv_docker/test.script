@@ -1,5 +1,5 @@
 new
-genome hg19
+genome /data/hg38.genome
 load /data/discowave.bam index=/data/discowave.bam.bai
 #load s3://davelab-analysis-results/33391/AAC096_A_A32844/discowave/AAC096_A_A32844/discowave.AAC096_A_A32844.AAC096_A_A32844.discordant_reads.diff_chrom.bam index=s3://davelab-analysis-results/33391/AAC096_A_A32844/discowave/AAC096_A_A32844/discowave.AAC096_A_A32844.AAC096_A_A32844.discordant_reads.diff_chrom.bam.bai
 goto chr2:3291-3991 chr3:10000
