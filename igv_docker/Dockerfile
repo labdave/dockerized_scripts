@@ -92,9 +92,9 @@ RUN apt-get update -y && apt-get install -y \
 RUN wget https://data.broadinstitute.org/igv/projects/downloads/2.8/IGV_Linux_2.8.6.zip && unzip IGV_Linux_2.8.6.zip
 ADD https://api.github.com/repos/DevangThakkar/translocation_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
-RUN cp dockerized_scripts/igv_docker/filter_rows.py IGV_Linux_2.8.6/
-RUN cp dockerized_scripts/igv_docker/test.script IGV_Linux_2.8.6/
-RUN cp dockerized_scripts/igv_docker/igv_script_creator.py IGV_Linux_2.8.6/
+RUN cp dockerized_scripts/igv_docker/filter_rows.py .
+RUN cp dockerized_scripts/igv_docker/test.script .
+RUN cp dockerized_scripts/igv_docker/igv_script_creator.py .
 RUN cp dockerized_scripts/igv_docker/prefs.properties IGV_Linux_2.8.6/
 
 # this is crucial - would simply not work without this - I don't pretend to know why
