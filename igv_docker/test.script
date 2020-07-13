@@ -1,7 +1,7 @@
 new
 genome hg38
 #load /data/discowave.bam index=/data/discowave.bam.bai
-#goto chr2:32916012-32916612
+goto chr2:32916012-32916612
 snapshotDirectory /data
 snapshot
 exit
