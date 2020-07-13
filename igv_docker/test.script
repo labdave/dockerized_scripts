@@ -2,7 +2,7 @@ new
 genome hg38
 load /data/small.bam
 #load s3://davelab-analysis-results/33391/AAC096_A_A32844/discowave/AAC096_A_A32844/discowave.AAC096_A_A32844.AAC096_A_A32844.discordant_reads.diff_chrom.bam index=s3://davelab-analysis-results/33391/AAC096_A_A32844/discowave/AAC096_A_A32844/discowave.AAC096_A_A32844.AAC096_A_A32844.discordant_reads.diff_chrom.bam.bai
-goto chr1:10000-10500
+goto chr1:10000-10500 chr1:10000-10500
 #goto chr8:12779037-12779097
 #goto chr2:3291-3991 chr3:10000
 #snapshotDirectory /data
