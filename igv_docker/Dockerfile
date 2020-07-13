@@ -95,7 +95,7 @@ RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
 RUN cp dockerized_scripts/igv_docker/filter_rows.py .
 RUN cp dockerized_scripts/igv_docker/test.script .
 RUN cp dockerized_scripts/igv_docker/igv_script_creator.py .
-RUN cp dockerized_scripts/igv_docker/prefs.properties IGV_Linux_2.8.6/
+#RUN cp dockerized_scripts/igv_docker/prefs.properties IGV_Linux_2.8.6/
 
 # this is crucial - would simply not work without this - I don't pretend to know why
 ENV TINI_VERSION v0.19.0
