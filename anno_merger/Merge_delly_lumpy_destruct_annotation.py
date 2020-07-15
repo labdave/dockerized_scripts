@@ -683,8 +683,9 @@ def main():
 		
 		read_rach_out = open(temp_dir +'/tmp_out.bed')
 		dict_det_trans={}
+		print('Hi')
 		for line in read_rach_out:
-			# print(line)
+			print(line)
 			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			if int(rw_lst[-1]) > 0:
