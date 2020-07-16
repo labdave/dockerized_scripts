@@ -671,7 +671,6 @@ def main():
 			line=line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			linenum = linenum+1
-			print(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[3]+"\t"+line+"\n")
 			write_tmp.write(rw_lst[0]+'__'+rw_lst[1]+"\t"+str(int(rw_lst[2])-1)+"\t"+rw_lst[3]+"\t"+line+"\n")
 		read_input.close()
 		write_tmp.close()
@@ -683,9 +682,7 @@ def main():
 		
 		read_rach_out = open(temp_dir +'/tmp_out.bed')
 		dict_det_trans={}
-		print('Hi')
 		for line in read_rach_out:
-			print(line)
 			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			if int(rw_lst[-1]) > 0:
