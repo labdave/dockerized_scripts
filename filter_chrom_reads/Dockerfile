@@ -31,16 +31,16 @@ RUN apt-get update -y && apt-get install -y \
     default-jre \
     default-jdk
 
-# install picard
-RUN ls -l
-RUN wget https://github.com/broadinstitute/picard/releases/download/2.23.2/picard.jar
-RUN ls -l
-
 # install numpy and pysam
 WORKDIR /usr/local/bin
 RUN pip install numpy
 RUN pip install cython
 RUN pip install pysam
+
+# install picard
+RUN ls -l
+RUN wget https://github.com/broadinstitute/picard/releases/download/2.23.2/picard.jar
+RUN ls -l
 
 # get filter chrom reads script
 ADD https://api.github.com/repos/DevangThakkar/translocation_scripts/git/refs/heads/ version.json
