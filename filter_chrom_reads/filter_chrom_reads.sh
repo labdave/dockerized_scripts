@@ -19,7 +19,7 @@ samtools view -@ ${threads} -h -f 256 ${old_bam} | samtools view -Sb -@ ${thread
 echo "ended filtering for non-primary reads"
 
 echo "started merging"
-samtools merge -@ ${threads} ${new_bam} ${temp_bam1} ${temp_bam2} non-primary.bam
+samtools merge -cp -@ ${threads} ${new_bam} ${temp_bam1} ${temp_bam2} non-primary.bam
 echo "ended merging"
 
 echo "started indexing"
