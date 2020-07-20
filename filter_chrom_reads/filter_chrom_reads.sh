@@ -15,7 +15,7 @@ echo "ended filtering for good reads"
 
 echo "started filtering for non-primary reads"
 # add non-primary alignments
-samtools view -@ ${threads} -f 256 ${old_bam} | cut -d'     ' -f1 | sort | uniq > non-primary.reads.txt
+samtools view -@ ${threads} -f 256 ${old_bam} | cut -d'\t' -f1 | sort | uniq > non-primary.reads.txt
 java -jar /home/picard.jar FilterSamReads I=${old_bam} O=non-primary.bam RLF=non-primary.reads.txt FILTER=includeReadList
 echo "ended filtering for non-primary reads"
 
