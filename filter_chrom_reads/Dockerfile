@@ -32,7 +32,9 @@ RUN apt-get update -y && apt-get install -y \
     default-jdk
 
 # install picard
+RUN ls -l
 RUN wget https://github.com/broadinstitute/picard/releases/download/2.23.2/picard.jar
+RUN ls -l
 
 # install numpy and pysam
 WORKDIR /usr/local/bin
