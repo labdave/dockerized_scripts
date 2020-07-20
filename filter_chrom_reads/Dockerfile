@@ -29,7 +29,7 @@ RUN apt-get update -y && apt-get install -y \
     bedtools \
     samtools \
     default-jre \
-    default jdk
+    default-jdk
 
 # install picard
 RUN wget https://github.com/broadinstitute/picard/releases/download/2.23.2/picard.jar
