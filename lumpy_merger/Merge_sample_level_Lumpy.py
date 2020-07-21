@@ -70,15 +70,14 @@ def main():
 					filter = p[6]	
 					info = p[7]    
 					format = p[8]
-					sample = p[10]
-					gt_list = sample.split(":")
-					info_list = info.split(";")
-					su_info = info_list[len(info_list)-3].replace("SU=","")
-					pe_info = info_list[len(info_list)-2].replace("PE=","")
-					sr_info = info_list[len(info_list)-1].replace("SR=","")
-					gt_list[1]=su_info
-					gt_list[2]=pe_info
-					gt_list[3]=sr_info
+					gt_list = format.split(":")
+					# info_list = info.split(";")
+					# su_info = info_list[len(info_list)-3].replace("SU=","")
+					# pe_info = info_list[len(info_list)-2].replace("PE=","")
+					# sr_info = info_list[len(info_list)-1].replace("SR=","")
+					# gt_list[1]=su_info
+					# gt_list[2]=pe_info
+					# gt_list[3]=sr_info
 					gt = str.join("\t",gt_list)
 					precise='1'
 					if "IMPRECISE" in info:
