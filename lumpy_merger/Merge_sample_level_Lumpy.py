@@ -69,7 +69,7 @@ def main():
 					qual = p[5]
 					filter = p[6]	
 					info = p[7]    
-					sample = p[8]
+					sample = p[9]
 					gt_list = sample.split(":")
 					# info_list = info.split(";")
 					# su_info = info_list[len(info_list)-3].replace("SU=","")
