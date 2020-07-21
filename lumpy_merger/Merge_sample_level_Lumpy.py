@@ -69,8 +69,8 @@ def main():
 					qual = p[5]
 					filter = p[6]	
 					info = p[7]    
-					format = p[8]
-					gt_list = format.split(":")
+					sample = p[8]
+					gt_list = sample.split(":")
 					# info_list = info.split(";")
 					# su_info = info_list[len(info_list)-3].replace("SU=","")
 					# pe_info = info_list[len(info_list)-2].replace("PE=","")
