@@ -220,9 +220,9 @@ def main():
 			print(joint_val)
 
 			# check using hierarchy:
-			delly_sr, delly_pe = delly_arr[6], delly_arr[5]
-			destruct_sr, destruct_pe = destruct_arr[6], destruct_arr[5]
-			lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
+			delly_sr, delly_pe = int(delly_arr[6]), int(delly_arr[5])
+			destruct_sr, destruct_pe = int(destruct_arr[6]), int(destruct_arr[5])
+			lumpy_sr, lumpy_pe = int(lumpy_arr[6]), int(lumpy_arr[5])
 			print(delly_sr)
 			print(destruct_sr)
 			print(lumpy_sr)
