@@ -227,26 +227,26 @@ def main():
 			# split reads
 			if (lumpy_sr >= delly_sr) and (lumpy_sr >= destruct_sr):
 				chosen = lumpy_arr
-				print("lumpy1", file=sys.stderr)
+				print("lumpy1")
 			elif (delly_sr >= destruct_sr) and (delly_sr >= lumpy_sr):
 				chosen = delly_arr
-				print("delly1", file=sys.stderr)
+				print("delly1")
 			elif (destruct_sr >= delly_sr) and (destruct_sr >= lumpy_sr):
 				chosen = destruct_arr
-				print("destruct1", file=sys.stderr)
+				print("destruct1")
 			# paired reads
 			elif (lumpy_pe >= delly_pe) and (lumpy_pe >= destruct_pe):
 				chosen = lumpy_arr
-				print("lumpy2", file=sys.stderr)
+				print("lumpy2")
 			elif (delly_pe >= destruct_pe) and (delly_pe >= lumpy_pe):
 				chosen = delly_arr
-				print("delly2", file=sys.stderr)
+				print("delly2")
 			elif (destruct_pe >= delly_pe) and (destruct_pe >= lumpy_pe):
 				chosen = destruct_arr
-				print("destruct2", file=sys.stderr)
+				print("destruct2")
 			else:
 				chosen = lumpy_arr
-				print("lumpy3", file=sys.stderr)
+				print("lumpy3")
 
 			# create merged row:
 			merged = chosen[:9]
