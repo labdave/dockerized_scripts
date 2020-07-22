@@ -223,6 +223,9 @@ def main():
 			delly_sr, delly_pe = delly_arr[6], delly_arr[5]
 			destruct_sr, destruct_pe = destruct_arr[6], destruct_arr[5]
 			lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
+			print(delly_sr)
+			print(destruct_sr)
+			print(lumpy_sr)
 
 			# split reads
 			if (lumpy_sr >= delly_sr) and (lumpy_sr >= destruct_sr):
