@@ -1,0 +1,5 @@
+track name="Ig loci" description="Immunoglobulin loci"
+chr2	88857361	90235368	IGK
+chr14	105586437	106879844	IGH
+chr22	22026076	22922913	IGL
+chr22	23573125	23580548	IGLL1
