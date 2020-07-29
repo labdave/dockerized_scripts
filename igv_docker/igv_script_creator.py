@@ -119,7 +119,7 @@ for analyis_id in analyis_dict:
 
         # add squished or collapsed
         if args.squished:
-            script += 'squished\n'
+            script += 'squish\n'
         else:
             script += 'expand\n'
         
