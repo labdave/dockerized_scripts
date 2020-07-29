@@ -73,7 +73,6 @@ script = ''
 for analyis_id in analyis_dict:
     # start igv
     script += 'new\n'
-    script += 'maxPanelHeight 4000\n'
     
     # load genome
     script += 'genome hg38\n'
@@ -105,6 +104,9 @@ for analyis_id in analyis_dict:
             script += 'goto {0}:{1}-{2} {3}:{4}-{5}\n'.format(chr1, pos1a, pos1b, chr2, pos2a, pos2b)
         else:
             script += 'goto {0}:{1}-{2}\n'.format(chr1, pos1a, pos1b)
+        
+        # increase panel height
+        script += 'maxPanelHeight 4000\n'
         
         # add sort position
         script += 'sort position\n'
