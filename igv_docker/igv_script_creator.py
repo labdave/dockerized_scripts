@@ -113,7 +113,7 @@ for analyis_id in analyis_dict:
 
         # add squished or collapsed
         if args.squished:
-            script += 'squish\n'
+            script += 'collapse\n'
             script += 'maxPanelHeight 4000\n'
         else:
             script += 'expand\n'
