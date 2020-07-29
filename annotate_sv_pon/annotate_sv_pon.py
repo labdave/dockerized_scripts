@@ -147,8 +147,8 @@ def main(args):
 def parse_args(args=None):
     """Parse command line arguments and return constants"""
     parser = argparse.ArgumentParser(
-        description="Annotate structural variant table with closes " \
-        "regions and B-cell lymphoma gene FISH capture regions.")
+        description="Annotate structural variant table with whether there are" \
+        " translocations picked up in normal samples close to the structural variant.")
 
     parser.add_argument("input_file",
         help="Tab-delimited input table of structural variants. Requires " \
@@ -156,7 +156,7 @@ def parse_args(args=None):
 
     parser.add_argument("output_file",
         help="Tab-delimited output table of annotated structural variants. " \
-        "Input table with 1 new columns: Ig, FISH_capture")
+        "Input table with 1 new column: PON")
 
 
     parser.add_argument("pon_file", help="Panel of normals regions")
