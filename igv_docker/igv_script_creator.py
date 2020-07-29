@@ -107,13 +107,14 @@ for analyis_id in analyis_dict:
         
         # increase panel height
         script += 'maxPanelHeight 4000\n'
-        
+
         # add sort position
         script += 'sort position\n'
 
         # add squished or collapsed
         if args.squished:
             script += 'squish\n'
+            script += 'maxPanelHeight 4000\n'
         else:
             script += 'expand\n'
         
