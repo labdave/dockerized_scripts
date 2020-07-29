@@ -17,6 +17,7 @@ parser.add_argument('-S', '--segdup', required=True, help='segmental duplication
 parser.add_argument('-i', '--igbed', required=True, help='segmental duplications exclude list')
 parser.add_argument('-F', '--fishbed', required=True, help='segmental duplications exclude list')
 parser.add_argument('-t', '--target', required=True, help='target bed')
+parser.add_argument('-n', '--samplename', help='sample name')
 args = parser.parse_args()
 
 
@@ -119,7 +120,7 @@ for analyis_id in analyis_dict:
 
         # add squished or collapsed
         if args.squished:
-            script += 'squish\n'
+            script += 'squish Discowave_DiscoWave.{}.discordant_reads.diff_chrom.bam\n'.format(args.samplename)
         else:
             script += 'expand\n'
         
