@@ -39,6 +39,10 @@ def add_collapsed_annotation_df(df, intersect_file_name, anno_col_name):
         names = ["orig_chrom", "orig_start", "orig_end", "orig_row", "anno_chrom", 
         "anno_start", "anno_end", anno_col_name, "unknown", "strand", "overlap"])
     
+    if anno_df.empty:
+        df[anno_col_name] = ""
+        return(df)
+
     # Collapse annotations by orig_row
     anno_df = anno_df[["orig_row", anno_col_name]]
     anno_df.loc[:,anno_col_name] = anno_df.groupby("orig_row")[anno_col_name].transform(lambda x: ",".join(x))
@@ -81,7 +85,7 @@ def add_combined_annotations(df, annotation_bed_object, breakpoint_bed_dict, col
 
 
 def main(args):
-    """Goal: Append repeat masker and segdup onto structural variant VCFs"""
+    """Goal: Append B-cell lymphoma related annotations onto structural variant VCFs"""
 
     df = pd.read_csv(args.input_file, sep="\t")
 

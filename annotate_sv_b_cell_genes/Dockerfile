@@ -57,5 +57,5 @@ RUN pip install pandas
 # get script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
-RUN cp -r dockerized_scripts/annotate_b_cell_genes/* .
+RUN cp -r dockerized_scripts/annotate_sv_b_cell_genes/* .
 RUN chmod +x annotate_sv_b_cell_genes.py
