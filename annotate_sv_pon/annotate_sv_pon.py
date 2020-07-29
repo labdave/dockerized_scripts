@@ -119,9 +119,6 @@ def add_panel_of_normal(df, annotation_bed_dict, breakpoint_bed_dict):
 
     # Make annotation column by combining annotations from BP1 and BP2
     df[col_name] = tmp_df.apply(intersect_pon_annotations, axis=1)
-    
-    # Remove extra commas
-    #df[col_name] = df[col_name].apply(lambda x: x.strip(","))
 
     return(df)
 
@@ -140,9 +137,6 @@ def main(args):
     pon_regions = {}
     pon_regions["BP1"] = pybedtools.BedTool("pon.BP1.bed")
     pon_regions["BP2"] = pybedtools.BedTool("pon.BP2.bed")
-
-    #pon_regions["BP1"] = pybedtools.BedTool(args.pon_bp1)
-    #pon_regions["BP2"] = pybedtools.BedTool(args.pon_bp2)
 
     df = add_panel_of_normal(df, pon_regions, breakpoint_dict)
 
@@ -166,9 +160,6 @@ def parse_args(args=None):
 
 
     parser.add_argument("pon_file", help="Panel of normals regions")
-    
-    #parser.add_argument("pon_bp1", help="Breakpoint 1 regions for PON")
-    #parser.add_argument("pon_bp2", help="Breakpoint 2 regions for PON")
 
     args = parser.parse_args(args)
 
