@@ -120,6 +120,7 @@ for analyis_id in analyis_dict:
 
         # add squished or collapsed
         if args.squished:
+            script += 'expand\n'
             script += 'squish discowave_DiscoWave.{}.discordant_reads.diff_chrom.bam\n'.format(args.samplename)
         else:
             script += 'expand\n'
