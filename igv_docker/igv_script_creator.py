@@ -13,7 +13,11 @@ parser.add_argument('-z', '--zoom', required=True, help='zoom amount', type=int)
 parser.add_argument('-d', '--dir', required=True, help='image locations')
 parser.add_argument('-o', '--out', required=True, help='output name')
 parser.add_argument('-r', '--repeat', required=True, help='repeat masker exclude list')
+parser.add_argument('-S', '--segdup', required=True, help='segmental duplications exclude list')
+parser.add_argument('-i', '--igbed', required=True, help='segmental duplications exclude list')
+parser.add_argument('-F', '--fishbed', required=True, help='segmental duplications exclude list')
 parser.add_argument('-t', '--target', required=True, help='target bed')
+parser.add_argument('-n', '--samplename', help='sample name')
 args = parser.parse_args()
 
 
@@ -73,7 +77,6 @@ script = ''
 for analyis_id in analyis_dict:
     # start igv
     script += 'new\n'
-    script += 'maxPanelHeight 4000\n'
     
     # load genome
     script += 'genome hg38\n'
@@ -84,6 +87,9 @@ for analyis_id in analyis_dict:
     # load bed file
     script += 'load {}\n'.format(args.target)
     script += 'load {}\n'.format(args.repeat)
+    script += 'load {}\n'.format(args.segdup)
+    script += 'load {}\n'.format(args.igbed)
+    script += 'load {}\n'.format(args.fishbed)
 
     # set screenshot directory
     script += 'snapshotDirectory '
@@ -106,12 +112,16 @@ for analyis_id in analyis_dict:
         else:
             script += 'goto {0}:{1}-{2}\n'.format(chr1, pos1a, pos1b)
         
+        # increase panel height
+        script += 'maxPanelHeight 10000\n'
+
         # add sort position
         script += 'sort position\n'
 
         # add squished or collapsed
         if args.squished:
-            script += 'squish\n'
+            script += 'expand\n'
+            script += 'squish discowave_DiscoWave.{}.discordant_reads.diff_chrom.bam\n'.format(args.samplename)
         else:
             script += 'expand\n'
         
@@ -123,6 +133,9 @@ for analyis_id in analyis_dict:
         script += 'collapse Gene\n'
         script += 'expand Twist_8MB_panel_with_ERCCs.maskPAR.bed\n'
         script += 'expand hg38_repeat_masker.sorted.bed\n'
+        script += 'expand hg38_segmental_dups.sorted.bed\n'
+        script += 'expand ig.bed\n'
+        script += 'expand FISH_captures.bed\n'
 
         # get snapshot
         script += 'snapshot {0}_{1}_{2}-{3}_{4}'.format(analyis_id, chr1, pos1, chr2, pos2)
