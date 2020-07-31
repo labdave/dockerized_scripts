@@ -17,7 +17,6 @@ parser.add_argument('-S', '--segdup', required=True, help='segmental duplication
 parser.add_argument('-i', '--igbed', required=True, help='segmental duplications exclude list')
 parser.add_argument('-F', '--fishbed', required=True, help='segmental duplications exclude list')
 parser.add_argument('-t', '--target', required=True, help='target bed')
-parser.add_argument('-n', '--samplename', help='sample name')
 args = parser.parse_args()
 
 
@@ -58,10 +57,11 @@ with open(args.file, 'r') as f:
         pos1 = line_arr[2]
         pos1a = int(pos1) - args.zoom
         pos1b = int(pos1) + args.zoom
-        chr2 = line_arr[3]
-        pos2 = line_arr[4]
-        pos2a = int(pos2) - args.zoom
-        pos2b = int(pos2) + args.zoom
+        if args.split:
+            chr2 = line_arr[3]
+            pos2 = line_arr[4]
+            pos2a = int(pos2) - args.zoom
+            pos2b = int(pos2) + args.zoom
         
         if analyis_id in analyis_dict:
             analyis_dict[analyis_id].append([chr1, pos1, pos1a, pos1b, chr2, pos2, pos2a, pos2b])
@@ -120,8 +120,7 @@ for analyis_id in analyis_dict:
 
         # add squished or collapsed
         if args.squished:
-            script += 'expand\n'
-            script += 'squish discowave_DiscoWave.{}.discordant_reads.diff_chrom.bam\n'.format(args.samplename)
+            script += 'squish\n'
         else:
             script += 'expand\n'
         
