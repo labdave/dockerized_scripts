@@ -75,7 +75,7 @@ def add_collapsed_annotation_df(df, intersect_file_name, anno_col_name):
     anno_df.index = anno_df["orig_row"]
     
     # Turn into a Series
-    anno_df = anno_df.loc[:,anno_col_name]
+    anno_df = anno_df[anno_col_name]
 
     # Join in annotations into normal dataframe
     df = df.join(other = anno_df, how = "left")
@@ -107,7 +107,7 @@ def add_panel_of_normal(df, annotation_bed_dict, breakpoint_bed_dict):
 
     col_name = "PON"
 
-    tmp_df = df
+    tmp_df = df[["chr1"]].copy()
     for idx in ["BP1", "BP2"]:
         # Do intersections with annotation file and save to a file so that we can
         # read in annotations with pandas
