@@ -20,7 +20,7 @@ with open(args.input, 'r') as f:
 		line_arr = line.split()
 		if args.thresh_column is not None and args.thresh is not None:
 			if int(line_arr[int(args.thresh_column)]) > int(args.thresh):
-				new_str += '\t'.join(line_arr[:args.columns])+'\n'
+				new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
 
 with open(out_file, 'w') as f:
 	f.write(new_str)
