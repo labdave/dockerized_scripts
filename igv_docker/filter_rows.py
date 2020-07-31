@@ -22,5 +22,5 @@ with open(args.input, 'r') as f:
 			if int(line_arr[int(args.thresh_column)]) > int(args.thresh):
 				new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
 
-with open(out_file, 'w') as f:
+with open(args.output, 'w') as f:
 	f.write(new_str)
