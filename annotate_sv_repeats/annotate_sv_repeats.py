@@ -103,7 +103,7 @@ def add_collapsed_annotation_df(df, intersect_file_name, anno_col_name):
     anno_df.index = anno_df["orig_row"]
     
     # Turn into a Series
-    anno_df = anno_df.loc[:,anno_col_name]
+    anno_df = anno_df[anno_col_name]
 
     # Join in annotations into normal dataframe
     df = df.join(other = anno_df, how = "left")
