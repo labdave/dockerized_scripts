@@ -1,4 +1,5 @@
 import sys
+import argparse
 
 parser = argparse.ArgumentParser(description='Filter rows/columns as needed')
 parser.add_argument('-c', '--columns', required=True, help='bam file to get snapshots from')
