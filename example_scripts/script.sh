@@ -12,7 +12,7 @@ while getopts ":b::o::" opt; do
   esac
 done
 
-if [ "$bam" != "" ]
+if [ "$bam" != "" ] && [ "$output" != "" ]
 then
 	samtools view -H $bam | wc -l > $output
 else
