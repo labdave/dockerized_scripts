@@ -14,5 +14,5 @@ if [ "$bam" != "" ]
 then
 	samtools view -H $bam | wc -l
 else
-	echo "Hello, we are in script.sh"
+	echo "Hello from inside script.sh"
 fi
