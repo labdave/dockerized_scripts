@@ -139,7 +139,10 @@ for analyis_id in analyis_dict:
         script += 'expand FISH_captures.bed\n'
 
         # get snapshot
-        script += 'snapshot {0}_{1}_{2}-{3}_{4}'.format(analyis_id, chr1, pos1, chr2, pos2)
+        if args.split:
+            script += 'snapshot {0}_{1}_{2}-{3}_{4}'.format(analyis_id, chr1, pos1, chr2, pos2)
+        else:
+            script += 'snapshot {0}_{1}_{2}'.format(analyis_id, chr1, pos1)
         if args.split:
             script += '_split'
         if args.squished:
