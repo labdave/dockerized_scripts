@@ -160,7 +160,7 @@ for analyis_id in analyis_dict:
         if args.group:
             script += '_group'
         script += '.png\n'
-    script += 'exit\n'
+script += 'exit\n'
 
 
 """ WRITE TO SCRIPT FILE"""
