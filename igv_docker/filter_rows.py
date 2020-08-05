@@ -14,14 +14,17 @@ i = 0
 
 with open(args.input, 'r') as f:
 	for line in f:
+		print(line)
 		if not i:
 			i = 1
 			continue
 		line_arr = line.split()
 		if args.thresh_column is not None and args.thresh is not None:
+			print('pass')
 			if int(line_arr[int(args.thresh_column)]) > int(args.thresh):
 				new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
 		else:
+			print('not pass')
 			new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
 
 with open(args.output, 'w') as f:
