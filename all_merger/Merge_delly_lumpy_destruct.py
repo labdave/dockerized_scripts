@@ -176,38 +176,28 @@ def main():
 		line2 = line2.replace(':', ';').split(';')
 		if line3:
 			line3 = line3.replace(':', ';').split(';')
-			# check sample
-			if (line1[0] != line2[0]) or (line2[0] != line3[0]) or (line3[0] != line1[0]):
-				return False
-			# check chr1
-			if (line1[1] != line2[1]) or (line2[1] != line3[1]) or (line3[1] != line1[1]):
-				return False
-			# check chr2
-			if (line1[3] != line2[3]) or (line2[3] != line3[3]) or (line3[3] != line1[3]):
-				return False
-			# check pos1
-			if (abs(int(line1[2])-int(line2[2])) > dist) or (abs(int(line2[2])-int(line3[2])) > dist) or (abs(int(line3[2])-int(line1[2])) > dist):
-				return False
-			# check pos2
-			if (abs(int(line1[4])-int(line2[4])) > dist) or (abs(int(line2[4])-int(line3[4])) > dist) or (abs(int(line3[4])-int(line1[4])) > dist):
-				return False
+			if all([
+					line1[1] == line2[1],
+					line2[1] == line3[1],
+					line1[3] == line2[3],
+					line2[3] == line3[3],
+					abs(int(line1[2])-int(line2[2])) < dist,
+					abs(int(line2[2])-int(line3[2])) < dist,
+					abs(int(line3[2])-int(line1[2])) < dist,
+					abs(int(line1[4])-int(line2[4])) < dist,
+					abs(int(line2[4])-int(line3[4])) < dist,
+					abs(int(line3[4])-int(line1[4])) < dist,
+					]):
+				return True
 		else:
-			# check sample
-			if (line1[0] != line2[0]) or (line2[0] != line1[0]):
-				return False
-			# check chr1
-			if (line1[1] != line2[1]) or (line2[1] != line1[1]):
-				return False
-			# check chr2
-			if (line1[3] != line2[3]) or (line2[3] != line1[3]):
-				return False
-			# check pos1
-			if (abs(int(line1[2])-int(line2[2])) > dist):
-				return False
-			# check pos2
-			if (abs(int(line1[4])-int(line2[4])) > dist):
-				return False
-		return True
+			if all([
+					line1[1] == line2[1],
+					line1[3] == line2[3],
+					abs(int(line1[2])-int(line2[2])) < dist,
+					abs(int(line1[4])-int(line2[4])) < dist,
+					]):
+				return True
+		return False
 
 
 	# parse a list of lines to get merged line
@@ -409,32 +399,32 @@ def main():
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
-	os.system('sleep 5; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, delly_bed_file))
+	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, delly_bed_file))
 	with open(temp_file, 'w') as f:
 		for item in destruct_dict:
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
-	os.system('sleep 5; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, destruct_bed_file))
+	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, destruct_bed_file))
 	with open(temp_file, 'w') as f:
 		for item in lumpy_dict:
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
-	os.system('sleep 5; sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, lumpy_bed_file))
+	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, lumpy_bed_file))
 
 	# find triplicate intersections
-	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
-	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, lumpy_bed_file, destruct_lumpy_bed))
-	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, delly_bed_file, lumpy_delly_bed))
-	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, destruct_bed_file, lumpy_destruct_bed))
-	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, delly_bed_file, destruct_delly_bed))
-	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, destruct_bed_file, delly_destruct_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, lumpy_bed_file, destruct_lumpy_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, delly_bed_file, lumpy_delly_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, destruct_bed_file, lumpy_destruct_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, delly_bed_file, destruct_delly_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, destruct_bed_file, delly_destruct_bed))
 	
-	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(delly_lumpy_bed, destruct_lumpy_bed, delly_all_bed))
-	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(destruct_lumpy_bed, delly_lumpy_bed, destruct_all_bed))
-	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_delly_bed, lumpy_destruct_bed, lumpy_all_bed_1))
-	os.system('sleep 5; bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_destruct_bed, lumpy_delly_bed, lumpy_all_bed_2))
+	os.system('bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(delly_lumpy_bed, destruct_lumpy_bed, delly_all_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(destruct_lumpy_bed, delly_lumpy_bed, destruct_all_bed))
+	os.system('bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_delly_bed, lumpy_destruct_bed, lumpy_all_bed_1))
+	os.system('bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_destruct_bed, lumpy_delly_bed, lumpy_all_bed_2))
 
 	# get list of caller specific all-caller ids
 	delly_all_list, destruct_all_list, lumpy_all_list = [], [], []
