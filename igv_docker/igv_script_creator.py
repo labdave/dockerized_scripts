@@ -87,11 +87,16 @@ for analyis_id in analyis_dict:
     script += 'load {0}\n'.format(args.bam)
     
     # load bed file
-    script += 'load {}\n'.format(args.target)
-    script += 'load {}\n'.format(args.repeat)
-    script += 'load {}\n'.format(args.segdup)
-    script += 'load {}\n'.format(args.igbed)
-    script += 'load {}\n'.format(args.fishbed)
+    if args.target:
+        script += 'load {}\n'.format(args.target)
+    if args.repeat:
+        script += 'load {}\n'.format(args.repeat)
+    if args.segdup:
+        script += 'load {}\n'.format(args.segdup)
+    if args.igbed:
+        script += 'load {}\n'.format(args.igbed)
+    if args.fishbed:
+        script += 'load {}\n'.format(args.fishbed)
 
     # set screenshot directory
     script += 'snapshotDirectory '
@@ -132,11 +137,16 @@ for analyis_id in analyis_dict:
         
         # fix stuff
         script += 'collapse Gene\n'
-        script += 'expand Twist_8MB_panel_with_ERCCs.maskPAR.bed\n'
-        script += 'expand hg38_repeat_masker.sorted.bed\n'
-        script += 'expand hg38_segmental_dups.sorted.bed\n'
-        script += 'expand ig.bed\n'
-        script += 'expand FISH_captures.bed\n'
+        if args.target:
+            script += 'expand {}\n'.format((args.target).split('/')[-1])
+        if args.repeat:
+            script += 'expand {}\n'.format((args.repeat).split('/')[-1])
+        if args.segdup:
+            script += 'expand {}\n'.format((args.segdup).split('/')[-1])
+        if args.igbed:
+            script += 'expand {}\n'.format((args.igbed).split('/')[-1])
+        if args.fishbed:
+            script += 'expand {}\n'.format((args.fishbed).split('/')[-1])
 
         # get snapshot
         if args.split:
