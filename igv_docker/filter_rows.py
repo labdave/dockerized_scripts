@@ -20,9 +20,8 @@ with open(args.input, 'r') as f:
 			continue
 		line_arr = line.split()
 		if args.thresh_column is not None and args.thresh is not None:
-			print(line)
-			print('yes')
 			if int(line_arr[int(args.thresh_column)]) > int(args.thresh):
+				print('yes')
 				new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
 		else:
 			new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
