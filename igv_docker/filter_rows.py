@@ -12,6 +12,8 @@ args = parser.parse_args()
 new_str = ''
 i = 0
 
+print(int(args.thresh))
+print(int(args.thresh_column))
 with open(args.input, 'r') as f:
 	for line in f:
 		line = line.replace(',', '\t').replace('\"', '')
