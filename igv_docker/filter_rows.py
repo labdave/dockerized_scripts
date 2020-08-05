@@ -15,6 +15,7 @@ i = 0
 with open(args.input, 'r') as f:
 	for line in f:
 		line = line.replace(',', '\t').replace('\"', '')
+		print(line)
 		if not i:
 			i = 1
 			continue
