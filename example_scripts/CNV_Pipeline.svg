@@ -1,0 +1,110 @@
+<svg width="1106" height="620" viewBox="0 0 1106 949" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet">
+<g id="graph0" class="graph" transform="translate(-261.9612534258488,730.4308141650966) scale(1.9404443380897702)">
+<title>Pipeline Graph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-328 819.471,-328 819.471,4 -4,4"></polygon>
+<!-- utils_consolidatesamplename__tna -->
+<g id="svg-node-utils_consolidatesamplename__tna" class="node"><title>utils_consolidatesamplename__tna</title>
+<g id="a_svg-node-utils_consolidatesamplename__tna"><a xlink:href="javascript:void(0);" xlink:title="utils_consolidatesamplename__tna">
+<ellipse fill="none" stroke="black" cx="357.735" cy="-306" rx="172.769" ry="18"></ellipse>
+<text text-anchor="middle" x="357.735" y="-302.3" font-family="Times,serif" font-size="14.00">utils_consolidatesamplename__tna</text>
+</a>
+</g>
+</g>
+<!-- gatk_collectreadcounts__dna -->
+<g id="svg-node-gatk_collectreadcounts__dna" class="node"><title>gatk_collectreadcounts__dna</title>
+<g id="a_svg-node-gatk_collectreadcounts__dna"><a xlink:href="javascript:void(0);" xlink:title="gatk_collectreadcounts__dna">
+<ellipse fill="none" stroke="black" cx="485.735" cy="-234" rx="146.774" ry="18"></ellipse>
+<text text-anchor="middle" x="485.735" y="-230.3" font-family="Times,serif" font-size="14.00">gatk_collectreadcounts__dna</text>
+</a>
+</g>
+</g>
+<!-- utils_consolidatesamplename__tna&#45;&gt;gatk_collectreadcounts__dna -->
+<g id="edge2" class="edge"><title>utils_consolidatesamplename__tna-&gt;gatk_collectreadcounts__dna</title>
+<path fill="none" stroke="black" d="M388.394,-288.233C405.81,-278.709 427.795,-266.686 446.463,-256.477"></path>
+<polygon fill="black" stroke="black" points="448.232,-259.499 455.326,-251.63 444.873,-253.357 448.232,-259.499"></polygon>
+</g>
+<!-- merge_bam -->
+<g id="svg-node-merge_bam" class="node"><title>merge_bam</title>
+<g id="a_svg-node-merge_bam"><a xlink:href="javascript:void(0);" xlink:title="merge_bam">
+<ellipse fill="none" stroke="black" cx="614.735" cy="-306" rx="65.7887" ry="18"></ellipse>
+<text text-anchor="middle" x="614.735" y="-302.3" font-family="Times,serif" font-size="14.00">merge_bam</text>
+</a>
+</g>
+</g>
+<!-- merge_bam&#45;&gt;gatk_collectreadcounts__dna -->
+<g id="edge1" class="edge"><title>merge_bam-&gt;gatk_collectreadcounts__dna</title>
+<path fill="none" stroke="black" d="M586.426,-289.638C568.626,-279.98 545.39,-267.371 525.725,-256.7"></path>
+<polygon fill="black" stroke="black" points="527.145,-253.488 516.687,-251.795 523.807,-259.641 527.145,-253.488"></polygon>
+</g>
+<!-- gatk_denoisereadcounts__dna -->
+<g id="svg-node-gatk_denoisereadcounts__dna" class="node"><title>gatk_denoisereadcounts__dna</title>
+<g id="a_svg-node-gatk_denoisereadcounts__dna"><a xlink:href="javascript:void(0);" xlink:title="gatk_denoisereadcounts__dna">
+<ellipse fill="none" stroke="black" cx="485.735" cy="-162" rx="151.373" ry="18"></ellipse>
+<text text-anchor="middle" x="485.735" y="-158.3" font-family="Times,serif" font-size="14.00">gatk_denoisereadcounts__dna</text>
+</a>
+</g>
+</g>
+<!-- gatk_collectreadcounts__dna&#45;&gt;gatk_denoisereadcounts__dna -->
+<g id="edge3" class="edge"><title>gatk_collectreadcounts__dna-&gt;gatk_denoisereadcounts__dna</title>
+<path fill="none" stroke="black" d="M485.735,-215.697C485.735,-207.983 485.735,-198.712 485.735,-190.112"></path>
+<polygon fill="black" stroke="black" points="489.235,-190.104 485.735,-180.104 482.235,-190.104 489.235,-190.104"></polygon>
+</g>
+<!-- gatk_plotdenoisecopyratios__dna -->
+<g id="svg-node-gatk_plotdenoisecopyratios__dna" class="node"><title>gatk_plotdenoisecopyratios__dna</title>
+<g id="a_svg-node-gatk_plotdenoisecopyratios__dna"><a xlink:href="javascript:void(0);" xlink:title="gatk_plotdenoisecopyratios__dna">
+<ellipse fill="none" stroke="black" cx="165.735" cy="-90" rx="165.971" ry="18"></ellipse>
+<text text-anchor="middle" x="165.735" y="-86.3" font-family="Times,serif" font-size="14.00">gatk_plotdenoisecopyratios__dna</text>
+</a>
+</g>
+</g>
+<!-- gatk_denoisereadcounts__dna&#45;&gt;gatk_plotdenoisecopyratios__dna -->
+<g id="edge4" class="edge"><title>gatk_denoisereadcounts__dna-&gt;gatk_plotdenoisecopyratios__dna</title>
+<path fill="none" stroke="black" d="M416.694,-145.897C366.465,-134.91 298.327,-120.004 245.725,-108.498"></path>
+<polygon fill="black" stroke="black" points="246.274,-105.035 235.757,-106.317 244.778,-111.874 246.274,-105.035"></polygon>
+</g>
+<!-- gatk_modelsegments__dna -->
+<g id="svg-node-gatk_modelsegments__dna" class="node"><title>gatk_modelsegments__dna</title>
+<g id="a_svg-node-gatk_modelsegments__dna"><a xlink:href="javascript:void(0);" xlink:title="gatk_modelsegments__dna">
+<ellipse fill="none" stroke="black" cx="485.735" cy="-90" rx="136.476" ry="18"></ellipse>
+<text text-anchor="middle" x="485.735" y="-86.3" font-family="Times,serif" font-size="14.00">gatk_modelsegments__dna</text>
+</a>
+</g>
+</g>
+<!-- gatk_denoisereadcounts__dna&#45;&gt;gatk_modelsegments__dna -->
+<g id="edge5" class="edge"><title>gatk_denoisereadcounts__dna-&gt;gatk_modelsegments__dna</title>
+<path fill="none" stroke="black" d="M485.735,-143.697C485.735,-135.983 485.735,-126.712 485.735,-118.112"></path>
+<polygon fill="black" stroke="black" points="489.235,-118.104 485.735,-108.104 482.235,-118.104 489.235,-118.104"></polygon>
+</g>
+<!-- gatk_plotmodeledsegments__dna -->
+<g id="svg-node-gatk_plotmodeledsegments__dna" class="node"><title>gatk_plotmodeledsegments__dna</title>
+<g id="a_svg-node-gatk_plotmodeledsegments__dna"><a xlink:href="javascript:void(0);" xlink:title="gatk_plotmodeledsegments__dna">
+<ellipse fill="none" stroke="black" cx="649.735" cy="-18" rx="165.971" ry="18"></ellipse>
+<text text-anchor="middle" x="649.735" y="-14.3" font-family="Times,serif" font-size="14.00">gatk_plotmodeledsegments__dna</text>
+</a>
+</g>
+</g>
+<!-- gatk_denoisereadcounts__dna&#45;&gt;gatk_plotmodeledsegments__dna -->
+<g id="edge7" class="edge"><title>gatk_denoisereadcounts__dna-&gt;gatk_plotmodeledsegments__dna</title>
+<path fill="none" stroke="black" d="M567.347,-146.786C590.78,-138.956 614.387,-126.816 630.735,-108 645.424,-91.0941 649.672,-65.6231 650.537,-46.2555"></path>
+<polygon fill="black" stroke="black" points="654.037,-46.2772 650.715,-36.2168 647.038,-46.1533 654.037,-46.2772"></polygon>
+</g>
+<!-- gatk_callcopyratiosegments__dna -->
+<g id="svg-node-gatk_callcopyratiosegments__dna" class="node"><title>gatk_callcopyratiosegments__dna</title>
+<g id="a_svg-node-gatk_callcopyratiosegments__dna"><a xlink:href="javascript:void(0);" xlink:title="gatk_callcopyratiosegments__dna">
+<ellipse fill="none" stroke="black" cx="296.735" cy="-18" rx="168.97" ry="18"></ellipse>
+<text text-anchor="middle" x="296.735" y="-14.3" font-family="Times,serif" font-size="14.00">gatk_callcopyratiosegments__dna</text>
+</a>
+</g>
+</g>
+<!-- gatk_modelsegments__dna&#45;&gt;gatk_callcopyratiosegments__dna -->
+<g id="edge6" class="edge"><title>gatk_modelsegments__dna-&gt;gatk_callcopyratiosegments__dna</title>
+<path fill="none" stroke="black" d="M441.9,-72.7646C414.663,-62.6771 379.455,-49.637 350.534,-38.9255"></path>
+<polygon fill="black" stroke="black" points="351.581,-35.5809 340.988,-35.3898 349.15,-42.1451 351.581,-35.5809"></polygon>
+</g>
+<!-- gatk_modelsegments__dna&#45;&gt;gatk_plotmodeledsegments__dna -->
+<g id="edge8" class="edge"><title>gatk_modelsegments__dna-&gt;gatk_plotmodeledsegments__dna</title>
+<path fill="none" stroke="black" d="M524.186,-72.5881C547.254,-62.742 576.8,-50.131 601.434,-39.6166"></path>
+<polygon fill="black" stroke="black" points="603.134,-42.6964 610.957,-35.5516 600.386,-36.2583 603.134,-42.6964"></polygon>
+</g>
+</g>
+</svg>
