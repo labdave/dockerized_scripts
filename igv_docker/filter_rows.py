@@ -12,8 +12,6 @@ args = parser.parse_args()
 new_str = ''
 i = 0
 
-print(int(args.thresh))
-print(int(args.thresh_column))
 with open(args.input, 'r') as f:
 	for line in f:
 		line = line.replace(',', '\t').replace('\"', '')
@@ -22,6 +20,7 @@ with open(args.input, 'r') as f:
 			continue
 		line_arr = line.split()
 		if args.thresh_column is not None and args.thresh is not None:
+			print(int(line_arr[int(args.thresh_column)]))
 			if int(line_arr[int(args.thresh_column)]) > int(args.thresh):
 				print('yes')
 				new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
