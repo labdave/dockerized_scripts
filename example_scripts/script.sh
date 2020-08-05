@@ -8,6 +8,7 @@ while getopts ":b::l::c::" opt; do
         l) lines="$OPTARG"
         ;;
         c) chars="$OPTARG"
+        ;;
         \?) echo "Invalid option -$OPTARG" >&2
         ;;
     esac
