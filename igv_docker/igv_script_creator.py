@@ -62,6 +62,8 @@ with open(args.file, 'r') as f:
             pos2 = line_arr[4]
             pos2a = int(pos2) - args.zoom
             pos2b = int(pos2) + args.zoom
+        else:
+            chr2, pos2, pos2a, pos2b = 0, 0, 0, 0
         
         if analyis_id in analyis_dict:
             analyis_dict[analyis_id].append([chr1, pos1, pos1a, pos1b, chr2, pos2, pos2a, pos2b])
