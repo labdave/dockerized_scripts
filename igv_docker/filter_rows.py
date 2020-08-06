@@ -21,7 +21,8 @@ with open(args.input, 'r') as f:
 		line_arr = line.split()
 		if args.thresh_column is not None and args.thresh is not None:
 			if int(line_arr[int(args.thresh_column)]) > int(args.thresh):
-				new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
+				if line_arr[1] in ['chr3', 'chr8', 'chr18'] or line_arr[3] in ['chr3', 'chr8', 'chr18']:
+					new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
 		else:
 			new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
 
