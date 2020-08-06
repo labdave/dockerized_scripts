@@ -4,20 +4,27 @@ flag=$3
 new_bam=$4
 temp_bam1=$5
 temp_bam2=$6
+padded_bed=$7
 rm ${new_bam}
+
+echo "started filtering for on-target reads"
+samtools view -@ ${threads} -b -L ${padded_bed} ${old_bam} | cut -d'	' -f1 > tmp
+sort -u -S20G --parallel ${threads} tmp > on-target.reads.txt
+java -jar picard.jar FilterSamReads I=${old_bam} O=on-target.bam RLF=on-target.reads.txt FILTER=includeReadList
+
 echo "started filtering by flag"
-samtools view -@ ${threads} -h -F ${flag} ${old_bam} | awk '$7!="="' | samtools view -b -@ ${threads} -S - > ${temp_bam1}
+samtools view -@ ${threads} -h -F ${flag} on-target.bam | awk '$7!="="' | samtools view -b -@ ${threads} -S - > ${temp_bam1}
 echo "ended filtering by flag"
 
 echo "started filtering for good reads"
-samtools view -@ ${threads} -h ${old_bam} | head -100000 | samtools view -b -@ ${threads} -S - > ${temp_bam2}
+samtools view -@ ${threads} -h on-target.bam | head -100000 | samtools view -b -@ ${threads} -S - > ${temp_bam2}
 echo "ended filtering for good reads"
 
 echo "started filtering for non-primary reads"
 # add non-primary alignments
-samtools view -@ ${threads} -f 256 ${old_bam} | cut -d'	' -f1 > tmp
-sort -u -S20G --parallel 8 tmp > non-primary.reads.txt
-java -jar picard.jar FilterSamReads I=${old_bam} O=non-primary.bam RLF=non-primary.reads.txt FILTER=includeReadList
+samtools view -@ ${threads} -f 256 on-target.bam | cut -d'	' -f1 > tmp
+sort -u -S20G --parallel ${threads} tmp > non-primary.reads.txt
+java -jar picard.jar FilterSamReads I=on-target.bam O=non-primary.bam RLF=non-primary.reads.txt FILTER=includeReadList
 echo "ended filtering for non-primary reads"
 
 echo "started merging"
