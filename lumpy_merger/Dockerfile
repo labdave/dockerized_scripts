@@ -40,8 +40,8 @@ RUN pip install cython
 RUN pip install pysam
 
 # get lumpy script
-ADD https://api.github.com/repos/DevangThakkar/translocation_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/translocation_scripts.git
-RUN cp translocation_scripts/lumpy_merger/Merge_sample_level_Lumpy.py .
-RUN cp translocation_scripts/lumpy_merger/Merge_sample_level_Lumpy.py /home/Merge_sample_level_Lumpy.py
+ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+RUN cp dockerized_scripts/lumpy_merger/Merge_sample_level_Lumpy.py .
+RUN cp dockerized_scripts/lumpy_merger/Merge_sample_level_Lumpy.py /home/Merge_sample_level_Lumpy.py
 RUN chmod +x Merge_sample_level_Lumpy.py
