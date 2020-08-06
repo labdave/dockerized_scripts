@@ -38,7 +38,7 @@ RUN apt-get update -y && apt-get install -y \
 
 # get igv
 RUN wget http://data.broadinstitute.org/igv/projects/downloads/2.3/IGV_2.3.81.zip && unzip IGV_2.3.81.zip
-ADD https://api.github.com/repos/DevangThakkar/translocation_scripts/git/refs/heads/ version.json
+ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
 RUN cp dockerized_scripts/igv_docker/filter_rows.py .
 RUN cp dockerized_scripts/igv_docker/igv_script_creator.py .
@@ -90,7 +90,7 @@ ENTRYPOINT ["/tini", "--"]
 
 # get igv
 #RUN wget https://data.broadinstitute.org/igv/projects/downloads/2.8/IGV_Linux_2.8.6.zip && unzip IGV_Linux_2.8.6.zip
-#ADD https://api.github.com/repos/DevangThakkar/translocation_scripts/git/refs/heads/ version.json
+#ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 #RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
 #RUN cp dockerized_scripts/igv_docker/filter_rows.py .
 #RUN cp dockerized_scripts/igv_docker/test.script .
