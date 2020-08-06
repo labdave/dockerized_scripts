@@ -53,8 +53,8 @@ RUN pip install cython
 RUN pip install pysam
 
 # get script
-ADD https://api.github.com/repos/DevangThakkar/translocation_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/translocation_scripts.git
-RUN cp translocation_scripts/anno_merger/Merge_delly_lumpy_destruct_annotation.py .
-RUN cp translocation_scripts/anno_merger/Merge_delly_lumpy_destruct_annotation.py /home/Merge_delly_lumpy_destruct_annotation.py
+ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+RUN cp dockerized_scripts/anno_merger/Merge_delly_lumpy_destruct_annotation.py .
+RUN cp dockerized_scripts/anno_merger/Merge_delly_lumpy_destruct_annotation.py /home/Merge_delly_lumpy_destruct_annotation.py
 RUN chmod +x Merge_delly_lumpy_destruct_annotation.py
