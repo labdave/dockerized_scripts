@@ -91,7 +91,7 @@ def main():
 					'''Ignoring translocation events between same primary and alt chrs'''
 					chr1_list = chr1.split("_")
 					chr2_list = chr2.split("_")
-					if (chr1 != chr2) and ( chr1 in chr_list or chr2 in chr_list) and ( chr1_list[0] != chr2_list[0]) and (chr1_list[0] in chr_list_all and chr2_list[0] in chr_list_all) and (int(gt_list[2]+int(gt_list[3] > 5):
+					if (chr1 != chr2) and ( chr1 in chr_list or chr2 in chr_list) and ( chr1_list[0] != chr2_list[0]) and (chr1_list[0] in chr_list_all and chr2_list[0] in chr_list_all) and (int(gt_list[2])+int(gt_list[3]) > 5):
 						'''Ignore the Distance, it is going to be recalculated in the later steps'''
 						dist1=-1
 						dist2=-1
