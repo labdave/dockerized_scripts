@@ -12,7 +12,7 @@ time samtools view -@ ${threads} -h -F ${flag} ${old_bam} | awk '$7!="="' | samt
 echo "ended filtering by flag"
 
 echo "started filtering for on-target reads"
-time samtools view -@ ${threads} -b -L ${padded_bed} ${temp_bam1} | cut -d'	' -f1 > tmp
+time samtools view -@ ${threads} -L ${padded_bed} ${temp_bam1} | cut -d'	' -f1 > tmp
 time sort -u -S20G --parallel ${threads} tmp > on-target.reads.txt
 time java -jar picard.jar FilterSamReads I=${old_bam} O=on-target.bam RLF=on-target.reads.txt FILTER=includeReadList
 echo "ended filtering for on-target reads"
