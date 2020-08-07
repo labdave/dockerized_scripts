@@ -124,7 +124,7 @@ def main():
 	myfile.close()
 
 	'''preparing input file for intersect bed'''
-	dist = 100
+	dist = 500
 
 	# devang's code for merging and fixing number of callers:
 	# this code assumes the presence of only three callers,
@@ -217,27 +217,20 @@ def main():
 			print(destruct_sr)
 			print(lumpy_sr)
 			print(lumpy_sr > delly_sr)
+			delly_reads = delly_sr+delly_pe
+			destruct_reads = destruct_sr+destruct_pe
+			lumpy_reads = lumpy_sr+lumpy_pe
 
-			# split reads
-			if (lumpy_sr > delly_sr) and (lumpy_sr > destruct_sr):
+			# split+paired reads
+			if (lumpy_reads > delly_reads) and (lumpy_reads > destruct_reads):
 				chosen = lumpy_arr
 				print("lumpy1")
-			elif (delly_sr > destruct_sr) and (delly_sr > lumpy_sr):
+			elif (delly_reads > destruct_reads) and (delly_reads > lumpy_reads):
 				chosen = delly_arr
 				print("delly1")
-			elif (destruct_sr > delly_sr) and (destruct_sr > lumpy_sr):
+			elif (destruct_reads > delly_reads) and (destruct_reads > lumpy_reads):
 				chosen = destruct_arr
 				print("destruct1")
-			# paired reads
-			elif (lumpy_pe > delly_pe) and (lumpy_pe > destruct_pe):
-				chosen = lumpy_arr
-				print("lumpy2")
-			elif (delly_pe > destruct_pe) and (delly_pe > lumpy_pe):
-				chosen = delly_arr
-				print("delly2")
-			elif (destruct_pe > delly_pe) and (destruct_pe > lumpy_pe):
-				chosen = destruct_arr
-				print("destruct2")
 			else:
 				chosen = lumpy_arr
 				print("lumpy3")
@@ -260,16 +253,13 @@ def main():
 			# check using hierarchy:
 			delly_sr, delly_pe = delly_arr[6], delly_arr[5]
 			destruct_sr, destruct_pe = destruct_arr[6], destruct_arr[5]
+			delly_reads = delly_sr+delly_pe
+			destruct_reads = destruct_sr+destruct_pe
 
-			# split reads
-			if (delly_sr >= destruct_sr):
+			# split+paired reads
+			if (delly_reads >= destruct_reads):
 				chosen = delly_arr
-			elif (destruct_sr >= delly_sr):
-				chosen = destruct_arr
-			# paired reads
-			elif (delly_pe >= destruct_pe):
-				chosen = delly_arr
-			elif (destruct_pe >= delly_pe):
+			elif (destruct_reads >= delly_reads):
 				chosen = destruct_arr
 			else:
 				chosen = delly_arr
@@ -291,16 +281,13 @@ def main():
 			# check using hierarchy:
 			delly_sr, delly_pe = delly_arr[6], delly_arr[5]
 			lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
+			delly_reads = delly_sr+delly_pe
+			lumpy_reads = lumpy_sr+lumpy_pe
 
-			# split reads
-			if (lumpy_sr > delly_sr):
+			# split+paired reads
+			if (lumpy_reads > delly_reads):
 				chosen = lumpy_arr
-			elif (delly_sr > lumpy_sr):
-				chosen = delly_arr
-			# paired reads
-			elif (lumpy_pe > delly_pe):
-				chosen = lumpy_arr
-			elif (delly_pe > lumpy_pe):
+			elif (delly_reads > lumpy_reads):
 				chosen = delly_arr
 			else:
 				chosen = lumpy_arr
@@ -322,16 +309,13 @@ def main():
 			# check using hierarchy:
 			destruct_sr, destruct_pe = destruct_arr[6], destruct_arr[5]
 			lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
-
+			destruct_reads = destruct_sr+destruct_pe
+			lumpy_reads = lumpy_sr+lumpy_pe
+			
 			# split reads
-			if (lumpy_sr > destruct_sr):
+			if (lumpy_reads > destruct_reads):
 				chosen = lumpy_arr
-			elif (destruct_sr > lumpy_sr):
-				chosen = destruct_arr
-			# paired reads
-			elif (lumpy_pe > destruct_pe):
-				chosen = lumpy_arr
-			elif (destruct_pe > lumpy_pe):
+			elif (destruct_reads > lumpy_reads):
 				chosen = destruct_arr
 			else:
 				chosen = lumpy_arr
