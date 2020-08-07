@@ -14,7 +14,7 @@ time java -jar picard.jar FilterSamReads I=${old_bam} O=on_target.bam RLF=on_tar
 echo "ended filtering for on_target reads"
 
 echo "started filtering by flag"
-time samtools view -@ ${threads} -h -F ${flag} ${on_target.bam} | awk '$7!="="' | samtools view -b -@ ${threads} -S - > ${temp_bam1}
+time samtools view -@ ${threads} -h -F ${flag} on_target.bam | awk '$7!="="' | samtools view -b -@ ${threads} -S - > ${temp_bam1}
 echo "ended filtering by flag"
 
 echo "started filtering for good reads"
