@@ -2,34 +2,32 @@ old_bam=$1
 threads=$2
 flag=$3
 new_bam=$4
-temp_bam1=$5
-temp_bam2=$6
-padded_bed=$7
+padded_bed=$5
 rm ${new_bam}
 
 echo "started filtering for on_target reads"
-time samtools view -@ ${threads} -L ${padded_bed} ${old_bam} | cut -d'	' -f1 > /data/tmp
-time sort -u -S20G --parallel ${threads} /data/tmp > /data/on_target.reads.txt
-time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/on_target.bam RLF=/data/on_target.reads.txt FILTER=includeReadList
+time samtools view -@ ${threads} -L ${padded_bed} ${old_bam} | cut -d'	' -f1 > /data/output/tmp
+time sort -u -S20G --parallel ${threads} /data/output/tmp > /data/output/on_target.reads.txt
+time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/on_target.bam RLF=/data/output/on_target.reads.txt FILTER=includeReadList
 echo "ended filtering for on_target reads"
 
 echo "started filtering by flag"
-time samtools view -@ ${threads} -h -F ${flag} /data/on_target.bam | awk '$7!="="' | samtools view -b -@ ${threads} -S - > /data/temp1.bam
+time samtools view -@ ${threads} -h -F ${flag} /data/output/on_target.bam | awk '$7!="="' | samtools view -b -@ ${threads} -S - > /data/output/temp1.bam
 echo "ended filtering by flag"
 
 echo "started filtering for good reads"
-time samtools view -@ ${threads} -h /data/on_target.bam | head -100000 | samtools view -b -@ ${threads} -S - > /data/temp2.bam
+time samtools view -@ ${threads} -h /data/output/on_target.bam | head -100000 | samtools view -b -@ ${threads} -S - > /data/output/temp2.bam
 echo "ended filtering for good reads"
 
 echo "started filtering for non-primary reads"
 # add non-primary alignments
-time samtools view -@ ${threads} -f 256 /data/on_target.bam | cut -d'	' -f1 > /data/tmp1
-time sort -u -S20G --parallel ${threads} /data/tmp1 > /data/non-primary.reads.txt
-time java -jar picard.jar FilterSamReads I=/data/on_target.bam O=/data/non-primary.bam RLF=/data/non-primary.reads.txt FILTER=includeReadList
+time samtools view -@ ${threads} -f 256 /data/output/on_target.bam | cut -d'	' -f1 > /data/output/tmp1
+time sort -u -S20G --parallel ${threads} /data/output/tmp1 > /data/output/non-primary.reads.txt
+time java -jar picard.jar FilterSamReads I=/data/output/on_target.bam O=/data/output/non-primary.bam RLF=/data/output/non-primary.reads.txt FILTER=includeReadList
 echo "ended filtering for non-primary reads"
 
 echo "started merging"
-time samtools merge -cp -@ ${threads} ${new_bam} /data/temp1.bam /data/temp2.bam /data/non-primary.bam
+time samtools merge -cp -@ ${threads} ${new_bam} /data/output/temp1.bam /data/output/temp2.bam /data/output/non-primary.bam
 echo "ended merging"
 
 echo "started indexing"
