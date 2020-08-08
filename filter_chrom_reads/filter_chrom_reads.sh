@@ -16,7 +16,7 @@ for filename in ${FILES}; do
 	echo $filename
 	name=$( echo ${filename} | cut -d'/' -f4 )
 	echo $name
-	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam_${name}.bam RLF=${filename} FILTER=includeReadList;
+	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam_${name}.bam RLF=${filename} FILTER=includeReadList &
 done
 time samtools merge -cp -h /data/output/header.sam /data/output/on_target.bam /data/output/bam_*
 echo "ended filtering for on_target reads"
