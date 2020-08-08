@@ -10,7 +10,7 @@ echo "started filtering for on_target reads"
 time samtools view -H ${old_bam} > /data/output/header.sam
 time samtools view -@ ${threads} -L ${padded_bed} ${old_bam} | cut -d'	' -f1 > /data/output/tmp
 time sort -u -S20G --parallel ${threads} /data/output/tmp > /data/output/on_target.reads.txt
-time split -l 5000000 --numeric-suffixes /data/output/on_target.reads.txt /data/output/split_1_files
+time split -l 7000000 --numeric-suffixes /data/output/on_target.reads.txt /data/output/split_1_files
 FILES=/data/output/split_1_files*
 for filename in ${FILES}; do
 	echo $filename
