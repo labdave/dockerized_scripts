@@ -16,10 +16,10 @@ for filename in ${FILES}; do
 	echo $filename
 	name=$( echo ${filename} | cut -d'/' -f4 )
 	echo $name
-	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam_${name}.bam RLF=${filename} FILTER=includeReadList &
+	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam1_${name}.bam RLF=${filename} FILTER=includeReadList &
 done
 wait $(jobs -p)
-time samtools merge -cp -@ ${threads} -h /data/output/header.sam /data/output/on_target.bam /data/output/bam_*
+time samtools merge -cp -@ ${threads} -h /data/output/header.sam /data/output/on_target.bam /data/output/bam1_*
 echo "ended filtering for on_target reads"
 
 echo "started filtering by flag"
@@ -34,7 +34,16 @@ echo "started filtering for non-primary reads"
 # add non-primary alignments
 time samtools view -@ ${threads} -f 256 /data/output/on_target.bam | cut -d'	' -f1 > /data/output/tmp1
 time sort -u -S20G --parallel ${threads} /data/output/tmp1 > /data/output/non-primary.reads.txt
-time java -jar picard.jar FilterSamReads I=/data/output/on_target.bam O=/data/output/non-primary.bam RLF=/data/output/non-primary.reads.txt FILTER=includeReadList
+time split -l 5000000 --numeric-suffixes /data/output/non-primary.reads.txt /data/output/split_2_files
+FILES=/data/output/split_2_files*
+for filename in ${FILES}; do
+	echo $filename
+	name=$( echo ${filename} | cut -d'/' -f4 )
+	echo $name
+	time java -jar picard.jar FilterSamReads I=/data/output/on_target.bam O=/data/output/bam2_${name}.bam RLF=${filename} FILTER=includeReadList &
+done
+wait $(jobs -p)
+time samtools merge -cp -@ ${threads} -h /data/output/header.sam /data/output/non-primary.bam /data/output/bam2_*
 echo "ended filtering for non-primary reads"
 
 echo "started merging"
