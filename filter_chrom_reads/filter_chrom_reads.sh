@@ -12,7 +12,7 @@ time sort -u -S20G --parallel ${threads} /data/output/tmp > /data/output/on_targ
 time split -l 5000000 --numeric_suffixes /data/output/on_target.reads.txt split_1_files
 for filename in /data/output/split_1_files*; do
 	name=$( echo ${filename} | cut -d'/' -f3 )
-	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam_${name}.bam RLF=${filename} FILTER=includeReadList
+	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam_${name}.bam RLF=${filename} FILTER=includeReadList;
 done
 time samtools merge -cp -h /data/output/header.sam /data/output/on_target.bam /data/output/bam_*
 echo "ended filtering for on_target reads"
