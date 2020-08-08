@@ -10,14 +10,14 @@ time samtools view -@ ${threads} -h -F ${flag} ${old_bam} | awk '$7!="="' | samt
 echo "ended filtering by flag"
 
 echo "started filtering for good reads"
-time samtools view -@ ${threads} -h /data/output/on_target.bam | head -100000 | samtools view -b -@ ${threads} -S - > /data/output/temp2.bam
+time samtools view -@ ${threads} -h ${old_bam} | head -100000 | samtools view -b -@ ${threads} -S - > /data/output/temp2.bam
 echo "ended filtering for good reads"
 
 echo "started filtering for non-primary reads"
 # add non-primary alignments
-time samtools view -@ ${threads} -f 256 /data/output/on_target.bam | cut -d'	' -f1 > /data/output/tmp1
+time samtools view -@ ${threads} -f 256 ${old_bam} | cut -d'	' -f1 > /data/output/tmp1
 time sort -u -S20G --parallel ${threads} /data/output/tmp1 > /data/output/non-primary.reads.txt
-time java -jar picard.jar FilterSamReads I=/data/output/on_target.bam O=/data/output/non-primary.bam RLF=/data/output/non-primary.reads.txt FILTER=includeReadList
+time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/non-primary.bam RLF=/data/output/non-primary.reads.txt FILTER=includeReadList
 echo "ended filtering for non-primary reads"
 
 echo "started merging"
