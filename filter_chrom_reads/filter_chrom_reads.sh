@@ -11,7 +11,9 @@ time samtools view -@ ${threads} -L ${padded_bed} ${old_bam} | cut -d'	' -f1 > /
 time sort -u -S20G --parallel ${threads} /data/output/tmp > /data/output/on_target.reads.txt
 time split -l 5000000 --numeric-suffixes /data/output/on_target.reads.txt split_1_files
 for filename in "/data/output/split_1_files*"; do
+	echo $filename
 	name=$( echo ${filename} | cut -d'/' -f3 )
+	echo $name
 	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam_${name}.bam RLF=${filename} FILTER=includeReadList;
 done
 time samtools merge -cp -h /data/output/header.sam /data/output/on_target.bam /data/output/bam_*
