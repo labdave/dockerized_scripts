@@ -21,7 +21,7 @@ for filename in ${FILES}; do
 	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam1_${name}.bam RLF=${filename} FILTER=includeReadList &
 done
 wait $(jobs -p)
-# time samtools merge -cp -@ ${threads} -h /data/output/header.sam /data/output/on_target.bam /data/output/bam1_*
+time samtools merge -cp -@ ${threads} -h /data/output/header.sam /data/output/on_target.bam /data/output/bam1_*
 echo "ended filtering for on_target reads"
 
 echo "started filtering by flag"
