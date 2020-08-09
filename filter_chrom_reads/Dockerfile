@@ -29,7 +29,8 @@ RUN apt-get update -y && apt-get install -y \
     bedtools \
     samtools \
     default-jre \
-    default-jdk
+    default-jdk \
+    parallel
 
 # install numpy and pysam
 WORKDIR /usr/local/bin
