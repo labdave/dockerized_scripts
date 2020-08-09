@@ -10,17 +10,17 @@ echo "started filtering for on_target reads"
 time samtools view -H ${old_bam} > /data/output/header.sam
 time samtools view -@ ${threads} -L ${padded_bed} ${old_bam} | cut -d'	' -f1 > /data/output/tmp
 time sort -u -S20G --parallel ${threads} /data/output/tmp > /data/output/on_target.reads.txt
-time samtools view -@ ${threads} ${old_bam} | parallel --pipe LC_ALL=C grep -F -f /data/output/on_target.reads.txt > /data/output/on_target.sam
-time samtools merge -cp -@ ${threads} -h /data/output/header.sam data/output/on_target.bam data/output/on_target.bam
-# time split -l 7000000 --numeric-suffixes /data/output/on_target.reads.txt /data/output/split_1_files
-# FILES=/data/output/split_1_files*
-# for filename in ${FILES}; do
-# 	echo $filename
-# 	name=$( echo ${filename} | cut -d'/' -f4 )
-# 	echo $name
-# 	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam1_${name}.bam RLF=${filename} FILTER=includeReadList &
-# done
-# wait $(jobs -p)
+# time samtools view -@ ${threads} ${old_bam} | parallel --pipe LC_ALL=C grep -F -f /data/output/on_target.reads.txt > /data/output/on_target.sam
+# time samtools merge -cp -@ ${threads} -h /data/output/header.sam data/output/on_target.bam data/output/on_target.bam
+time split -l 7000000 --numeric-suffixes /data/output/on_target.reads.txt /data/output/split_1_files
+FILES=/data/output/split_1_files*
+for filename in ${FILES}; do
+	echo $filename
+	name=$( echo ${filename} | cut -d'/' -f4 )
+	echo $name
+	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam1_${name}.bam RLF=${filename} FILTER=includeReadList &
+done
+wait $(jobs -p)
 # time samtools merge -cp -@ ${threads} -h /data/output/header.sam /data/output/on_target.bam /data/output/bam1_*
 echo "ended filtering for on_target reads"
 
