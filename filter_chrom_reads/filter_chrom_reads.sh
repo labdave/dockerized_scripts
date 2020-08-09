@@ -7,7 +7,7 @@ padded_bed=$5
 rm ${new_bam}
 
 # echo "started filtering for on_target reads"
-# time samtools view -H ${old_bam} > /data/output/header.sam
+time samtools view -H ${old_bam} > /data/output/header.sam
 # time samtools view -@ ${threads} -L ${padded_bed} ${old_bam} | cut -d'	' -f1 > /data/output/tmp
 # time sort -u -S20G --parallel ${threads} /data/output/tmp > /data/output/on_target.reads.txt
 # # time samtools view -@ ${threads} ${old_bam} | parallel --pipe LC_ALL=C grep -F -f /data/output/on_target.reads.txt > /data/output/on_target.sam
