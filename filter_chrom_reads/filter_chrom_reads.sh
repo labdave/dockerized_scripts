@@ -40,7 +40,7 @@ echo "ended merging"
 
 echo "start removing hard clipped reads"
 samtools view -@ ${threads} ${new_bam} | awk 'match($6, !/.*H.*H/) {print $0}' > /data/output/tmp.sam
-cat /data/output/header.sam /data/output/tmp.sam > ${new_bam}
+cat /data/output/header.sam /data/output/tmp.sam | samtools view -Sb - > ${new_bam}
 
 echo "started indexing"
 time samtools index -@ ${threads} ${new_bam}
