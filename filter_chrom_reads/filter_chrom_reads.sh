@@ -39,7 +39,7 @@ time samtools merge -fcp -@ ${threads} ${new_bam} /data/output/temp1.bam /data/o
 echo "ended merging"
 
 echo "start removing hard clipped reads"
-samtools view -@ ${threads} ${new_bam} | awk 'match($6, !/.*H.*H/) {print $0}' > /data/output/tmp.sam
+samtools view -@ ${threads} ${new_bam} | awk '$6 !~ /.*H.*H/ {print $0}' > /data/output/tmp.sam
 cat /data/output/header.sam /data/output/tmp.sam | samtools view -Sb - > ${new_bam}
 
 echo "started indexing"
