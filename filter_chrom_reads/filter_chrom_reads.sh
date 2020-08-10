@@ -31,16 +31,16 @@ for filename in ${FILES}; do
 	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam2_${name}.bam RLF=${filename} FILTER=includeReadList &
 done
 wait $(jobs -p)
-time samtools merge -cp -@ ${threads} -h /data/output/header.sam /data/output/non-primary.bam /data/output/bam2_*
+time samtools merge -fcp -@ ${threads} -h /data/output/header.sam /data/output/non-primary.bam /data/output/bam2_*
 echo "ended filtering for non-primary reads"
 
 echo "started merging"
-time samtools merge -cp -@ ${threads} ${new_bam} /data/output/temp1.bam /data/output/temp2.bam /data/output/non-primary.bam
+time samtools merge -fcp -@ ${threads} ${new_bam} /data/output/temp1.bam /data/output/temp2.bam /data/output/non-primary.bam
 echo "ended merging"
 
 echo "start removing hard clipped reads"
 samtools view -@ ${threads} ${new_bam} | awk 'match($6, /.*H.*H/) {print $0}' > /data/output/tmp
-samtools merge -cp -@ ${threads} -h /data/output/header.sam ${new_bam} /data/output/tmp
+samtools merge -fcp -@ ${threads} -h /data/output/header.sam ${new_bam} /data/output/tmp
 
 echo "started indexing"
 time samtools index -@ ${threads} ${new_bam}
