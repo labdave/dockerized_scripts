@@ -17,6 +17,8 @@ with open(args.input, 'r') as f:
 	for line in f:
 		if ('csv') in args.input:
 			line = line.replace(',', '\t').replace('\"', '')
+		else:
+			line = line.replace(', ', ',')
 		if not i:
 			i = 1
 			continue
