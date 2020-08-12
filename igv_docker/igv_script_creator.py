@@ -162,6 +162,8 @@ for analyis_id in analyis_dict:
         script += '.png\n'
 script += 'exit\n'
 
+if script == 'exit\n':
+    script = 'new\ngenome hg38\nsnapshotDirectory {0}\nsnapshot null.png\nexit'.format(args.dir)
 
 """ WRITE TO SCRIPT FILE"""
 
