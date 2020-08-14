@@ -258,7 +258,7 @@ def main():
 	delly_lumpy_dict = dict()
 
 	# two callers
-	delly_remove, lumpy_remove = [], [], []
+	delly_remove, lumpy_remove = [], []
 
 	# delly lumpy
 	for delly_item in delly_2_dict:
