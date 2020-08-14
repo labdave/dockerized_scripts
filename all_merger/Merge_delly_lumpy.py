@@ -48,7 +48,7 @@ def main():
 	myfile = open(output_file, mode='wt')
 	'''Output Header'''
 	myfile.write("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t")
-	# print("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t"+str_header_delly+"\t"+str_header_lumpy, file=sys.stderr)
+	print("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t"+str_header_delly+"\t"+str_header_lumpy, file=sys.stderr)
 	myfile.write(str_header_delly+"\t"+str_header_lumpy+"\t"+"\n")
 
 	print('header written', file=sys.stderr)
@@ -89,7 +89,7 @@ def main():
 			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='', file=sys.stderr)
 			myfile.write("\tNA"*len(list_head_delly[5:]))
 			# print("\tNA"*len(list_head_delly[5:]), end='', file=sys.stderr)
-			myfile.write("\t"+str.join("\t",p1[5:]))
+			myfile.write("\t"+str.join("\t",p1[5:])+"\n")
 			# print("\t"+str.join("\t",p1[5:]), end='', file=sys.stderr)
 	print('lumpy written', file=sys.stderr)
 
@@ -265,7 +265,7 @@ def main():
 		for lumpy_item in lumpy_2_dict:
 			if check_proximity(delly_item, lumpy_item) and delly_item not in delly_remove and lumpy_item not in lumpy_remove:
 				joint_key = delly_item+'|'+lumpy_item
-				print(joint_key)
+				# print(joint_key)
 				joint_val = [delly_dict[delly_item], lumpy_dict[lumpy_item]]
 				delly_lumpy_dict[joint_key] = joint_val
 				lines += get_merged_line(joint_val, type_=2)
