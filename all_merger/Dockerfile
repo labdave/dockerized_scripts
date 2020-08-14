@@ -37,6 +37,6 @@ RUN pip install pysam
 # get lumpy script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
-RUN cp dockerized_scripts/all_merger/Merge_delly_lumpy_destruct.py .
-RUN cp dockerized_scripts/all_merger/Merge_delly_lumpy_destruct.py /home/Merge_delly_lumpy_destruct.py
-RUN chmod +x Merge_delly_lumpy_destruct.py
+RUN cp dockerized_scripts/all_merger/Merge_delly_lumpy.py .
+RUN cp dockerized_scripts/all_merger/Merge_delly_lumpy.py /home/Merge_delly_lumpy.py
+RUN chmod +x Merge_delly_lumpy.py
