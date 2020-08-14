@@ -185,6 +185,9 @@ def main():
 		merged = '\t'.join(merged).strip()+'\tDELLY, LUMPY\t2\n'
 		return merged			
 
+	with open(output_file, 'r') as f:
+		for line in f:
+			print(line, file=sys.stderr)
 
 	# read output_file and create dict
 	with open(output_file, 'r') as f:
@@ -192,7 +195,7 @@ def main():
 		lumpy_dict = dict()
 		delly_dict = dict()
 		for line in f:
-			print(line, file=sys.stderr)
+			# print(line, file=sys.stderr)
 			if i:
 				lines = line.strip()+'\tCallers\tNum_callers\n'
 				i = False
