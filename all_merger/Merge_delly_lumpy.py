@@ -76,7 +76,7 @@ def main():
 	with open(lumpy_file, 'r') as f:
 		i = 0
 		for line in f:
-			print(line, file=sys.stderr)
+			# print(line, file=sys.stderr)
 			# skip header line
 			if i == 0:
 				i = 1
@@ -87,11 +87,11 @@ def main():
 			sr=p1[11]
 			total=str(int(pe)+int(sr))
 			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY")
-			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='', file=sys.stderr)
+			print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='', file=sys.stderr)
 			myfile.write("\tNA"*len(list_head_delly[5:]))
-			# print("\tNA"*len(list_head_delly[5:]), end='', file=sys.stderr)
+			print("\tNA"*len(list_head_delly[5:]), end='', file=sys.stderr)
 			myfile.write("\t"+str.join("\t",p1[5:])+"\n")
-			# print("\t"+str.join("\t",p1[5:]), end='', file=sys.stderr)
+			print("\t"+str.join("\t",p1[5:]), file=sys.stderr)
 	print('lumpy written', file=sys.stderr)
 
 	'''preparing input file for intersect bed'''
