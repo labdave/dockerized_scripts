@@ -158,8 +158,8 @@ def main():
 		# we know passed order is [delly, lumpy]
 		delly_arr = joint_val[0].split('\t')
 		lumpy_arr = joint_val[1].split('\t')
-		print(delly_arr)
-		print(lumpy_arr)
+		# print(delly_arr)
+		# print(lumpy_arr)
 
 		# check using hierarchy:
 		delly_sr, delly_pe = delly_arr[6], delly_arr[5]
@@ -195,12 +195,12 @@ def main():
 				i = False
 				continue
 			line, arr = switch_chr_asc(line)
-			print(line)
 			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
 			if arr[8] == 'DELLY':
 				delly_dict[key] = line
 			if arr[8] == 'LUMPY':
 				lumpy_dict[key] = line
+				print(line)
 
 	print('dict created', file=sys.stderr)
 	print(len(delly_dict), file=sys.stderr)
