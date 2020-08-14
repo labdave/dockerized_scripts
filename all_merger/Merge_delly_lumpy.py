@@ -200,7 +200,7 @@ def main():
 				delly_dict[key] = line
 			if arr[8] == 'LUMPY':
 				lumpy_dict[key] = line
-				print(line)
+				print(line, file=sys.stderr)
 
 	print('dict created', file=sys.stderr)
 	print(len(delly_dict), file=sys.stderr)
