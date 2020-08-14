@@ -195,12 +195,12 @@ def main():
 				i = False
 				continue
 			line, arr = switch_chr_asc(line)
+			print(line, file=sys.stderr)
 			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
 			if arr[8] == 'DELLY':
 				delly_dict[key] = line
 			if arr[8] == 'LUMPY':
 				lumpy_dict[key] = line
-				print(line, file=sys.stderr)
 
 	print('dict created', file=sys.stderr)
 	print(len(delly_dict), file=sys.stderr)
