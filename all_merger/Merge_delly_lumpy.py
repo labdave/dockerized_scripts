@@ -268,7 +268,7 @@ def main():
 				# print(joint_key)
 				joint_val = [delly_dict[delly_item], lumpy_dict[lumpy_item]]
 				delly_lumpy_dict[joint_key] = joint_val
-				lines += get_merged_line(joint_val, type_=2)
+				lines += get_merged_line(joint_val)
 				delly_remove.append(delly_item)
 				lumpy_remove.append(lumpy_item)
 				continue
