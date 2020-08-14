@@ -76,6 +76,7 @@ def main():
 	with open(lumpy_file, 'r') as f:
 		i = 0
 		for line in f:
+			print(line, file=sys.stderr)
 			# skip header line
 			if i == 0:
 				i = 1
@@ -184,6 +185,7 @@ def main():
 		merged = '\t'.join(merged).strip()+'\tDELLY, LUMPY\t2\n'
 		return merged			
 
+
 	# read output_file and create dict
 	with open(output_file, 'r') as f:
 		i = True
@@ -195,7 +197,6 @@ def main():
 				i = False
 				continue
 			line, arr = switch_chr_asc(line)
-			print(line, file=sys.stderr)
 			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
 			if arr[8] == 'DELLY':
 				delly_dict[key] = line
