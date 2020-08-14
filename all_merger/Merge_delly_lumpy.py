@@ -87,11 +87,11 @@ def main():
 			sr=p1[11]
 			total=str(int(pe)+int(sr))
 			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY")
-			print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='', file=sys.stderr)
+			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='', file=sys.stderr)
 			myfile.write("\tNA"*len(list_head_delly[5:]))
-			print("\tNA"*len(list_head_delly[5:]), end='', file=sys.stderr)
+			# print("\tNA"*len(list_head_delly[5:]), end='', file=sys.stderr)
 			myfile.write("\t"+str.join("\t",p1[5:])+"\n")
-			print("\t"+str.join("\t",p1[5:]), file=sys.stderr)
+			# print("\t"+str.join("\t",p1[5:]), file=sys.stderr)
 	print('lumpy written', file=sys.stderr)
 
 	'''preparing input file for intersect bed'''
@@ -192,6 +192,7 @@ def main():
 		lumpy_dict = dict()
 		delly_dict = dict()
 		for line in f:
+			print(line, file=sys.stderr)
 			if i:
 				lines = line.strip()+'\tCallers\tNum_callers\n'
 				i = False
