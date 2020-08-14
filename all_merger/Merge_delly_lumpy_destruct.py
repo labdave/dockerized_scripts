@@ -25,11 +25,9 @@ def main():
 	chr_filter = int(sys.argv[2])
 	delly_file = sys.argv[3]
 	lumpy_file = sys.argv[4]
-	destruct_file = sys.argv[5]
 
 	print(delly_file, file=sys.stderr)
 	print(lumpy_file, file=sys.stderr)
-	print(destruct_file, file=sys.stderr)
 	print(output_file, file=sys.stderr)
 	gene_list=['bcl6','myc','bcl2']
 	gene_start_list = [187721377,127735434,63123346]
@@ -42,18 +40,16 @@ def main():
 	
 	list_head_delly = [line for line in open(delly_file, 'r')][0].strip().split("\t")
 	list_head_lumpy = [line for line in open(lumpy_file, 'r')][0].strip().split("\t")
-	list_head_destruct = [line for line in open(destruct_file, 'r')][0].strip().split("\t")
 	
 	str_header_delly = str.join("\t",list_head_delly[5:])
 	str_header_lumpy = str.join("\t",list_head_lumpy[5:])
-	str_header_destruct = str.join("\t",list_head_destruct[5:])
 	
 	'''Output file'''
 	myfile = open(output_file, mode='wt')
 	'''Output Header'''
 	myfile.write("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t")
-	# print("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t"+str_header_delly+"\t"+str_header_lumpy+"\t"+str_header_destruct, file=sys.stderr)
-	myfile.write(str_header_delly+"\t"+str_header_lumpy+"\t"+str_header_destruct+"\n")
+	# print("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t"+str_header_delly+"\t"+str_header_lumpy, file=sys.stderr)
+	myfile.write(str_header_delly+"\t"+str_header_lumpy+"\t"+"\n")
 
 	print('header written', file=sys.stderr)
 	'''Read Delly'''
@@ -75,8 +71,6 @@ def main():
 			# print("\t"+str.join("\t",p1[5:]), end='', file=sys.stderr)
 			myfile.write("\tNA"*len(list_head_lumpy[5:]))
 			# print("\tNA"*len(list_head_lumpy[5:]), end='', file=sys.stderr)
-			myfile.write("\tNA"*len(list_head_destruct[5:])+"\n")
-			# print("\tNA"*len(list_head_destruct[5:])+"\n", end='', file=sys.stderr)
 	print('delly written', file=sys.stderr)
 	'''Read Lumpy'''
 	with open(lumpy_file, 'r') as f:
@@ -97,47 +91,22 @@ def main():
 			# print("\tNA"*len(list_head_delly[5:]), end='', file=sys.stderr)
 			myfile.write("\t"+str.join("\t",p1[5:]))
 			# print("\t"+str.join("\t",p1[5:]), end='', file=sys.stderr)
-			myfile.write("\tNA"*len(list_head_destruct[5:])+"\n")
-			# print("\tNA"*len(list_head_destruct[5:])+"\n", end='', file=sys.stderr)
 	print('lumpy written', file=sys.stderr)
-	'''Read Destruct'''
-	with open(destruct_file, 'r') as f:
-		i = 0
-		for line in f:
-			# skip header line
-			if i == 0:
-				i = 1
-				continue
-			p1 = line.strip().split("\t")
-			pe=p1[16]
-			sr=p1[9]
-			total=str(int(pe)+int(sr))
-			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDESTRUCT")
-			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDESTRUCT", end='', file=sys.stderr)
-			myfile.write("\tNA"*len(list_head_delly[5:]))
-			# print("\tNA"*len(list_head_delly[5:]), end='', file=sys.stderr)
-			myfile.write("\tNA"*len(list_head_lumpy[5:]))
-			# print("\tNA"*len(list_head_lumpy[5:]), end='', file=sys.stderr)
-			myfile.write("\t"+str.join("\t",p1[5:])+"\n")
-			# print("\t"+str.join("\t",p1[5:])+"\n", end='', file=sys.stderr)
-	print('Destruct written', file=sys.stderr)
-	myfile.close()
 
 	'''preparing input file for intersect bed'''
 	dist = 500
 
 	# devang's code for merging and fixing number of callers:
-	# this code assumes the presence of only three callers,
-	# in this case - delly, lumpy, destruct.
+	# this code assumes the presence of only two callers,
+	# in this case - delly, lumpy.
 	
 	'''
 	========== heuristic for merging calls ==========
 	-> Merge calls with both breakpoints within 100bp of each other
 	-> Can only merge if called from same sample and different caller
 	-> The BP positions are defined by the following hierarchy
-		- The one with more split reads; if equal:
-		- The one with more paired reads; if equal:
-		- Lumpy > Delly > Destruct
+		- The one with more reads; if equal:
+		- Lumpy > Delly 
 	-> Collapse rows into one for merged reads
 	'''
 
@@ -171,171 +140,53 @@ def main():
 
 	# check if two lines are valid calls from two different callers
 	# works only when used from inside SV_calling due to difference in analysis IDs
-	def check_proximity(line1, line2, line3=None):
+	def check_proximity(line1, line2):
 		line1 = line1.replace(':', ';').split(';')
 		line2 = line2.replace(':', ';').split(';')
-		if line3:
-			line3 = line3.replace(':', ';').split(';')
-			if all([
-					line1[1] == line2[1],
-					line2[1] == line3[1],
-					line1[3] == line2[3],
-					line2[3] == line3[3],
-					abs(int(line1[2])-int(line2[2])) < dist,
-					abs(int(line2[2])-int(line3[2])) < dist,
-					abs(int(line3[2])-int(line1[2])) < dist,
-					abs(int(line1[4])-int(line2[4])) < dist,
-					abs(int(line2[4])-int(line3[4])) < dist,
-					abs(int(line3[4])-int(line1[4])) < dist,
-					]):
-				return True
-		else:
-			if all([
-					line1[1] == line2[1],
-					line1[3] == line2[3],
-					abs(int(line1[2])-int(line2[2])) < dist,
-					abs(int(line1[4])-int(line2[4])) < dist,
-					]):
-				return True
+		if all([
+				line1[1] == line2[1],
+				line1[3] == line2[3],
+				abs(int(line1[2])-int(line2[2])) < dist,
+				abs(int(line1[4])-int(line2[4])) < dist,
+				]):
+			return True
 		return False
 
 
 	# parse a list of lines to get merged line
-	def get_merged_line(joint_val, type_):
-		if type_ == 0:
-			# we know passed order is [delly, destruct, lumpy]
-			delly_arr = joint_val[0].split('\t')
-			destruct_arr = joint_val[1].split('\t')
-			lumpy_arr = joint_val[2].split('\t')
-			print(joint_val)
+	def get_merged_line(joint_val):
+		# we know passed order is [delly, lumpy]
+		delly_arr = joint_val[0].split('\t')
+		lumpy_arr = joint_val[1].split('\t')
 
-			# check using hierarchy:
-			delly_sr, delly_pe = int(delly_arr[6]), int(delly_arr[5])
-			destruct_sr, destruct_pe = int(destruct_arr[6]), int(destruct_arr[5])
-			lumpy_sr, lumpy_pe = int(lumpy_arr[6]), int(lumpy_arr[5])
-			print(delly_sr)
-			print(destruct_sr)
-			print(lumpy_sr)
-			print(lumpy_sr > delly_sr)
-			delly_reads = delly_sr+delly_pe
-			destruct_reads = destruct_sr+destruct_pe
-			lumpy_reads = lumpy_sr+lumpy_pe
+		# check using hierarchy:
+		delly_sr, delly_pe = delly_arr[6], delly_arr[5]
+		lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
+		delly_reads = delly_sr+delly_pe
+		lumpy_reads = lumpy_sr+lumpy_pe
 
-			# split+paired reads
-			if (lumpy_reads > delly_reads) and (lumpy_reads > destruct_reads):
-				chosen = lumpy_arr
-				print("lumpy1")
-			elif (delly_reads > destruct_reads) and (delly_reads > lumpy_reads):
-				chosen = delly_arr
-				print("delly1")
-			elif (destruct_reads > delly_reads) and (destruct_reads > lumpy_reads):
-				chosen = destruct_arr
-				print("destruct1")
-			else:
-				chosen = lumpy_arr
-				print("lumpy3")
+		# split+paired reads
+		if (lumpy_reads > delly_reads):
+			chosen = lumpy_arr
+		elif (delly_reads > lumpy_reads):
+			chosen = delly_arr
+		else:
+			chosen = lumpy_arr
 
-			# create merged row:
-			merged = chosen[:9]
-			merged.extend(delly_arr[9:31])
-			merged.extend(lumpy_arr[31:54])
-			merged.extend(destruct_arr[54:])
+		# create merged row:
+		merged = chosen[:9]
+		merged.extend(delly_arr[9:31])
+		merged.extend(lumpy_arr[31:])
 
-			# return merged line
-			merged = '\t'.join(merged).strip()+'\tDELLY, DESTRUCT, LUMPY\t3\n'
-			return merged
-
-		if type_ == 1:
-			# we know passed order is [delly, destruct]
-			delly_arr = joint_val[0].split('\t')
-			destruct_arr = joint_val[1].split('\t')
-
-			# check using hierarchy:
-			delly_sr, delly_pe = delly_arr[6], delly_arr[5]
-			destruct_sr, destruct_pe = destruct_arr[6], destruct_arr[5]
-			delly_reads = delly_sr+delly_pe
-			destruct_reads = destruct_sr+destruct_pe
-
-			# split+paired reads
-			if (delly_reads >= destruct_reads):
-				chosen = delly_arr
-			elif (destruct_reads >= delly_reads):
-				chosen = destruct_arr
-			else:
-				chosen = delly_arr
-
-			# create merged row:
-			merged = chosen[:9]
-			merged.extend(delly_arr[9:54])
-			merged.extend(destruct_arr[54:])
-
-			# return merged line
-			merged = '\t'.join(merged).strip()+'\tDELLY, DESTRUCT\t2\n'
-			return merged
-
-		if type_ == 2:
-			# we know passed order is [delly, lumpy]
-			delly_arr = joint_val[0].split('\t')
-			lumpy_arr = joint_val[1].split('\t')
-
-			# check using hierarchy:
-			delly_sr, delly_pe = delly_arr[6], delly_arr[5]
-			lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
-			delly_reads = delly_sr+delly_pe
-			lumpy_reads = lumpy_sr+lumpy_pe
-
-			# split+paired reads
-			if (lumpy_reads > delly_reads):
-				chosen = lumpy_arr
-			elif (delly_reads > lumpy_reads):
-				chosen = delly_arr
-			else:
-				chosen = lumpy_arr
-
-			# create merged row:
-			merged = chosen[:9]
-			merged.extend(delly_arr[9:31])
-			merged.extend(lumpy_arr[31:])
-
-			# return merged line
-			merged = '\t'.join(merged).strip()+'\tDELLY, LUMPY\t2\n'
-			return merged
-
-		if type_ == 3:
-			# we know passed order is [destruct, lumpy]
-			destruct_arr = joint_val[0].split('\t')
-			lumpy_arr = joint_val[1].split('\t')
-
-			# check using hierarchy:
-			destruct_sr, destruct_pe = destruct_arr[6], destruct_arr[5]
-			lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
-			destruct_reads = destruct_sr+destruct_pe
-			lumpy_reads = lumpy_sr+lumpy_pe
-			
-			# split reads
-			if (lumpy_reads > destruct_reads):
-				chosen = lumpy_arr
-			elif (destruct_reads > lumpy_reads):
-				chosen = destruct_arr
-			else:
-				chosen = lumpy_arr
-
-			# create merged row:
-			merged = chosen[:9]
-			merged.extend(lumpy_arr[9:54])
-			merged.extend(destruct_arr[54:])
-
-			# return merged line
-			merged = '\t'.join(merged).strip()+'\tDESTRUCT, LUMPY\t2\n'
-			return merged
-			
+		# return merged line
+		merged = '\t'.join(merged).strip()+'\tDELLY, LUMPY\t2\n'
+		return merged			
 
 	# read output_file and create dict
 	with open(output_file, 'r') as f:
 		i = True
 		lumpy_dict = dict()
 		delly_dict = dict()
-		destruct_dict = dict()
 		for line in f:
 			if i:
 				lines = line.strip()+'\tCallers\tNum_callers\n'
@@ -347,13 +198,10 @@ def main():
 				delly_dict[key] = line
 			if arr[8] == 'LUMPY':
 				lumpy_dict[key] = line
-			if arr[8] == 'DESTRUCT':
-				destruct_dict[key] = line
 
 	print('dict created', file=sys.stderr)
 	print(len(delly_dict), file=sys.stderr)
 	print(len(lumpy_dict), file=sys.stderr)
-	print(len(destruct_dict), file=sys.stderr)
 	for item in delly_dict:
 		print(item, file=sys.stderr)
 		print(delly_dict[item], file=sys.stderr)
@@ -363,19 +211,9 @@ def main():
 	temp_file = output_file.replace('.vcf', '.tmp')
 	delly_bed_file = temp_file.replace('.tmp', '.delly.bed')
 	lumpy_bed_file = temp_file.replace('.tmp', '.lumpy.bed')
-	destruct_bed_file = temp_file.replace('.tmp', '.destruct.bed')
 	
-	destruct_lumpy_bed = temp_file.replace('.tmp', '.destruct.lumpy.bed')
 	delly_lumpy_bed = temp_file.replace('.tmp', '.delly.lumpy.bed')
-	destruct_delly_bed = temp_file.replace('.tmp', '.destruct.delly.bed')
-	delly_destruct_bed = temp_file.replace('.tmp', '.delly.destruct.bed')
-	lumpy_destruct_bed = temp_file.replace('.tmp', '.lumpy.destruct.bed')
 	lumpy_delly_bed = temp_file.replace('.tmp', '.lumpy.delly.bed')
-
-	delly_all_bed = temp_file.replace('.tmp', '.delly.all.bed')
-	destruct_all_bed = temp_file.replace('.tmp', '.destruct.all.bed')
-	lumpy_all_bed_1 = temp_file.replace('.tmp', '.lumpy.all.1.bed')
-	lumpy_all_bed_2 = temp_file.replace('.tmp', '.lumpy.all.2.bed')
 	
 	# get bed files
 	with open(temp_file, 'w') as f:
@@ -385,66 +223,20 @@ def main():
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
 	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, delly_bed_file))
 	with open(temp_file, 'w') as f:
-		for item in destruct_dict:
-			a = item.replace(';',':').split(':')
-			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
-			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
-	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, destruct_bed_file))
-	with open(temp_file, 'w') as f:
 		for item in lumpy_dict:
 			a = item.replace(';',':').split(':')
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
 			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
 	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, lumpy_bed_file))
 
-	# find triplicate intersections
+	# find intersections
 	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, lumpy_bed_file, delly_lumpy_bed))
-	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, lumpy_bed_file, destruct_lumpy_bed))
 	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, delly_bed_file, lumpy_delly_bed))
-	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(lumpy_bed_file, destruct_bed_file, lumpy_destruct_bed))
-	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(destruct_bed_file, delly_bed_file, destruct_delly_bed))
-	os.system('bedtools intersect -u -a {0} -b {1} > {2}'.format(delly_bed_file, destruct_bed_file, delly_destruct_bed))
-	
-	os.system('bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(delly_lumpy_bed, destruct_lumpy_bed, delly_all_bed))
-	os.system('bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(destruct_lumpy_bed, delly_lumpy_bed, destruct_all_bed))
-	os.system('bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_delly_bed, lumpy_destruct_bed, lumpy_all_bed_1))
-	os.system('bedtools intersect -u -a {0} -b {1} | cut -f 4 > {2}'.format(lumpy_destruct_bed, lumpy_delly_bed, lumpy_all_bed_2))
-
-	# get list of caller specific all-caller ids
-	delly_all_list, destruct_all_list, lumpy_all_list = [], [], []
-	delly_all_dict, destruct_all_dict, lumpy_all_dict = dict(), dict(), dict()
-	
-	with open(delly_all_bed, 'r') as f:
-		for line in f:
-			delly_all_list.append(line.strip())
-	delly_all_list = list(set(delly_all_list))
-	for item in delly_all_list:
-		delly_all_dict[item] = delly_dict[item]
-
-	with open(destruct_all_bed, 'r') as f:
-		for line in f:
-			destruct_all_list.append(line.strip())
-	destruct_all_list = list(set(destruct_all_list))
-	for item in destruct_all_list:
-		destruct_all_dict[item] = destruct_dict[item]
-
-	with open(lumpy_all_bed_1, 'r') as f:
-		for line in f:
-			lumpy_all_list.append(line.strip())
-	with open(lumpy_all_bed_2, 'r') as f:
-		for line in f:
-			lumpy_all_list.append(line.strip())
-	lumpy_all_list = list(set(lumpy_all_list))
-	for item in lumpy_all_list:
-		lumpy_all_dict[item] = lumpy_dict[item]
 
 	# get list of caller specific 2-caller ids
-	delly_2_list, destruct_2_list, lumpy_2_list = [], [], []
-	delly_2_dict, destruct_2_dict, lumpy_2_dict = dict(), dict(), dict()
-	
-	with open(delly_destruct_bed, 'r') as f:
-		for line in f:
-			delly_2_list.append(line.strip().split()[-1])
+	delly_2_list, lumpy_2_list = [], []
+	delly_2_dict, lumpy_2_dict = dict(), dict()
+
 	with open(delly_lumpy_bed, 'r') as f:
 		for line in f:
 			delly_2_list.append(line.strip().split()[-1])
@@ -452,20 +244,7 @@ def main():
 	for item in delly_2_list:
 		delly_2_dict[item] = delly_dict[item]
 
-	with open(destruct_delly_bed, 'r') as f:
-		for line in f:
-			destruct_2_list.append(line.strip().split()[-1])
-	with open(destruct_lumpy_bed, 'r') as f:
-		for line in f:
-			destruct_2_list.append(line.strip().split()[-1])
-	destruct_2_list = list(set(destruct_2_list))
-	for item in destruct_2_list:
-		destruct_2_dict[item] = destruct_dict[item]
-
 	with open(lumpy_delly_bed, 'r') as f:
-		for line in f:
-			lumpy_2_list.append(line.strip().split()[-1])
-	with open(lumpy_destruct_bed, 'r') as f:
 		for line in f:
 			lumpy_2_list.append(line.strip().split()[-1])
 	lumpy_2_list = list(set(lumpy_2_list))
@@ -473,67 +252,14 @@ def main():
 		lumpy_2_dict[item] = lumpy_dict[item]
 
 	print(len(delly_2_dict), file=sys.stderr)
-	print(len(destruct_2_dict), file=sys.stderr)
 	print(len(lumpy_2_dict), file=sys.stderr)
+
 	''' complex procedure to get merge-able rows '''
-	delly_destruct_dict, delly_lumpy_dict, destruct_lumpy_dict = dict(), dict(), dict()
-	delly_destruct_lumpy_dict = dict()
+	delly_lumpy_dict = dict()
 
-	# all three callers
-	delly_remove, destruct_remove, lumpy_remove = [], [], []
-	count = 1
-	for delly_item in delly_all_dict:
-		for destruct_item in destruct_all_dict:
-			for lumpy_item in lumpy_all_dict:
-				# if count%1000 == 0:
-					# print(str(count), file=sys.stderr)
-				count += 1
-				if check_proximity(delly_item, destruct_item, lumpy_item) and delly_item not in delly_remove and lumpy_item not in lumpy_remove and destruct_item not in destruct_remove:
-					joint_key = delly_item+'|'+destruct_item+'|'+lumpy_item
-					print(joint_key)
-					joint_val = [delly_all_dict[delly_item], destruct_all_dict[destruct_item], lumpy_all_dict[lumpy_item]]
-					delly_destruct_lumpy_dict[joint_key] = joint_val
-					lines += get_merged_line(joint_val, type_=0)
-					delly_remove.append(delly_item)
-					destruct_remove.append(destruct_item)
-					lumpy_remove.append(lumpy_item)
-	# print(list(set(delly_remove)), file=sys.stderr)
-	# print(list(set(destruct_remove)), file=sys.stderr)
-	# print(list(set(lumpy_remove)), file=sys.stderr)
-	for item in delly_remove:
-		if item in delly_dict:
-			delly_dict.pop(item)
-		if item in delly_2_dict:
-			delly_2_dict.pop(item)
-	for item in destruct_remove:
-		if item in destruct_dict:
-			destruct_dict.pop(item)
-		if item in destruct_2_dict:
-			destruct_2_dict.pop(item)
-	for item in lumpy_remove:
-		if item in lumpy_dict:
-			lumpy_dict.pop(item)
-		if item in lumpy_2_dict:
-			lumpy_2_dict.pop(item)
-	
-	print('three callers done', file=sys.stderr)
-	# print(lines, file=sys.stderr)
-	
-	# three pairs of two callers each
-	delly_remove, destruct_remove, lumpy_remove = [], [], []
+	# two callers
+	delly_remove, lumpy_remove = [], [], []
 
-	# delly destruct
-	for delly_item in delly_2_dict:
-		for destruct_item in destruct_2_dict:
-			if check_proximity(delly_item, destruct_item) and delly_item not in delly_remove and destruct_item not in destruct_remove:
-				joint_key = delly_item+'|'+destruct_item
-				joint_val = [delly_dict[delly_item], destruct_dict[destruct_item]]
-				delly_destruct_dict[joint_key] = joint_val
-				lines += get_merged_line(joint_val, type_=1)
-				delly_remove.append(delly_item)
-				destruct_remove.append(destruct_item)
-				continue
-	print('two callers done', file=sys.stderr)
 	# delly lumpy
 	for delly_item in delly_2_dict:
 		for lumpy_item in lumpy_2_dict:
@@ -547,27 +273,9 @@ def main():
 				lumpy_remove.append(lumpy_item)
 				continue
 	print('two callers done', file=sys.stderr)
-	# destruct lumpy
-	for destruct_item in destruct_2_dict:
-		for lumpy_item in lumpy_2_dict:
-			if check_proximity(destruct_item, lumpy_item) and destruct_item not in destruct_remove and lumpy_item not in lumpy_remove:
-				joint_key = destruct_item+'|'+lumpy_item
-				joint_val = [destruct_dict[destruct_item], lumpy_dict[lumpy_item]]
-				destruct_lumpy_dict[joint_key] = joint_val
-				lines += get_merged_line(joint_val, type_=3)
-				destruct_remove.append(destruct_item)
-				lumpy_remove.append(lumpy_item)
-				continue
-	print('two callers done', file=sys.stderr)
-	# print(list(set(delly_remove)), file=sys.stderr)
-	# print(list(set(destruct_remove)), file=sys.stderr)
-	# print(list(set(lumpy_remove)), file=sys.stderr)
 	for item in delly_remove:
 		if item in delly_dict:
 			delly_dict.pop(item)
-	for item in destruct_remove:
-		if item in destruct_dict:
-			destruct_dict.pop(item)
 	for item in lumpy_remove:
 		if item in lumpy_dict:
 			lumpy_dict.pop(item)
@@ -580,121 +288,11 @@ def main():
 	for item in lumpy_dict:
 		# print(item, file=sys.stderr)
 		lines += lumpy_dict[item].strip()+'\tLUMPY\t1\n'
-	for item in destruct_dict:
-		# print(item, file=sys.stderr)
-		lines += destruct_dict[item].strip()+'\tDESTRUCT\t1\n'
 
 	# print output
 	with open(output_cons_file, 'w') as f:
 		f.write(lines)
-	"""
-	# read output file and check for matches
-	with open(output_file, 'r') as f:
-		i = True
-		for line in f:
-			if i:
-				output_cons_text = line.strip()+'\tNum_Callers\tCallers\n'
-				i = False
-				continue
-			arr = line.strip().split()
-			callers = [arr[8]]
-			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]+';'+arr[8]
-			for item in output_dict:
-				if check_proximity(item, key):
-					callers.append(item.split(';')[-1])
-			callers = list(set(callers))
-			n_callers = len(callers)
-			callers_str = ','.join(callers)
-			output_cons_text += (line.strip()+'\t{0}\t{1}\n'.format(n_callers, callers_str))
-	# naresh's code for number of callers:
-	fobj = open(output_file)
-	tmp_bed = output_file+'.tmp.bed'
-	tmp1_bed = output_file+'.tmp1.bed'
-	tmp1_cp_bed = output_file+'.tmp1.cp.bed'
-	tmp_all_bed = output_file+'.tmp.all.bed'
-	myfile = open(tmp_bed, mode='wt')
-	header = fobj.readline()
-	linenum = 0
-	for i in fobj:
-		linenum = linenum+1
-		i = i.strip()
-		arr = i.split("\t")
-		'''merging the sample id with chromosome to do intersect bed at sample level'''
-		myfile.write(arr[0].split("_")[0]+"__"+arr[1]+"\t"+str(int(arr[2])-dist)+"\t"+str(int(arr[2])+dist)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8]+"\n")
-		# print(arr[0]+"__"+arr[1]+"\t"+str(int(arr[2])-dist)+"\t"+str(int(arr[2])+dist)+"\t"+str(linenum)+"\t"+str(1)+"\t"+arr[8])
-		myfile.write(arr[0].split("_")[0]+"__"+arr[3]+"\t"+str(int(arr[4])-dist)+"\t"+str(int(arr[4])+dist)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8]+"\n")
-		# print(arr[0]+"__"+arr[3]+"\t"+str(int(arr[4])-dist)+"\t"+str(int(arr[4])+dist)+"\t"+str(linenum)+"\t"+str(2)+"\t"+arr[8])
-	fobj.close()
-	myfile.close()
-	
-	# debug
-	# with open(tmp_bed, 'r') as f:
-	# 	for line in f:
-	# 		print(line)
-	'''Intersect bed'''
-	cmd = 'sort -k2,2n -k3,3n  ' + tmp_bed + ' > ' + tmp1_bed
-	os.system(cmd)
-	
-	cmd = 'cp ' + tmp1_bed + ' ' + tmp1_cp_bed
-	os.system(cmd)
-	
-	cmd = 'bedtools intersect -a ' + tmp1_bed + ' -b ' + tmp1_cp_bed + ' -wao > '+ tmp_all_bed
-	os.system(cmd)
-	
-	'''Reading the intersect bed output file'''
-	merged_bed={}
-	fobj = open(tmp_all_bed)
-	for i in fobj:
-		i = i.strip()
-		# print(i)
-		arr = i.split("\t")
-		'''separating sample & chr of first & second chr'''
-		lst1 = arr[0].split("__")
-		lst2 = arr[6].split("__")
-		'''Overlap > 0, for same sample, and ignoring same caller'''
-		if int(arr[12]) > 0 and lst1[0].split("_")[0]==lst2[0].split("_")[0] and arr[5]!=arr[11]:
-			'''Creating key sample_caller_linenumber_BP(1 or 2)'''
-			key = lst1[0]+' '+arr[5]+' '+arr[3]+' '+arr[4]
-			'''Other caller information'''
-			val = arr[11]
-			# print(key)
-			if key in merged_bed:
-				merged_bed[key]=merged_bed[key]+','+val
-			else:
-				merged_bed[key]=val	
-	fobj.close()
-	
-	'''Creating new output file for other caller information'''
-	header = [line for line in open(output_file, 'r')][0].strip()
-	myfile = open(output_cons_file, mode='wt')
-	myfile.write(header + "\tCallers\tNum_Callers\n")
-	linenum = 0
-	with open(output_file, 'r') as f:
-		for i in f:
-			if linenum == 0:
-				linenum += 1
-				continue
-			i = i.strip()
-			# print(i)
-			arr = i.split("\t")
-			linenum = linenum + 1
-			'''checking if both BPs in the dict'''
-			key1 = arr[0].split('_')[0]+' '+arr[8]+' '+str(linenum)+' '+"1"
-			key2 = arr[0].split('_')[0]+' '+arr[8]+' '+str(linenum)+' '+"2"
-			val = "NA\tNA"
-			# print(key1)
-			# print(key2)
-			if key1 in merged_bed and key2 in merged_bed:
-				tmp1 = arr[12] + ',' + merged_bed[key1]
-				tmp1_list = tmp1.split(',')
-				tmp2 = arr[12] + ',' + merged_bed[key2]
-				tmp2_list = tmp2.split(',')
-				tmp_list = list(set(tmp1_list) & set(tmp2_list))
-				tmp = str.join(',', tmp_list)
-				if len(tmp_list) > 1:
-					val = tmp + "\t" + str(len(tmp_list))
-			myfile.write(i + "\t" + val + "\n")	
-	myfile.close()
-	"""
+
+
 if __name__ == "__main__":
 	main()
