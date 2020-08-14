@@ -69,7 +69,7 @@ def main():
 			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY", end='', file=sys.stderr)
 			myfile.write("\t"+str.join("\t",p1[5:]))
 			# print("\t"+str.join("\t",p1[5:]), end='', file=sys.stderr)
-			myfile.write("\tNA"*len(list_head_lumpy[5:]))
+			myfile.write("\tNA"*len(list_head_lumpy[5:]+"\n"))
 			# print("\tNA"*len(list_head_lumpy[5:]), end='', file=sys.stderr)
 	print('delly written', file=sys.stderr)
 	'''Read Lumpy'''
