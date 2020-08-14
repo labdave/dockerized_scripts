@@ -26,9 +26,9 @@ def main():
 	delly_file = sys.argv[3]
 	lumpy_file = sys.argv[4]
 
-	print(delly_file, file=sys.stderr)
-	print(lumpy_file, file=sys.stderr)
-	print(output_file, file=sys.stderr)
+	print(delly_file)
+	print(lumpy_file)
+	print(output_file)
 	gene_list=['bcl6','myc','bcl2']
 	gene_start_list = [187721377,127735434,63123346]
 	gene_stop_list = [187745725,127742951,63320128]
@@ -48,10 +48,10 @@ def main():
 	myfile = open(output_file, mode='wt')
 	'''Output Header'''
 	myfile.write("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t")
-	print("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t"+str_header_delly+"\t"+str_header_lumpy, file=sys.stderr)
+	print("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t"+str_header_delly+"\t"+str_header_lumpy)
 	myfile.write(str_header_delly+"\t"+str_header_lumpy+"\t"+"\n")
 
-	print('header written', file=sys.stderr)
+	print('header written')
 	'''Read Delly'''
 	with open(delly_file, 'r') as f:
 		i = 0
@@ -66,17 +66,17 @@ def main():
 			sr=p1[13]
 			total=str(int(pe)+int(sr))
 			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY")
-			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY", end='', file=sys.stderr)
+			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY", end='')
 			myfile.write("\t"+str.join("\t",p1[5:]))
-			# print("\t"+str.join("\t",p1[5:]), end='', file=sys.stderr)
+			# print("\t"+str.join("\t",p1[5:]), end='')
 			myfile.write("\tNA"*len(list_head_lumpy[5:])+"\n")
-			# print("\tNA"*len(list_head_lumpy[5:]), end='', file=sys.stderr)
-	print('delly written', file=sys.stderr)
+			# print("\tNA"*len(list_head_lumpy[5:]), end='')
+	print('delly written')
 	'''Read Lumpy'''
 	with open(lumpy_file, 'r') as f:
 		i = 0
 		for line in f:
-			# print(line, file=sys.stderr)
+			# print(line)
 			# skip header line
 			if i == 0:
 				i = 1
@@ -87,12 +87,12 @@ def main():
 			sr=p1[11]
 			total=str(int(pe)+int(sr))
 			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY")
-			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='', file=sys.stderr)
+			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='')
 			myfile.write("\tNA"*len(list_head_delly[5:]))
-			# print("\tNA"*len(list_head_delly[5:]), end='', file=sys.stderr)
+			# print("\tNA"*len(list_head_delly[5:]), end='')
 			myfile.write("\t"+str.join("\t",p1[5:])+"\n")
-			# print("\t"+str.join("\t",p1[5:]), file=sys.stderr)
-	print('lumpy written', file=sys.stderr)
+			# print("\t"+str.join("\t",p1[5:]))
+	print('lumpy written')
 
 	'''preparing input file for intersect bed'''
 	dist = 500
@@ -114,7 +114,7 @@ def main():
 	# order chr1 < chr2
 	def switch_chr_asc(line):
 		arr = line.split()
-		# print(arr[1], arr[3], file=sys.stderr)
+		# print(arr[1], arr[3])
 		if arr[1] == 'chrX' or arr[1] == 'chrY':
 			temp_chr = arr[1]
 			temp_pos = arr[2]
@@ -134,8 +134,8 @@ def main():
 			arr[2] = arr[4]
 			arr[3] = temp_chr
 			arr[4] = temp_pos
-			# print(arr[1], arr[3], file=sys.stderr)
-			# print('-', file=sys.stderr)
+			# print(arr[1], arr[3])
+			# print('-')
 		return '\t'.join(arr), arr
 
 
@@ -185,9 +185,10 @@ def main():
 		merged = '\t'.join(merged).strip()+'\tDELLY, LUMPY\t2\n'
 		return merged			
 
+
 	with open(output_file, 'r') as f:
 		for line in f:
-			print(line, file=sys.stderr)
+			print(line)
 
 	# read output_file and create dict
 	with open(output_file, 'r') as f:
@@ -195,7 +196,7 @@ def main():
 		lumpy_dict = dict()
 		delly_dict = dict()
 		for line in f:
-			# print(line, file=sys.stderr)
+			# print(line)
 			if i:
 				lines = line.strip()+'\tCallers\tNum_callers\n'
 				i = False
@@ -207,12 +208,12 @@ def main():
 			if arr[8] == 'LUMPY':
 				lumpy_dict[key] = line
 
-	print('dict created', file=sys.stderr)
-	print(len(delly_dict), file=sys.stderr)
-	print(len(lumpy_dict), file=sys.stderr)
+	print('dict created')
+	print(len(delly_dict))
+	print(len(lumpy_dict))
 	for item in delly_dict:
-		print(item, file=sys.stderr)
-		print(delly_dict[item], file=sys.stderr)
+		print(item)
+		print(delly_dict[item])
 		break
 
 	''' bed file method to get mergeable rows '''
@@ -259,8 +260,8 @@ def main():
 	for item in lumpy_2_list:
 		lumpy_2_dict[item] = lumpy_dict[item]
 
-	print(len(delly_2_dict), file=sys.stderr)
-	print(len(lumpy_2_dict), file=sys.stderr)
+	print(len(delly_2_dict))
+	print(len(lumpy_2_dict))
 
 	''' complex procedure to get merge-able rows '''
 	delly_lumpy_dict = dict()
@@ -281,21 +282,21 @@ def main():
 				delly_remove.append(delly_item)
 				lumpy_remove.append(lumpy_item)
 				continue
-	print('two callers done', file=sys.stderr)
+	print('two callers done')
 	for item in delly_remove:
 		if item in delly_dict:
 			delly_dict.pop(item)
 	for item in lumpy_remove:
 		if item in lumpy_dict:
 			lumpy_dict.pop(item)
-	# print(lines, file=sys.stderr)
+	# print(lines)
 	
 	# print all other single call lines
 	for item in delly_dict:
-		# print(delly_dict[item], file=sys.stderr)
+		# print(delly_dict[item])
 		lines += delly_dict[item].strip()+'\tDELLY\t1\n'
 	for item in lumpy_dict:
-		# print(item, file=sys.stderr)
+		# print(item)
 		lines += lumpy_dict[item].strip()+'\tLUMPY\t1\n'
 
 	# print output
