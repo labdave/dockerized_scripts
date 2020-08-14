@@ -158,8 +158,8 @@ def main():
 		# we know passed order is [delly, lumpy]
 		delly_arr = joint_val[0].split('\t')
 		lumpy_arr = joint_val[1].split('\t')
-		print(len(delly_arr))
-		print(len(lumpy_arr))
+		print(delly_arr)
+		print(lumpy_arr)
 
 		# check using hierarchy:
 		delly_sr, delly_pe = delly_arr[6], delly_arr[5]
