@@ -189,12 +189,10 @@ def main():
 	# read output_file and create dict
 	with open(output_file, 'r') as f:
 		i = True
-		count = 0
 		lumpy_dict = dict()
 		delly_dict = dict()
 		for line in f:
-			count += 1
-			print(count)
+			print(line)
 			if i:
 				lines = line.strip()+'\tCallers\tNum_callers\n'
 				i = False
