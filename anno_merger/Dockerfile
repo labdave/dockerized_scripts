@@ -48,9 +48,10 @@ RUN apt-get update -y && apt-get install -y \
 
 # install numpy and pysam
 WORKDIR /usr/local/bin
-RUN pip install numpy
-RUN pip install cython
-RUN pip install pysam
+RUN pip3 install numpy
+RUN pip3 install cython
+RUN pip3 install pysam
+RUN alias python="python3"
 
 # get script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
