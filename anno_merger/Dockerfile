@@ -12,9 +12,7 @@ RUN apt-get update -y && apt-get install -y \
     unzip \
     zip \
     cmake \
-    python \
-    python-dev \
-    python-biopython \
+    python3 \
     gawk \
     gcc \
     g++ \
