@@ -39,7 +39,9 @@ RUN apt-get update -y && apt-get install -y \
     bsdmainutils \
     bedtools
 
-RUN python3 -m pip install --upgrade pip
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN python3 get-pip.py
+RUN pip3 --version
 
 # install numpy and pysam
 WORKDIR /usr/local/bin
