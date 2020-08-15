@@ -37,7 +37,9 @@ RUN apt-get update -y && apt-get install -y \
     git \
     autoconf \
     bsdmainutils \
-    bedtools
+    bedtools \
+    python3-distutils \
+    python3-apt
 
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3 get-pip.py
