@@ -39,7 +39,6 @@ RUN apt-get update -y && apt-get install -y \
     autoconf \
     bsdmainutils \
     bedtools \
-    default-jdk \
     python-openpyxl \
     python-xlrd
 
