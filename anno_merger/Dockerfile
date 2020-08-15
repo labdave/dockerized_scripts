@@ -40,9 +40,10 @@ RUN apt-get update -y && apt-get install -y \
     bsdmainutils \
     bedtools
 
+RUN python3 -m pip install --upgrade pip
+
 # install numpy and pysam
 WORKDIR /usr/local/bin
-RUN python3 -m pip install --upgrade pip
 RUN pip3 install numpy
 RUN pip3 install cython
 RUN pip3 install pysam
