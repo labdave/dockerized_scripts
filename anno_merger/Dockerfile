@@ -50,6 +50,7 @@ WORKDIR /usr/local/bin
 RUN pip3 install numpy
 RUN pip3 install cython
 RUN pip3 install pysam
+RUN python3 -m pip install numpy
 
 # get script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
