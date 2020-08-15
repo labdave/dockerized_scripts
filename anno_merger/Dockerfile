@@ -38,9 +38,7 @@ RUN apt-get update -y && apt-get install -y \
     git \
     autoconf \
     bsdmainutils \
-    bedtools \
-    python-openpyxl \
-    python-xlrd
+    bedtools
 
 # install numpy and pysam
 WORKDIR /usr/local/bin
