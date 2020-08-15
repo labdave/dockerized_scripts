@@ -17,7 +17,6 @@ RUN apt-get update -y && apt-get install -y \
     g++ \
     make \
     automake \
-    python3-pip \
     zlib1g \
     zlib1g-dev \
     libncurses5-dev \
