@@ -20,7 +20,7 @@ RUN apt-get update -y && apt-get install -y \
     g++ \
     make \
     automake \
-    python-pip \
+    python3-pip \
     zlib1g \
     zlib1g-dev \
     libncurses5-dev \
@@ -48,10 +48,11 @@ RUN apt-get update -y && apt-get install -y \
 
 # install numpy and pysam
 WORKDIR /usr/local/bin
-RUN pip3 install numpy
-RUN pip3 install cython
-RUN pip3 install pysam
 RUN alias python="python3"
+RUN alias pip="pip3"
+RUN pip install numpy
+RUN pip install cython
+RUN pip install pysam
 
 # get script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
