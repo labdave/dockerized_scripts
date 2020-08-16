@@ -42,10 +42,6 @@ RUN apt-get update -y && apt-get install -y \
     python3-apt \
     python3-pip
 
-RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-RUN python3 get-pip.py
-RUN pip3 --version
-RUN pip3 install --upgrade setuptools
 RUN which pip3
 
 # install numpy and pysam
@@ -53,7 +49,6 @@ WORKDIR /usr/local/bin
 RUN pip3 install numpy
 RUN pip3 install cython
 RUN pip3 install pysam
-RUN python3 -m pip install numpy
 
 # get script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
