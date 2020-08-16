@@ -1,5 +1,5 @@
 # work from latest LTS ubuntu release
-FROM ubuntu:18.04
+FROM python:3.6
 
 # run update and install necessary tools
 RUN apt-get update -y && apt-get install -y \
