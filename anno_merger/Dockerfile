@@ -37,10 +37,7 @@ RUN apt-get update -y && apt-get install -y \
     git \
     autoconf \
     bsdmainutils \
-    bedtools \
-    python3-distutils \
-    python3-apt \
-    python3-pip
+    bedtools
 
 RUN which pip3
 
