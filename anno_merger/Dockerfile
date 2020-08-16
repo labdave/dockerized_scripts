@@ -1,5 +1,5 @@
 # work from latest LTS ubuntu release
-FROM python:3.6
+FROM ubuntu:18.04
 
 # run update and install necessary tools
 RUN apt-get update -y && apt-get install -y \
@@ -37,7 +37,10 @@ RUN apt-get update -y && apt-get install -y \
     git \
     autoconf \
     bsdmainutils \
-    bedtools
+    bedtools \
+    python3-distutils \
+    python3-apt \
+    python3-pip
 
 RUN which pip3
 
