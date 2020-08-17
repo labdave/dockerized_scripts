@@ -191,7 +191,7 @@ def main():
 		i = True
 		lumpy_dict = dict()
 		delly_dict = dict()
-		print(f)
+		print(f.readlines())
 		for line in f:
 			if i:
 				lines = line.strip()+'\tCallers\tNum_callers\n'
