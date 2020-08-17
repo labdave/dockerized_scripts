@@ -17,6 +17,80 @@ import shutil
 import logging
 
 
+# order chr1 < chr2
+def switch_chr_asc(line):
+	arr = line.split()
+	# print(arr[1], arr[3])
+	if arr[1] == 'chrX' or arr[1] == 'chrY':
+		temp_chr = arr[1]
+		temp_pos = arr[2]
+		arr[1] = arr[3]
+		arr[2] = arr[4]
+		arr[3] = temp_chr
+		arr[4] = temp_pos
+		return '\t'.join(arr), arr
+	if arr[3] == 'chrX' or arr[3] == 'chrY':
+		return '\t'.join(arr), arr
+	chr1 = int(arr[1].replace('chr', ''))
+	chr2 = int(arr[3].replace('chr', ''))
+	if chr1 > chr2:
+		temp_chr = arr[1]
+		temp_pos = arr[2]
+		arr[1] = arr[3]
+		arr[2] = arr[4]
+		arr[3] = temp_chr
+		arr[4] = temp_pos
+		# print(arr[1], arr[3])
+		# print('-')
+	return '\t'.join(arr), arr
+
+
+# check if two lines are valid calls from two different callers
+# works only when used from inside SV_calling due to difference in analysis IDs
+def check_proximity(line1, line2):
+	line1 = line1.replace(':', ';').split(';')
+	line2 = line2.replace(':', ';').split(';')
+	if all([
+			line1[1] == line2[1],
+			line1[3] == line2[3],
+			abs(int(line1[2])-int(line2[2])) < dist,
+			abs(int(line1[4])-int(line2[4])) < dist,
+			]):
+		return True
+	return False
+
+
+# parse a list of lines to get merged line
+def get_merged_line(joint_val):
+	# we know passed order is [delly, lumpy]
+	delly_arr = joint_val[0].split('\t')
+	lumpy_arr = joint_val[1].split('\t')
+	# print(delly_arr)
+	# print(lumpy_arr)
+
+	# check using hierarchy:
+	delly_sr, delly_pe = delly_arr[6], delly_arr[5]
+	lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
+	delly_reads = delly_sr+delly_pe
+	lumpy_reads = lumpy_sr+lumpy_pe
+
+	# split+paired reads
+	if (lumpy_reads > delly_reads):
+		chosen = lumpy_arr
+	elif (delly_reads > lumpy_reads):
+		chosen = delly_arr
+	else:
+		chosen = lumpy_arr
+
+	# create merged row:
+	merged = chosen[:9]
+	merged.extend(delly_arr[9:31])
+	merged.extend(lumpy_arr[31:])
+
+	# return merged line
+	merged = '\t'.join(merged).strip()+'\tDELLY, LUMPY\t2\n'
+	return merged			
+
 
 def main():
 	output_file = sys.argv[1]
@@ -47,9 +121,13 @@ def main():
 	'''Output file'''
 	myfile = open(output_file, mode='wt')
 	'''Output Header'''
-	myfile.write("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t")
-	print("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t"+str_header_delly+"\t"+str_header_lumpy)
-	myfile.write(str_header_delly+"\t"+str_header_lumpy+"\t"+"\n")
+	header = "dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t"
+	header += str_header_delly+"\t"+str_header_lumpy
+	myfile.write(header+"\n")
+	lines = header.strip()+'\tCallers\tNum_callers\n'
+	# myfile.write("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t")
+	# print("dave_lab_id\tchr1\tpos1\tchr2\tpos2\tpe\tsr\tpe_sr\tcaller\t"+str_header_delly+"\t"+str_header_lumpy)
+	# myfile.write(str_header_delly+"\t"+str_header_lumpy+"\t"+"\n")
 
 	print('header written')
 	'''Read Delly'''
@@ -65,13 +143,21 @@ def main():
 			pe=p1[11]
 			sr=p1[13]
 			total=str(int(pe)+int(sr))
-			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY")
-			print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY", end='')
-			myfile.write("\t"+str.join("\t",p1[5:]))
-			print("\t"+str.join("\t",p1[5:]), end='')
-			myfile.write("\tNA"*len(list_head_lumpy[5:])+"\n")
-			print("\tNA"*len(list_head_lumpy[5:]))
+			string = str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY"
+			string += "\t"+str.join("\t",p1[5:])
+			string += "\tNA"*len(list_head_lumpy[5:])+"\n"
+			# myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY")
+			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY", end='')
+			# myfile.write("\t"+str.join("\t",p1[5:]))
+			# print("\t"+str.join("\t",p1[5:]), end='')
+			# myfile.write("\tNA"*len(list_head_lumpy[5:])+"\n")
+			# print("\tNA"*len(list_head_lumpy[5:]))
+			myfile.write(string)
+			string, arr = switch_chr_asc(string)
+			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
+			delly_dict[key] = line
 	print('delly written')
+
 	'''Read Lumpy'''
 	with open(lumpy_file, 'r') as f:
 		i = 0
@@ -86,12 +172,19 @@ def main():
 			pe=p1[10]
 			sr=p1[11]
 			total=str(int(pe)+int(sr))
-			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY")
-			print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='')
-			myfile.write("\tNA"*len(list_head_delly[5:]))
-			print("\tNA"*len(list_head_delly[5:]), end='')
-			myfile.write("\t"+str.join("\t",p1[5:])+"\n")
-			print("\t"+str.join("\t",p1[5:]))
+			string = str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY"
+			string += "\tNA"*len(list_head_delly[5:])
+			string += "\t"+str.join("\t",p1[5:])+"\n"
+			myfile.write(string)
+			string, arr = switch_chr_asc(string)
+			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
+			lumpy_dict[key] = line
+			# myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY")
+			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='')
+			# myfile.write("\tNA"*len(list_head_delly[5:]))
+			# print("\tNA"*len(list_head_delly[5:]), end='')
+			# myfile.write("\t"+str.join("\t",p1[5:])+"\n")
+			# print("\t"+str.join("\t",p1[5:]))
 	print('lumpy written')
 
 	'''preparing input file for intersect bed'''
@@ -111,101 +204,26 @@ def main():
 	-> Collapse rows into one for merged reads
 	'''
 
-	# order chr1 < chr2
-	def switch_chr_asc(line):
-		arr = line.split()
-		# print(arr[1], arr[3])
-		if arr[1] == 'chrX' or arr[1] == 'chrY':
-			temp_chr = arr[1]
-			temp_pos = arr[2]
-			arr[1] = arr[3]
-			arr[2] = arr[4]
-			arr[3] = temp_chr
-			arr[4] = temp_pos
-			return '\t'.join(arr), arr
-		if arr[3] == 'chrX' or arr[3] == 'chrY':
-			return '\t'.join(arr), arr
-		chr1 = int(arr[1].replace('chr', ''))
-		chr2 = int(arr[3].replace('chr', ''))
-		if chr1 > chr2:
-			temp_chr = arr[1]
-			temp_pos = arr[2]
-			arr[1] = arr[3]
-			arr[2] = arr[4]
-			arr[3] = temp_chr
-			arr[4] = temp_pos
-			# print(arr[1], arr[3])
-			# print('-')
-		return '\t'.join(arr), arr
-
-
-	# check if two lines are valid calls from two different callers
-	# works only when used from inside SV_calling due to difference in analysis IDs
-	def check_proximity(line1, line2):
-		line1 = line1.replace(':', ';').split(';')
-		line2 = line2.replace(':', ';').split(';')
-		if all([
-				line1[1] == line2[1],
-				line1[3] == line2[3],
-				abs(int(line1[2])-int(line2[2])) < dist,
-				abs(int(line1[4])-int(line2[4])) < dist,
-				]):
-			return True
-		return False
-
-
-	# parse a list of lines to get merged line
-	def get_merged_line(joint_val):
-		# we know passed order is [delly, lumpy]
-		delly_arr = joint_val[0].split('\t')
-		lumpy_arr = joint_val[1].split('\t')
-		# print(delly_arr)
-		# print(lumpy_arr)
-
-		# check using hierarchy:
-		delly_sr, delly_pe = delly_arr[6], delly_arr[5]
-		lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
-		delly_reads = delly_sr+delly_pe
-		lumpy_reads = lumpy_sr+lumpy_pe
-
-		# split+paired reads
-		if (lumpy_reads > delly_reads):
-			chosen = lumpy_arr
-		elif (delly_reads > lumpy_reads):
-			chosen = delly_arr
-		else:
-			chosen = lumpy_arr
-
-		# create merged row:
-		merged = chosen[:9]
-		merged.extend(delly_arr[9:31])
-		merged.extend(lumpy_arr[31:])
-
-		# return merged line
-		merged = '\t'.join(merged).strip()+'\tDELLY, LUMPY\t2\n'
-		return merged			
-
-
-	# read output_file and create dict
-	with open(output_file, 'r') as f:
-		i = True
-		lumpy_dict = dict()
-		delly_dict = dict()
-		for line in f:
-			if i:
-				lines = line.strip()+'\tCallers\tNum_callers\n'
-				i = False
-				continue
-			line, arr = switch_chr_asc(line)
-			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
-			if arr[8] == 'DELLY':
-				delly_dict[key] = line
-				# print(key)
-				# print(line)
-			if arr[8] == 'LUMPY':
-				lumpy_dict[key] = line
-				# print(key)
-				# print(line)
+	# # read output_file and create dict
+	# with open(output_file, 'r') as f:
+	# 	i = True
+	# 	lumpy_dict = dict()
+	# 	delly_dict = dict()
+	# 	for line in f:
+	# 		if i:
+	# 			lines = line.strip()+'\tCallers\tNum_callers\n'
+	# 			i = False
+	# 			continue
+	# 		line, arr = switch_chr_asc(line)
+	# 		key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
+	# 		if arr[8] == 'DELLY':
+	# 			delly_dict[key] = line
+	# 			# print(key)
+	# 			# print(line)
+	# 		if arr[8] == 'LUMPY':
+	# 			lumpy_dict[key] = line
+	# 			# print(key)
+	# 			# print(line)
 
 	print('dict created')
 	print(len(delly_dict))
