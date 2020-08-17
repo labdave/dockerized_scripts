@@ -132,6 +132,7 @@ def main():
 	print('header written')
 	'''Read Delly'''
 	with open(delly_file, 'r') as f:
+		delly_dict = dict()
 		i = 0
 		for line in f:
 			# skip header line
@@ -160,6 +161,7 @@ def main():
 
 	'''Read Lumpy'''
 	with open(lumpy_file, 'r') as f:
+		lumpy_dict = dict()
 		i = 0
 		for line in f:
 			# print(line)
