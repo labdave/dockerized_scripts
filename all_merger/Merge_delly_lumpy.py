@@ -158,7 +158,7 @@ def main():
 			myfile.write(string)
 			string, arr = switch_chr_asc(string)
 			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
-			delly_dict[key] = line
+			delly_dict[key] = string
 	print('delly written')
 
 	'''Read Lumpy'''
@@ -182,7 +182,7 @@ def main():
 			myfile.write(string)
 			string, arr = switch_chr_asc(string)
 			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
-			lumpy_dict[key] = line
+			lumpy_dict[key] = string
 			# myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY")
 			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='')
 			# myfile.write("\tNA"*len(list_head_delly[5:]))
