@@ -16,6 +16,8 @@ import re
 import shutil	
 import logging
 
+'''preparing input file for intersect bed'''
+dist = 500
 
 # order chr1 < chr2
 def switch_chr_asc(line):
@@ -188,9 +190,6 @@ def main():
 			# myfile.write("\t"+str.join("\t",p1[5:])+"\n")
 			# print("\t"+str.join("\t",p1[5:]))
 	print('lumpy written')
-
-	'''preparing input file for intersect bed'''
-	dist = 500
 
 	# devang's code for merging and fixing number of callers:
 	# this code assumes the presence of only two callers,
