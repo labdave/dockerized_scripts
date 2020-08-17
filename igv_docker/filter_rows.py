@@ -27,7 +27,7 @@ with open(args.input, 'r') as f:
 			if int(line_arr[int(args.thresh_column)]) > int(args.thresh):
 				if line_arr[1] in ['chr3', 'chr8', 'chr18'] or line_arr[3] in ['chr3', 'chr8', 'chr18']:
 					# also filter for three callers
-					if int(line_arr[68]) == 3:
+					if int(line_arr[55]) == 2:
 						new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
 		else:
 			new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
