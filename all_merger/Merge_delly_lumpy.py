@@ -191,6 +191,7 @@ def main():
 		i = True
 		lumpy_dict = dict()
 		delly_dict = dict()
+		print(f)
 		for line in f:
 			if i:
 				lines = line.strip()+'\tCallers\tNum_callers\n'
@@ -200,12 +201,12 @@ def main():
 			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
 			if arr[8] == 'DELLY':
 				delly_dict[key] = line
-				print(key)
-				print(line)
+				# print(key)
+				# print(line)
 			if arr[8] == 'LUMPY':
 				lumpy_dict[key] = line
-				print(key)
-				print(line)
+				# print(key)
+				# print(line)
 
 	print('dict created')
 	print(len(delly_dict))
