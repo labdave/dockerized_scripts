@@ -70,7 +70,7 @@ def main():
 			myfile.write("\t"+str.join("\t",p1[5:]))
 			print("\t"+str.join("\t",p1[5:]), end='')
 			myfile.write("\tNA"*len(list_head_lumpy[5:])+"\n")
-			print("\tNA"*len(list_head_lumpy[5:]), end='')
+			print("\tNA"*len(list_head_lumpy[5:]))
 	print('delly written')
 	'''Read Lumpy'''
 	with open(lumpy_file, 'r') as f:
