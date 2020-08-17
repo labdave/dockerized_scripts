@@ -50,6 +50,6 @@ RUN pip3 install pysam
 # get script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
-RUN cp dockerized_scripts/anno_merger/Merge_delly_lumpy_destruct_annotation.py .
-RUN cp dockerized_scripts/anno_merger/Merge_delly_lumpy_destruct_annotation.py /home/Merge_delly_lumpy_destruct_annotation.py
-RUN chmod +x Merge_delly_lumpy_destruct_annotation.py
+RUN cp dockerized_scripts/anno_merger/Merge_delly_lumpy_annotation.py .
+RUN cp dockerized_scripts/anno_merger/Merge_delly_lumpy_annotation.py /home/Merge_delly_lumpy_annotation.py
+RUN chmod +x Merge_delly_lumpy_annotation.py
