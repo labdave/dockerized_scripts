@@ -66,11 +66,11 @@ def main():
 			sr=p1[13]
 			total=str(int(pe)+int(sr))
 			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY")
-			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY", end='')
+			print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tDELLY", end='')
 			myfile.write("\t"+str.join("\t",p1[5:]))
-			# print("\t"+str.join("\t",p1[5:]), end='')
+			print("\t"+str.join("\t",p1[5:]), end='')
 			myfile.write("\tNA"*len(list_head_lumpy[5:])+"\n")
-			# print("\tNA"*len(list_head_lumpy[5:]), end='')
+			print("\tNA"*len(list_head_lumpy[5:]), end='')
 	print('delly written')
 	'''Read Lumpy'''
 	with open(lumpy_file, 'r') as f:
@@ -87,11 +87,11 @@ def main():
 			sr=p1[11]
 			total=str(int(pe)+int(sr))
 			myfile.write(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY")
-			# print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='')
+			print(str.join("\t",p1[0:5])+"\t"+pe+"\t"+sr+"\t"+total+"\tLUMPY", end='')
 			myfile.write("\tNA"*len(list_head_delly[5:]))
-			# print("\tNA"*len(list_head_delly[5:]), end='')
+			print("\tNA"*len(list_head_delly[5:]), end='')
 			myfile.write("\t"+str.join("\t",p1[5:])+"\n")
-			# print("\t"+str.join("\t",p1[5:]))
+			print("\t"+str.join("\t",p1[5:]))
 	print('lumpy written')
 
 	'''preparing input file for intersect bed'''
@@ -191,7 +191,6 @@ def main():
 		i = True
 		lumpy_dict = dict()
 		delly_dict = dict()
-		print(f.readlines())
 		for line in f:
 			if i:
 				lines = line.strip()+'\tCallers\tNum_callers\n'
