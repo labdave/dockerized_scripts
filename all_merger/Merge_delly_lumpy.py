@@ -224,14 +224,14 @@ def main():
 	with open(temp_file, 'w') as f:
 		for item in delly_dict:
 			a = item.replace(';',':').split(':')
-			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
-			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
+			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(int(a[2])-dist/2), int(int(a[2])+dist/2), item))
+			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(int(a[4])-dist/2), int(int(a[4])+dist/2), item))
 	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, delly_bed_file))
 	with open(temp_file, 'w') as f:
 		for item in lumpy_dict:
 			a = item.replace(';',':').split(':')
-			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(a[2])-dist/2, int(a[2])+dist/2, item))
-			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(a[4])-dist/2, int(a[4])+dist/2, item))
+			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[1], int(int(a[2])-dist/2), int(int(a[2])+dist/2), item))
+			f.write('{0}_{1}\t{2}\t{3}\t{4}\n'.format(a[0], a[3], int(int(a[4])-dist/2), int(int(a[4])+dist/2), item))
 	os.system('sort -k1,1 -k2,2n {0} -o {1}'.format(temp_file, lumpy_bed_file))
 
 	# find intersections
