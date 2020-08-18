@@ -34,4 +34,5 @@ with open(args.input, 'r') as f:
 			new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
 
 with open(args.output, 'w') as f:
+	print(new_str)
 	f.write(new_str)
