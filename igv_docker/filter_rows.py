@@ -29,10 +29,8 @@ with open(args.input, 'r') as f:
 					# also filter for three callers
 					if int(line_arr[55]) == 2:
 						new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
-						print(line_arr[:int(args.columns)])
 		else:
 			new_str += '\t'.join(line_arr[:int(args.columns)])+'\n'
 
 with open(args.output, 'w') as f:
-	print(new_str)
 	f.write(new_str)
