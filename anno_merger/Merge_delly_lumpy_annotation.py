@@ -686,7 +686,7 @@ def main():
 			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			if int(rw_lst[-1]) > 0:
-				dict_det_trans[rw_lst[0]+' '+str(int(rw_lst[1])+50)]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[13]+"\t"+rw_lst[14]+"\t"+rw_lst[15]
+				dict_det_trans[rw_lst[0]+' '+str(int(rw_lst[1])+50)]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[13]+"\t"+rw_lst[14]+"\t"+rw_lst[15]+"\t"+rw_lst[66]
 		read_rach_out.close()
 		
 		'''Reading input'''
@@ -694,12 +694,12 @@ def main():
 		write_out = open(out_file, mode='wt')
 		header = read_input.readline()
 		header = header.strip()
-		write_out.write(header+"\tdetected_trans_chrom\tdetected_trans_start\tdetected_trans_stop\tdetected_trans_all\tdetected_trans_max_pct\tdetected_trans_max_pct_chrom\n")
+		write_out.write(header+"\tdiscowave_trans_chrom\tdiscowave_trans_start\tdiscowave_trans_stop\tdiscowave_trans_all\tdiscowave_trans_max_pct\tdiscowave_trans_max_pct_chrom\tevenness\n")
 		for line in read_input:
 			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			write_out.write(line)
-			val1="NA\tNA\tNA\tNA\tNA\tNA"
+			val1="NA\tNA\tNA\tNA\tNA\tNA\tNA"
 			'''if bp1 in capture kit dict'''
 			if rw_lst[0]+'__'+rw_lst[1]+' '+rw_lst[2] in dict_det_trans:
 				val1=dict_det_trans[rw_lst[0]+'__'+rw_lst[1]+' '+rw_lst[2]]
