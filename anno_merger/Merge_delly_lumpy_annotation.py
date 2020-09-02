@@ -687,7 +687,7 @@ def main():
 			rw_lst = line.split("\t")
 			if int(rw_lst[-1]) > 0:
 				dict_det_trans[rw_lst[0]+' '+str(int(rw_lst[1])+50)]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[13]+"\t"+rw_lst[14]+"\t"+rw_lst[15]+"\t"+rw_lst[66]
-				print(dict_det_trans[rw_lst[0]+' '+str(int(rw_lst[1])+50)])
+				print(rw_lst[0]+' '+str(int(rw_lst[1])+50))
 				print(rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[13]+"\t"+rw_lst[14]+"\t"+rw_lst[15]+"\t"+rw_lst[66])
 		read_rach_out.close()
 		
