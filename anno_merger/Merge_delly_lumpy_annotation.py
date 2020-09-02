@@ -665,7 +665,7 @@ def main():
 		'''Reading the detected_trans file'''
 		read_input = open(detected_trans)
 		header = read_input.readline()
-		write_tmp = open(temp_dir+'/tmp_rach.bed', mode='wt')
+		write_tmp = open(temp_dir+'/tmp.bed', mode='wt')
 		linenum = 0
 		for line in read_input:
 			line=line.strip().replace('\"', '')
@@ -676,19 +676,17 @@ def main():
 		write_tmp.close()
 		
 		'''Run intersect bed'''
-		intersectBed_run(temp_dir+'/tmp.bed',temp_dir+'/tmp_rach.bed',temp_dir+'/tmp_out_rach.bed',temp_dir)
+		intersectBed_run(temp_dir+'/tmp.bed',temp_dir+'/tmp.bed',temp_dir+'/tmp_out.bed',temp_dir)
 		
 		'''reading the intersectBed output DAC file'''
 		
-		read_rach_out = open(temp_dir +'/tmp_out_rach.bed')
+		read_rach_out = open(temp_dir +'/tmp_out.bed')
 		dict_det_trans={}
 		for line in read_rach_out:
 			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
 			if int(rw_lst[-1]) > 0:
 				dict_det_trans[rw_lst[0]+' '+str(int(rw_lst[1])+50)]=rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[13]+"\t"+rw_lst[14]+"\t"+rw_lst[15]+"\t"+rw_lst[66]
-				print(rw_lst[0]+' '+str(int(rw_lst[1])+50))
-				print(rw_lst[9]+"\t"+rw_lst[10]+"\t"+rw_lst[11]+"\t"+rw_lst[13]+"\t"+rw_lst[14]+"\t"+rw_lst[15]+"\t"+rw_lst[66])
 		read_rach_out.close()
 		
 		'''Reading input'''
@@ -712,11 +710,11 @@ def main():
 		write_out.close()
 			
 		'''removing temp files'''
-		# os.remove(temp_dir+'/tmp.bed')
-		# os.remove(temp_dir+'/tmp1.bed')
-		# os.remove(temp_dir+'/tmp_out.bed')
+		os.remove(temp_dir+'/tmp.bed')
+		os.remove(temp_dir+'/tmp1.bed')
+		os.remove(temp_dir+'/tmp_out.bed')
 		del dict_det_trans	
-		# os.remove(temp_dir+'/tmpfile')
+		os.remove(temp_dir+'/tmpfile')
 		input_file = out_file
 		
 
