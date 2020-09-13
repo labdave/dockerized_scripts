@@ -1,5 +1,6 @@
 # Rachel Kositsky
-# 2020-07-28
+# Created: 2020-07-28
+# Updated: 2020-09-13
 
 import argparse
 import pandas as pd
@@ -127,6 +128,11 @@ def main(args):
     """Goal: Append panel of normals onto structural variant VCFs"""
 
     df = pd.read_csv(args.input_file, sep="\t")
+
+    if df.empty:
+        df["PON"] = []
+        df.to_csv(args.output_file, sep = "\t", index = False)
+        return
 
     # Convert a translocation table to 2 BED files and read in as pybedtools objects
     [bp1, bp2] = get_expanded_bed(df, expansion_distance = 300)
