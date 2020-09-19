@@ -1,5 +1,6 @@
 # Rachel Kositsky
-# 2020-07-21
+# Created: 2020-07-21
+# Updated: 2020-09-13
 
 import argparse
 import pandas as pd
@@ -158,10 +159,29 @@ def add_polynucleotides(df):
     return(df)
 
 
+def add_empty_columns(df):
+    """Given an empty dataframe, add expected 11 columns"""
+
+    new_columns = ["BP1_repeats_200bp", "BP2_repeats_200bp", "matching_repeats", 
+        "BP1_polynt_200bp", "BP2_polynt_200bp", "BP1_segdup_200bp", 
+        "BP2_segdup_200bp", "segdup_100k", "segdup_1M", "segdup_10M", 
+        "segdup_100M"]
+
+    for c in new_columns:
+        df[c] = []
+
+    return(df)
+
+
 def main(args):
     """Goal: Append repeat masker and segdup onto structural variant VCFs"""
 
     df = pd.read_csv(args.input_file, sep="\t")
+
+    # If dataframe is empty, add expected columns and return immediately
+    if df.empty:
+        add_empty_columns(df).to_csv(args.output_file, sep = "\t", index = False)
+        return
 
     # Convert a translocation table to 2 BED files and read in as pybedtools objects
     [bp1_200, bp2_200] = get_expanded_bed(df, expansion_distance = 200)
