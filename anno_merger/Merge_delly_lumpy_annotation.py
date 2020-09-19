@@ -694,7 +694,7 @@ def main():
 		write_out = open(out_file, mode='wt')
 		header = read_input.readline()
 		header = header.strip()
-		write_out.write(header+"\tdiscowave_trans_chrom\tdiscowave_trans_start\tdiscowave_trans_stop\tdiscowave_trans_all\tdiscowave_trans_max_pct\tdiscowave_trans_max_pct_chrom\tevenness\n")
+		write_out.write(header+"\tdiscowave_trans_chrom\tdiscowave_trans_start\tdiscowave_trans_stop\tdiscowave_trans_all\tdiscowave_trans_max_pct\tdiscowave_trans_max_pct_chrom\tdiscowave_evenness\n")
 		for line in read_input:
 			line = line.strip().replace('\"', '')
 			rw_lst = line.split("\t")
