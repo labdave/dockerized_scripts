@@ -66,8 +66,8 @@ def get_merged_line(joint_val):
 	lumpy_arr = joint_val[1].split('\t')
 
 	# check using hierarchy:
-	delly_sr, delly_pe = delly_arr[6], delly_arr[5]
-	lumpy_sr, lumpy_pe = lumpy_arr[6], lumpy_arr[5]
+	delly_sr, delly_pe = int(delly_arr[6]), int(delly_arr[5])
+	lumpy_sr, lumpy_pe = int(lumpy_arr[6]), int(lumpy_arr[5])
 	delly_reads = delly_sr+delly_pe
 	lumpy_reads = lumpy_sr+lumpy_pe
 
@@ -86,6 +86,13 @@ def get_merged_line(joint_val):
 
 	# return merged line
 	merged = '\t'.join(merged).strip()+'\tDELLY, LUMPY\t2\n'
+
+	# if delly_arr[1] == 'chr8' or delly_arr[1] == 'chr14' or lumpy_arr[1] == 'chr14' or lumpy_arr[1] == 'chr8':
+	# 	print(delly_arr)
+	# 	print(lumpy_arr)
+	# 	print(delly_reads)
+	# 	print(lumpy_reads)
+		# print(merged)
 	return merged			
 
 
@@ -97,9 +104,9 @@ def main():
 	delly_file = sys.argv[3]
 	lumpy_file = sys.argv[4]
 
-	print(delly_file)
-	print(lumpy_file)
-	print(output_file)
+	# print(delly_file)
+	# print(lumpy_file)
+	# print(output_file)
 	gene_list=['bcl6','myc','bcl2']
 	gene_start_list = [187721377,127735434,63123346]
 	gene_stop_list = [187745725,127742951,63320128]
@@ -249,9 +256,9 @@ def main():
 		for lumpy_item in lumpy_2_dict:
 			if check_proximity(delly_item, lumpy_item) and delly_item not in delly_remove and lumpy_item not in lumpy_remove:
 				joint_key = delly_item+'|'+lumpy_item
-				print(joint_key)
+				# print(joint_key)
 				joint_val = [delly_dict[delly_item], lumpy_dict[lumpy_item]]
-				print(joint_val)
+				# print(joint_val)
 				delly_lumpy_dict[joint_key] = joint_val
 				lines += get_merged_line(joint_val)
 				delly_remove.append(delly_item)
