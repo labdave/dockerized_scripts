@@ -37,6 +37,7 @@ WORKDIR /usr/local/bin
 RUN pip install numpy
 RUN pip install cython
 RUN pip install pysam
+RUN pip install pandas
 
 # install picard
 RUN ls -l
