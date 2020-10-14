@@ -51,4 +51,4 @@ for i in range(len(seg_files)):
 
 df = df.reindex(sorted(df.columns, reverse=True), axis=1)
 print(df)
-df.to_csv(output_file, sep="\t")
+df.to_csv(output_file, sep="\t", index=False)
