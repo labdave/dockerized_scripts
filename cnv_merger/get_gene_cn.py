@@ -3,8 +3,8 @@ import os
 import pandas as pd
 
 gene_bed = sys.argv[1].strip()
-seg_files = sys.argv[2].strip().split(",")
-sample_names = sys.argv[3].strip().split(",")
+seg_files_file = sys.argv[2].strip()
+sample_names_file = sys.argv[3].strip()
 output_file = sys.argv[4].strip()
 
 genes = []
@@ -15,6 +15,12 @@ with open(gene_bed, "r") as f:
 
 df = pd.DataFrame(genes, columns=["gene"])
 df.drop(df.tail(1).index, inplace=True)
+
+seg_files, sample_names = [], []
+with open(seg_files_file, "r") as f:
+	seg_files = [line.strip() for line in f]
+with open(sample_names_file, "r") as f:
+	sample_names = [line.strip() for line in f]
 
 for i in range(len(seg_files)):
 	file = seg_files[i]
