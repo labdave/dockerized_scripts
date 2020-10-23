@@ -14,7 +14,7 @@ with open(cyto_bed, "r") as f:
 		bands.append(line_arr[0]+line_arr[3])
 
 df = pd.DataFrame(bands, columns=["cytoBand"])
-df.drop(df.tail(1).index, inplace=True)
+df = df.set_index("cytoBand")
 
 seg_files, sample_names = [], []
 with open(seg_files_file, "r") as f:
@@ -26,35 +26,16 @@ for i in range(len(seg_files)):
 	file = seg_files[i]
 	sample = sample_names[i]
 	data = []
-	with open(file, "r") as f:
-		i = 0
-		for line in f:
-			# I think what is happening is to get the max amplitude of copy number for a cytoband
-			if i:
-				line_arr = line.strip().split()
-				pos = line_arr[0].replace("chr", "")+line_arr[3]
-				if pos == old:
-					cr_arr.append(float(line_arr[-2]))
-				else:
-					cr = max(cr_arr, key=abs)
-					data.append(str(cr))
-					if line_arr[-1] == ".":
-						cr_arr = [0]
-					else:
-						cr_arr = [float(line_arr[-2])]
-					old = pos
-			else:
-				i = 1
-				line_arr = line.strip().split()
-				pos = line_arr[0].replace("chr", "")+line_arr[3]
-				if line_arr[-1] == ".":
-					cr_arr = [0]
-				else:
-					cr_arr = [float(line_arr[-2])]
-				old = pos
-	df[sample] = data
+	# I think what used to happen got the max amplitude of copy number for a cytoband
+	# now using median instead - can use pandas
+	file_df = pd.read_csv(file, sep="\t", names=["chrom", "pos1", "pos2", "cyto", "info", "chrom_", "pos1_", "pos2_", "n_seg", "cnv", "sign"])
+	file_df["chrom_cyto"] = file_df["chrom"] + file_df["cyto"]
+	file_df["chrom_cyto"] = file_df["chrom_cyto"].str[3:]
+	file_df = file_df.groupby(["chrom_cyto"]).median().drop(["pos1", "pos2", "pos1_", "pos2_"], axis=1)
+	file_df.rename(columns={"cnv":sample}, inplace=True)
 
+	df = df.join(file_df)
 
 df = df.reindex(sorted(df.columns, reverse=True), axis=1)
 print(df)
-df.to_csv(output_file, sep="\t", index=False)
+df.to_csv(output_file, sep="\t")
