@@ -10,7 +10,6 @@ RUN apt-get update -y && apt-get install -y \
     less \
     wget \
     unzip \
-    gzip \
     cmake \
     python \
     gawk \
@@ -26,16 +25,17 @@ RUN apt-get update -y && apt-get install -y \
     libssl-dev \
     git \
     autoconf \
-    bsdmainutils \
-    bedtools \
-    samtools \
-    xvfb \
-    libxext6 \
-    libxrender-dev \
-    libfontconfig1 \
-    libxrender1 \
-    libxtst6 \
-    x11-utils
+    bsdmainutils
 
-RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
-RUN cp dockerized_scripts/cell_ranger/.env.json .
+WORKDIR /usr/local/bin
+
+# get spring
+RUN git clone https://github.com/shubhamchandak94/Spring.git
+WORKDIR /usr/local/bin/SPRING
+RUN mkdir build
+WORKDIR /usr/local/bin/SPRING/build
+RUN cmake ..
+RUN make
+WORKDIR /usr/local/bin/
+RUN cp SPRING/build/spring .
+RUN chmod +777 spring
