@@ -11,7 +11,7 @@ RUN apt-get update -y && apt-get install -y \
     wget \
     unzip \
     cmake \
-    python \
+    python3 \
     gawk \
     python-pip \
     zlib1g-dev \
@@ -28,16 +28,13 @@ RUN apt-get update -y && apt-get install -y \
     bsdmainutils \
     bedtools
 
-# install numpy and pysam
+# install numpy and pandas
 WORKDIR /usr/local/bin
-RUN pip install numpy
-RUN pip install cython
-RUN pip install pysam
+RUN pip3 install numpy
+RUN pip3 install pandas
 
 # get purity scripts
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
-RUN cp dockerized_scripts/purity/vcf_pipeline.sh .
-RUN cp dockerized_scripts/purity/*.py .
-RUN cp dockerized_scripts/purity/vcf_pipeline.sh /home/
-RUN cp dockerized_scripts/purity/*.py /home/
+RUN cp dockerized_scripts/purity/new_format_parser.py .
+RUN cp dockerized_scripts/purity/new_format_parser.py /home/
