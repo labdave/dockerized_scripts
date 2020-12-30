@@ -2,7 +2,7 @@ import sys
 import argparse
 
 parser = argparse.ArgumentParser(description='Filter rows/columns as needed')
-parser.add_argument('-c', '--columns', required=True, help='bam file to get snapshots from')
+parser.add_argument('-c', '--columns', required=True, help='column')
 parser.add_argument('-t', '--thresh', help='pe_sr threshold for sv calling')
 parser.add_argument('-i', '--input', help='input vcf')
 parser.add_argument('-o', '--output', help='output file')
