@@ -1,12 +1,11 @@
-# Notes:
+# Rachel Kositsky
+# 2021-01-12
+
+# Rules for merging:
 # DW “chrom”, “start”, “stop” matches Delly/lumpy chr1:pos1 AND DW “partner_chrom” matches chr2
-# DW “chrom”, “start”, “stop” matches Delly/lumpy chr2:pos2 AND DW “partner_chrom” matches chr1
-# dave_lab_id  chr1      pos1  chr2      pos2 pe sr pe_sr caller Delly_REF
+# OR: DW “chrom”, “start”, “stop” matches Delly/lumpy chr2:pos2 AND DW “partner_chrom” matches chr1
 
-# Original names: discowave_trans_chrom, discowave_trans_start, discowave_trans_stop, discowave_trans_all, discowave_trans_max_pct, discowave_trans_max_pct_chrom, evenness
-# New names: discowave_chrom, discowave_start, discowave_stop, discowave_pe, discowave_pct_to_partner, discowave_partner_chrom, discowave_evenness
-
-# print out whatever is in DL, and if in DW, then print that
+# Print out whatever is in DL, and if in DW, then print that
 # add in the callers and Num_callers from DL
 # Gene annotation will be in a different script
 
@@ -37,6 +36,8 @@ def main(args):
     dw = pd.read_csv(args.DW_file, sep = "\t")
     dw["padded_start"] = dw["start"] - args.merge_distance
     dw["padded_stop"] = dw["stop"] + args.merge_distance
+    # Add the number of reads supporting the partner chromosome
+    dw["pe"] = (dw["all"] * dw["pct_reads_to_partner"] / 100).apply(round)
 
     # Now merge! Join in any discowave calls.
     for index, row in dl.iterrows():
@@ -65,23 +66,26 @@ def main(args):
         if len(matching_dw) >= 1:
 
             # Have a warning if there's more than one match.
-            # TODO: choose the best one.
             if len(matching_dw) > 1:
-                print("WARNING: more than one discowave call matches the DELLY/LUMPY call!")
+                print("WARNING: more than one discowave call matches the " \
+                    "DELLY/LUMPY call {0}:{1} - {2}:{3}!".format(
+                    row["chr1"], row["pos1"], row["chr2"], row["pos2"]))
                 print("Here are the {0} matching calls:".format(len(matching_dw)))
-                print(matching_dw)
+                print(matching_dw[["chrom", "start", "stop", "partner_chrom", 
+                    "all", "pct_reads_to_partner", "pe"]])
 
-            # Now choose the first one and turn into a Series
-            matching_dw = matching_dw.loc[0,:]
+            # Choose the window with the highest paired-end support and 
+            # turn it into a Series
+            matching_dw = matching_dw.loc[matching_dw["pe"].idxmax(),:]
 
             # Add relevant fields
             out.loc[index, "discowave_chrom"] = matching_dw["chrom"]
             out.loc[index, "discowave_start"] = matching_dw["start"]
             out.loc[index, "discowave_stop"] = matching_dw["stop"]
             out.loc[index, "discowave_partner_chrom"] = matching_dw["partner_chrom"]
-            out.loc[index, "discowave_pe"] = int(matching_dw["all"]*matching_dw["pct_reads_to_partner"])
+            out.loc[index, "discowave_pe"] = matching_dw["pe"]
             out.loc[index, "discowave_depth"] = matching_dw["all"]
-            out.loc[index, "discowave_pct_to_partner"] = matching_dw["pct_to_partner"]
+            out.loc[index, "discowave_pct_to_partner"] = matching_dw["pct_reads_to_partner"]
             out.loc[index, "discowave_evenness"] = matching_dw["evenness"]
 
     # Having gone through each line, now write output
@@ -101,6 +105,8 @@ if __name__ == "__main__":
         help="Output file location for D/L + DW merged file (tab-separated)")
     parser.add_argument("-dist", "--merge_distance", default = 500,
         help = "Merging distance for DELLY/LUMPY vs discowave annotations")
+    
     args = parser.parse_args()
+
     main(args)
 
