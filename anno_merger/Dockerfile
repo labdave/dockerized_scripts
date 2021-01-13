@@ -41,15 +41,13 @@ RUN apt-get update -y && apt-get install -y \
 
 RUN which pip3
 
-# install numpy and pysam
+# install numpy and pandas
 WORKDIR /usr/local/bin
 RUN pip3 install numpy
-RUN pip3 install cython
-RUN pip3 install pysam
+RUN pip3 install pandas
 
 # get script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
-RUN cp dockerized_scripts/anno_merger/Merge_delly_lumpy_annotation.py .
-RUN cp dockerized_scripts/anno_merger/Merge_delly_lumpy_annotation.py /home/Merge_delly_lumpy_annotation.py
-RUN chmod +x Merge_delly_lumpy_annotation.py
+RUN cp dockerized_scripts/anno_merger/merge_D_L_with_DW.py .
+RUN cp dockerized_scripts/anno_merger/merge_D_L_with_DW.py /home/merge_D_L_with_DW.py
