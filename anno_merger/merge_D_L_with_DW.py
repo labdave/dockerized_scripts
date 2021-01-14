@@ -103,7 +103,7 @@ if __name__ == "__main__":
         help="discowave file")
     parser.add_argument("-out", "--output_file", required=True, 
         help="Output file location for D/L + DW merged file (tab-separated)")
-    parser.add_argument("-dist", "--merge_distance", default = 500,
+    parser.add_argument("-dist", "--merge_distance", default=500, type=int,
         help = "Merging distance for DELLY/LUMPY vs discowave annotations")
     
     args = parser.parse_args()
