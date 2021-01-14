@@ -51,9 +51,14 @@ with open(in_file, "r") as f:
 		chrom = line_arr[0]
 		if chrom not in good_chroms:
 			continue
+		# if cnv is less than a threshold, here -5, we can set it to that
+		if float(line_arr[4]) < -5.0:
+			cnv = -5.0
+		else:
+			cnv = float(line_arr[4])
 		length = int(line_arr[2]) - int(line_arr[1])
 		length_sum += length
-		cnv_sum += length*float(line_arr[4])
+		cnv_sum += length*cnv
 
 # weighted mean (should ideally be zero)
 diff = cnv_sum/length_sum

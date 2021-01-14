@@ -11,9 +11,9 @@ RUN apt-get update -y && apt-get install -y \
     wget \
     unzip \
     cmake \
-    python \
+    python3 \
     gawk \
-    python-pip \
+    python3-pip \
     zlib1g-dev \
     libncurses5-dev \
     libncursesw5-dev \
@@ -31,7 +31,7 @@ RUN apt-get update -y && apt-get install -y \
 
 # install pandas
 WORKDIR /usr/local/bin
-RUN pip install pandas
+RUN pip3 install pandas
 
 # get cnv postprocessing scripts
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
