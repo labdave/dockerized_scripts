@@ -51,7 +51,7 @@ with open(sample_names_file, "r") as f:
 df = pd.DataFrame(bands, columns=["cytoBand"])
 df = df.set_index("cytoBand")
 for sample in sample_names:
-	df[sample] = 0
+	df[sample] = 0.0
 
 for i in range(len(seg_files)):
 	file = seg_files[i]
@@ -79,10 +79,10 @@ for i in range(len(seg_files)):
 			# if there's only one element, our job is rather simple
 			val_arr = data[key][0].split()
 			if val_arr[0] == ".":
-				cnv = "0"
+				cnv = 0.0
 			else:
-				cnv = val_arr[4]
-			df[cyto, sample] = cnv
+				cnv = float(val_arr[4])
+			df.at[cyto, sample] = cnv
 		else:
 			# We need to get the lengths of the segments and their corresponding 
 			# values. bedtools intersect -loj leaves the actual positions so we 
@@ -95,13 +95,13 @@ for i in range(len(seg_files)):
 				pos1 = max(int(key_arr[1]), int(val_arr[1]))
 				pos2 = min(int(key_arr[2]), int(val_arr[2]))
 				if val_arr[0] == ".":
-					cnv = 0
+					cnv = 0.0
 				else:
 					cnv = float(val_arr[4])
 				weighted_sum += ((pos2-pos1)*cnv)
 				length_sum += (pos2-pos1)
 			weighted_cnv = weighted_sum/length_sum
-			df[cyto, sample] = weighted_cnv
+			df.at[cyto, sample] = weighted_cnv
 
 print(df)
 df.to_csv(output_file, sep="\t")
