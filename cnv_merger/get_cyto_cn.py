@@ -54,7 +54,6 @@ for sample in sample_names:
 	df[sample] = 0
 
 for i in range(len(seg_files)):
-	continue
 	file = seg_files[i]
 	sample = sample_names[i]
 	data = dict()
