@@ -14,6 +14,9 @@ s2_count = 0
 df = pd.read_csv(wl_variants, sep="\t", header=0)
 
 for index, row in df.iterrows():
+	# skip mpileup variants
+	if pd.isna(row["dpMax"]):
+		continue
 	# add a filter for min dpMax
 	if int(row["dpMax"]) < min_dpmax:
 		continue
