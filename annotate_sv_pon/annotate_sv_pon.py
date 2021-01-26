@@ -100,7 +100,13 @@ def intersect_pon_annotations(row):
     # which is last in the PON annotation string
     common_annotations = list(map(lambda x: x.split(",")[-1], common_annotations))
 
-    return(";".join(common_annotations))
+    # common_annotations may be [], [""], or a list of number strings, like ["15", "4"]
+    if common_annotations in [[], [""]]:
+        return("")
+    else:
+        # If there's something found, report the max
+        common_annotations = list(map(int, common_annotations))
+        return(str(max(common_annotations)))
 
 
 def add_panel_of_normal(df, annotation_bed_dict, breakpoint_bed_dict):
