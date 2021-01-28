@@ -37,7 +37,7 @@ output_file = sys.argv[3].strip()
 sample = sys.argv[4].strip()
 
 genes = []
-with open(arm_bed, "r") as f:
+with open(gene_bed, "r") as f:
 	for line in f:
 		line_arr = line.strip().split()
 		genes.append(line_arr[3])
@@ -95,7 +95,7 @@ for key in data:
 			weighted_sum += ((pos2-pos1)*cnv)
 			length_sum += (pos2-pos1)
 		weighted_cnv = weighted_sum/length_sum
-		df.at[arm, sample] = weighted_cnv
+		df.at[gene, sample] = weighted_cnv
 
 print(df)
 df.to_csv(output_file, sep="\t")
