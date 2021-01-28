@@ -55,6 +55,8 @@ parse_translocation_tsv <- function(path) {
                       discowave_pct_to_partner = col_double(),
                       discowave_partner_chrom = col_character(),
                       discowave_evenness = col_double(),
+                      BP1_Gene = col_character(),
+                      BP2_Gene = col_character(),
                       BP1_repeats_200bp = col_character(),
                       BP2_repeats_200bp = col_character(),
                       matching_repeats = col_character(),
