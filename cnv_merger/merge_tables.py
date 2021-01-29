@@ -5,7 +5,7 @@ import pandas as pd
 import sys
 
 print(sys.argv[1])
-input_files = sys.argv[1].strip().split("^")
+input_files = sys.argv[1].split("-")
 output_file = sys.argv[2]
 
 print(input_files)
