@@ -7,6 +7,7 @@ import sys
 input_files = sys.argv[1].split("-")
 output_file = sys.argv[2]
 
+print(input_files)
 # skip the first
 template_file = input_files.pop(0)
 with open(template_file, "r") as f:
@@ -24,6 +25,7 @@ df = pd.read_csv(template_file, sep="\t", index_col=mode)
 big_df = df
 # add more if there are
 for input_file in input_files:
+	print(input_file)
 	df1 = pd.read_csv(input_file, sep="\t", index_col=mode)
 	big_df = pd.concat([df, df1], axis=1)
 
