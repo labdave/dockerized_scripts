@@ -29,16 +29,11 @@ RUN apt-get update -y && apt-get install -y \
     samtools \
     bedtools
 
-# install numpy and pysam
+# install pandas
 WORKDIR /usr/local/bin
 RUN pip install pandas
 
 # get cnv aggregator scripts
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
-RUN cp dockerized_scripts/cnv_merger/get_gene_cn.py .
-RUN cp dockerized_scripts/cnv_merger/get_gene_cn.py /home/get_gene_cn.py
-RUN chmod +x get_gene_cn.py
-RUN cp dockerized_scripts/cnv_merger/get_cyto_cn.py .
-RUN cp dockerized_scripts/cnv_merger/get_cyto_cn.py /home/get_cyto_cn.py
-RUN chmod +x get_cyto_cn.py
+RUN cp dockerized_scripts/cnv_merger/* .
