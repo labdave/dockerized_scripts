@@ -7,6 +7,7 @@ import sys
 input_files = sys.argv[1].split("-")
 output_file = sys.argv[2]
 
+# skip the first
 template_file = input_files.pop(0)
 with open(template_file, "r") as f:
 	for line in f:
@@ -16,14 +17,12 @@ with open(template_file, "r") as f:
 
 print(mode)
 
-df = pd.read_csv(input_files[0], sep="\t", index_col=mode)
+df = pd.read_csv(template_file, sep="\t", index_col=mode)
 
 big_df = df
-for i in range(len(input_files)):
-	if i:
-		input_file = input_files[i]
-		df1 = pd.read_csv(input_file, sep="\t", index_col=mode)
-		big_df = pd.concat([df, df1], axis=1)
+for input_file in input_files:
+	df1 = pd.read_csv(input_file, sep="\t", index_col=mode)
+	big_df = pd.concat([df, df1], axis=1)
 
 print(big_df)
 
