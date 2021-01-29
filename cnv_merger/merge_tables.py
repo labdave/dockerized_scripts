@@ -6,6 +6,7 @@ import sys
 
 print(sys.argv[1])
 print("HELLO")
+print("WHY WON'T THIS WORK")
 input_files = sys.argv[1].split("-")
 output_file = sys.argv[2]
 
