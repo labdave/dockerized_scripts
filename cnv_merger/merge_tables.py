@@ -19,9 +19,11 @@ print(mode)
 df = pd.read_csv(input_files[0], sep="\t", index_col=mode)
 
 big_df = df
-for input_file in input_files:
-	df1 = pd.read_csv(input_file, sep="\t", index_col=mode)
-	big_df = pd.concat([df, df1], axis=1)
+for i in range(len(input_files)):
+	if i:
+		input_file = input_files[i]
+		df1 = pd.read_csv(input_file, sep="\t", index_col=mode)
+		big_df = pd.concat([df, df1], axis=1)
 
 print(big_df)
 
