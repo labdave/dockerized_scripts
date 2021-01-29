@@ -17,9 +17,12 @@ with open(template_file, "r") as f:
 
 print(mode)
 
+# get the first
 df = pd.read_csv(template_file, sep="\t", index_col=mode)
 
+# start the big table with just the first
 big_df = df
+# add more if there are
 for input_file in input_files:
 	df1 = pd.read_csv(input_file, sep="\t", index_col=mode)
 	big_df = pd.concat([df, df1], axis=1)
