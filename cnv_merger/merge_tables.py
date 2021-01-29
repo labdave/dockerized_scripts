@@ -4,14 +4,8 @@ import numpy as np
 import pandas as pd
 import sys
 
-print(sys.argv[1])
-print("HELLO")
-print("WHY WON'T THIS WORK")
 input_files = sys.argv[1].split("-")
 output_file = sys.argv[2]
-
-print(input_files)
-print(output_file)
 
 template_file = input_files.pop(0)
 with open(template_file, "r") as f:
@@ -23,8 +17,6 @@ with open(template_file, "r") as f:
 print(mode)
 
 df = pd.read_csv(input_files[0], sep="\t", index_col=mode)
-
-print(df)
 
 big_df = df
 for input_file in input_files:
