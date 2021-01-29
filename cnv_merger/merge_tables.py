@@ -27,7 +27,7 @@ big_df = df
 for input_file in input_files:
 	print(input_file)
 	df1 = pd.read_csv(input_file, sep="\t", index_col=mode)
-	big_df = pd.concat([df, df1], axis=1)
+	big_df = pd.concat([big_df, df1], axis=1)
 
 print(big_df)
 
