@@ -44,7 +44,7 @@ length_sum = 0.0
 with open(in_file, "r") as f:
 	for line in f:
 		# skip headers
-		if "@" in line or "MEAN_LOG2_COPY_RATIO" in line:
+		if "@" in line or "MEAN_LOG2_COPY_RATIO" in line or "Num_Probes" in line:
 			continue
 		line_arr = line.split()
 		# skip non cardinal and sex chromosomes
@@ -52,11 +52,12 @@ with open(in_file, "r") as f:
 		if chrom not in good_chroms:
 			continue
 		# if cnv is less than a threshold, here -5, we can set it to that
-		if float(line_arr[4]) < -5.0:
+		# CHANGING INDICES WHEN MOVING FROM seg_call TO cr_igv_seg
+		if float(line_arr[5]) < -5.0:
 			cnv = -5.0
 		else:
-			cnv = float(line_arr[4])
-		length = int(line_arr[2]) - int(line_arr[1])
+			cnv = float(line_arr[5])
+		length = int(line_arr[3]) - int(line_arr[2222])
 		length_sum += length
 		cnv_sum += length*cnv
 
@@ -71,19 +72,20 @@ with open(in_file, "r") as f:
 		if "@" in line:
 			continue
 		# add title header
-		if "MEAN_LOG2_COPY_RATIO" in line:
+		if "MEAN_LOG2_COPY_RATIO" in line or "Num_Probes" in line:
 			file_str += line
 		# subtract deviation
 		else:
+			# CHANGING INDICES WHEN MOVING FROM seg_call TO cr_igv_seg
 			line_arr = line.split()
-			value = float(line_arr[4]) - diff
-			line_arr[4] = str(round(value, 6))
-			if value > math.log(1.1, 2):
-				line_arr[5] = "+"
-			elif value < math.log(0.9, 2):
-				line_arr[5] = "-"
+			value = float(line_arr[5]) - diff
+			line_arr[5] = str(round(value, 6))
+			if value > math.log(1.2, 2):
+				line_arr.append("+")
+			elif value < math.log(0.8, 2):
+				line_arr.append("-")
 			else:
-				line_arr[5] = "0"
+				line_arr.append("0")
 			file_str += ("\t".join(line_arr)+"\n")
 
 with open(out_file, "w") as f:
