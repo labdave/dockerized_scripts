@@ -88,7 +88,7 @@ with open(in_file, "r") as f:
 				line_arr.append("-")
 			else:
 				line_arr.append("0")
-			file_str += ("\t".join(line_arr)+"\n")
+			file_str += ("\t".join(line_arr[1:])+"\n")
 
 with open(out_file, "w") as f:
 	f.write(file_str)
