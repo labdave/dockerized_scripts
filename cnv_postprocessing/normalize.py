@@ -39,7 +39,7 @@ good_chroms = [
 	"chr18", "chr19", "chr20", "chr21", "chr22"]
 
 cnv_sum = 0.0
-length_sum = 0.0
+length_sum = 1.0
 
 with open(in_file, "r") as f:
 	for line in f:
@@ -47,17 +47,19 @@ with open(in_file, "r") as f:
 		if "@" in line or "MEAN_LOG2_COPY_RATIO" in line or "Num_Probes" in line:
 			continue
 		line_arr = line.split()
+		# CHANGING INDICES WHEN MOVING FROM seg_call TO cr_igv_seg
 		# skip non cardinal and sex chromosomes
-		chrom = line_arr[0]
+		chrom = line_arr[1]
 		if chrom not in good_chroms:
 			continue
 		# if cnv is less than a threshold, here -5, we can set it to that
-		# CHANGING INDICES WHEN MOVING FROM seg_call TO cr_igv_seg
 		if float(line_arr[5]) < -5.0:
 			cnv = -5.0
 		else:
 			cnv = float(line_arr[5])
 		length = int(line_arr[3]) - int(line_arr[2])
+		print(cnv)
+		print(length)
 		length_sum += length
 		cnv_sum += length*cnv
 
