@@ -58,8 +58,8 @@ with open(in_file, "r") as f:
 		else:
 			cnv = float(line_arr[5])
 		length = int(line_arr[3]) - int(line_arr[2])
-		print(cnv)
-		print(length)
+		# print(cnv)
+		# print(length)
 		length_sum += length
 		cnv_sum += length*cnv
 
