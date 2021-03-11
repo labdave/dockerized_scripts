@@ -76,7 +76,7 @@ with open(in_file, "r") as f:
 		# add title header
 		if "MEAN_LOG2_COPY_RATIO" in line or "Num_Probes" in line:
 			# CHANGING INDICES WHEN MOVING FROM seg_call TO cr_igv_seg
-			file_str += line.replace("Sample\t", "")
+			file_str += line.replace("Sample\t", "").replace("Segment_Mean", "MEAN_LOG2_COPY_RATIO")+"\tCall"
 		# subtract deviation
 		else:
 			# CHANGING INDICES WHEN MOVING FROM seg_call TO cr_igv_seg
