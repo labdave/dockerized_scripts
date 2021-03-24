@@ -22,9 +22,9 @@ with open(input_file, "r") as f:
 		
 		# extract positions
 		line_arr = line.strip().split("\t")
-		chrom1 = int(line_arr[4].split(":")[0])
+		chrom1 = line_arr[4].split(":")[0]
 		pos1 = int(line_arr[4].split(":")[1])
-		chrom2 = int(line_arr[5].split(":")[0])
+		chrom2 = line_arr[5].split(":")[0]
 		pos2 = int(line_arr[5].split(":")[1])
 
 		positions.append({"chrom1": chrom1, "pos1": pos1, "chrom2": chrom2, "pos2": pos2})
