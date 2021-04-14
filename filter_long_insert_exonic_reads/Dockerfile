@@ -43,5 +43,5 @@ RUN ls -l
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
 RUN cp dockerized_scripts/filter_long_insert_exonic_reads/filter_long_insert_exonic_reads.sh .
-RUN cp dockerized_scripts/filter_long_insert_exonic_reads/filter_long_insert_exonic_reads.sh /home/filter_long_insert_exonic_reads.sh
+RUN cp dockerized_scripts/filter_long_insert_exonic_reads/remove_long_inserts.py .
 RUN chmod +x filter_long_insert_exonic_reads.sh
