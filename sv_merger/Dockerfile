@@ -21,7 +21,7 @@ RUN apt-get update -y && apt-get install -y \
     bzip2 \
     git \
     autoconf \
-    bsdmainutils \
+    bsdmainutils
 
 # install pandas
 WORKDIR /usr/local/bin
