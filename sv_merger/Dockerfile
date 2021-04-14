@@ -13,7 +13,7 @@ RUN apt-get update -y && apt-get install -y \
     cmake \
     python \
     gawk \
-    python-pip \
+    python3-pip \
     zlib1g-dev \
     libncurses5-dev \
     libncursesw5-dev \
@@ -32,7 +32,7 @@ RUN apt-get update -y && apt-get install -y \
 
 # install pandas
 WORKDIR /usr/local/bin
-RUN pip install pandas
+RUN pip3 install pandas
 
 # install R required dependencies
 RUN R --vanilla -e 'install.packages(c("optparse", "tidyverse"), repos="http://cran.us.r-project.org")'
