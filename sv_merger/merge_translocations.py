@@ -34,8 +34,8 @@ def main(args):
     # Write output
     df_merged.to_csv(args.output_file, sep="\t", index = False)
 
-    print((f"Merged {n_inputs} translocation tables and wrote "
-           f"{len(df_merged.index)} total rows to {args.output_file}."))
+    print("Merged {0} translocation tables and wrote {1} total rows to {2}".format(
+        n_inputs, len(df_merged.index), args.output_file))
 
 
 def parse_args(args=None):
