@@ -31,7 +31,7 @@ RUN apt-get update -y && apt-get install -y \
 
 # install pandas
 WORKDIR /usr/local/bin
-RUN pip install pandas
+RUN pip3 install pandas
 
 # get SV aggregator scripts
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
