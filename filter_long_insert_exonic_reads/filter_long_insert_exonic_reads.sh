@@ -7,7 +7,7 @@ good_output=$6
 bad_output=$7
 
 # keep the header and greater than 500 insert sizes
-echo "extracting reads with insert sizes greater than 500"
+echo "extracting reads with insert sizes greater than $thresh"
 samtools view -@ $threads -h $input_file | awk -v var="$thresh" 'substr($0,1,1)=="@" || ($9>var) || ($9<-var)' | samtools view -@ $threads -b > $sample.is_gt_$thresh.bam
 
 # intersect the gt500 bam file with an exon bed only allowing reads that fully map to exons and create a bed output
