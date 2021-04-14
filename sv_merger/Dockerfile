@@ -27,7 +27,8 @@ RUN apt-get update -y && apt-get install -y \
     autoconf \
     bsdmainutils \
     samtools \
-    bedtools
+    bedtools \
+    libxml2
 
 
 # install pandas
