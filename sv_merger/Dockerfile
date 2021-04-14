@@ -36,7 +36,7 @@ WORKDIR /usr/local/bin
 RUN pip3 install pandas
 
 # install R required dependencies
-RUN R --vanilla -e 'install.packages(c("optparse", "tidyverse"), repos="http://cran.us.r-project.org")'
+RUN R --vanilla -e 'install.packages(c("optparse", "dplyr", "readr", "purrr", "stringr"), repos="http://cran.us.r-project.org")'
 
 # get SV aggregator scripts
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
