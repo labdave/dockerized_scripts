@@ -4,24 +4,31 @@ FROM r-base:3.6.0
 # update the OS related packages
 RUN apt-get update -y && apt-get install -y \
     build-essential \
+    libnss-sss \
     curl \
     vim \
     less \
     wget \
     unzip \
     cmake \
-    gcc-8-base \
-    libmpx2 \
-    libgcc-8-dev \
-    libc6-dev \
+    python \
+    gawk \
+    python-pip \
+    zlib1g-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    libnss-sss \
+    libbz2-dev \
+    liblzma-dev \
+    bzip2 \
     libcurl4-openssl-dev \
     libssl-dev \
-    libxml2-dev \
-    gawk \
-    bzip2 \
     git \
     autoconf \
-    bsdmainutils
+    bsdmainutils \
+    samtools \
+    bedtools
+
 
 # install pandas
 WORKDIR /usr/local/bin
