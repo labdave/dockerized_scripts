@@ -22,6 +22,10 @@ awk '($17>0)' $sample.bed > $sample.nonzero.bed
 echo "obtain actual list of bad reads"
 python3 remove_long_inserts.py $sample.nonzero.bed $sample.bad_reads.txt
 
+if [ ! -s $sample.bad_reads.txt ]
+then
+	samtools view -@ $threads $input_file | head -1 | cut -d"	" -f1 > $sample.bad_reads.txt
+
 # remove these bad reads from the original bam file
 echo "filter samreads based on bad reads list"
 java -jar picard.jar FilterSamReads I=$input_file O=$good_output RLF=$sample.bad_reads.txt FILTER=excludeReadList
