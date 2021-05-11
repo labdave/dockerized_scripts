@@ -28,7 +28,6 @@ RUN apt-get update -y && apt-get install -y \
     bsdmainutils \
     samtools \
     bedtools \
-    libcurl4-openssl-dev \
     libssl-dev \
     libcurl4-gnutls-dev \
     libxml2-dev
