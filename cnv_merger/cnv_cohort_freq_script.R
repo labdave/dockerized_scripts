@@ -2,7 +2,7 @@
 
 install.packages("stringr")
 library("stringr")
-install.packages("stringr")
+install.packages("ggplot2")
 library(ggplot2)
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
