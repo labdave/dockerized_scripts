@@ -1,5 +1,5 @@
-# work from latest LTS ubuntu release
-FROM r-base:3.6.0
+# work from r apt
+FROM rocker/r-apt:bionic
 
 # run update and install necessary tools
 RUN apt-get update -y && apt-get install -y \
@@ -29,16 +29,17 @@ RUN apt-get update -y && apt-get install -y \
     samtools \
     bedtools \
     libssl-dev \
-    libcurl4-gnutls-dev \
-    libxml2-dev
+    libxml2-dev \
+    r-cran-stringr \
+    r-cran-ggplot2
 
 # install pandas
 WORKDIR /usr/local/bin
 RUN pip3 install pandas
 
 # install R dependencies
-RUN R -e "install.packages('ggplot2',dependencies=TRUE, repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('stringr',dependencies=TRUE, repos='http://cran.rstudio.com/')"
+# RUN R -e "install.packages('ggplot2',dependencies=TRUE, repos='http://cran.rstudio.com/')"
+# RUN R -e "install.packages('stringr',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('BiocManager',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "requireNamespace('BiocManager'); BiocManager::install('GenVisR');"
 
