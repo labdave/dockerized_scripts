@@ -6,7 +6,7 @@ Date:
 13 January 2021
 
 Input:
-This script takes in results from gatk_callcopyratiosegments__dna module in the 
+This script takes in results from blacklist.py step in the 
 CNV pipeline.
 
 Output:
@@ -24,7 +24,7 @@ concept of gold standard were using this modified set of values.
 
 Usage:
 
-python normalize.py <gatk_seg_file> <normalized_seg_file>
+python normalize.py <blacklist_seg_file> <normalized_seg_file>
 """
 
 import math
@@ -44,7 +44,7 @@ length_sum = 1.0
 with open(in_file, "r") as f:
 	for line in f:
 		# skip headers
-		if "@" in line or "MEAN_LOG2_COPY_RATIO" in line or "Num_Probes" in line:
+		if "@" in line or "MEAN_LOG2_COPY_RATIO" in line or "Segment_Mean" in line:
 			continue
 		line_arr = line.split()
 		# CHANGING INDICES WHEN MOVING FROM seg_call TO cr_igv_seg
