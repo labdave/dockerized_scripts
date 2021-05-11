@@ -1,12 +1,7 @@
 #!/usr/bin/env Rscript
 
-install.packages("stringr")
 library("stringr")
-install.packages("ggplot2")
 library(ggplot2)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-BiocManager::install("GenVisR")
 library("GenVisR")
 
 args = commandArgs(trailingOnly=TRUE)

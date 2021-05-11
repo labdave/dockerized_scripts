@@ -33,6 +33,11 @@ RUN apt-get update -y && apt-get install -y \
 WORKDIR /usr/local/bin
 RUN pip3 install pandas
 
+# install R dependencies
+RUN R -e "install.packages('ggplot2',dependencies=TRUE, repos='http://cran.rstudio.com/')"
+RUN R -e "install.packages('stringr',dependencies=TRUE, repos='http://cran.rstudio.com/')"
+RUN Rscript -e 'requireNamespace("BiocManager"); BiocManager::install(GenVisR);'
+
 # get cnv aggregator scripts
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
