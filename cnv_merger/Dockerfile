@@ -27,7 +27,9 @@ RUN apt-get update -y && apt-get install -y \
     autoconf \
     bsdmainutils \
     samtools \
-    bedtools
+    bedtools \
+    libcurl4-openssl-dev \
+    libssl-dev
 
 # install pandas
 WORKDIR /usr/local/bin
@@ -36,7 +38,8 @@ RUN pip3 install pandas
 # install R dependencies
 RUN R -e "install.packages('ggplot2',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('stringr',dependencies=TRUE, repos='http://cran.rstudio.com/')"
-RUN Rscript -e 'requireNamespace("BiocManager"); BiocManager::install(GenVisR);'
+RUN R -e "install.packages('BiocManager',dependencies=TRUE, repos='http://cran.rstudio.com/')"
+RUN R -e 'requireNamespace("BiocManager"); BiocManager::install(GenVisR);'
 
 # get cnv aggregator scripts
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
