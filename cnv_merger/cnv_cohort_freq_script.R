@@ -106,3 +106,4 @@ p1 <- cnFreq(cnData, genome="hg38", CN_low_cutoff = CN_low_cutoff, CN_high_cutof
 p1[["data"]] <- p1[["data"]][(p1[["data"]]$chromosome != "chrX" & p1[["data"]]$chromosome != "chrY") & p1[["data"]]$chromosome != "chrM", ]
 # plot modified graph
 ggsave(output_plot, plot=p1, device="png", width=40, height=10, units="cm")
+save(p1, cnData, file=output_data)
