@@ -97,8 +97,7 @@ cnData_global$segmean[as.numeric(as.character(cnData_global$segmean)) > log2(1.2
 cnData <- rbind(cnData_focal, cnData_global)
 
 # set variables, plot graph, return to variable
-plot_title = 'DLBCL Mini Project (high coverage >10x) N=38, Exome Panel'
-plot_title = 'Normals, N=25, Noncoding Panel'
+plot_title = paste('Landscape of Copy Number Variation, N=', as.character(length(files_global)), sep="")
 CN_low_cutoff =  -1
 CN_high_cutoff = 1
 p1 <- cnFreq(cnData, genome="hg38", CN_low_cutoff = CN_low_cutoff, CN_high_cutoff = CN_high_cutoff, plot_title = plot_title)
