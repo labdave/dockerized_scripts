@@ -25,6 +25,9 @@ def main(args):
         "pe_sr", "Num_callers", "Callers"]
     out = dl[col_names].copy()
 
+    # Replace Dave Lab ID with sample ID
+    out["dave_lab_id"] = args.sample_id
+
     # Add new columns to output in anticipation of discowave merging
     out[["discowave_chrom", "discowave_start", "discowave_stop", 
         "discowave_pe", "discowave_depth", "discowave_pct_to_partner", 
@@ -98,13 +101,15 @@ if __name__ == "__main__":
     # Read in arguments
     parser = argparse.ArgumentParser(description="DELLY/LUMPY and discowave merger")
     parser.add_argument('-dl', '--DL_file', required=True, 
-        help="DELLY/LUMPY merged file")
+        help = "DELLY/LUMPY merged file")
     parser.add_argument('-dw', '--DW_file', required=True, 
-        help="discowave file")
+        help = "discowave file")
     parser.add_argument("-out", "--output_file", required=True, 
-        help="Output file location for D/L + DW merged file (tab-separated)")
+        help = "Output file location for D/L + DW merged file (tab-separated)")
     parser.add_argument("-dist", "--merge_distance", default=500, type=int,
         help = "Merging distance for DELLY/LUMPY vs discowave annotations")
+    parser.add_argument("-s", "--sample_id", required = True,
+        help = "Replacement sample ID")
     
     args = parser.parse_args()
 
