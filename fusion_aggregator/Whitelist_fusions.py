@@ -36,6 +36,6 @@ wl_genes = list(set(wl_genes))
 
 print(wl_genes)
 with open(wl_fusions_file, "w") as f:
-	f.write("Sample\tGene")
+	f.write("Sample\tGene\n")
 	for gene in wl_genes:
 		f.write(sample_id+"\t"+gene+"\n")
