@@ -67,6 +67,9 @@ with open(input_file, "r") as f:
 		lines[item[0]] = "\t".join(line_arr1)
 		lines[item[1]] = ""
 
+for i in lines:
+	print(i)
+
 with open(output_file, "w") as f:
 	for line in lines:
 		# add to header
@@ -74,5 +77,5 @@ with open(output_file, "w") as f:
 			line = "#sample\t"+line.lstrip("#")
 			f.write(line.strip()+"\n")
 		# filter out low confidence calls
-		if "\thigh\t" in line or "\tmedium\t" in line:
+		if "high" in line or "medium" in line:
 			f.write(sample_id+"\t"+line.strip()+"\n")
