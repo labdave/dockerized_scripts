@@ -6,6 +6,7 @@ import sys
 input_file = sys.argv[1]
 whitelist = sys.argv[2]
 wl_fusions_file = sys.argv[3]
+sample_id = sys.argv[4]
 
 wl_coords = []
 with open(whitelist, "r") as f:
@@ -35,5 +36,6 @@ wl_genes = list(set(wl_genes))
 
 print(wl_genes)
 with open(wl_fusions_file, "w") as f:
+	f.write("Sample\tGene")
 	for gene in wl_genes:
-		f.write(gene+"\n")
+		f.write(sample_id+"\t"+gene+"\n")
