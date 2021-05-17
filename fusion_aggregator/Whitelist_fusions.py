@@ -1,4 +1,4 @@
-# the point of this script is to go through the list of cleaned fusions
+# the point of this script is to go through the list of uncleaned fusions
 # and check if a whitelist fusion was found
 
 import sys
