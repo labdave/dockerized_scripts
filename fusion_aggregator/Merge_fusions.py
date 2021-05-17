@@ -1,12 +1,13 @@
 # the point of this script is to merge fusions from the output file from arriba
 # we want nearby fusions to be merged together. We can decide thereshold but 
-# will use 500 bp right now
+# will use 10000 bp right now
 
 import sys
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 merge_thresh = float(sys.argv[3])
+sample_id = sys.argv[4]
 
 i = 0
 reverse = False
@@ -68,5 +69,9 @@ with open(input_file, "r") as f:
 
 with open(output_file, "w") as f:
 	for line in lines:
-		if line:
-			f.write(line.strip()+"\n")
+		# add to header
+		if "#gene1" in line:
+			line = "#sample\t"+line.lstrip("#")
+		# filter out low confidence calls
+		if "\thigh\t" in line or "\tmedium\t" in line:
+			f.write(sample_id+"\t"+line.strip()+"\n")
