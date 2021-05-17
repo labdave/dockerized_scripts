@@ -31,11 +31,11 @@ WORKDIR /usr/local/bin
 
 # get spring
 RUN git clone https://github.com/shubhamchandak94/Spring.git
-WORKDIR /usr/local/bin/SPRING
+WORKDIR /usr/local/bin/Spring
 RUN mkdir build
-WORKDIR /usr/local/bin/SPRING/build
+WORKDIR /usr/local/bin/Spring/build
 RUN cmake ..
 RUN make
 WORKDIR /usr/local/bin/
-RUN cp SPRING/build/spring .
+RUN cp Spring/build/spring .
 RUN chmod +777 spring
