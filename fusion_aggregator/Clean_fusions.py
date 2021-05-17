@@ -72,6 +72,7 @@ with open(output_file, "w") as f:
 		# add to header
 		if "#gene1" in line:
 			line = "#sample\t"+line.lstrip("#")
+			f.write(line.strip()+"\n")
 		# filter out low confidence calls
 		if "\thigh\t" in line or "\tmedium\t" in line:
 			f.write(sample_id+"\t"+line.strip()+"\n")
