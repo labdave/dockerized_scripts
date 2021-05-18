@@ -1,4 +1,4 @@
-# this script takes in the wl fusion files and creates 
+# this script takes in the cleaned/wl fusion files and creates 
 # an aggregated matrix with fusions stacked in rows
 
 import sys
