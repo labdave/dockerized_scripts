@@ -13,7 +13,7 @@ with open(input_files[0], "r") as f:
 			header = line.strip()
 
 # concat files without header
-file_str = ""
+file_str = header + "\n"
 for file_ in input_files:
 	with open(file_, "r") as f:
 		for line in f:
