@@ -79,3 +79,7 @@ with open(output_file, "w") as f:
 		# filter out low confidence calls
 		if "high" in line or "medium" in line:
 			f.write(sample_id+"\t"+line.strip()+"\n")
+
+	if len(line) == 1:
+		none_line = "\t".join(["N/A" for i in line.strip.split("\t")])
+		f.write(sample_id+"\t"+none_line)
