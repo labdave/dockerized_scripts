@@ -70,6 +70,7 @@ with open(input_file, "r") as f:
 for i in lines:
 	print(i)
 
+empty = True
 with open(output_file, "w") as f:
 	for line in lines:
 		# add to header
@@ -79,7 +80,8 @@ with open(output_file, "w") as f:
 		# filter out low confidence calls
 		if "high" in line or "medium" in line:
 			f.write(sample_id+"\t"+line.strip()+"\n")
+			empty = False
 
-	if len(lines) == 1:
+	if empty:
 		none_line = "\t".join(["N/A" for i in line.strip.split("\t")])
 		f.write(sample_id+"\t"+none_line)
