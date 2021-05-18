@@ -67,9 +67,6 @@ with open(input_file, "r") as f:
 		lines[item[0]] = "\t".join(line_arr1)
 		lines[item[1]] = ""
 
-for i in lines:
-	print(i)
-
 empty = True
 with open(output_file, "w") as f:
 	for line in lines:
@@ -83,5 +80,5 @@ with open(output_file, "w") as f:
 			empty = False
 
 	if empty:
-		none_line = "\t".join(["N/A" for i in line.strip.split("\t")])
+		none_line = "\t".join(["N/A" for i in line.strip().split("\t")])
 		f.write(sample_id+"\t"+none_line)
