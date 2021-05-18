@@ -15,7 +15,7 @@ with open(input_files[0], "r") as f:
 # concat files without header
 file_str = ""
 for file_ in input_files:
-	with open(file, "r") as f:
+	with open(file_, "r") as f:
 		for line in f:
 			if line[0] == "#":
 				continue
