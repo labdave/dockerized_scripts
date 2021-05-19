@@ -57,6 +57,8 @@ parse_translocation_tsv <- function(path) {
                       discowave_evenness = col_double(),
                       BP1_Gene = col_character(),
                       BP2_Gene = col_character(),
+                      BP1_cytoband = col_character(),
+                      BP2_cytoband = col_character(),
                       BP1_repeats_200bp = col_character(),
                       BP2_repeats_200bp = col_character(),
                       matching_repeats = col_character(),
