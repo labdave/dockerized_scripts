@@ -1,6 +1,6 @@
 # Rachel Kositsky
 # Created: 2020-07-21
-# Updated: 2020-09-13
+# Updated: 2021-05-19
 
 import argparse
 import pandas as pd
@@ -81,6 +81,40 @@ def intersect_segmental_duplications(row, match_distance):
     return(",".join(segdup_matches))
 
 
+def intersect_repeat_families(rm1, rm2, repeat_family_table):
+    """Taking in two comma-separated repeat annotations, look up families and
+    output any matching families as a string. If none, return empty string."""
+
+    # If either annotation is empty, return empty string
+    if rm1 == "" or rm2 == "":
+        return ""
+
+    matching = []
+
+    rm1 = rm1.split(",")
+    rm2 = rm2.split(",")
+
+    rm1_families = []
+    for r1 in rm1:
+        if ")n" not in r1:
+            rm1_families.append(repeat_family_table.loc[r1, "repeat_family"])
+
+    for r2 in rm2:
+        if ")n" not in r2:
+            rm2_family = repeat_family_table.loc[r2, "repeat_family"]
+            if rm2_family in rm1_families:
+                matching.append(rm2_family)
+
+    # remove all "Unknown" and "Simple Repeat" annotations
+    filtered_matching = []
+    for m in matching:
+        # don't remove Low_complexity?
+        if m not in ["Unknown", "Simple_repeat"]:
+            filtered_matching.append(m)
+
+    return ",".join(set(filtered_matching)) # will return "" if empty list
+
+
 def add_collapsed_annotation_df(df, intersect_file_name, anno_col_name):
     """Helper function: returns dataframe with an added column named 
     annot_col_name with collapsed annotations from intersect_file_name."""
@@ -124,6 +158,16 @@ def add_repeat_masker(df):
         
     return(df)
 
+def add_repeat_families(df, repeat_family_table):
+    """Add matching_repeat_families column"""
+
+    family_fn = lambda row: intersect_repeat_families(
+        row["BP1_repeats_200bp"], row["BP2_repeats_200bp"], repeat_family_table)
+
+    df["matching_repeat_families"] = df.apply(family_fn, axis=1)
+
+    return(df)
+
 
 def add_segmental_duplications(df):
     """Make an additional column describing the merged segdup info"""
@@ -162,7 +206,8 @@ def add_polynucleotides(df):
 def add_empty_columns(df):
     """Given an empty dataframe, add expected 11 columns"""
 
-    new_columns = ["BP1_repeats_200bp", "BP2_repeats_200bp", "matching_repeats", 
+    new_columns = ["BP1_repeats_200bp", "BP2_repeats_200bp", 
+        "matching_repeats", "matching_repeat_families",
         "BP1_polynt_200bp", "BP2_polynt_200bp", "BP1_segdup_200bp", 
         "BP2_segdup_200bp", "segdup_100k", "segdup_1M", "segdup_10M", 
         "segdup_100M"]
@@ -176,7 +221,7 @@ def add_empty_columns(df):
 def main(args):
     """Goal: Append repeat masker and segdup onto structural variant VCFs"""
 
-    df = pd.read_csv(args.input_file, sep="\t")
+    df = pd.read_csv(args.input_file, sep = "\t")
 
     # If dataframe is empty, add expected columns and return immediately
     if df.empty:
@@ -188,6 +233,8 @@ def main(args):
     
     # Load in the resources
     repeat_masker = pybedtools.BedTool(args.repeat_masker_bed)
+    repeat_families = pd.read_csv(args.repeat_family_table, sep = "\t", 
+        names = ["repeat_name", "repeat_family"], index_col = "repeat_name")
     segmental_dups = pybedtools.BedTool(args.segmental_duplication_bed)
 
     # Do intersections with repeat masker and save to a file so that we can
@@ -200,6 +247,7 @@ def main(args):
     # Merge in repeat masker and get matching column
     df = add_repeat_masker(df)
     df["matching_repeats"] = df.apply(intersect_repeat_masker, axis=1)
+    df = add_repeat_families(df, repeat_families)
 
     # Add polynucleotide columns
     df = add_polynucleotides(df)
@@ -232,6 +280,7 @@ def parse_args(args=None):
         " denote whether individual breakpoints have repeat masker/" \
         "polynucleotide/segmental duplication regions within 200bp. " \
         "matching_repeats: list of any repeat regions that match in BP1 and BP2." \
+        " matching_repeat_families: list of any repeat regions in BP1 and BP2 with matching families." \
         " matching_segdup: T/F whether BP1 and BP2 have complementary segmental duplication regions."
         )
 
@@ -247,6 +296,9 @@ def parse_args(args=None):
 
     parser.add_argument("repeat_masker_bed",
         help="BED6 file of repeat masker regions, e.g. downloaded from UCSC Table Browser")
+
+    parser.add_argument("repeat_family_table",
+        help="Table of repeat names and their families, e.g. downloaded from UCSC Table Browser")
 
     parser.add_argument("segmental_duplication_bed",
         help="BED6 file of segmental duplication regions, e.g. downloaded from UCSC Table Browser")

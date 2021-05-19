@@ -60,6 +60,7 @@ parse_translocation_tsv <- function(path) {
                       BP1_repeats_200bp = col_character(),
                       BP2_repeats_200bp = col_character(),
                       matching_repeats = col_character(),
+                      matching_repeat_families = col_character(),
                       BP1_polynt_200bp = col_character(),
                       BP2_polynt_200bp = col_character(),
                       BP1_segdup_200bp = col_character(),
@@ -91,6 +92,9 @@ print(sprintf("After filtering out PON: %d", nrow(trl_df)))
 
 trl_df <- trl_df %>% filter(is.na(matching_repeats))
 print(sprintf("After filtering out matching repeats: %d", nrow(trl_df)))
+
+trl_df <- trl_df %>% filter(is.na(matching_repeat_families))
+print(sprintf("After filtering out matching repeat families: %d", nrow(trl_df)))
 
 trl_df <- trl_df %>% filter(is.na(BP1_polynt_200bp)) %>% filter(is.na(BP2_polynt_200bp)) 
 print(sprintf("After filtering out polynucleotide repeats: %d", nrow(trl_df)))
