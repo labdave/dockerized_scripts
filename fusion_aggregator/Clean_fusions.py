@@ -8,18 +8,18 @@ sample_id = sys.argv[3]
 
 lines = []
 with open(input_file, "r") as f:
-    for line in f:
-    	if "#gene1" in line:
+	for line in f:
+		if "#gene1" in line:
 			line = "#sample\t"+line.lstrip("#")
 			lines.append(line)
-    		print("Printing header")
-    		print(line)
+			print("Printing header")
+			print(line)
 		# filter out low confidence calls
 		if "high" in line or "medium" in line:
 			line = sample_id+"\t"+line.strip()+"\n"
 			lines.append(line)
-    		print("Printing line")
-    		print(line)
+			print("Printing line")
+			print(line)
 
 	if len(lines) == 1:
 		print("Taking care of empty file")
