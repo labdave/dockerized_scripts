@@ -24,7 +24,7 @@ with open(input_file, "r") as f:
 	if len(lines) == 1:
 		print("Taking care of empty file")
 		none_line = "\t".join(["N/A" for i in line.strip().split("\t")])
-		f_out.write(sample_id+"\t"+none_line)
+		lines.append(sample_id+"\t"+none_line)
 
 with open(output_file, "w") as f:
 	print("Writing file")
