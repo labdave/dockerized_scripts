@@ -6,17 +6,27 @@ input_file = sys.argv[1]
 output_file = sys.argv[2]
 sample_id = sys.argv[3]
 
-empty = ""
-with open(input_file, "r") as f_in, open(output_file, "w") as f_out:
-    for line in f_in:
+lines = []
+with open(input_file, "r") as f:
+    for line in f:
     	if "#gene1" in line:
 			line = "#sample\t"+line.lstrip("#")
-			f_out.write(line.strip()+"\n")
+			lines.append(line)
+    		print("Printing header")
+    		print(line)
 		# filter out low confidence calls
 		if "high" in line or "medium" in line:
-			f_out.write(sample_id+"\t"+line.strip()+"\n")
-			empty = False
+			line = sample_id+"\t"+line.strip()+"\n"
+			lines.append(line)
+    		print("Printing line")
+    		print(line)
 
-	if empty:
+	if len(lines) == 1:
+		print("Taking care of empty file")
 		none_line = "\t".join(["N/A" for i in line.strip().split("\t")])
 		f_out.write(sample_id+"\t"+none_line)
+
+with open(output_file, "w") as f:
+	print("Writing file")
+	for line in lines:
+		f.write(line)
