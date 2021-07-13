@@ -41,10 +41,10 @@ ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
 
 # download BCR script
-RUN mv dockerized_scripts/BCR.sh .
+RUN mv dockerized_scripts/clonotype/BCR.sh .
 
 # download TCR script
-RUN mv dockerized_scripts/TCR.sh .
+RUN mv dockerized_scripts/clonotype/TCR.sh .
 
 ################################################################################
 ###################### set environment path    #################################
