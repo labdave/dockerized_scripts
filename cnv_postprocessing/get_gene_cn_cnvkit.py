@@ -22,6 +22,6 @@ df = df.drop(columns=["chromosome", "start", "end", "depth", "log2", "weight"])
 df = df.groupby("gene", as_index=False, sort=False).sum()
 df["cnv"] = df["value"]/df["length"]
 df = df.drop(columns=["length", "value"])
-df = df.rename(columns={"cnv": sample_id})
+df = df.rename(columns={"gene": "Gene", "cnv": sample_id})
 
 df.to_csv(gene_seg, sep="\t", index=False, float_format='%.4f')
