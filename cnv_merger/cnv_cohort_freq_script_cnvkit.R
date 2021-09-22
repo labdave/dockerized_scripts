@@ -9,7 +9,7 @@ output_plot = args[1]
 output_data = args[2]
 
 # read cnv segment files
-files <- Sys.glob("/data/*cns")
+files <- Sys.glob("/data/*tsv")
 # files <- Sys.glob("*cns")
 
 substrRight <- function(x, n){
