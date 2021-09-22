@@ -10,6 +10,7 @@ output_data = args[2]
 
 # read cnv segment files
 files <- Sys.glob("/data/*tsv")
+print(files)
 # files <- Sys.glob("*cns")
 
 substrRight <- function(x, n){
