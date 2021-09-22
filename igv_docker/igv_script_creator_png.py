@@ -160,7 +160,7 @@ for analyis_id in analyis_dict:
             script += '_squished'
         if args.group:
             script += '_group'
-        script += '.svg\n'
+        script += '.png\n'
 script += 'exit\n'
 
 if script == 'exit\n':
