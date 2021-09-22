@@ -11,9 +11,9 @@ RUN apt-get update -y && apt-get install -y \
     wget \
     unzip \
     cmake \
-    python \
+    python3 \
     gawk \
-    python-pip \
+    python3-pip \
     zlib1g-dev \
     libncurses5-dev \
     libncursesw5-dev \
