@@ -53,9 +53,11 @@ with open(args.file, 'r') as f:
         if 'id' in line.lower() or 'pos' in line.lower():
             continue
         line_arr = line.strip().split()
-        analyis_id = line_arr[0]
+        analysis_id = line_arr[0]
         chr1 = line_arr[1]
         pos1 = line_arr[2]
+        ref = line_arr[4]
+        alt = line_arr[5]
         pos1a = int(pos1) - args.zoom
         pos1b = int(pos1) + args.zoom
         if args.split:
@@ -66,10 +68,10 @@ with open(args.file, 'r') as f:
         else:
             chr2, pos2, pos2a, pos2b = 0, 0, 0, 0
 
-        if analyis_id in analyis_dict:
-            analyis_dict[analyis_id].append([chr1, pos1, pos1a, pos1b, chr2, pos2, pos2a, pos2b])
+        if analysis_id in analyis_dict:
+            analyis_dict[analysis_id].append([chr1, pos1, pos1a, pos1b, chr2, pos2, pos2a, pos2b])
         else:
-            analyis_dict[analyis_id] = [[chr1, pos1, pos1a, pos1b, chr2, pos2, pos2a, pos2b]]
+            analyis_dict[analysis_id] = [[chr1, pos1, pos1a, pos1b, chr2, pos2, pos2a, pos2b]]
 
 """ START CREATING SCRIPT """
 
@@ -100,8 +102,8 @@ script += 'snapshotDirectory '
 script += args.dir
 script += '\n'
 
-for analyis_id in analyis_dict:
-    for record in analyis_dict[analyis_id]:
+for analysis_id in analyis_dict:
+    for record in analyis_dict[analysis_id]:
         chr1 = record[0]
         pos1 = record[1]
         pos1a = record[2]
@@ -151,8 +153,8 @@ for analyis_id in analyis_dict:
             script += 'snapshot {0}_{1}_{2}-{3}_{4}.svg'.format(args.patient, chr1, pos1, chr2, pos2)
             script += 'snapshot {0}_{1}_{2}-{3}_{4}.png'.format(args.patient, chr1, pos1, chr2, pos2)
         else:
-            script += 'snapshot {0}_{1}_{2}.svg\n'.format(args.patient, chr1, pos1)
-            script += 'snapshot {0}_{1}_{2}.png\n'.format(args.patient, chr1, pos1)
+            script += 'snapshot {0}_{1}_{2}_{3}_{4}.svg\n'.format(args.patient, chr1, pos1, ref, alt)
+            script += 'snapshot {0}_{1}_{2}_{3}_{4}.png\n'.format(args.patient, chr1, pos1, ref, alt)
         if args.split:
             script += '_split'
         if args.squished:
