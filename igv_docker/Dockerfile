@@ -43,6 +43,9 @@ RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
 RUN cp -r dockerized_scripts/igv_docker/* .
 RUN cp dockerized_scripts/igv_docker/prefs.properties IGV_2.3.81/
 
+#add pil
+RUN pip3 install pillow
+
 # this is crucial - would simply not work without this - I don't pretend to know why
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
