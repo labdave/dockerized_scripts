@@ -18,8 +18,8 @@ parser.add_argument('-S', '--segdup', help='segmental duplications exclude list'
 parser.add_argument('-i', '--igbed', help='segmental duplications exclude list')
 parser.add_argument('-F', '--fishbed', help='segmental duplications exclude list')
 parser.add_argument('-t', '--target', required=True, help='target bed')
+parser.add_argument('-p', '--patient', required=True, help="patient ID for file name")
 args = parser.parse_args()
-
 
 """ PARSE INPUT FILE """
 
@@ -28,7 +28,7 @@ with open(args.file, 'r') as f:
     for line in f:
         # expected line format:
         # SV_CALLING_ID <tab> CHR1 <tab> POS1 <tab> CHR2 <tab> POS2
-        # 
+        #
         # example file
         # 32489 chr14   105864253   chr18   63126261
         # 32489 chr8    127795134   chr22   22893781
@@ -53,9 +53,11 @@ with open(args.file, 'r') as f:
         if 'id' in line.lower() or 'pos' in line.lower():
             continue
         line_arr = line.strip().split()
-        analyis_id = line_arr[0]
+        analysis_id = line_arr[0]
         chr1 = line_arr[1]
         pos1 = line_arr[2]
+        ref = line_arr[4]
+        alt = line_arr[5]
         pos1a = int(pos1) - args.zoom
         pos1b = int(pos1) + args.zoom
         if args.split:
@@ -65,46 +67,43 @@ with open(args.file, 'r') as f:
             pos2b = int(pos2) + args.zoom
         else:
             chr2, pos2, pos2a, pos2b = 0, 0, 0, 0
-        
-        if analyis_id in analyis_dict:
-            analyis_dict[analyis_id].append([chr1, pos1, pos1a, pos1b, chr2, pos2, pos2a, pos2b])
-        else:
-            analyis_dict[analyis_id] = [[chr1, pos1, pos1a, pos1b, chr2, pos2, pos2a, pos2b]]
 
+        if analysis_id in analyis_dict:
+            analyis_dict[analysis_id].append([chr1, pos1, pos1a, pos1b, chr2, pos2, pos2a, pos2b])
+        else:
+            analyis_dict[analysis_id] = [[chr1, pos1, pos1a, pos1b, chr2, pos2, pos2a, pos2b]]
 
 """ START CREATING SCRIPT """
 
 script = ''
+# start igv
+script += 'new\n'
 
-# iterate through records
-for analyis_id in analyis_dict:
-    # start igv
-    script += 'new\n'
-    
-    # load genome
-    script += 'genome hg38\n'
-    
-    # load file
-    script += 'load {0} index={1}\n'.format(args.bam, args.index)
-    
-    # load bed file
-    if args.target:
-        script += 'load {}\n'.format(args.target)
-    if args.repeat:
-        script += 'load {}\n'.format(args.repeat)
-    if args.segdup:
-        script += 'load {}\n'.format(args.segdup)
-    if args.igbed:
-        script += 'load {}\n'.format(args.igbed)
-    if args.fishbed:
-        script += 'load {}\n'.format(args.fishbed)
+# load genome
+script += 'genome hg38\n'
 
-    # set screenshot directory
-    script += 'snapshotDirectory '
-    script += args.dir
-    script += '\n'
-    
-    for record in analyis_dict[analyis_id]:
+# load file
+script += 'load {0} index={1}\n'.format(args.bam, args.index)
+
+# load bed file
+if args.target:
+    script += 'load {}\n'.format(args.target)
+if args.repeat:
+    script += 'load {}\n'.format(args.repeat)
+if args.segdup:
+    script += 'load {}\n'.format(args.segdup)
+if args.igbed:
+    script += 'load {}\n'.format(args.igbed)
+if args.fishbed:
+    script += 'load {}\n'.format(args.fishbed)
+
+# set screenshot directory
+script += 'snapshotDirectory '
+script += args.dir
+script += '\n'
+
+for analysis_id in analyis_dict:
+    for record in analyis_dict[analysis_id]:
         chr1 = record[0]
         pos1 = record[1]
         pos1a = record[2]
@@ -113,13 +112,13 @@ for analyis_id in analyis_dict:
         pos2 = record[5]
         pos2a = record[6]
         pos2b = record[7]
-        
+
         # add gotos
         if args.split:
             script += 'goto {0}:{1}-{2} {3}:{4}-{5}\n'.format(chr1, pos1a, pos1b, chr2, pos2a, pos2b)
         else:
             script += 'goto {0}:{1}-{2}\n'.format(chr1, pos1a, pos1b)
-        
+
         # increase panel height
         script += 'maxPanelHeight 10000\n'
 
@@ -130,12 +129,12 @@ for analyis_id in analyis_dict:
         if args.squished:
             script += 'squish\n'
         else:
-            script += 'expand\n'
-        
+            script += 'collapse\n'
+
         # group my mate chromosome
         if args.group:
             script += 'group MATE_CHROMOSOME\n'
-        
+
         # fix stuff
         script += 'collapse Gene\n'
         if args.target:
@@ -151,20 +150,18 @@ for analyis_id in analyis_dict:
 
         # get snapshot
         if args.split:
-            script += 'snapshot {0}_{1}_{2}-{3}_{4}'.format(analyis_id, chr1, pos1, chr2, pos2)
+            script += 'snapshot {0}_{1}_{2}-{3}_{4}.svg'.format(args.patient, chr1, pos1, chr2, pos2)
+            script += 'snapshot {0}_{1}_{2}-{3}_{4}.png'.format(args.patient, chr1, pos1, chr2, pos2)
         else:
-            script += 'snapshot {0}_{1}_{2}'.format(analyis_id, chr1, pos1)
+            script += 'snapshot {0}_{1}_{2}_{3}_{4}.svg\n'.format(args.patient, chr1, pos1, ref, alt)
+            script += 'snapshot {0}_{1}_{2}_{3}_{4}.png\n'.format(args.patient, chr1, pos1, ref, alt)
         if args.split:
             script += '_split'
         if args.squished:
             script += '_squished'
         if args.group:
             script += '_group'
-        script += '.svg\n'
 script += 'exit\n'
-
-if script == 'exit\n':
-    script = 'new\ngenome hg38\nsnapshotDirectory {0}\nsnapshot null.png\nexit'.format(args.dir)
 
 """ WRITE TO SCRIPT FILE"""
 
