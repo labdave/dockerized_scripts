@@ -1,5 +1,6 @@
 # remove header
 sed -i '/chrom/d' $1
+head $1
 
 # get complement
 bedtools complement -i $1 -g hg38.fa.fai > $1.comp
