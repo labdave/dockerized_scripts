@@ -2,7 +2,7 @@
 bedtools complement -i $1 -g hg38.fa.fai > $1.comp
 
 # add 0 cnv and sample id for complement regions
-awk -v FS='	' -v OFS='	' '{print $1,$2+1,$3-1,0,0,FILENAME}' $1.comp | sed 's/.txt.comp//g' > tmp
+awk -v FS='	' -v OFS='	' -v ref=$3 '{print $1,$2+1,$3-1,0,0,ref}' $1.comp > tmp
 
 # combine both files
 cat tmp $1 > tmp1
