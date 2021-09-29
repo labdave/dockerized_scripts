@@ -16,7 +16,9 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     bedtools \
     parallel \
-    samtools 	
+    samtools \
+    python3 \
+    python3-pip
 # install Python libraries
 WORKDIR /usr/local/bin
 
@@ -25,6 +27,8 @@ WORKDIR /usr/local/bin
 RUN R --vanilla -e 'install.packages(c("devtools", "stringr", "plyr","doParallel", "data.table", "bedr"), repos="http://cran.us.r-project.org")'
 RUN R --vanilla -e 'devtools::install_github(repo="knausb/vcfR")'
 
+# install pandas
+RUN pip3 install pandas
 
 # clone variantfiltering repo
 ADD https://api.github.com/repos/devangthakkar/dockerized_scripts/git/refs/heads/ version.json
