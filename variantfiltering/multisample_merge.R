@@ -144,7 +144,7 @@ for( i in 1:length(wl.file.list)){
     }
     if(!(exists("wl.wide.form.fixed"))){
       
-      wl.wide.form.fixed<-curr.samp[,1:139]
+      wl.wide.form.fixed<-curr.samp[,1:144]
       samp<-cbind(curr.samp$CHROM_POS_REF_ALT, curr.samp[,grepl("nCallers|afMax|dpMax|DNA_", colnames(curr.samp))])
       id<-curr.samp$Sample_ID[1]
       
