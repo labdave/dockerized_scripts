@@ -144,7 +144,7 @@ for( i in 1:length(wl.file.list)){
     }
     if(!(exists("wl.wide.form.fixed"))){
       
-      wl.wide.form.fixed<-curr.samp[,1:144]
+      wl.wide.form.fixed<-curr.samp[,1:139]
       samp<-cbind(curr.samp$CHROM_POS_REF_ALT, curr.samp[,grepl("nCallers|afMax|dpMax|DNA_", colnames(curr.samp))])
       id<-curr.samp$Sample_ID[1]
       
@@ -209,7 +209,7 @@ for( i in 1:length(cleaned.file.list)){
   #wide form - merge variants - each row represents one variants and each sample has their own columns (nCallers, AF, depth)
   if(exists("wide.form.fixed")){
     
-    fixed<-curr.samp[,1:139]
+    fixed<-curr.samp[,1:144]
     samp<-cbind(curr.samp$CHROM_POS_REF_ALT, curr.samp[,grepl("nCallers|afMax|dpMax", colnames(curr.samp))])
     id<-curr.samp$Sample_ID[1]
     
@@ -223,7 +223,7 @@ for( i in 1:length(cleaned.file.list)){
   }
    if(!(exists("wide.form.fixed"))){
     
-    wide.form.fixed<-curr.samp[,1:139]
+    wide.form.fixed<-curr.samp[,1:144]
     samp<-cbind(curr.samp$CHROM_POS_REF_ALT, curr.samp[,grepl("nCallers|afMax|dpMax", colnames(curr.samp))])
     id<-curr.samp$Sample_ID[1]
     
