@@ -191,23 +191,23 @@ for( i in 1:length(cleaned.file.list)){
   
     
   #long form - just concatenate all rows, each row represents one sample-variant pair
-  if(exists("long.form")){
+  if(exists("clean.long.form")){
     
     ##check to make sure correct number of columns, if not, report but continue merging other files 
-    if(ncol(curr.samp)==ncol(long.form)){
-      long.form<-rbind(long.form, curr.samp)
+    if(ncol(curr.samp)==ncol(clean.long.form)){
+      clean.long.form<-rbind(clean.long.form, curr.samp)
     }
-    if(ncol(curr.samp)!=ncol(long.form)){
+    if(ncol(curr.samp)!=ncol(clean.long.form)){
       print(paste0("Wrong number of columns in output file: ", cleaned.file.list[i]))
     }
   }
-  if(!(exists("long.form"))){
-    long.form<-curr.samp
+  if(!(exists("clean.long.form"))){
+    clean.long.form<-curr.samp
   }  
 
   
   #wide form - merge variants - each row represents one variants and each sample has their own columns (nCallers, AF, depth)
-  if(exists("wide.form.fixed")){
+  if(exists("clean.wide.form.fixed")){
     
     fixed<-curr.samp[,1:144]
     samp<-cbind(curr.samp$CHROM_POS_REF_ALT, curr.samp[,grepl("nCallers|afMax|dpMax", colnames(curr.samp))])
@@ -216,28 +216,28 @@ for( i in 1:length(cleaned.file.list)){
     colnames(samp)[1]<-"CHROM_POS_REF_ALT"
     colnames(samp)[2:4]<-paste(id, colnames(samp[,2:4]))
     
-    wide.form.fixed<-unique(rbind(wide.form.fixed, fixed))
+    clean.wide.form.fixed<-unique(rbind(clean.wide.form.fixed, fixed))
     
-    wide.form.samp<-merge(x=wide.form.samp, y=samp, by="CHROM_POS_REF_ALT", all.x=TRUE, all.y=TRUE)
+    clean.wide.form.samp<-merge(x=clean.wide.form.samp, y=samp, by="CHROM_POS_REF_ALT", all.x=TRUE, all.y=TRUE)
     
   }
-   if(!(exists("wide.form.fixed"))){
+   if(!(exists("clean.wide.form.fixed"))){
     
-    wide.form.fixed<-curr.samp[,1:144]
+    clean.wide.form.fixed<-curr.samp[,1:144]
     samp<-cbind(curr.samp$CHROM_POS_REF_ALT, curr.samp[,grepl("nCallers|afMax|dpMax", colnames(curr.samp))])
     id<-curr.samp$Sample_ID[1]
     
     colnames(samp)[1]<-"CHROM_POS_REF_ALT"
     colnames(samp)[2:4]<-paste(id, colnames(samp[,2:4]))
     
-    wide.form.samp<-samp
+    clean.wide.form.samp<-samp
   } 
 }
 
-wide.form.fixed<-wide.form.fixed[order(wide.form.fixed$CHROM_POS_REF_ALT),]
-wide.form.samp<-wide.form.samp[order(wide.form.samp$CHROM_POS_REF_ALT),]
+clean.wide.form.fixed<-clean.wide.form.fixed[order(clean.wide.form.fixed$CHROM_POS_REF_ALT),]
+clean.wide.form.samp<-clean.wide.form.samp[order(clean.wide.form.samp$CHROM_POS_REF_ALT),]
 
-wide.form<-merge(x=wide.form.fixed, y=wide.form.samp, by="CHROM_POS_REF_ALT")
+clean.wide.form<-merge(x=clean.wide.form.fixed, y=clean.wide.form.samp, by="CHROM_POS_REF_ALT")
 
-write.table(long.form, file=args[6], row.names = FALSE, quote = FALSE, sep="\t")
-write.table(wide.form, file=args[7], row.names = FALSE, quote = FALSE, sep="\t")
+write.table(clean.long.form, file=args[6], row.names = FALSE, quote = FALSE, sep="\t")
+write.table(clean.wide.form, file=args[7], row.names = FALSE, quote = FALSE, sep="\t")
