@@ -197,6 +197,8 @@ for( i in 1:length(cleaned.file.list)){
     if(ncol(curr.samp)==ncol(clean.long.form)){
       clean.long.form<-rbind(clean.long.form, curr.samp)
     }
+    print(ncol(curr.samp))
+    print(ncol(clean.long.form))
     if(ncol(curr.samp)!=ncol(clean.long.form)){
       print(paste0("Wrong number of columns in output file: ", cleaned.file.list[i]))
     }
