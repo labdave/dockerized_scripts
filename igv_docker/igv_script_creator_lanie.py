@@ -153,8 +153,8 @@ for analysis_id in analyis_dict:
             script += 'snapshot {0}_{1}_{2}-{3}_{4}.svg'.format(args.patient, chr1, pos1, chr2, pos2)
             script += 'snapshot {0}_{1}_{2}-{3}_{4}.png'.format(args.patient, chr1, pos1, chr2, pos2)
         else:
-            script += 'snapshot {0}_{1}_{2}_{3}_{4}.svg\n'.format(args.patient, chr1, pos1, ref, alt)
-            script += 'snapshot {0}_{1}_{2}_{3}_{4}.png\n'.format(args.patient, chr1, pos1, ref, alt)
+            script += 'snapshot {0}_{1}_{2}_{3}_{4}.svg\n'.format(args.patient, chr1, pos1)
+            script += 'snapshot {0}_{1}_{2}_{3}_{4}.png\n'.format(args.patient, chr1, pos1)
         if args.split:
             script += '_split'
         if args.squished:
