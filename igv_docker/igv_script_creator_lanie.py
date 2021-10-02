@@ -129,7 +129,7 @@ for analysis_id in analyis_dict:
         if args.squished:
             script += 'squish\n'
         else:
-            script += 'collapse\n'
+            script += 'expand\n'
 
         # group my mate chromosome
         if args.group:
