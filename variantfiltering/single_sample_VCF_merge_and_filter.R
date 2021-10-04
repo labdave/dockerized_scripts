@@ -101,7 +101,7 @@ clean_filtered<-all_filt_variants
 clean_filtered <- clean_filtered[clean_filtered$Func.refGene=="exonic",]        
 clean_filtered <- clean_filtered[!(clean_filtered$ExonicFunc.refGene=="synonymous_SNV"),]
 
-all_depth<-clean_filtered[,grep("*_AD$", colnames(clean_filtered))]
+all_depth<-clean_filtered[,grep(".*_AD$", colnames(clean_filtered))]
 alt_depth<-matrix(NA, nrow=nrow(all_depth), ncol=ncol(all_depth))
 for(i in 1:nrow(all_depth)){
         for(j in 1:ncol(all_depth)){
