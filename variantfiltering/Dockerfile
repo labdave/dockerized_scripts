@@ -24,7 +24,7 @@ WORKDIR /usr/local/bin
 
 
 # install R required dependencies
-RUN R --vanilla -e 'install.packages(c("devtools", "stringr", "plyr","doParallel", "data.table", "bedr"), repos="http://cran.us.r-project.org")'
+RUN R --vanilla -e 'install.packages(c("devtools", "stringr", "plyr","doParallel", "data.table", "bedr", "optparse"), repos="http://cran.us.r-project.org")'
 RUN R --vanilla -e 'devtools::install_github(repo="knausb/vcfR")'
 
 # install pandas
