@@ -113,12 +113,12 @@ print(paste("clean_filtered size after exonic:", dim(clean_filtered)))
 clean_filtered <- clean_filtered[!(clean_filtered$ExonicFunc.refGene=="synonymous_SNV"),]
 print(paste("clean_filtered size after synonymous_SNV:", dim(clean_filtered)))
 
-all_depth<-clean_filtered[,grep("_AD", colnames(clean_filtered))]
+all_depth<-clean_filtered[,grep("*_AD$", colnames(clean_filtered))]
 alt_depth<-matrix(NA, nrow=nrow(all_depth), ncol=ncol(all_depth))
 for(i in 1:nrow(all_depth)){
         for(j in 1:ncol(all_depth)){
                 if(!(is.na(all_depth[i,j]))){
-                        alt_depth[i,j]<-int(unlist(strsplit(all_depth[i,j], ","))[2])
+                        alt_depth[i,j]<-strtoi(unlist(strsplit(all_depth[i,j], ","))[2])
                         
                 }
         }
