@@ -22,7 +22,10 @@ ref_fai=args[7]
 
 source("single_sample_VCF_merge_functions.R")
 
+print("STARTING THREE CALLER MERGE")
 single.sample.merged<-three.caller.merge(samp, path)
+print("FINISHING THREE CALLER MERGE")
+print(paste("single.sample.merged size:", dim(single.sample.merged)))
 
 ###### return header only if no variants pass filtering #####
 if(nrow(single.sample.merged[[4]])==0){
@@ -34,19 +37,23 @@ if(nrow(single.sample.merged[[4]])==0){
 
 if(nrow(single.sample.merged[[4]])>0){
         
-        "Variants pass filtering - now running DNA validation"
+        print("Variants pass filtering - now running DNA validation")
         
+        print("STARTING MERGE VALIDATION")
         all_filt_variants<-merge_validation(rna_bam, ref, single.sample.merged, samp)
-        
+        print("FINISHING MERGE VALIDATION")
+        print(paste("all_filt_variants size:", dim(all_filt_variants)))
+
         all_filt_variants <- data.frame(lapply(all_filt_variants, function(x) gsub("\\\\x3d", ":", x)), stringsAsFactors = FALSE)
         all_filt_variants <- data.frame(lapply(all_filt_variants, function(x) gsub("\\\\x3b", "=", x)), stringsAsFactors = FALSE)
         all_filt_variants$Sample_ID<-samp
         
 }
 
-
+print("STARTING MERGE WHITELIST")
 all_whitelist<-merge_whitelists(dna_bam, rna_bam, ref, single.sample.merged)
-
+print("FINISHING MERGE WHITELIST")
+print(paste("all_whitelist size:", dim(all_whitelist)))
 
 if(nrow(all_whitelist)>0){
         print("Whitelist variants found")
@@ -61,6 +68,8 @@ if(nrow(all_whitelist)>0){
 
 
 single.sample.all<-cbind(single.sample.merged[[1]], single.sample.merged[[2]], single.sample.merged[[3]])
+
+print(paste("single.sample.all size:", dim(single.sample.all)))
 
 #put all columns that mess up indels at end of file
 bad_cols<-c("HC_BaseQRankSum", "HC_ClippingRankSum", "HC_MQRankSum", "HC_ReadPosRankSum", "S2_SNVHPOL", "S2_CIGAR", "S2_RU", "S2_REFREP", "S2_IDREP", "S2_DPI", "S2_AD", "S2_ADF", "S2_ADR", "S2_FT", "S2_PL", "S2_PS")
@@ -98,8 +107,11 @@ all_whitelist<-cbind(all_good, all_bad)
 
 ###filter for exonic, not synonymous, >5 ALT reads
 clean_filtered<-all_filt_variants
-clean_filtered <- clean_filtered[clean_filtered$Func.refGene=="exonic",]        
+print(paste("clean_filtered size in the beginning:", dim(clean_filtered)))
+clean_filtered <- clean_filtered[clean_filtered$Func.refGene=="exonic",]
+print(paste("clean_filtered size after exonic:", dim(clean_filtered)))
 clean_filtered <- clean_filtered[!(clean_filtered$ExonicFunc.refGene=="synonymous_SNV"),]
+print(paste("clean_filtered size after synonymous_SNV:", dim(clean_filtered)))
 
 all_depth<-clean_filtered[,grep("_AD", colnames(clean_filtered))]
 alt_depth<-matrix(NA, nrow=nrow(all_depth), ncol=ncol(all_depth))
@@ -115,9 +127,9 @@ for(i in 1:nrow(all_depth)){
 alt_depth[is.na(alt_depth)]<-0
 max_depth<-apply(alt_depth, 1, max)
 
-print(clean_filtered$max_depth)
+print(paste("clean_filtered size before max depth:", dim(clean_filtered)))
 clean_filtered<-clean_filtered[max_depth>=5,]
-
+print(paste("clean_filtered size after max depth:", dim(clean_filtered)))
 
 #all variants in .csv
 write.table(single.sample.all, file=args[8], row.names  =FALSE, quote=FALSE, sep = "\t")
