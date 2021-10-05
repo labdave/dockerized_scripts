@@ -118,7 +118,7 @@ alt_depth<-matrix(NA, nrow=nrow(all_depth), ncol=ncol(all_depth))
 for(i in 1:nrow(all_depth)){
         for(j in 1:ncol(all_depth)){
                 if(!(is.na(all_depth[i,j]))){
-                        alt_depth[i,j]<-unlist(strsplit(all_depth[i,j], ","))[2]
+                        alt_depth[i,j]<-int(unlist(strsplit(all_depth[i,j], ","))[2])
                         
                 }
         }
