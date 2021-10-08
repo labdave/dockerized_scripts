@@ -89,4 +89,15 @@ mpileup_df = pd.DataFrame({"CHROM": chrom, "POS": pos, "mpileup_af": af, "mpileu
 
 cleaned_df = pd.read_csv(clean_vars_file, sep="\t")
 cleaned_df = cleaned_df.merge(mpileup_df, on=["CHROM", "POS"])
+cleaned_df.loc[cleaned_df["REF"].str.len() > 1, "mpileup_af"] = -1
+cleaned_df.loc[cleaned_df["REF"].str.len() > 1, "mpileup_ad"] = -1
+cleaned_df.loc[cleaned_df["REF"].str.len() > 1, "mpileup_ad_pass"] = -1
+cleaned_df.loc[cleaned_df["REF"].str.len() > 1, "mpileup_std"] = -1
+cleaned_df.loc[cleaned_df["REF"].str.len() > 1, "mpileup_std_pass"] = -1
+cleaned_df.loc[cleaned_df["ALT"].str.len() > 1, "mpileup_af"] = -1
+cleaned_df.loc[cleaned_df["ALT"].str.len() > 1, "mpileup_ad"] = -1
+cleaned_df.loc[cleaned_df["ALT"].str.len() > 1, "mpileup_ad_pass"] = -1
+cleaned_df.loc[cleaned_df["ALT"].str.len() > 1, "mpileup_std"] = -1
+cleaned_df.loc[cleaned_df["ALT"].str.len() > 1, "mpileup_std_pass"] = -1
+
 cleaned_df.to_csv(output_file, index=False, sep="\t", na_rep="NA")
