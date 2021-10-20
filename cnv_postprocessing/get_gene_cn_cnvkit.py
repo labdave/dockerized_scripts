@@ -15,6 +15,10 @@ sample_id = sys.argv[3]
 df = pd.read_csv(cnr, sep="\t", header=0, names=["chromosome", "start", "end", "gene", "depth", "log2", "weight"])
 
 for index, row in df.iterrows():
+	# skip entries less than 0.5 weight
+	if df.at[index, "weight"] < 0.5:
+		continue
+	# scale length weights by weight column
 	df.at[index, "length"] = (float(df.at[index, "end"]) - float(df.at[index, "start"]))*float(df.at[index, "weight"])
 	df.at[index, "value"] = df.at[index, "length"]*df.at[index, "log2"]
 
