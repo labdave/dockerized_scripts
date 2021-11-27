@@ -31,6 +31,7 @@ def get_expanded_bed(df, expansion_distance):
 
     return(return_list)
 
+
 def add_collapsed_annotation_df(df, intersect_file_name, anno_col_name):
     """Helper function: returns dataframe with an added column named 
     annot_col_name with collapsed annotations from intersect_file_name."""
@@ -62,6 +63,7 @@ def add_collapsed_annotation_df(df, intersect_file_name, anno_col_name):
     df[anno_col_name] = df[anno_col_name].fillna("")
 
     return(df)
+
 
 def add_combined_annotations(df, annotation_bed_object, breakpoint_bed_dict, col_name):
     """Add columns for combined breakpoint 1 + 2 annotations with annotation_bed_object."""
@@ -97,21 +99,20 @@ def main(args):
     ig_regions = pybedtools.BedTool(os.path.join(os.path.dirname(os.path.realpath(__file__)), 
         "resources/ig.bed"))
     fish_regions = pybedtools.BedTool(os.path.join(os.path.dirname(os.path.realpath(__file__)), 
-        "resources/FISH_captures.bed"))
+        "resources/novant_and_HGBCL_FISH_regions.bed"))
 
-    df = add_combined_annotations(df, ig_regions, breakpoint_dict, "Ig")
+    df = add_combined_annotations(df, ig_regions, breakpoint_dict, "Ig") 
     df = add_combined_annotations(df, fish_regions, breakpoint_dict, "FISH_capture")
 
     # Save output
     df.to_csv(args.output_file, sep = "\t", index = False)
 
 
-
 def parse_args(args=None):
     """Parse command line arguments and return constants"""
     parser = argparse.ArgumentParser(
         description="Annotate structural variant table with immunoglobulin " \
-        "regions and B-cell lymphoma gene FISH capture regions.")
+        "regions and leukemia/lymphoma gene FISH capture regions.")
 
     parser.add_argument("input_file",
         help="Tab-delimited input table of structural variants. Requires " \
