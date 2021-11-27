@@ -45,6 +45,7 @@ RUN which pip3
 WORKDIR /usr/local/bin
 RUN pip3 install numpy
 RUN pip3 install pandas
+RUN pip3 install pyvcf
 
 # get script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
