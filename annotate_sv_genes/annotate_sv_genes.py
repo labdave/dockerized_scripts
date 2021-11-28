@@ -8,7 +8,7 @@ import sys
 import os
 
 
-def get_expanded_bed(df, expansion_distance):
+def get_expanded_bed_2_bps(df, expansion_distance):
     # Return BedTool objects for breakpoint 1 and breakpoint 2 padded by the 
     # expansion distance
 
@@ -30,6 +30,24 @@ def get_expanded_bed(df, expansion_distance):
         return_list[int(idx)-1] = pybedtools.BedTool(file_name)
 
     return(return_list)
+
+def get_expanded_bed(df, expansion_distance):
+    # Return BedTool objects for CHROM,POS padded by the expansion distance
+    
+    bp_df = df[["CHROM", "POS"]]
+    bp_df.loc[:,"chrom"] = bp_df.loc[:,"CHROM"]
+
+    bp_df.loc[:,"start"] = bp_df.loc[:,"POS"].map(lambda x: int(x - expansion_distance/2))
+    bp_df.loc[:,"end"] = bp_df.loc[:,"POS"].map(lambda x: int(x + expansion_distance/2))
+    bp_df.loc[:,"orig_row"] = bp_df.index
+
+    file_name = "tmp.expanded_{}.bed".format(expansion_distance)
+    bp_df[["chrom", "start", "end", "orig_row"]].to_csv(
+        file_name, sep="\t", header=False, index=False)
+
+    # Read in BED file as pybedtools object and return
+    return pybedtools.BedTool(file_name)
+
 
 def add_collapsed_annotation_df(df, intersect_file_name, anno_col_name):
     """Helper function: returns dataframe with an added column named 
@@ -67,7 +85,11 @@ def add_combined_annotations(df, annotation_bed_object, col_name,
     breakpoint_bed_dict, breakpoint_idx=["BP1", "BP2"]):
     """Add columns for combined breakpoint 1 + 2 annotations with annotation_bed_object."""
 
-    tmp_df = df[["chr1"]].copy()
+    if "chr1" in df.columns:
+        tmp_df = df[["chr1"]].copy()
+    else:
+        tmp_df = df[["CHROM"]].copy()
+    
     for idx in breakpoint_idx:
         # Do intersections with annotation file and save to a file so that we can
         # read in annotations with pandas
@@ -88,19 +110,32 @@ def add_combined_annotations(df, annotation_bed_object, col_name,
 def main(args):
     """Goal: Append gene names onto structural variant VCFs
     Add these columns:
-    BP1_Gene,BP2_Gene,BP1_Dist,BP2_Dist"""
+    BP1_Gene,BP2_Gene OR gene"""
 
     df = pd.read_csv(args.input_file, sep="\t")
-
-    # Convert a translocation table to 2 BED files and read in as pybedtools objects
-    [bp1, bp2] = get_expanded_bed(df, expansion_distance = 1)
-    breakpoint_dict = {"BP1": bp1, "BP2": bp2}
-    
     # Load in annotation resources
     gene_regions = pybedtools.BedTool(args.gene_bed)
 
-    df = add_combined_annotations(df, gene_regions, "BP1_gene", breakpoint_dict, ["BP1"])
-    df = add_combined_annotations(df, gene_regions, "BP2_gene", breakpoint_dict, ["BP2"])
+    if ("CHROM" in df.columns) and ("POS" in df.columns):
+        # General SV table input
+        # Convert a translocation table to 2 BED files and read in as pybedtools objects
+        position_bed = get_expanded_bed(df, expansion_distance = 1)
+        breakpoint_dict = {"BP1": position_bed}
+        
+        df = add_combined_annotations(df, gene_regions, "gene", breakpoint_dict, ["BP1"])
+    else:
+        # Translocation table input
+        # Check that all expected column names are present
+        if not all(c in df.columns for c in ["chr1", "pos1", "chr2", "pos2"]):
+            raise Exception("Unknown input type. Either have CHROM,POS or " \
+                "chr1,pos1,chr2,pos2 detailing positions of both breakpoints")
+
+        # Convert a translocation table to 2 BED files and read in as pybedtools objects
+        [bp1, bp2] = get_expanded_bed_2_bps(df, expansion_distance = 1)
+        breakpoint_dict = {"BP1": bp1, "BP2": bp2}
+        
+        df = add_combined_annotations(df, gene_regions, "BP1_gene", breakpoint_dict, ["BP1"])
+        df = add_combined_annotations(df, gene_regions, "BP2_gene", breakpoint_dict, ["BP2"])
 
     # Save output
     df.to_csv(args.output_file, sep = "\t", index = False)
@@ -112,15 +147,16 @@ def parse_args(args=None):
         description="Annotate structural variant table with gene names.")
 
     parser.add_argument("input_file",
-        help="Tab-delimited input table of structural variants. Requires " \
-        "columns chr1,pos1,chr2,pos2 detailing positions of both breakpoints.")
+        help="Tab-delimited input table of structural variants. Requires either" \
+        "columns chr1,pos1,chr2,pos2 detailing positions of both breakpoints" \
+        "OR columns CHROM,POS detailing one location.")
 
     parser.add_argument("output_file",
         help="Tab-delimited output table of annotated structural variants. " \
-        "Input table with 2 new columns: BP1_gene, BP2_gene")
+        "Input table with 2 new columns: BP1_gene, BP2_gene OR gene")
 
     parser.add_argument("gene_bed",
-        help="Annotated BED file with gene regions and names")
+        help="Annotated reference BED file with gene regions and names")
 
     args = parser.parse_args(args)
 
