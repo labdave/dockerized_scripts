@@ -72,6 +72,7 @@ parse_translocation_tsv <- function(path) {
                       segdup_10M = col_character(),
                       segdup_100M = col_character(),
                       Ig = col_character(),
+                      TCR = col_character(),
                       FISH_capture = col_character(),
                       PON = col_character())
   ))

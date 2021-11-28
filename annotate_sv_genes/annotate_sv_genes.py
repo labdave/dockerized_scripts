@@ -117,7 +117,7 @@ def parse_args(args=None):
 
     parser.add_argument("output_file",
         help="Tab-delimited output table of annotated structural variants. " \
-        "Input table with 2 new columns: Ig, FISH_capture")
+        "Input table with 2 new columns: BP1_gene, BP2_gene")
 
     parser.add_argument("gene_bed",
         help="Annotated BED file with gene regions and names")
