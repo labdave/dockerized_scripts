@@ -98,10 +98,13 @@ def main(args):
     # Load in annotation resources
     ig_regions = pybedtools.BedTool(os.path.join(os.path.dirname(os.path.realpath(__file__)), 
         "resources/ig.bed"))
+    tcr_regions = pybedtools.BedTool(os.path.join(os.path.dirname(os.path.realpath(__file__)), 
+        "resources/tcr_cd3.bed"))
     fish_regions = pybedtools.BedTool(os.path.join(os.path.dirname(os.path.realpath(__file__)), 
         "resources/novant_and_HGBCL_FISH_regions.bed"))
 
     df = add_combined_annotations(df, ig_regions, breakpoint_dict, "Ig") 
+    df = add_combined_annotations(df, tcr_regions, breakpoint_dict, "TCR")
     df = add_combined_annotations(df, fish_regions, breakpoint_dict, "FISH_capture")
 
     # Save output
@@ -112,7 +115,7 @@ def parse_args(args=None):
     """Parse command line arguments and return constants"""
     parser = argparse.ArgumentParser(
         description="Annotate structural variant table with immunoglobulin " \
-        "regions and leukemia/lymphoma gene FISH capture regions.")
+        "regions, T-cell receptor regions, and leukemia/lymphoma gene FISH capture regions.")
 
     parser.add_argument("input_file",
         help="Tab-delimited input table of structural variants. Requires " \
@@ -120,7 +123,10 @@ def parse_args(args=None):
 
     parser.add_argument("output_file",
         help="Tab-delimited output table of annotated structural variants. " \
-        "Input table with 2 new columns: Ig, FISH_capture")
+        "Input table with 3 new columns: Ig, TCR, FISH_capture")
+
+    parser.add_argument("fish_regions_file",
+        help="BED file with FISH capture regions as 4th column annotation names")
 
     args = parser.parse_args(args)
 
