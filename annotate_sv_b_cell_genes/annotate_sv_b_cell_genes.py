@@ -8,7 +8,7 @@ import sys
 import os
 
 
-def get_expanded_bed(df, expansion_distance):
+def get_expanded_bed_2_bps(df, expansion_distance):
     # Return BedTool objects for breakpoint 1 and breakpoint 2 padded by the 
     # expansion distance
 
@@ -30,6 +30,24 @@ def get_expanded_bed(df, expansion_distance):
         return_list[int(idx)-1] = pybedtools.BedTool(file_name)
 
     return(return_list)
+
+
+def get_expanded_bed(df, expansion_distance):
+    # Return BedTool objects for CHROM,POS padded by the expansion distance
+    
+    bp_df = df[["CHROM", "POS"]]
+    bp_df.loc[:,"chrom"] = bp_df.loc[:,"CHROM"]
+
+    bp_df.loc[:,"start"] = bp_df.loc[:,"POS"].map(lambda x: int(x - expansion_distance/2))
+    bp_df.loc[:,"end"] = bp_df.loc[:,"POS"].map(lambda x: int(x + expansion_distance/2))
+    bp_df.loc[:,"orig_row"] = bp_df.index
+
+    file_name = "tmp.expanded_{}.bed".format(expansion_distance)
+    bp_df[["chrom", "start", "end", "orig_row"]].to_csv(
+        file_name, sep="\t", header=False, index=False)
+
+    # Read in BED file as pybedtools object and return
+    return pybedtools.BedTool(file_name)
 
 
 def add_collapsed_annotation_df(df, intersect_file_name, anno_col_name):
@@ -65,11 +83,16 @@ def add_collapsed_annotation_df(df, intersect_file_name, anno_col_name):
     return(df)
 
 
-def add_combined_annotations(df, annotation_bed_object, breakpoint_bed_dict, col_name):
+def add_combined_annotations(df, annotation_bed_object, breakpoint_bed_dict, 
+    col_name, breakpoint_idx=["BP1", "BP2"]):
     """Add columns for combined breakpoint 1 + 2 annotations with annotation_bed_object."""
 
-    tmp_df = df[["chr1"]].copy()
-    for idx in ["BP1", "BP2"]:
+    if "chr1" in df.columns:
+        tmp_df = df[["chr1"]].copy()
+    else:
+        tmp_df = df[["CHROM"]].copy()
+
+    for idx in breakpoint_idx:
         # Do intersections with annotation file and save to a file so that we can
         # read in annotations with pandas
         # To save: use moveto instead of saveas to save time and because we're done
@@ -79,7 +102,7 @@ def add_combined_annotations(df, annotation_bed_object, breakpoint_bed_dict, col
         tmp_df = add_collapsed_annotation_df(tmp_df, "{}.bed".format(idx), idx)
 
     # Make annotation column by combining annotations from BP1 and BP2
-    df[col_name] = tmp_df[["BP1", "BP2"]].apply(lambda x: ",".join(x), axis=1)
+    df[col_name] = tmp_df[breakpoint_idx].apply(lambda x: ",".join(x), axis=1)
     # Remove extra commas
     df[col_name] = df[col_name].apply(lambda x: x.strip(","))
 
@@ -90,22 +113,33 @@ def main(args):
     """Goal: Append B-cell lymphoma related annotations onto structural variant VCFs"""
 
     df = pd.read_csv(args.input_file, sep="\t")
-
-    # Convert a translocation table to 2 BED files and read in as pybedtools objects
-    [bp1, bp2] = get_expanded_bed(df, expansion_distance = 1)
-    breakpoint_dict = {"BP1": bp1, "BP2": bp2}
     
     # Load in annotation resources
     ig_regions = pybedtools.BedTool(os.path.join(os.path.dirname(os.path.realpath(__file__)), 
         "resources/ig.bed"))
     tcr_regions = pybedtools.BedTool(os.path.join(os.path.dirname(os.path.realpath(__file__)), 
         "resources/tcr_cd3.bed"))
-    fish_regions = pybedtools.BedTool(os.path.join(os.path.dirname(os.path.realpath(__file__)), 
-        "resources/novant_and_HGBCL_FISH_regions.bed"))
+    fish_regions = pybedtools.BedTool(args.fish_regions_file)
 
-    df = add_combined_annotations(df, ig_regions, breakpoint_dict, "Ig") 
-    df = add_combined_annotations(df, tcr_regions, breakpoint_dict, "TCR")
-    df = add_combined_annotations(df, fish_regions, breakpoint_dict, "FISH_capture")
+    if ("CHROM" in df.columns) and ("POS" in df.columns):
+        # General SV table input
+        # Convert a translocation table to 2 BED files and read in as pybedtools objects
+        position_bed = get_expanded_bed(df, expansion_distance = 1)
+        breakpoint_dict = {"BP1": position_bed}
+    else:
+        # Translocation table input
+        # Check that all expected column names are present
+        if not all(c in df.columns for c in ["chr1", "pos1", "chr2", "pos2"]):
+            raise Exception("Unknown input type. Either have CHROM,POS or " \
+                "chr1,pos1,chr2,pos2 detailing positions of both breakpoints")
+
+        # Convert a translocation table to 2 BED files and read in as pybedtools objects
+        [bp1, bp2] = get_expanded_bed_2_bps(df, expansion_distance = 1)
+        breakpoint_dict = {"BP1": bp1, "BP2": bp2}
+        
+    df = add_combined_annotations(df, ig_regions, breakpoint_dict, "Ig", breakpoint_dict.keys()) 
+    df = add_combined_annotations(df, tcr_regions, breakpoint_dict, "TCR", breakpoint_dict.keys())
+    df = add_combined_annotations(df, fish_regions, breakpoint_dict, "FISH_capture", breakpoint_dict.keys())
 
     # Save output
     df.to_csv(args.output_file, sep = "\t", index = False)
@@ -119,7 +153,8 @@ def parse_args(args=None):
 
     parser.add_argument("input_file",
         help="Tab-delimited input table of structural variants. Requires " \
-        "columns chr1,pos1,chr2,pos2 detailing positions of both breakpoints.")
+        "columns chr1,pos1,chr2,pos2 detailing positions of both breakpoints" \
+        "OR columns CHROM,POS detailing one location.")
 
     parser.add_argument("output_file",
         help="Tab-delimited output table of annotated structural variants. " \
