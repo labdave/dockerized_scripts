@@ -20,7 +20,7 @@ def get_expanded_bed_2_bps(df, expansion_distance):
         bp_df = df[["chr" + idx, "pos" + idx]]
         bp_df.loc[:,"chrom"] = bp_df.loc[:,"chr" + idx]
 
-        bp_df.loc[:,"start"] = bp_df.loc[:,"pos" + idx].map(lambda x: min(0, int(x - expansion_distance/2)))
+        bp_df.loc[:,"start"] = bp_df.loc[:,"pos" + idx].map(lambda x: max(0, int(x - expansion_distance/2)))
         bp_df.loc[:,"end"] = bp_df.loc[:,"pos" + idx].map(lambda x: int(x + expansion_distance/2))
         bp_df.loc[:,"orig_row"] = bp_df.index
 
@@ -40,7 +40,7 @@ def get_expanded_bed(df, expansion_distance):
     bp_df = df[["CHROM", "POS"]]
     bp_df.loc[:,"chrom"] = bp_df.loc[:,"CHROM"]
 
-    bp_df.loc[:,"start"] = bp_df.loc[:,"POS"].map(lambda x: min(0, int(x - expansion_distance/2)))
+    bp_df.loc[:,"start"] = bp_df.loc[:,"POS"].map(lambda x: max(0, int(x - expansion_distance/2)))
     bp_df.loc[:,"end"] = bp_df.loc[:,"POS"].map(lambda x: int(x + expansion_distance/2))
     bp_df.loc[:,"orig_row"] = bp_df.index
 
@@ -168,7 +168,7 @@ def add_collapsed_annotation_df(df, intersect_file_name, anno_col_name):
 
 
 def add_combined_annotations(df, annotation_bed_object, col_name, 
-    breakpoint_bed_dict, breakpoint_idx, genome_file):
+    breakpoint_bed_dict, breakpoint_idx):
     """Add columns for combined breakpoint 1 + 2 annotations with annotation_bed_object."""
 
     if "chr1" in df.columns:
@@ -182,7 +182,7 @@ def add_combined_annotations(df, annotation_bed_object, col_name,
         # To save: use moveto instead of saveas to save time and because we're done
         # with using this file's BedTool object. Moves, doesn't copy.
         breakpoint_bed_dict[idx].intersect(
-            annotation_bed_object, wo=True, sorted=True, g=genome_file).moveto("{}.bed".format(idx))
+            annotation_bed_object, wo=True).moveto("{}.bed".format(idx))
         tmp_df = add_collapsed_annotation_df(tmp_df, "{}.bed".format(idx), idx)
 
     # Make annotation column by combining annotations from BP1 and BP2
