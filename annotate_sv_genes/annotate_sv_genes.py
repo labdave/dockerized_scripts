@@ -31,6 +31,7 @@ def get_expanded_bed_2_bps(df, expansion_distance):
 
     return(return_list)
 
+
 def get_expanded_bed(df, expansion_distance):
     # Return BedTool objects for CHROM,POS padded by the expansion distance
     
@@ -80,6 +81,7 @@ def add_collapsed_annotation_df(df, intersect_file_name, anno_col_name):
     df[anno_col_name] = df[anno_col_name].fillna("")
 
     return(df)
+
 
 def add_combined_annotations(df, annotation_bed_object, col_name, 
     breakpoint_bed_dict, breakpoint_idx=["BP1", "BP2"]):
