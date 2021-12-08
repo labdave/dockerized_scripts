@@ -6,6 +6,7 @@ import argparse
 import pandas as pd
 import sys
 import vcf
+import time
 
 
 def create_vcf_readers(delly_file, lumpy_file):
@@ -81,10 +82,27 @@ def main(args):
 	lumpy_format_cols = [f"{i}_fmt_lumpy" for i in lumpy_vcf_reader.formats.keys()]
 	all_cols = fixed_cols + delly_info_cols + delly_format_cols + lumpy_info_cols + lumpy_format_cols
 
-	df = pd.DataFrame(columns = all_cols)
+	# Get the number of rows in delly and lumpy to pre-allocate the dataframe
+	n_delly_records = 0
+	with open(args.delly_input, "r") as in_f:
+		for line in in_f:
+			if line[0] != "#":
+				n_delly_records += 1
+	n_lumpy_records = 0
+	with open(args.lumpy_input, "r") as in_f:
+		for line in in_f:
+			if line[0] != "#":
+				n_lumpy_records += 1
+
+	print(f"DELLY records: {n_delly_records}")
+	print(f"LUMPY records: {n_lumpy_records}")
+
+	df = pd.DataFrame([[""]*len(all_cols)]*(n_delly_records+n_lumpy_records), 
+		columns = all_cols)
 
 	# Add all DELLY variants as-is
 	delly_idx = 0
+	start = time.time()
 	for record in delly_vcf_reader:
 		# Fill in sample ID
 		df.at[delly_idx, "sample_id"] = sample_id
@@ -92,6 +110,9 @@ def main(args):
 		record_dict = process_record(record, "delly")
 		for k,v in record_dict.items():
 			df.at[delly_idx, k] = v
+
+		if delly_idx % 10000 == 0:
+			print(f"{delly_idx}: {time.time() - start} sec")
 		
 		delly_idx += 1
 
@@ -105,6 +126,7 @@ def main(args):
 	# Merge in LUMPY variants and add new rows if needed
 	next_idx = delly_idx
 	n_lumpy = 0
+	start = time.time()
 	for record in lumpy_vcf_reader:
 		# Search df to see if you've already seen this variant already
 		# If so, then write it to that index
@@ -124,8 +146,14 @@ def main(args):
 		
 		n_lumpy += 1
 
+		if n_lumpy % 10000 == 0:
+			print(f"{n_lumpy}: {time.time() - start} sec")
+
 	n_new = next_idx - delly_idx
 	print(f"Parsed {n_lumpy} records from LUMPY: {n_lumpy-n_new} in common with DELLY and {n_new} new")
+
+	# Remove empty rows from dataframe
+	df = df.iloc[:(delly_idx+n_new)]
 
 	# Write output
 	df.to_csv(path_or_buf = args.output_file, sep = "\t", index = False)
