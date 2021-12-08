@@ -2,34 +2,20 @@
 FROM r-base:3.6.0
 
 # update the OS related packages
-RUN apt-get update -y && apt-get install -y \
-    build-essential \
-    libnss-sss \
-    curl \
-    vim \
-    less \
-    wget \
-    unzip \
-    cmake \
-    python \
+RUN apt-get update && apt-get install -y \
     gawk \
-    python3-pip \
-    zlib1g-dev \
-    libncurses5-dev \
-    libncursesw5-dev \
-    libnss-sss \
-    libbz2-dev \
-    liblzma-dev \
-    bzip2 \
-    libcurl4-openssl-dev \
-    libssl-dev \
+    unzip \
+    less \
     git \
-    autoconf \
-    bsdmainutils \
-    samtools \
+    build-essential \
+    libcurl4-gnutls-dev \
+    libxml2-dev \
+    libssl-dev \
     bedtools \
-    libxml2
-
+    parallel \
+    samtools \
+    python3 \
+    python3-pip
 
 # install pandas
 WORKDIR /usr/local/bin
