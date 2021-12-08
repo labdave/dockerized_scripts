@@ -15,21 +15,10 @@ def main(args):
         raise Exception("No input files provided!")
 
     # Read in all inputs and check their columns match up
-    inputs = [0]*n_inputs
-    for i in range(n_inputs):
-        
-        inputs[i] = pd.read_csv(args.input_files[i], sep="\t")
-        
-        if i == 0:
-            col_names = list(inputs[0].columns)
-        else:
-            # Check that column names match
-            assert(list(inputs[i].columns) == col_names)
+    inputs = [pd.read_csv(f, sep="\t", low_memory=False) for f in args.input_files]
 
     # Merge together all inputs row-wise
-    df_merged = inputs[0]
-    for i in range(1, n_inputs):
-        df_merged = pd.concat([df_merged, inputs[i]], axis=0)
+    df_merged = pd.concat(inputs, axis=0)
 
     # Write output
     df_merged.to_csv(args.output_file, sep="\t", index = False)
