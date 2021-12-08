@@ -114,7 +114,7 @@ def calc_alt_bases(base_string, ref, alt):
     else:
         count_list = [-1,-1,-1,-1]
 
-    return ",".join(count_list)
+    return ",".join([str(i) for i in count_list])
 
 mpileup_input_file = sys.argv[1]
 clean_vars_file = sys.argv[2]
