@@ -101,6 +101,21 @@ def calc_std(base_string, pos_string, ref, alt):
         return statistics.stdev(pos_list)
 
 
+def calc_alt_bases(base_string, ref, alt):
+    count_list = []
+
+    # snv
+    if len(ref) == 1 and len(alt) == 1:
+        count_list.append(base_string.lower().count("a"))
+        count_list.append(base_string.lower().count("c"))
+        count_list.append(base_string.lower().count("g"))
+        count_list.append(base_string.lower().count("t"))
+
+    else:
+        count_list = [-1,-1,-1,-1]
+
+    return ",".join(count_list)
+
 mpileup_input_file = sys.argv[1]
 clean_vars_file = sys.argv[2]
 depth_thresh = int(sys.argv[3])
@@ -115,7 +130,7 @@ with open(clean_vars_file, "r") as f:
         line_arr = line.strip().split()
         ref_alt_dict[line_arr[1]+"_"+line_arr[2]] = [line_arr[4], line_arr[5]]
 
-chrom, pos, af, ad, ad_filter, std, std_filter = [], [], [], [], [], [], []
+chrom, pos, af, ad, ad_filter, std, std_filter, alt_base_list = [], [], [], [], [], [], [], []
 with open(mpileup_input_file, "r") as f:
     for line in f:
         line_arr = line.strip().split()
@@ -134,6 +149,7 @@ with open(mpileup_input_file, "r") as f:
         good_bases = remove_shit(line_arr[4], indel)
         af_ad = calc_af(line_arr[3], good_bases, ref, alt)
         stdev = calc_std(good_bases, line_arr[6].split(","), ref, alt)
+        alt_bases = calc_alt_bases(good_bases, ref, alt)
 
         chrom.append(line_arr[0])
         pos.append(int(line_arr[1]))
@@ -142,9 +158,10 @@ with open(mpileup_input_file, "r") as f:
         ad_filter.append(1 if af_ad[1] > depth_thresh else 0)
         std.append(stdev)
         std_filter.append(1 if stdev > std_thresh else 0)
+        alt_base_list.append(alt_bases)
 
 
-mpileup_df = pd.DataFrame({"CHROM": chrom, "POS": pos, "mpileup_af": af, "mpileup_ad": ad, "mpileup_ad_pass": ad_filter, "mpileup_std": std, "mpileup_std_pass": std_filter})
+mpileup_df = pd.DataFrame({"CHROM": chrom, "POS": pos, "mpileup_af": af, "mpileup_ad": ad, "mpileup_ad_pass": ad_filter, "mpileup_std": std, "mpileup_std_pass": std_filter, "alt_bases": alt_base_list})
 
 cleaned_df = pd.read_csv(clean_vars_file, sep="\t")
 cleaned_df = cleaned_df.merge(mpileup_df, on=["CHROM", "POS"])
