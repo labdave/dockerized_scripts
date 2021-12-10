@@ -2,7 +2,6 @@
 # Merges single sample translocation tables row-wise into a matrix
 
 import argparse
-import pandas as pd
 import sys
 
 def main(args):
@@ -14,17 +13,32 @@ def main(args):
     if n_inputs == 0:
         raise Exception("No input files provided!")
 
-    # Read in all inputs and check their columns match up
-    inputs = [pd.read_csv(f, sep="\t", low_memory=False) for f in args.input_files]
+    # As you read each file in, add its data lines to the output file
+    n_lines = 0
+    with open(args.output_file, "w") as out_f:
+        for i in range(n_inputs):
+            print(f"{i+1}/{n_inputs}: reading and writing {args.input_files[i]}")
+            with open(args.input_files[i], "r") as in_f:
+                # Handling the header
+                if i == 0:
+                    # Get header from first file
+                    first_header = in_f.readline()
+                    out_f.write(first_header)
+                else:
+                    # Compare header line to first header, and don't write it out
+                    header = in_f.readline()
+                    if header != first_header:
+                        raise Exception((f"Header in input file "
+                            f"{args.input_files[i]} does not match header of "
+                            f"first file {args.input_files[0]}"))
+                
+                # Write remaining lines to output file
+                for line in in_f:
+                    out_f.write(line)
+                    n_lines += 1
 
-    # Merge together all inputs row-wise
-    df_merged = pd.concat(inputs, axis=0)
-
-    # Write output
-    df_merged.to_csv(args.output_file, sep="\t", index = False)
-
-    print("Merged {0} translocation tables and wrote {1} total rows to {2}".format(
-        n_inputs, len(df_merged.index), args.output_file))
+    print(f"Merged {n_inputs} translocation tables and wrote {n_lines} rows "
+        f"to {args.output_file}")
 
 
 def parse_args(args=None):
@@ -42,6 +56,7 @@ def parse_args(args=None):
     args = parser.parse_args(args)
 
     return args
+
 
 if __name__ == '__main__':
     main(parse_args(sys.argv[1:]))

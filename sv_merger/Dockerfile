@@ -1,5 +1,5 @@
 # Base Image
-FROM r-base:3.6.0
+FROM r-base:4.0.2
 
 # update the OS related packages
 RUN apt-get update && apt-get install -y \
