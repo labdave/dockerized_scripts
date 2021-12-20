@@ -35,9 +35,7 @@ def main(args):
     start_t = time.time()
 
     # Load in annotation resources
-    whitelist_table_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), 
-        "lymphoma_whitelist.tsv")
-    whitelist_table = pd.read_csv(whitelist_table_file, sep = "\t")
+    whitelist_table = pd.read_csv(args.whitelist_table_file, sep = "\t")
 
     n_whitelist_found = 0
 
@@ -77,6 +75,10 @@ def parse_args(args=None):
     parser.add_argument("output_file",
         help="Tab-delimited output table of whitelisted structural variants. " \
         "Input table with 1 new column: whitelist_annotation")
+
+    parser.add_argument("whitelist_table_file",
+        help="Tab-delimited input table of whitelist structural variants." \
+        "Column names: column1, value1, column2, value2, name.")
 
     args = parser.parse_args(args)
 
