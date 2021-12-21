@@ -48,7 +48,7 @@ def remove_shit(bases, indel):
 def calc_af(dp, base_string, ref, alt):
 
     if int(dp) == 0:
-        return [float("{:.3f}".format(af)), int(ad)]
+        return [0, 0]
 
     base_string = base_string.lower()
     dp = int(dp)
