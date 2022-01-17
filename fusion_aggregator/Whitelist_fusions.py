@@ -41,5 +41,5 @@ with open(wl_fusions_file, "w") as f:
 	for line in wl_lines:
 		f.write(f"{sample_id}\t{line}\n")
 	if not wl_lines:
-		na_repeat = "N/A"*30
+		na_repeat = ("N/A\t"*30).strip("\t")
 		f.write(f"{sample_id}\t{na_repeat}\n")
