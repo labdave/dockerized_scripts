@@ -14,11 +14,12 @@ with open(whitelist, "r") as f:
 		line_arr = line.strip().split()
 		wl_coords.append([line_arr[0], int(line_arr[1]), int(line_arr[2]), line_arr[3]])
 
-wl_genes = []
+wl_lines = []
 with open(input_file, "r") as f:
 	for line in f:
 		# skip header
 		if "breakpoint" in line:
+			header = line.strip()
 			continue
 		line_arr = line.strip().split()
 		bp_arr = []
@@ -29,15 +30,16 @@ with open(input_file, "r") as f:
 				chrom = bp.split(":")[0]
 				pos = int(bp.split(":")[1])
 				if (chrom == wl_coord[0]) and (pos > wl_coord[1]) and (pos < wl_coord[2]):
-					wl_genes.append(wl_coord[3])
+					wl_lines.append(line.strip())
 
 
-wl_genes = list(set(wl_genes))
+wl_lines = list(set(wl_lines))
 
-print(wl_genes)
+print(wl_lines)
 with open(wl_fusions_file, "w") as f:
-	f.write("#Sample\tGene\n")
-	for gene in wl_genes:
-		f.write(sample_id+"\t"+gene+"\n")
-	if not wl_genes:
-		f.write(sample_id+"\tN/A"+"\n")
+	f.write(f"#Sample\t{header}\n")
+	for line in wl_lines:
+		f.write(f"{sample_id}\t{line}\n")
+	if not wl_lines:
+		na_repeat = "N/A"*30
+		f.write(f"{sample_id}\t{na_repeat}\n")
