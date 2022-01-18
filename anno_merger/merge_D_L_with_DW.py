@@ -100,15 +100,15 @@ def main(args):
 if __name__ == "__main__":
     # Read in arguments
     parser = argparse.ArgumentParser(description="DELLY/LUMPY and discowave merger")
-    parser.add_argument('-dl', '--DL_file', required=True, 
+    parser.add_argument('--dl_file', required=True, 
         help = "DELLY/LUMPY merged file")
-    parser.add_argument('-dw', '--DW_file', required=True, 
+    parser.add_argument('--dw_file', required=True, 
         help = "discowave file")
-    parser.add_argument("-out", "--output_file", required=True, 
+    parser.add_argument("--output_file", required=True, 
         help = "Output file location for D/L + DW merged file (tab-separated)")
-    parser.add_argument("-dist", "--merge_distance", default=500, type=int,
+    parser.add_argument("--merge_distance", default=500, type=int,
         help = "Merging distance for DELLY/LUMPY vs discowave annotations")
-    parser.add_argument("-s", "--sample_id", required = True,
+    parser.add_argument("--sample_id", required = True,
         help = "Replacement sample ID")
     
     args = parser.parse_args()
