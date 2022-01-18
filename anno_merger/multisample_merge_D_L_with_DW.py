@@ -19,7 +19,7 @@ def main(args):
     base, then supplementing them with the most supportive matching DW call."""
 
     # Read in D/L table
-    dl = pd.read_csv(args.DL_file, sep = "\t", low_memory=False)
+    dl = pd.read_csv(args.dl_file, sep = "\t", low_memory=False)
 
     # Check for relevant columns in input files
     required_col_names = ["dave_lab_id", "chr1", "pos1", "chr2", "pos2", "pe", "sr", 
@@ -40,7 +40,7 @@ def main(args):
     # Read in DW file and get padded start/stop locations
     # DW returns a window of possible locations. We'll just extend that window
     # by the padding amount.
-    dw = pd.read_csv(args.DW_file, sep = "\t", low_memory=False)
+    dw = pd.read_csv(args.dw_file, sep = "\t", low_memory=False)
     dw["padded_start"] = dw["start"] - args.merge_distance
     dw["padded_stop"] = dw["stop"] + args.merge_distance
     # Add the number of reads supporting the partner chromosome
