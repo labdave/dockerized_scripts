@@ -111,7 +111,7 @@ echo "mixcr done"
 echo "parse output started"
 
 # parse output
-cat "$sample".T.clones.tsv | grep -v 'IGH' | grep -v 'IGK' | grep -v 'IGK' > "$all_output"
+cat "$sample".T.clones.tsv | grep -v 'IGH' | grep -v 'IGK' | grep -v 'IGL' > "$all_output"
 # get header
 head -1 "$all_output" > "$sample".T.clones.tsv.head1
 # add sample info header
