@@ -12,8 +12,8 @@ for filename in os.listdir(img_dir):
 		prefix = filename.rstrip(".svg")
 		#if not os.path.isfile(os.path.join(img_dir, prefix+".png")):
 		#	print(prefix+".png not found!")
-		else:
-			svgs.append(filename)
+		#else:
+		svgs.append(filename)
 			# print(filename)
 
 for svg in svgs:
