@@ -12,9 +12,6 @@ path<-args[1]
 
 ####
 
-path<-"~/Dropbox (DaveLab)/DDB/IU/IU1.2/SVC/annovar__sentieon_tnscope__dna_Annovar.hg38_multianno.vcf"
-samp<-"tmp"
-
 
 all.data<-read.vcfR(file=path)
 
