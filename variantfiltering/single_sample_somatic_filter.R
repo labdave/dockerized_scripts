@@ -89,9 +89,9 @@ all.fix.merged<-cbind(CHROM_POS_REF_ALT, all.fix.hc)
 all.info.merged<-cbind(CHROM_POS_REF_ALT, all.info.hc)
 all.gt.merged<-cbind(CHROM_POS_REF_ALT, all.gt.parsed.hc)
 
-all.info.merged<-all.info.merged[!grepl("ERCC|GL|KI|KN19|KQ0", all.info.merged$CHROM_POS_REF_ALT),]
-all.gt.merged<-all.gt.merged[!grepl("ERCC|GL|KI|KN19|KQ0", all.gt.merged$CHROM_POS_REF_ALT),]
-all.fix.merged<-all.fix.merged[!grepl("ERCC|GL|KI|KN19|KQ0", all.fix.merged$CHROM_POS_REF_ALT),]
+all.info.merged<-all.info.merged[!grepl("ERCC|GL|KI|KN19|KQ0|KN5|KV8|KV7|KZ5", all.info.merged$CHROM_POS_REF_ALT),]
+all.gt.merged<-all.gt.merged[!grepl("ERCC|GL|KI|KN19|KQ0|KN5|KV8|KV7|KZ5", all.gt.merged$CHROM_POS_REF_ALT),]
+all.fix.merged<-all.fix.merged[!grepl("ERCC|GL|KI|KN19|KQ0|KN5|KV8|KV7|KZ5", all.fix.merged$CHROM_POS_REF_ALT),]
 
 all.fix.merged$REF<-as.character(all.fix.merged$REF)
 all.fix.merged$ALT<-as.character(all.fix.merged$ALT)
