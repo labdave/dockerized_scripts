@@ -8,7 +8,8 @@ parser.add_argument('-b', '--bam', required=True, help='bam file to get snapshot
 parser.add_argument('-x', '--index', required=True, help='bam file to get snapshots from')
 parser.add_argument('-q', '--squished', action='store_true', help='allow squished output')
 parser.add_argument('-s', '--split', action='store_true', help='allow split screen with mate')
-parser.add_argument('-g', '--group', action='store_true', help='allow group by mate chromosome')
+parser.add_argument('-g', '--groupchrom', action='store_true', help='allow group by mate chromosome')
+parser.add_argument('-v', '--groupvar', action='store_true', help="allow group by base at variant position")
 parser.add_argument('-f', '--file', required=True, help='translocation input file')
 parser.add_argument('-z', '--zoom', required=True, help='zoom amount', type=int)
 parser.add_argument('-d', '--dir', required=True, help='image locations')
@@ -129,11 +130,14 @@ for analysis_id in analyis_dict:
         if args.squished:
             script += 'squish\n'
         else:
-            script += 'expand\n'
+            script += 'collapse\n'
 
         # group my mate chromosome
-        if args.group:
+        if args.groupchrom:
             script += 'group MATE_CHROMOSOME\n'
+
+        if args.groupvar:
+            script += 'group base_at_pos {0}:{1}-{2}\n'.format(chr1, pos1a, pos1b)
 
         # fix stuff
         script += 'collapse Gene\n'
