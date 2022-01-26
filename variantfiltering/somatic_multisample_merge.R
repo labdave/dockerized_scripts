@@ -6,8 +6,8 @@ args = commandArgs(trailingOnly=TRUE)
 
 input.dir<-args[[1]]
 
-filt.file.list<-list.files(path=input.dir, pattern="*filt_var*", full.names = TRUE)
-print(filt.file.list)
+sv.file.list<-list.files(path=input.dir, pattern="*sv_var*", full.names = TRUE)
+print(sv.file.list)
 
 mpileup.file.list<-list.files(path=input.dir, pattern="*cleaned_var*", full.names=TRUE)
 print(mpileup.file.list)
@@ -17,9 +17,9 @@ system(paste("rm", args[2]))
 system(paste("rm", args[3]))
 
 
-for(i in 1:length(filt.file.list)) {
+for(i in 1:length(sv.file.list)) {
   print(i)
-  curr.samp<-read.delim(filt.file.list[i], header=TRUE, sep="\t", check.names = FALSE)
+  curr.samp<-read.delim(sv.file.list[i], header=TRUE, sep="\t", check.names = FALSE)
 
   
   ### DEVANG'S CODE ###
