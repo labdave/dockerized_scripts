@@ -163,7 +163,7 @@ for analysis_id in analyis_dict:
             script += '_split'
         if args.squished:
             script += '_squished'
-        if args.group:
+        if args.groupchrom:
             script += '_group'
 script += 'exit\n'
 
