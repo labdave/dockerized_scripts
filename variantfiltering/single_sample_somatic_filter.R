@@ -29,6 +29,8 @@ all.fix<-all.fix[all.fix$FILTER=="PASS",]
 CHROM_POS_REF_ALT<-paste(all.fix$CHROM, all.fix$POS, all.fix$REF, all.fix$ALT, sep="-")
 
 
+
+
 ###parse INFO column
 tmp<-mclapply(all.info, function(x){
   
@@ -185,7 +187,7 @@ print(paste("clean_filtered size after exonic:", dim(clean_filtered)))
 clean_filtered <- clean_filtered[!(clean_filtered$ExonicFunc.refGene=="synonymous_SNV"),]
 print(paste("clean_filtered size after synonymous_SNV:", dim(clean_filtered)))
 
-alt_depth<-unlist(lapply(clean_filtered$HC_AD, function(x){strsplit(x, ",")[[1]][2]}))
+alt_depth<-as.numeric(unlist(lapply(clean_filtered$HC_AD, function(x){strsplit(x, ",")[[1]][2]})))
 print(paste("clean_filtered size before max depth:", dim(clean_filtered)))
 clean_filtered<-clean_filtered[alt_depth>=5,]
 print(paste("clean_filtered size after max depth:", dim(clean_filtered)))
