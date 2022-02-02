@@ -15,6 +15,7 @@ path<-args[1]
 
 all.data<-read.vcfR(file=path)
 
+
 all.fix<-data.frame(all.data@fix, stringsAsFactors = FALSE)
 all.gt<-data.frame(all.data@gt, stringsAsFactors = FALSE)
 all.info<-all.fix$INFO
@@ -142,7 +143,8 @@ var.locs<-bedr.sort.region(var.locs)
 not.repeatmasker<-!(in.region(var.locs, bed.file.filt))
 
 names(not.repeatmasker)<-var.locs
-not.repeatmasker<-not.repeatmasker[order(names(not.repeatmasker))]
+head(all.filters$all.fix.merged.CHROM_POS_REF_ALT)
+head(names(not.repeatmasker))
 all.filters$not.repeatmasker<-not.repeatmasker
 
 all.info.merged<-cbind(all.info.merged, all.filters[,2:9])
