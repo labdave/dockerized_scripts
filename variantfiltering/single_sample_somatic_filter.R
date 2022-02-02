@@ -21,9 +21,10 @@ all.gt<-data.frame(all.data@gt, stringsAsFactors = FALSE)
 all.info<-all.fix$INFO
 
 ##only keep "PASS" variants
-all.info<-all.info[all.fix$FILTER=="PASS"]
-all.gt<-all.gt[all.fix$FILTER=="PASS",]
-all.fix<-all.fix[all.fix$FILTER=="PASS",]
+all.PASS<-all.fix$FILTER == "PASS"
+all.info<-all.info[all.PASS]
+all.gt<-all.gt[all.PASS]
+all.fix<-all.fix[all.PASS,]
 
 
 
@@ -92,6 +93,14 @@ all.fix.merged<-cbind(CHROM_POS_REF_ALT, all.fix.hc)
 all.info.merged<-cbind(CHROM_POS_REF_ALT, all.info.hc)
 all.gt.merged<-cbind(CHROM_POS_REF_ALT, all.gt.parsed.hc)
 
+print("After initial parse:")
+print("fix.filt:")
+print(head(all.fix.merged$CHROM_POS_REF_ALT))
+print("info.filt:")
+print(head(all.info.merged$CHROM_POS_REF_ALT))
+print("gt.filt:")
+print(head(all.gt.merged$CHROM_POS_REF_ALT))
+
 all.info.merged<-all.info.merged[!grepl("ERCC|GL|KI|KN19|KQ0|KN5|KV8|KV7|KZ5", all.info.merged$CHROM_POS_REF_ALT),]
 all.gt.merged<-all.gt.merged[!grepl("ERCC|GL|KI|KN19|KQ0|KN5|KV8|KV7|KZ5", all.gt.merged$CHROM_POS_REF_ALT),]
 all.fix.merged<-all.fix.merged[!grepl("ERCC|GL|KI|KN19|KQ0|KN5|KV8|KV7|KZ5", all.fix.merged$CHROM_POS_REF_ALT),]
@@ -109,12 +118,33 @@ all.gt.merged<-all.gt.merged[(is.na(all.fix.merged$ID)),]
 all.info.merged<-all.info.merged[(is.na(all.fix.merged$ID)),]
 all.fix.merged<-all.fix.merged[(is.na(all.fix.merged$ID)),]
 
+print("After removing SVs:")
+print("fix.filt:")
+print(head(all.fix.merged$CHROM_POS_REF_ALT))
+print("info.filt:")
+print(head(all.info.merged$CHROM_POS_REF_ALT))
+print("gt.filt:")
+print(head(all.gt.merged$CHROM_POS_REF_ALT))
+
 
 
 pop.freq.data<-suppressWarnings(sapply(all.fix.merged[,grep("gnomad|ExAC|esp6500|X1000g",colnames(all.fix.merged),value=T)], as.numeric))
 pop.freq.data[is.na(pop.freq.data)] <- 0
 all.fix.merged$pop.freq.max.all <- apply(pop.freq.data,1,max)
 rm(pop.freq.data)
+
+all.fix.merged<-all.fix.merged[order(all.fix.merged$CHROM_POS_REF_ALT),]
+all.gt.merged<-all.gt.merged[order(all.gt.merged$CHROM_POS_REF_ALT),]
+all.info.merged<-all.info.merged[order(all.info.merged$CHROM_POS_REF_ALT),]
+
+print("After ordering before repeatmasker:")
+print("fix.filt:")
+print(head(all.fix.merged$CHROM_POS_REF_ALT))
+print("info.filt:")
+print(head(all.info.merged$CHROM_POS_REF_ALT))
+print("gt.filt:")
+print(head(all.gt.merged$CHROM_POS_REF_ALT))
+
 
 all.filters<-data.frame(all.fix.merged$CHROM_POS_REF_ALT, stringsAsFactors = FALSE)
 all.filters$exonic <- all.fix.merged$Func.refGene=="exonic"
@@ -143,6 +173,7 @@ var.locs<-bedr.sort.region(var.locs)
 not.repeatmasker<-!(in.region(var.locs, bed.file.filt))
 
 names(not.repeatmasker)<-var.locs
+not.repeatmasker<-not.repeatmasker[order(names(not.repeatmasker))]
 head(all.filters$all.fix.merged.CHROM_POS_REF_ALT)
 head(names(not.repeatmasker))
 all.filters$not.repeatmasker<-not.repeatmasker
