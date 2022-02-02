@@ -23,7 +23,7 @@ all.info<-all.fix$INFO
 ##only keep "PASS" variants
 all.PASS<-all.fix$FILTER == "PASS"
 all.info<-all.info[all.PASS]
-all.gt<-all.gt[all.PASS]
+all.gt<-all.gt[all.PASS,]
 all.fix<-all.fix[all.PASS,]
 
 
@@ -136,6 +136,7 @@ rm(pop.freq.data)
 all.fix.merged<-all.fix.merged[order(all.fix.merged$CHROM_POS_REF_ALT),]
 all.gt.merged<-all.gt.merged[order(all.gt.merged$CHROM_POS_REF_ALT),]
 all.info.merged<-all.info.merged[order(all.info.merged$CHROM_POS_REF_ALT),]
+
 
 print("After ordering before repeatmasker:")
 print("fix.filt:")
