@@ -18,6 +18,10 @@ echo "started filtering for good reads"
 time samtools view -@ ${threads} -h ${old_bam} | head -100000 | samtools view -b -@ ${threads} -S - > /data/output/temp2.bam
 echo "ended filtering for good reads"
 
+echo "started filtering for non-properly paired reads"
+time samtools view -@ ${threads} -h -F 2 ${old_bam} | samtools view -b -@ ${threads} -S - > /data/output/temp3.bam
+echo "ended filtering for non-properly paired reads"
+
 echo "started filtering for non-primary reads"
 # add non-primary alignments
 time samtools view -@ ${threads} -f 256 ${old_bam} | cut -d'	' -f1 > /data/output/tmp1
@@ -35,7 +39,7 @@ time samtools merge -fcp -@ ${threads} -h /data/output/header.sam /data/output/n
 echo "ended filtering for non-primary reads"
 
 echo "started merging"
-time samtools merge -fcp -@ ${threads} ${new_bam} /data/output/temp1.bam /data/output/temp2.bam /data/output/non-primary.bam
+time samtools merge -fcp -@ ${threads} ${new_bam} /data/output/temp1.bam /data/output/temp2.bam /data/output/temp3.bam /data/output/non-primary.bam
 echo "ended merging"
 
 echo "start removing hard clipped reads"
