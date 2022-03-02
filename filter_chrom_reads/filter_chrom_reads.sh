@@ -11,16 +11,12 @@ time samtools view -H ${old_bam} > /data/output/header.sam
 echo "ended getting header"
 
 echo "started filtering by flag"
-time samtools view -@ ${threads} -h -F ${flag} ${old_bam} | awk '$7!="="' | samtools view -b -@ ${threads} -S - > /data/output/temp1.bam
+time samtools view -@ ${threads} -h -F ${flag} ${old_bam} | samtools view -b -@ ${threads} -S - > /data/output/temp1.bam
 echo "ended filtering by flag"
 
 echo "started filtering for good reads"
 time samtools view -@ ${threads} -h ${old_bam} | head -100000 | samtools view -b -@ ${threads} -S - > /data/output/temp2.bam
 echo "ended filtering for good reads"
-
-echo "started filtering for non-properly paired reads"
-time samtools view -@ ${threads} -h -F 2 ${old_bam} | samtools view -b -@ ${threads} -S - > /data/output/temp3.bam
-echo "ended filtering for non-properly paired reads"
 
 echo "started filtering for non-primary reads"
 # add non-primary alignments
