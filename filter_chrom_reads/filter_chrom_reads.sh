@@ -15,7 +15,7 @@ time samtools view -@ ${threads} -h -F ${flag} ${old_bam} | samtools view -b -@ 
 echo "ended filtering by flag"
 
 echo "started filtering for good reads"
-time samtools view -@ ${threads} -h ${old_bam} | head -100000 | samtools view -b -@ ${threads} -S - > /data/output/temp2.bam
+time samtools view -@ ${threads} -h -f 2 ${old_bam} | head -100000 | samtools view -b -@ ${threads} -S - > /data/output/temp2.bam
 echo "ended filtering for good reads"
 
 echo "started filtering for non-primary reads"
@@ -35,7 +35,7 @@ time samtools merge -fcp -@ ${threads} -h /data/output/header.sam /data/output/n
 echo "ended filtering for non-primary reads"
 
 echo "started merging"
-time samtools merge -fcp -@ ${threads} ${new_bam} /data/output/temp1.bam /data/output/temp2.bam /data/output/temp3.bam /data/output/non-primary.bam
+time samtools merge -fcp -@ ${threads} ${new_bam} /data/output/temp1.bam /data/output/temp2.bam /data/output/non-primary.bam
 echo "ended merging"
 
 echo "start removing hard clipped reads"
