@@ -35,13 +35,13 @@ for filename in ${FILES}; do
 	echo $filename
 	name=$( echo ${filename} | cut -d'/' -f4 )
 	echo $name
-	time java -jar picard.jar FilterSamReads -I ${old_bam} -O /data/output/bam2_${name}.bam -RLF ${filename} -FILTER includeReadList &
+	time java -jar picard.jar FilterSamReads I=${old_bam} O=/data/output/bam2_${name}.bam RLF=${filename} FILTER=includeReadList &
 done
 wait $(jobs -p)
 echo "end subsetting BAM file by read ID file(s)"
 
 echo "start merging"
-time samtools merge -fcp -@ ${threads} -h /data/output/header.sam -o ${new_bam} /data/output/bam2_*
+time samtools merge -fcp -@ ${threads} -h /data/output/header.sam ${new_bam} /data/output/bam2_*
 echo "end merging"
 
 echo "start removing hard clipped reads"
