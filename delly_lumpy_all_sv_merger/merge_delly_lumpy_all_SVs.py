@@ -31,7 +31,7 @@ def create_vcf_readers(delly_file, lumpy_file):
 def parse_args(args=None):
 	"""Parse command line arguments and return constants"""
 	parser = argparse.ArgumentParser(
-		description="Merge DELLY and LUMPY non-translocation calls together" \
+		description="Merge DELLY and LUMPY non-translocation calls together " \
 		"into a matrix with one row per (shared or unique) call.")
 
 	parser.add_argument("delly_input", help="DELLY VCF input")
@@ -55,6 +55,8 @@ def process_record(r, source_vcf):
 	d["POS"] = r.POS
 	d["REF"] = r.REF
 
+	d[f"QUAL_{source_vcf}"] = r.QUAL
+
 	# Fill in site information from INFO
 	for k in r.INFO.keys():
 		d[f"{k}_info_{source_vcf}"] = r.INFO[k]
@@ -76,11 +78,12 @@ def main(args):
 
 	# Set up output pandas dataframe
 	fixed_cols = ["sample_id", "CHROM", "POS", "REF"]
+	qual_cols = ["QUAL_delly", "QUAL_lumpy"]
 	delly_info_cols = [f"{i}_info_delly" for i in delly_vcf_reader.infos.keys()]
 	delly_format_cols = [f"{i}_fmt_delly" for i in delly_vcf_reader.formats.keys()]
 	lumpy_info_cols = [f"{i}_info_lumpy" for i in lumpy_vcf_reader.infos.keys()]
 	lumpy_format_cols = [f"{i}_fmt_lumpy" for i in lumpy_vcf_reader.formats.keys()]
-	all_cols = fixed_cols + delly_info_cols + delly_format_cols + lumpy_info_cols + lumpy_format_cols
+	all_cols = fixed_cols + qual_cols + delly_info_cols + delly_format_cols + lumpy_info_cols + lumpy_format_cols
 
 	# Get the number of rows in delly and lumpy to pre-allocate the dataframe
 	n_delly_records = 0
