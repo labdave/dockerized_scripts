@@ -30,7 +30,7 @@ def main():
 		for i in range(len(sys.argv)-5):
 			input_files.append(sys.argv[i+5])
 
-	gene_list=['bcl6','myc','bcl2']
+	gene_list=['BCL6','MYC','BCL2']
 	gene_start_list = [187721377,127735434,63123346]
 	gene_stop_list = [187745725,127742951,63320128]
 	if chr_filter:
@@ -44,7 +44,7 @@ def main():
 	
 	'''Header'''
 	myfile.write("dave_lab_id\t")
-	myfile.write("Delly_CHR1\tDelly_POS1\tDelly_CHR2\tDelly_POS2\tDelly_REF\tDelly_ALT\tDelly_Distance1\tDelly_Distance2\tDelly_Filter\tDelly_PRECISE_status\t")
+	myfile.write("Delly_CHR1\tDelly_POS1\tDelly_CHR2\tDelly_POS2\tDelly_REF\tDelly_ALT\tDelly_Distance1\tDelly_Distance2\tDelly_QUAL\tDelly_Filter\tDelly_PRECISE_status\t")
 	myfile.write("Delly_PE_NReads\tDelly_PE_MAPQ\tDelly_SR_NReads\tDelly_SR_MAPQ\tDelly_GT\tDelly_GL\tDelly_GQ\tDelly_FT\tDelly_RCL\tDelly_RC\tDelly_RCR\tDelly_CN\tDelly_DR\tDelly_DV\tDelly_RR\tDelly_RV\n")
 	
 	i = -1
@@ -61,13 +61,13 @@ def main():
 					p = line.split("\t")
 					chr1 = p[0]
 					pos1 = int(p[1])
-					id = p[2]
+					trl_id = p[2]
 					ref = p[3]
 					alt = p[4]
 					qual = p[5]
-					filter = p[6]	
+					trl_filter = p[6]	
 					info = p[7]    
-					format = p[8]
+					trl_format = p[8]
 					sample = p[9]
 					gt_list = sample.replace(":","\t")
 					precise = '0'
@@ -113,14 +113,17 @@ def main():
 						myfile.write(davelab_ids[i]+"\t")
 						'''Switch breakpoints if required, First BP MYC, BCL2, BCL6'''
 						if chr_switch == 1:
-							if chr1 in chr_list :
-								myfile.write(chr1+"\t"+str(pos1)+"\t"+chr2+"\t"+str(pos2))
+							if chr1 in chr_list:
+								myfile.write("\t".join([chr1, str(pos1), chr2, str(pos2)]))
 							else:
-								myfile.write(chr2+"\t"+str(pos2)+"\t"+chr1+"\t"+str(pos1))
+								myfile.write("\t".join([chr2, str(pos2), chr1, str(pos1)]))
 						else:
-							myfile.write(chr1+"\t"+str(pos1)+"\t"+chr2+"\t"+str(pos2))
-						myfile.write("\t"+ref+"\t"+alt+"\t"+str(dist1)+"\t"+str(dist2)+"\t"+filter+"\t"+precise+"\t")
-						myfile.write(pe+"\t"+pemq+"\t"+sr+"\t"+srmq+"\t"+gt_list+"\n")
+							myfile.write("\t".join([chr1, str(pos1), chr2, str(pos2)]))
+						myfile.write("\t")
+						myfile.write("\t".join([ref, alt, str(dist1), 
+							str(dist2), qual, trl_filter, precise, pe, pemq, sr, 
+							srmq, gt_list]))
+						myfile.write("\n")
 
 	myfile.close()
 

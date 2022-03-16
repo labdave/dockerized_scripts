@@ -32,7 +32,7 @@ def main():
 
 	print(output_file)
 	print(input_files)
-	gene_list=['bcl6','myc','bcl2']
+	gene_list=['BCL6','MYC','BCL2']
 	gene_start_list = [187721377,127735434,63123346]
 	gene_stop_list = [187745725,127742951,63320128]
 	if chr_filter:
