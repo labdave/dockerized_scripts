@@ -158,17 +158,22 @@ for (i in 1:nrow(heatmap_df)) {
   row.names(heatmap_df)[i] = mappings[row.names(heatmap_df)[i], "name"]
 }
 
-print(heatmap_df)
+print("create plot")
 diagnosis_str = ""
 if(length(unique(new_df[, "Diagnosis"])) == 1) {
   diagnosis_str = paste("for", unique(new_df[, "Diagnosis"]), "samples")
 }
-pdf(file=args[3], width=4+16*ncol(heatmap_df)/50, height=15)
+print(nchar(diagnosis_str))
+print(64*ncol(heatmap_df)/50)
+if(nchar(diagnosis_str)>64*ncol(heatmap_df)/50) {
+  diagnosis_str = ""
+}
+pdf(file=args[3], width=max(8, 4+16*ncol(heatmap_df)/50), height=15)
 col_fun = colorRamp2(c(0, 0.5, 1), c("beige", "darkorchid3", "darkorchid4"))
 h1 = Heatmap(heatmap_df,
   name="Cell type fraction",
   column_title = paste("Cell type deconvolution", diagnosis_str),
-  column_title_gp = gpar(fontsize = 24),
+  column_title_gp = gpar(fontsize = 24, title_position="lefttop"),
   heatmap_legend_param=list(
     title_gp=gpar(fontsize=18),
     labels_gp=gpar(fontsize=14),
