@@ -29,7 +29,7 @@ cts <- rbind(cts, dup_cts)
 rownames(cts) <- cts$gene_symbol
 cts <- cts[,sample.names]
 
-colnames(cts)<-unlist(strsplit(colnames(cts), "_S"))[c(TRUE,FALSE)]
+colnames(cts)<-substring(colnames(cts), 1, 9)
 
 diagnoses <- read.table("who_diagnoses.csv", sep=",", header=1, check.names=FALSE)
 
@@ -163,8 +163,6 @@ diagnosis_str = ""
 if(length(unique(new_df[, "Diagnosis"])) == 1) {
   diagnosis_str = paste("for", unique(new_df[, "Diagnosis"]), "samples")
 }
-print(nchar(diagnosis_str))
-print(64*ncol(heatmap_df)/50)
 if(nchar(diagnosis_str)>64*ncol(heatmap_df)/50) {
   diagnosis_str = ""
 }
