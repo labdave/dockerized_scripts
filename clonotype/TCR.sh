@@ -98,7 +98,7 @@ mixcr assemblePartial -f "$sample".T.rescued.vdjca "$sample".T.rescued2.vdjca
 
 echo "mixcr assemble"
 # mixcr assemble
-mixcr assemble -f "$sample".T.rescued2.vdjca "$sample".T.clns
+mixcr assemble -f "$sample".T.rescued2.vdjca "$sample".T.clna
 
 echo "mixcr contig assembly"
 mixcr assembleContigs "$sample".IG.clna "$sample".IG.clns
