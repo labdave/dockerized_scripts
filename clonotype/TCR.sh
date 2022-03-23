@@ -100,9 +100,12 @@ echo "mixcr assemble"
 # mixcr assemble
 mixcr assemble -f "$sample".T.rescued2.vdjca "$sample".T.clns
 
+echo "mixcr contig assembly"
+mixcr assembleContigs "$sample".IG.clna "$sample".IG.clns
+
 echo "mixcr exportClones"
 # mixcr exportClones
-mixcr exportClones -count -fraction -vGene -dGene -jGene -vAlignment -dAlignment -jAlignment -aaFeature CDR3 "$sample".T.clns "$sample".T.clones.tsv
+mixcr exportClones -count -fraction -vGene -dGene -jGene -vAlignment -dAlignment -jAlignment -aaFeature CDR3 -p fullImputed "$sample".T.clns "$sample".T.clones.tsv
 # mixcr exportClones -f -o -t "$sample".T.clns "$sample".T.clones.tsv
 
 sleep 5

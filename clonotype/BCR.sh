@@ -92,11 +92,14 @@ mixcr assemblePartial -f "$sample".IG.rescued.vdjca "$sample".IG.rescued2.vdjca
 
 echo "mixcr assemble"
 # mixcr assemble
-mixcr assemble -f "$sample".IG.rescued2.vdjca "$sample".IG.clns
+mixcr assemble --write-alignments -f "$sample".IG.rescued2.vdjca "$sample".IG.clna
+
+echo "mixcr contig assembly"
+mixcr assembleContigs "$sample".IG.clna "$sample".IG.clns
 
 echo "mixcr exportClones"
 # mixcr exportClones
-mixcr exportClones -count -fraction -vGene -dGene -jGene -vAlignment -dAlignment -jAlignment -aaFeature CDR3 "$sample".IG.clns "$sample".IG.clones.tsv
+mixcr exportClones -count -fraction -vGene -dGene -jGene -vAlignment -dAlignment -jAlignment -aaFeature CDR3 -p fullImputed "$sample".IG.clns "$sample".IG.clones.tsv
 # mixcr exportClones -f -o -t "$sample".IG.clns "$sample".IG.clones.tsv
 
 sleep 5
