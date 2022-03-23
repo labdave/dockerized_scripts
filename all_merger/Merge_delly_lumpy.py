@@ -116,8 +116,9 @@ def main():
 		chr_list = ['chr1','chr2','chr3','chr4','chr5','chr6','chr7','chr8','chr9','chr10','chr11','chr12','chr13','chr14','chr15','chr16','chr17','chr18','chr19','chr20','chr21','chr22','chrX','chrY']
 	chr_list_all = ['chr1','chr2','chr3','chr4','chr5','chr6','chr7','chr8','chr9','chr10','chr11','chr12','chr13','chr14','chr15','chr16','chr17','chr18','chr19','chr20','chr21','chr22','chrX','chrY']
 	
-	list_head_delly = [line for line in open(delly_file, 'r')][0].strip().split("\t")
-	list_head_lumpy = [line for line in open(lumpy_file, 'r')][0].strip().split("\t")
+	with open(delly_file, 'r') as d_f, open(lumpy_file, 'r') as l_f:
+		list_head_delly = d_f.readline().strip().split("\t")
+		list_head_lumpy = l_f.readline().strip().split("\t")
 	
 	str_header_delly = str.join("\t",list_head_delly[5:])
 	str_header_lumpy = str.join("\t",list_head_lumpy[5:])
@@ -175,6 +176,8 @@ def main():
 			key = arr[0]+';'+arr[1]+':'+arr[2]+';'+arr[3]+':'+arr[4]
 			lumpy_dict[key] = string
 	print('lumpy written')
+
+	myfile.close()
 
 	# devang's code for merging and fixing number of callers:
 	# this code assumes the presence of only two callers,

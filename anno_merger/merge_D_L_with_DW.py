@@ -21,17 +21,24 @@ def main(args):
     # Read in D/L table and subset pertainent columns
     dl = pd.read_csv(args.dl_file, sep = "\t")
 
-    col_names = ["dave_lab_id", "chr1", "pos1", "chr2", "pos2", "pe", "sr", 
-        "pe_sr", "Num_callers", "Callers"]
-    out = dl[col_names].copy()
+    # Make a copy of the full input dataframe as the output
+    out = dl.copy()
 
     # Replace Dave Lab ID with sample ID
     out["dave_lab_id"] = args.sample_id
 
     # Add new columns to output in anticipation of discowave merging
-    out[["discowave_chrom", "discowave_start", "discowave_stop", 
+    dw_columns = ["discowave_chrom", "discowave_start", "discowave_stop", 
         "discowave_pe", "discowave_depth", "discowave_pct_to_partner", 
-        "discowave_partner_chrom", "discowave_evenness"]] = "NA"
+        "discowave_partner_chrom", "discowave_evenness"]
+    out[dw_columns] = "NA"
+
+    # Rearrange columns in output to move discowave ones up
+    col_names = ["dave_lab_id", "chr1", "pos1", "chr2", "pos2", "pe", "sr", 
+        "pe_sr", "Num_callers", "Callers"]
+    col_names += dw_columns
+    col_names += [cn for cn in dl.columns if cn not in col_names]
+    out = out[col_names]
 
     # Read in DW file and get padded start/stop locations
     # DW returns a window of possible locations. We'll just extend that window
