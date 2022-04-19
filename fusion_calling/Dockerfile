@@ -40,8 +40,8 @@ RUN mv STAR STAR_dir
 ENV PATH "/usr/local/bin/STAR_dir/bin/Linux_x86_64/STAR:${PATH}"
 RUN cp /usr/local/bin/STAR_dir/bin/Linux_x86_64/STAR .
 
-RUN wget https://github.com/suhrig/arriba/releases/download/v2.1.0/arriba_v2.1.0.tar.gz
-RUN tar -xzf arriba_v2.1.0.tar.gz
-RUN cd arriba_v2.1.0 && make
+RUN wget https://github.com/suhrig/arriba/releases/download/v2.2.1/arriba_v2.2.1.tar.gz
+RUN tar -xzf arriba_v2.2.1.tar.gz
+RUN cd arriba_v2.2.1 && make
 
-RUN sed -i 's/"$THREADS"/16/g' arriba_v2.1.0/run_arriba.sh
+RUN sed -i 's/"$THREADS"/16/g' arriba_v2.2.1/run_arriba.sh
