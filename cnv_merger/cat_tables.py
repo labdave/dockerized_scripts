@@ -2,7 +2,18 @@
 
 import sys
 
-input_files = sys.argv[1].split("-")
+from os import listdir
+from os.path import isfile, join
+
+# declare folder where files are to be found
+folder = "/data"
+# obtain list of files
+onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
+# get file type
+input_file_type = sys.argv[1].strip()
+# filter for file type
+input_files = [f for f in onlyfiles if (f.endswith(f".{input_file_type}.seg") and "arm" not in f and "gene" not in f and "cyto" not in f)]
+
 output_file = sys.argv[2]
 
 header, new_lines = "", ""

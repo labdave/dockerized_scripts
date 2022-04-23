@@ -42,6 +42,7 @@ RUN cp /usr/local/bin/STAR_dir/bin/Linux_x86_64/STAR .
 
 RUN wget https://github.com/suhrig/arriba/releases/download/v2.2.1/arriba_v2.2.1.tar.gz
 RUN tar -xzf arriba_v2.2.1.tar.gz
+RUN sed -i 's/zlib-1.2.11/zlib-1.2.12/g' arriba_v2.2.1/Makefile
 RUN cd arriba_v2.2.1 && make
 
 RUN sed -i 's/"$THREADS"/16/g' arriba_v2.2.1/run_arriba.sh
