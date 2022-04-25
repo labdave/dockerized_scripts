@@ -29,7 +29,7 @@ cts <- rbind(cts, dup_cts)
 rownames(cts) <- cts$gene_symbol
 cts <- cts[,sample.names]
 
-colnames(cts)<-substring(colnames(cts), 1, 9)
+# colnames(cts)<-substring(colnames(cts), 1, 9)
 
 diagnoses <- read.table("who_diagnoses.csv", sep=",", header=1, check.names=FALSE)
 
@@ -144,7 +144,7 @@ rownames(new_df) <- sub("^X", "", rownames(new_df))
 rownames(diagnoses) <- diagnoses$Patient
 
 for(i in 1:nrow(new_df)){
-  new_df[i, "Diagnosis"] = data.frame(diagnoses)[rownames(new_df[i,]), "Diagnosis"]
+  new_df[i, "Diagnosis"] = data.frame(diagnoses)[substr(rownames(new_df[i,]), 1, 9), "Diagnosis"]
 }
 
 write.table(t(new_df), file=args[2], sep="\t", quote = F, row.names = T, col.names=NA)
