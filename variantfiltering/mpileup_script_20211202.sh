@@ -13,6 +13,4 @@ ref=$7
 grep -v 'CHROM_POS_REF_ALT' $clean_vars | cut -f2,3 > all_calls.txt
 
 # run samtools mpileup
-samtools mpileup --output-BP -a -f $ref -l all_calls.txt $bam > all_vars.txt
-
-python3 add_mpileup_af_20211202.py all_vars.txt $clean_vars $depth_thresh $std_thresh $mpileup_vars
+samtools mpileup --output-BP -a -f $ref -l all_calls.txt $bam > all_vars.txt && python3 add_mpileup_af_20211202.py all_vars.txt $clean_vars $depth_thresh $std_thresh $mpileup_vars
