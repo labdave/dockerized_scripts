@@ -30,7 +30,7 @@ RUN apt-get update -y && apt-get install -y \
 
 # install numpy and pysam
 WORKDIR /usr/local/bin
-RUN python3 -m pip install pandas
+RUN pip install pandas
 
 # get lumpy script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
