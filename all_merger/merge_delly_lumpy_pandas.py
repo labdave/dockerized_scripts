@@ -7,6 +7,7 @@ import argparse
 import pandas as pd
 import pybedtools
 import os
+import sys
 
 CHROM_ORDERS = ["chr" + str(i) for i in list(range(1,23)) + ["X", "Y", "M"]]
 
