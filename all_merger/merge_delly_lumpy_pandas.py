@@ -40,19 +40,23 @@ def initialize_files(delly_file, lumpy_file):
 	# Read inputs into pandas dataframes
 	delly_df = pd.read_csv(delly_file, sep = "\t")
 	lumpy_df = pd.read_csv(lumpy_file, sep = "\t")
-	
+	print("-------------- initialize_files 2 ----------------------------")
+
 	# Initialize output dataframe
 	output_columns = ["dave_lab_id", "chr1", "pos1", "chr2", "pos2",
 		"pe", "sr", "pe_sr", "caller"] + list(delly_df.columns[5:]) + \
 		list(lumpy_df.columns[5:]) + ["Callers", "Num_callers"]
 	out_df = pd.DataFrame(columns = output_columns)
 
+	print("-------------- initialize_files 2 ----------------------------")
+
 	# Add translocation key column for merging
-	delly_df["trl_key"] = delly_df.apply(lambda row: 
+	delly_df.loc[:, "trl_key"] = delly_df.apply(lambda row: 
 		get_sorted_translocation_key(row["Delly_CHR1"], row["Delly_POS1"],
 			row["Delly_CHR2"], row["Delly_POS2"]), axis = 1)
+	print("-------------- initialize_files 3 ----------------------------")
 
-	lumpy_df["trl_key"] = lumpy_df.apply(lambda row: 
+	lumpy_df.loc[:, "trl_key"] = lumpy_df.apply(lambda row: 
 		get_sorted_translocation_key(row["Lumpy_CHROM1"], row["Lumpy_POS1"],
 			row["Lumpy_CHROM2"], row["Lumpy_POS2"]), axis = 1)
 
@@ -72,6 +76,8 @@ def make_bed(sv_df, caller, distance=100):
 		pybedtools BedTool object with each line being a breakpoint and the
 		4th column being the full sorted trl_key
 	"""
+
+	print("-------------- make_bed 0 ----------------------------")
 	return_list = [None, None]
 
 	if caller == "DELLY":
@@ -85,17 +91,19 @@ def make_bed(sv_df, caller, distance=100):
 
 	out_df = pd.DataFrame(columns = ["chrom", "start", "end", "trl_key"])
 
+	print("-------------- make_bed 1 ----------------------------")
 	# Copy both breakpoints into output bedtools DataFrame
 	for idx in ["1", "2"]:
-		bp_df = sv_df[[colnames_dict["chr" + idx], colnames_dict["pos" + idx],
-			"trl_key"]]
+		bp_df = sv_df.loc[:, [colnames_dict["chr" + idx], 
+			colnames_dict["pos" + idx], "trl_key"]]
 		bp_df.loc[:, "chrom"] = bp_df.loc[:, colnames_dict["chr" + idx]]
 		bp_df.loc[:, "start"] = bp_df.loc[:, colnames_dict["pos" + idx]].map(lambda x: int(x - distance/2))
 		bp_df.loc[:, "end"] = bp_df.loc[:, colnames_dict["pos" + idx]].map(lambda x: int(x + distance/2))
 
 		# Copy to out_df
-		out_df = pd.concat([out_df, bp_df[["chrom", "start", "end", "trl_key"]]])
+		out_df = pd.concat([out_df, bp_df.loc[:, ["chrom", "start", "end", "trl_key"]]])
 
+	print("-------------- make_bed 2 ----------------------------")
 	# Save to temporary BED file for merging
 	file_name = f"tmp.{caller}.{distance}bp.bed"
 	out_df.to_csv(file_name, sep="\t", header=False, index=False)
@@ -145,6 +153,7 @@ def intersect_trl_beds(delly_bed, lumpy_bed, distance = 100):
 		shared transloctions as a DataFrame with delly and lumpy paired translocation keys
 	"""
 	
+	print("-------------- intersect_trl_beds 0 ----------------------------")
 	# Intersect DELLY and LUMPY BED files and save to a temporary output file
 	intersect_file_name = "tmp.intersected.bed"
 	delly_bed.intersect(lumpy_bed, wa=True, wb=True).moveto(intersect_file_name)
@@ -154,16 +163,18 @@ def intersect_trl_beds(delly_bed, lumpy_bed, distance = 100):
 		names = ["delly_chrom", "delly_start", "delly_end", "delly_trl_key",
 		"lumpy_chrom", "lumpy_start", "lumpy_end", "lumpy_trl_key"])
 
+	print("-------------- intersect_trl_beds 1 ----------------------------")
 	# Go through one-way intersected translocations and check for two-way compatibility
-	intersect_df.loc[:, "keep"] = intersect_df.apply(check_both_breakpoints, axis = 1)
+	intersect_df["keep"] = intersect_df.apply(check_both_breakpoints, axis = 1)
 
+
+	print("-------------- intersect_trl_beds 2 ----------------------------")
 	# Filter for rows that are kept
-	intersect_df = intersect_df[intersect_df["keep"]]
+	intersect_df = intersect_df.loc[intersect_df["keep"], :]
 
+	print("-------------- intersect_trl_beds 3 ----------------------------")
 	# Get DELLY and LUMPY translocation keys that passed two-way inspection
-	#shared_keys = intersect_df["delly_trl_key"].tolist()
-	#shared_keys = shared_keys + intersect_df["lumpy_trl_key"].tolist()
-	shared_keys = intersect_df[["delly_trl_key", "lumpy_trl_key"]]
+	shared_keys = intersect_df.loc[:, ["delly_trl_key", "lumpy_trl_key"]].copy()
 	
 	return shared_keys
 
@@ -176,24 +187,24 @@ def prepare_single_caller_dataframe(single_caller_df, caller):
 		single_caller_df: pandas DataFrame from merge_delly_lumpy_translocations
 		caller: string, "DELLY" or "LUMPY"
 	"""
-	single_caller_df["chr1"] = single_caller_df["trl_key"].map(lambda x: x.split("-")[0].split(":")[0])
-	single_caller_df["pos1"] = single_caller_df["trl_key"].map(lambda x: x.split("-")[0].split(":")[1])
-	single_caller_df["chr2"] = single_caller_df["trl_key"].map(lambda x: x.split("-")[1].split(":")[0])
-	single_caller_df["pos2"] = single_caller_df["trl_key"].map(lambda x: x.split("-")[1].split(":")[1])
+	single_caller_df.loc[:, "chr1"] = single_caller_df.loc[:, "trl_key"].map(lambda x: x.split("-")[0].split(":")[0])
+	single_caller_df.loc[:, "pos1"] = single_caller_df.loc[:, "trl_key"].map(lambda x: x.split("-")[0].split(":")[1])
+	single_caller_df.loc[:, "chr2"] = single_caller_df.loc[:, "trl_key"].map(lambda x: x.split("-")[1].split(":")[0])
+	single_caller_df.loc[:, "pos2"] = single_caller_df.loc[:, "trl_key"].map(lambda x: x.split("-")[1].split(":")[1])
 
 	if caller == "DELLY":
-		single_caller_df[["pe", "sr"]] = single_caller_df[["Delly_PE_NReads", "Delly_SR_NReads"]]
-		single_caller_df["caller"] = "DELLY"
-		single_caller_df["Callers"] = "DELLY"
+		single_caller_df.loc[:, ["pe", "sr"]] = single_caller_df.loc[:, ["Delly_PE_NReads", "Delly_SR_NReads"]]
+		single_caller_df.loc[:, "caller"] = "DELLY"
+		single_caller_df.loc[:, "Callers"] = "DELLY"
 	elif caller == "LUMPY":
-		single_caller_df[["pe", "sr"]] = single_caller_df[["Lumpy_PE", "Lumpy_SR"]]
-		single_caller_df["caller"] = "LUMPY"
-		single_caller_df["Callers"] = "LUMPY"
+		single_caller_df.loc[:, ["pe", "sr"]] = single_caller_df.loc[:, ["Lumpy_PE", "Lumpy_SR"]]
+		single_caller_df.loc[:, "caller"] = "LUMPY"
+		single_caller_df.loc[:, "Callers"] = "LUMPY"
 	else:
 		raise Exception(f"Unknown input for 'caller', expect 'DELLY' or 'LUMPY': {caller}")
 
-	single_caller_df["pe_sr"] = single_caller_df.apply(lambda row: row["pe"] + row["sr"], axis = 1)
-	single_caller_df["Num_callers"] = 1
+	single_caller_df.loc[:, "pe_sr"] = single_caller_df.apply(lambda row: row["pe"] + row["sr"], axis = 1)
+	single_caller_df.loc[:, "Num_callers"] = 1
 
 	# Drop temporary columns before copying to output
 	single_caller_df = single_caller_df.drop(columns = ["trl_key", "shared"])
@@ -210,27 +221,39 @@ def prepare_shared_caller_dataframe(shared_caller_df, caller):
 		caller: string, "DELLY" or "LUMPY"
 	"""
 
-	shared_caller_df["chr1"] = shared_caller_df["trl_key"].map(lambda x: x.split("-")[0].split(":")[0])
-	shared_caller_df["pos1"] = shared_caller_df["trl_key"].map(lambda x: x.split("-")[0].split(":")[1])
-	shared_caller_df["chr2"] = shared_caller_df["trl_key"].map(lambda x: x.split("-")[1].split(":")[0])
-	shared_caller_df["pos2"] = shared_caller_df["trl_key"].map(lambda x: x.split("-")[1].split(":")[1])
+	print("-------------- prepare_shared_caller_dataframe 0 ----------------------------")
+	trl_key_df = shared_caller_df["trl_key"].copy()
+	print("-------------- prepare_shared_caller_dataframe 0.5 ----------------------------")
+	shared_caller_df["chr1"] = trl_key_df.map(lambda x: x.split("-")[0].split(":")[0])
+	print("-------------- prepare_shared_caller_dataframe 0.6 ----------------------------")
+	shared_caller_df.loc[:, "pos1"] = trl_key_df.map(lambda x: x.split("-")[0].split(":")[1])
+	print("-------------- prepare_shared_caller_dataframe 0.7 ----------------------------")
+	shared_caller_df.loc[:, "chr2"] = trl_key_df.map(lambda x: x.split("-")[1].split(":")[0])
+	print("-------------- prepare_shared_caller_dataframe 0.8 ----------------------------")
+	shared_caller_df.loc[:, "pos2"] = trl_key_df.map(lambda x: x.split("-")[1].split(":")[1])
 
+	print("-------------- prepare_shared_caller_dataframe 1 ----------------------------")
 	if caller == "DELLY":
-		shared_caller_df[["pe", "sr"]] = shared_caller_df[["Delly_PE_NReads", "Delly_SR_NReads"]]
-		shared_caller_df["caller"] = "DELLY"
+		shared_caller_df[["pe", "sr"]] = shared_caller_df.loc[:, ["Delly_PE_NReads", "Delly_SR_NReads"]]
+		shared_caller_df.loc[:, "caller"] = "DELLY"
+		print("-------------- prepare_shared_caller_dataframe 2D ----------------------------")
 	elif caller == "LUMPY":
-		shared_caller_df[["pe", "sr"]] = shared_caller_df[["Lumpy_PE", "Lumpy_SR"]]
+		shared_caller_df[["pe", "sr"]] = shared_caller_df.loc[:, ["Lumpy_PE", "Lumpy_SR"]]
 		shared_caller_df["caller"] = "LUMPY"
-		
+		print("-------------- prepare_shared_caller_dataframe 2L ----------------------------")
 	else:
 		raise Exception(f"Unknown input for 'caller', expect 'DELLY' or 'LUMPY': {caller}")
 
+	print("-------------- prepare_shared_caller_dataframe 3 ----------------------------")
 	shared_caller_df["pe_sr"] = shared_caller_df.apply(lambda row: row["pe"] + row["sr"], axis = 1)
 	shared_caller_df["Callers"] = "DELLY,LUMPY"
 	shared_caller_df["Num_callers"] = 2
+	print("-------------- prepare_shared_caller_dataframe 4 ----------------------------")
 
 	# Drop temporary columns before copying to output
 	shared_caller_df = shared_caller_df.drop(columns = ["shared"])
+
+	print("-------------- prepare_shared_caller_dataframe 5 ----------------------------")
 
 	# Set trl_key as the index so that you can use it for lookup later. This 
 	# also conveniently drops it.
@@ -293,34 +316,41 @@ def merge_delly_lumpy_translocations(delly_df, lumpy_df, out_df, shared_trls):
 	-> Collapse rows into one for merged reads
 	"""
 
+	print("-------------- merge_delly_lumpy_translocations 0 ----------------------------")
 	# Get shared translocations from DELLY
-	delly_shared = prepare_shared_caller_dataframe(delly_df[delly_df["shared"]], "DELLY")
+	delly_shared = prepare_shared_caller_dataframe(delly_df.loc[delly_df["shared"], :], "DELLY")
 	print(f"DELLY shared: {len(delly_shared.index)} out of {len(delly_df.index)}")
 
+
+	print("-------------- merge_delly_lumpy_translocations 1 ----------------------------")
 	# Add missing columns to delly_only before concatenation
-	delly_only = delly_df[delly_df["shared"] == False]
+	delly_only = delly_df.loc[delly_df["shared"] == False, :].copy()
 	delly_only = prepare_single_caller_dataframe(delly_only, "DELLY")
 
+	print("-------------- merge_delly_lumpy_translocations 2 ----------------------------")
 	# Copy DELLY-only translocations to output DataFrame
-	out_df = pd.concat([out_df, delly_only[["dave_lab_id"] + delly_only.columns[5:].tolist()]])
+	out_df = pd.concat([out_df, delly_only.loc[:, ["dave_lab_id"] + delly_only.columns[5:].tolist()]])
 
 
+	print("-------------- merge_delly_lumpy_translocations 3 ----------------------------")
 	# Get shared translocations from LUMPY
-	lumpy_shared = prepare_shared_caller_dataframe(lumpy_df[lumpy_df["shared"]], "LUMPY")
+	lumpy_shared = prepare_shared_caller_dataframe(lumpy_df.loc[lumpy_df["shared"], :], "LUMPY")
 	print(f"LUMPY shared: {len(lumpy_shared.index)} out of {len(lumpy_df.index)}")
 
+	print("-------------- merge_delly_lumpy_translocations 4 ----------------------------")
 	# Add missing columns to lumpy_only before concatenation
-	lumpy_only = lumpy_df[lumpy_df["shared"] == False]
+	lumpy_only = lumpy_df.loc[lumpy_df["shared"] == False, :].copy()
 	lumpy_only = prepare_single_caller_dataframe(lumpy_only, "LUMPY")
 
 	# Copy LUMPY-only translocations to output DataFrame
-	out_df = pd.concat([out_df, lumpy_only[["dave_lab_id"] + lumpy_only.columns[5:].tolist()]])
+	out_df = pd.concat([out_df, lumpy_only.loc[:, ["dave_lab_id"] + lumpy_only.columns[5:].tolist()]])
 
+	print("-------------- merge_delly_lumpy_translocations 5 ----------------------------")
 	# Add shared DELLY and LUMPY calls with merging procedure
 	for index, row in shared_trls.iterrows():
 		x = get_merged_row(
-			delly_shared.loc[shared_trls.loc[index, "delly_trl_key"],],
-			lumpy_shared.loc[shared_trls.loc[index, "lumpy_trl_key"],],
+			delly_shared.loc[shared_trls.loc[index, "delly_trl_key"], :],
+			lumpy_shared.loc[shared_trls.loc[index, "lumpy_trl_key"], :],
 			out_df.columns)
 		out_df = pd.concat([out_df, pd.DataFrame(x).transpose()])
 	
@@ -332,21 +362,27 @@ def main(args):
 	Use pandas to read in the DELLY and LUMPY tables from dellymerger and
 	lumpymerger. Then construct the output merged calls.
 	"""
+	
+	print("-------------- main 0 ----------------------------")
 	delly_df, lumpy_df, out_df = initialize_files(args.delly_file, args.lumpy_file)
 	
+	print("-------------- main 1 ----------------------------")
 	# Get shared translocations
 	shared_trls = intersect_trl_beds(make_bed(delly_df, caller="DELLY"), 
 		make_bed(lumpy_df, caller = "LUMPY"))
+
+	print("-------------- main 2 ----------------------------")
 	# Drop duplicate rows
 	print(f"Before dropping duplicates, shared_trls has {len(shared_trls.index)} rows")
 	shared_trls = shared_trls.drop_duplicates()
 	print(f"After dropping duplicates, shared_trls has {len(shared_trls.index)} rows")
 
-
+	print("-------------- main 3 ----------------------------")
 	# Mark which translocations are shared
-	delly_df["shared"] = delly_df["trl_key"].map(lambda x: x in shared_trls["delly_trl_key"].tolist())
-	lumpy_df["shared"] = lumpy_df["trl_key"].map(lambda x: x in shared_trls["lumpy_trl_key"].tolist())
+	delly_df["shared"] = delly_df.loc[:, "trl_key"].map(lambda x: x in shared_trls["delly_trl_key"].tolist())
+	lumpy_df["shared"] = lumpy_df.loc[:, "trl_key"].map(lambda x: x in shared_trls["lumpy_trl_key"].tolist())
 
+	print("-------------- main 4 ----------------------------")
 	# Write shared and single-caller translocations to output
 	out_df = merge_delly_lumpy_translocations(delly_df, lumpy_df, out_df, shared_trls)
 
