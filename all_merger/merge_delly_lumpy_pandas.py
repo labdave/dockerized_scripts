@@ -193,13 +193,13 @@ def prepare_single_caller_dataframe(single_caller_df, caller):
 	single_caller_df.loc[:, "pos2"] = single_caller_df.loc[:, "trl_key"].map(lambda x: x.split("-")[1].split(":")[1])
 
 	if caller == "DELLY":
-		single_caller_df.loc[:, ["pe", "sr"]] = single_caller_df.loc[:, ["Delly_PE_NReads", "Delly_SR_NReads"]]
-		single_caller_df.loc[:, "caller"] = "DELLY"
-		single_caller_df.loc[:, "Callers"] = "DELLY"
+		single_caller_df[["pe", "sr"]] = single_caller_df.loc[:, ["Delly_PE_NReads", "Delly_SR_NReads"]]
+		single_caller_df["caller"] = "DELLY"
+		single_caller_df["Callers"] = "DELLY"
 	elif caller == "LUMPY":
-		single_caller_df.loc[:, ["pe", "sr"]] = single_caller_df.loc[:, ["Lumpy_PE", "Lumpy_SR"]]
-		single_caller_df.loc[:, "caller"] = "LUMPY"
-		single_caller_df.loc[:, "Callers"] = "LUMPY"
+		single_caller_df[["pe", "sr"]] = single_caller_df.loc[:, ["Lumpy_PE", "Lumpy_SR"]]
+		single_caller_df["caller"] = "LUMPY"
+		single_caller_df["Callers"] = "LUMPY"
 	else:
 		raise Exception(f"Unknown input for 'caller', expect 'DELLY' or 'LUMPY': {caller}")
 
@@ -221,12 +221,16 @@ def prepare_shared_caller_dataframe(shared_caller_df, caller):
 		caller: string, "DELLY" or "LUMPY"
 	"""
 
+	sys.stderr.flush()
 	print("-------------- prepare_shared_caller_dataframe 0 ----------------------------")
 	trl_key_df = shared_caller_df["trl_key"].copy()
+	sys.stderr.flush()
 	print("-------------- prepare_shared_caller_dataframe 0.5 ----------------------------")
 	shared_caller_df["chr1"] = trl_key_df.map(lambda x: x.split("-")[0].split(":")[0])
+	sys.stderr.flush()
 	print("-------------- prepare_shared_caller_dataframe 0.6 ----------------------------")
 	shared_caller_df.loc[:, "pos1"] = trl_key_df.map(lambda x: x.split("-")[0].split(":")[1])
+	sys.stderr.flush()
 	print("-------------- prepare_shared_caller_dataframe 0.7 ----------------------------")
 	shared_caller_df.loc[:, "chr2"] = trl_key_df.map(lambda x: x.split("-")[1].split(":")[0])
 	print("-------------- prepare_shared_caller_dataframe 0.8 ----------------------------")
@@ -366,26 +370,31 @@ def main(args):
 	print("-------------- main 0 ----------------------------")
 	delly_df, lumpy_df, out_df = initialize_files(args.delly_file, args.lumpy_file)
 	
+	sys.stderr.flush()
 	print("-------------- main 1 ----------------------------")
 	# Get shared translocations
 	shared_trls = intersect_trl_beds(make_bed(delly_df, caller="DELLY"), 
 		make_bed(lumpy_df, caller = "LUMPY"))
 
+	sys.stderr.flush()
 	print("-------------- main 2 ----------------------------")
 	# Drop duplicate rows
 	print(f"Before dropping duplicates, shared_trls has {len(shared_trls.index)} rows")
 	shared_trls = shared_trls.drop_duplicates()
 	print(f"After dropping duplicates, shared_trls has {len(shared_trls.index)} rows")
 
+	sys.stderr.flush()
 	print("-------------- main 3 ----------------------------")
 	# Mark which translocations are shared
 	delly_df["shared"] = delly_df.loc[:, "trl_key"].map(lambda x: x in shared_trls["delly_trl_key"].tolist())
 	lumpy_df["shared"] = lumpy_df.loc[:, "trl_key"].map(lambda x: x in shared_trls["lumpy_trl_key"].tolist())
 
+	sys.stderr.flush()
 	print("-------------- main 4 ----------------------------")
 	# Write shared and single-caller translocations to output
 	out_df = merge_delly_lumpy_translocations(delly_df, lumpy_df, out_df, shared_trls)
 
+	sys.stderr.flush()
 	# Write output file
 	out_df.to_csv(args.output_file, sep = "\t", index = False)
 	print("Wrote {0} calls to output file {1}".format(len(out_df.index), args.output_file))
