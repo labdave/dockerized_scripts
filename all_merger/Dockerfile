@@ -33,6 +33,7 @@ WORKDIR /usr/local/bin
 RUN pip install numpy
 RUN pip install cython
 RUN pip install pysam
+RUN pip install pandas
 
 # get lumpy script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
