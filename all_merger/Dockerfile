@@ -1,5 +1,5 @@
 # work from latest LTS ubuntu release
-FROM python:3.10
+FROM python:3.8
 
 # run update and install necessary tools
 RUN apt-get update -y && apt-get install -y \
@@ -43,9 +43,9 @@ RUN which pip3
 
 # install numpy and pandas
 WORKDIR /usr/local/bin
-RUN pip3 install numpy
-RUN pip3 install pandas
-RUN pip3 install pybedtools
+RUN pip3 install -I numpy==1.19.5
+RUN pip3 install -I pandas==1.3.0
+RUN pip3 install -I pybedtools==0.8.2
 
 # get lumpy script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
