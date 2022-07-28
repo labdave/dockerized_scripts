@@ -51,6 +51,7 @@ for (i in 1:nrow(hotspots)){
 dna_char_counts[is.na(dna_char_counts)]<-0
 rna_char_counts[is.na(rna_char_counts)]<-0
 
+print(head(hotspots))
 
 hotspots$sample<-rep(samp, nrow(hotspots))
 hotspots$dna_cov<-dna_cov
@@ -97,7 +98,12 @@ for (i in 1:nrow(hotspots)){
   
 }
 
+print(head(hotspots))
+
 hotspots[hotspots=="NaN"]<-0
+
+print("Dimensions of hotspots:")
+print(dim(hotspots))
 
 write.table(hotspots, file=genotype_out, row.names=FALSE, quote = FALSE, sep="\t")
 
