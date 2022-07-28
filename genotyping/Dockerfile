@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     libcurl4-gnutls-dev \
     libxml2-dev \
     libssl-dev \
-    parallel \
+    parallel 
 WORKDIR /usr/local/bin
 
 # clone genotyping repo

@@ -1,10 +1,13 @@
 #!/usr/bin/env Rscript
 args = commandArgs(trailingOnly=TRUE)
 
-hotspots_file<-args[1]
-dna_mpileup_file<-args[2]
-rna_mpileup_file<-args[3]
-samp<-args[4]
+samp<-args[1]
+
+hotspots_file<-args[2]
+dna_mpileup_file<-args[3]
+rna_mpileup_file<-args[4]
+
+genotype_out<-args[5]
 
 
 hotspots<-read.table(hotspots_file, sep="\t")
@@ -95,4 +98,6 @@ for (i in 1:nrow(hotspots)){
 }
 
 hotspots[hotspots=="NaN"]<-0
+
+write.table(hotspots, file=genotype_out, row.names=FALSE, quote = FALSE, sep="\t")
 
