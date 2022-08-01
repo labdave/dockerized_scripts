@@ -17,11 +17,11 @@ x<-paste0("cat ", dna_mpileup_file, " | sed 's/\"//g' > dna.txt")
 cat(x)
 system(x)
 
-hotspots<-read.csv(hotspots_file, sep="\t")
+hotspots<-read.csv(hotspots_file, sep="\t", quote = "")
 colnames(hotspots)<-c("Chrom", "Start", "End", "Ref", "Alt", "Gene", "AA_change", "OncoKB_annot")
-dna_mpileup<-read.csv("dna.txt", header=F, sep="\t")
+dna_mpileup<-read.csv("dna.txt", header=F, sep="\t", quote = "")
 colnames(dna_mpileup)<-c("Chrom", "Pos", "Ref", "Depth", "mpileup", "Qual")
-rna_mpileup<-read.csv("rna.txt", header=F, sep="\t")
+rna_mpileup<-read.csv("rna.txt", header=F, sep="\t", quote = "")
 colnames(rna_mpileup)<-c("Chrom", "Pos", "Ref", "Depth", "mpileup", "Qual")
 
 
