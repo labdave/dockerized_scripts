@@ -9,12 +9,15 @@ rna_mpileup_file<-args[4]
 
 genotype_out<-args[5]
 
+x<-paste0("cat ", rna_mpileup_file, " | sed 's/\"//g' > rna.txt")
+cat(x)
+system(x)
 
-hotspots<-read.table(hotspots_file, sep="\t")
+hotspots<-read.csv(hotspots_file, sep="\t")
 colnames(hotspots)<-c("Chrom", "Start", "End", "Ref", "Alt", "Gene", "AA_change", "OncoKB_annot")
 dna_mpileup<-read.csv(dna_mpileup_file, header=F, sep="\t")
 colnames(dna_mpileup)<-c("Chrom", "Pos", "Ref", "Depth", "mpileup", "Qual")
-rna_mpileup<-read.csv(rna_mpileup_file, header=F, sep="\t")
+rna_mpileup<-read.csv("rna.txt", header=F, sep="\t")
 colnames(rna_mpileup)<-c("Chrom", "Pos", "Ref", "Depth", "mpileup", "Qual")
 
 
