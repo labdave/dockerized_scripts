@@ -176,6 +176,13 @@ def prepare_single_caller_dataframe(single_caller_df, caller):
 		single_caller_df: pandas DataFrame from merge_delly_lumpy_translocations
 		caller: string, "DELLY" or "LUMPY"
 	"""
+
+	# If single caller dataframe input is empty, add columns and return
+	if len(single_caller_df.index) == 0:
+		return pd.concat([single_caller_df, pd.DataFrame(columns=["chr1", 
+			"pos1", "chr2", "pos2", "pe", "sr", "caller", "Callers", "pe_sr",
+			"Num_callers"])]).drop(columns = ["trl_key", "shared"])
+
 	single_caller_df.loc[:, "chr1"] = single_caller_df.loc[:, "trl_key"].map(lambda x: x.split("-")[0].split(":")[0])
 	single_caller_df.loc[:, "pos1"] = single_caller_df.loc[:, "trl_key"].map(lambda x: x.split("-")[0].split(":")[1])
 	single_caller_df.loc[:, "chr2"] = single_caller_df.loc[:, "trl_key"].map(lambda x: x.split("-")[1].split(":")[0])
@@ -210,6 +217,12 @@ def prepare_shared_caller_dataframe(shared_caller_df, caller):
 		caller: string, "DELLY" or "LUMPY"
 	"""
 
+	# If shared caller dataframe input is empty, add columns and return
+	if len(shared_caller_df.index) == 0:
+		return pd.concat([shared_caller_df, pd.DataFrame(columns=["chr1", 
+			"pos1", "chr2", "pos2", "pe", "sr", "caller", "Callers", "pe_sr",
+			"Num_callers"])]).drop(columns = ["shared"]).set_index("trl_key")
+
 	shared_caller_df.loc[:, "chr1"] = shared_caller_df.loc[:, "trl_key"].str.split("-").str[0].str.split(":").str[0]
 	shared_caller_df.loc[:, "pos1"] = shared_caller_df.loc[:, "trl_key"].str.split("-").str[0].str.split(":").str[1]
 	shared_caller_df.loc[:, "chr2"] = shared_caller_df.loc[:, "trl_key"].str.split("-").str[1].str.split(":").str[0]
@@ -224,8 +237,8 @@ def prepare_shared_caller_dataframe(shared_caller_df, caller):
 	else:
 		raise Exception(f"Unknown input for 'caller', expect 'DELLY' or 'LUMPY': {caller}")
 
-	shared_caller_df["pe_sr"] = shared_caller_df.apply(lambda row: row["pe"] + row["sr"], axis = 1)
 	shared_caller_df["Callers"] = "DELLY,LUMPY"
+	shared_caller_df["pe_sr"] = shared_caller_df.apply(lambda row: row["pe"] + row["sr"], axis = 1)
 	shared_caller_df["Num_callers"] = 2
 	
 	# Drop temporary columns before copying to output
