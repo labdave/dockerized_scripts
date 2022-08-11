@@ -49,13 +49,21 @@ def initialize_files(delly_file, lumpy_file):
 	out_df = pd.DataFrame(columns = output_columns)
 
 	# Add translocation key column for merging
-	delly_df.loc[:, "trl_key"] = delly_df.apply(lambda row: 
-		get_sorted_translocation_key(row["Delly_CHR1"], row["Delly_POS1"],
-			row["Delly_CHR2"], row["Delly_POS2"]), axis = 1)
+	# If DELLY input is empty, just add columns (otherwise get error)
+	if len(delly_df.index) == 0:
+		delly_df = pd.concat([delly_df, pd.DataFrame(columns=["trl_key"])])
+	else:
+		delly_df.loc[:, "trl_key"] = delly_df.apply(lambda row: 
+			get_sorted_translocation_key(row["Delly_CHR1"], row["Delly_POS1"],
+				row["Delly_CHR2"], row["Delly_POS2"]), axis = 1)
 
-	lumpy_df.loc[:, "trl_key"] = lumpy_df.apply(lambda row: 
-		get_sorted_translocation_key(row["Lumpy_CHROM1"], row["Lumpy_POS1"],
-			row["Lumpy_CHROM2"], row["Lumpy_POS2"]), axis = 1)
+	# If LUMPY input is empty, just add columns (otherwise get error)
+	if len(lumpy_df.index) == 0:
+		lumpy_df = pd.concat([lumpy_df, pd.DataFrame(columns=["trl_key"])])
+	else:
+		lumpy_df.loc[:, "trl_key"] = lumpy_df.apply(lambda row: 
+			get_sorted_translocation_key(row["Lumpy_CHROM1"], row["Lumpy_POS1"],
+				row["Lumpy_CHROM2"], row["Lumpy_POS2"]), axis = 1)
 
 	return delly_df, lumpy_df, out_df
 	
@@ -155,6 +163,10 @@ def intersect_trl_beds(delly_bed, lumpy_bed, distance = 100):
 	intersect_df = pd.read_csv(intersect_file_name, sep = "\t", 
 		names = ["delly_chrom", "delly_start", "delly_end", "delly_trl_key",
 		"lumpy_chrom", "lumpy_start", "lumpy_end", "lumpy_trl_key"])
+
+	# If there are no shared translocations/the file is blank, return an empty DataFrame
+	if (len(intersect_df.index) == 0):
+		return pd.DataFrame(columns = ["delly_trl_key", "lumpy_trl_key"])
 
 	# Go through one-way intersected translocations and check for two-way compatibility
 	intersect_df["keep"] = intersect_df.apply(check_both_breakpoints, axis = 1)
@@ -346,7 +358,7 @@ def main(args):
 	
 	delly_df, lumpy_df, out_df = initialize_files(args.delly_file, args.lumpy_file)
 	
-	# Get shared translocations
+	# Get shared translocations DataFrame
 	shared_trls = intersect_trl_beds(make_bed(delly_df, caller="DELLY"), 
 		make_bed(lumpy_df, caller = "LUMPY"))
 
