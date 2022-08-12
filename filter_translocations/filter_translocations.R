@@ -3,7 +3,9 @@
 # 2021-01-27
 
 library("optparse")
-library("tidyverse")
+library("readr")
+library("dplyr")
+library("magrittr")
 
 # Make command line options and parse arguments ####
 options_list <- list(
