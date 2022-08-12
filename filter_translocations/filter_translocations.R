@@ -31,10 +31,10 @@ if(is.null(opt$input_file)) stop("input_file not set")
 if(is.null(opt$filtered_translocation_output)) stop("filtered_translocation_output not set")
 if(is.null(opt$gene_calls_output)) stop("gene_calls_output not set")
 
-#### Download all translocation positions ####
+#### Define input format of translocation file ####
 
 parse_translocation_tsv <- function(path) {
-  return(read_tsv(path,
+  return(read_tsv(path, na = c("", "NA", "."),
                   col_types = 
                     cols(
                       dave_lab_id = col_character(),
@@ -55,8 +55,55 @@ parse_translocation_tsv <- function(path) {
                       discowave_pct_to_partner = col_double(),
                       discowave_partner_chrom = col_character(),
                       discowave_evenness = col_double(),
-                      BP1_Gene = col_character(),
-                      BP2_Gene = col_character(),
+                      caller = col_character(),
+                      Delly_REF = col_character(),
+                      Delly_ALT = col_character(),
+                      Delly_Distance1 = col_double(),
+                      Delly_Distance2 = col_double(),
+                      Delly_QUAL = col_double(),
+                      Delly_Filter = col_character(),
+                      Delly_PRECISE_status = col_character(),
+                      Delly_PE_NReads = col_double(),
+                      Delly_PE_MAPQ = col_double(),
+                      Delly_SR_NReads = col_double(),
+                      Delly_SR_MAPQ = col_double(),
+                      Delly_GT = col_character(),
+                      Delly_GL = col_character(),
+                      Delly_GQ = col_double(),
+                      Delly_FT = col_character(),
+                      Delly_RCL = col_double(),
+                      Delly_RC = col_double(),
+                      Delly_RCR = col_double(),
+                      Delly_CN = col_double(),
+                      Delly_DR = col_double(),
+                      Delly_DV = col_character(),
+                      Delly_RR = col_double(),
+                      Delly_RV = col_double(),
+                      Lumpy_PRECISE_status = col_double(),
+                      Lumpy_QUAL = col_double(),
+                      Lumpy_FILTER = col_character(),
+                      Lumpy_GT = col_character(),
+                      Lumpy_SU = col_double(),
+                      Lumpy_PE = col_double(),
+                      Lumpy_SR = col_double(),
+                      Lumpy_GQ = col_double(),
+                      Lumpy_SQ = col_double(),
+                      Lumpy_GL = col_character(),
+                      Lumpy_DP = col_double(),
+                      Lumpy_RO = col_double(),
+                      Lumpy_AO = col_double(),
+                      Lumpy_QR = col_double(),
+                      Lumpy_QA = col_double(),
+                      Lumpy_RS = col_double(),
+                      Lumpy_AS = col_double(),
+                      Lumpy_ASC = col_double(),
+                      Lumpy_RP = col_double(),
+                      Lumpy_AP = col_double(),
+                      Lumpy_AB = col_double(),
+                      Lumpy_Distance1 = col_double(),
+                      Lumpy_Distance2 = col_double(),
+                      BP1_gene = col_character(),
+                      BP2_gene = col_character(),
                       BP1_cytoband = col_character(),
                       BP2_cytoband = col_character(),
                       BP1_repeats_200bp = col_character(),
@@ -77,6 +124,8 @@ parse_translocation_tsv <- function(path) {
                       PON = col_character())
   ))
 }
+
+#### Download all translocation positions ####
 
 trl_df <- parse_translocation_tsv(opt$input_file)
 problems(trl_df)
