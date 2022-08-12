@@ -1,5 +1,5 @@
 # Base Image
-FROM r-base:3.6.0
+FROM r-base:4.0.2
 
 # Metadata
 LABEL base.image="filter_translocations"
@@ -10,37 +10,25 @@ LABEL tags="Translocation Structural Variant"
 MAINTAINER DaveLab <lab.dave@gmail.com>
 
 # update the OS related packages
-RUN apt-get update -y && apt-get install -y \
-    build-essential \
-    curl \
-    vim \
-    less \
-    wget \
-    unzip \
-    cmake \
-    gcc-8-base \
-    libmpx2 \
-    libgcc-8-dev \
-    libc6-dev \
-    libcurl4-openssl-dev \
-    libssl-dev \
-    libxml2-dev \
-    python3 \
+RUN apt-get update && apt-get install -y \
     gawk \
-    python3-pip \
-    bzip2 \
+    unzip \
+    less \
     git \
-    autoconf \
-    bsdmainutils \
-    bedtools
-
-# install Python libraries
-WORKDIR /usr/local/bin
-RUN pip3 install argparse
-RUN pip3 install pysam
+    build-essential \
+    libcurl4-gnutls-dev \
+    libxml2-dev \
+    libssl-dev \
+    bedtools \
+    parallel \
+    samtools \
+    python3 \
+    python3-pip \
+    libcairo2-dev \
+    libxt-dev
 
 # install R required dependencies
-RUN R --vanilla -e 'install.packages(c("optparse", "tidyverse"), repos="http://cran.us.r-project.org")'
+RUN R --vanilla -e 'install.packages(c("optparse", "dplyr", "readr", "magrittr"), repos="http://cran.us.r-project.org")'
 
 # get script
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
