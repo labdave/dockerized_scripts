@@ -15,11 +15,11 @@ time samtools view -@ ${threads} -F ${flag} ${old_bam} | cut -d'	' -f1 > /data/o
 echo "end filtering by flag"
 
 echo "start filtering for good reads (-f 2, include first 100,000 properly paired reads)"
-time samtools view -@ ${threads} -f 2 ${old_bam} | cut -d'	' -f1 | head -100000 > /data/output/tmp.good_reads
+time samtools view -@ ${threads} -f 2 -F 1024 ${old_bam} | cut -d'	' -f1 | head -100000 > /data/output/tmp.good_reads
 echo "end filtering for good reads"
 
 echo "start filtering for non-primary reads (-f 256)"
-time samtools view -@ ${threads} -f 256 ${old_bam} | cut -d'	' -f1 > /data/output/tmp.non_primary
+time samtools view -@ ${threads} -f 256 -F 1024 ${old_bam} | cut -d'	' -f1 > /data/output/tmp.non_primary
 echo "end filtering for non-primary reads"
 
 echo "combine read IDs from all filtering steps"
