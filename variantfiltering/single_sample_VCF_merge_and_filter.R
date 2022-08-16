@@ -108,8 +108,11 @@ all_whitelist<-cbind(all_good, all_bad)
 ###filter for exonic, not synonymous, >5 ALT reads
 clean_filtered<-all_filt_variants
 print(paste("clean_filtered size in the beginning:", dim(clean_filtered)))
-clean_filtered <- clean_filtered[clean_filtered$Func.refGene=="exonic",]
-print(paste("clean_filtered size after exonic:", dim(clean_filtered)))
+clean_filtered <- clean_filtered[grepl("exonic", clean_filtered$Func.refGene) | 
+                                   grepl("splicing", clean_filtered$Func.refGene) |
+                                   grepl("exonic", clean_filtered$Func.ensGene) | 
+                                   grepl("splicing", clean_filtered$Func.ensGene), ]
+print(paste("clean_filtered size after exonic & splicing:", dim(clean_filtered)))
 clean_filtered <- clean_filtered[!(clean_filtered$ExonicFunc.refGene=="synonymous_SNV"),]
 print(paste("clean_filtered size after synonymous_SNV:", dim(clean_filtered)))
 

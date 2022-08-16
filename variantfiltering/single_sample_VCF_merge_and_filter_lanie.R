@@ -98,7 +98,10 @@ all_whitelist<-cbind(all_good, all_bad)
 
 ###filter for exonic, not synonymous, >5 ALT reads
 clean_filtered<-all_filt_variants
-clean_filtered <- clean_filtered[clean_filtered$Func.refGene %in% c("exonic", "exonic=splicing", "splicing"),]        
+clean_filtered <- clean_filtered[grepl("exonic", clean_filtered$Func.refGene) | 
+                                   grepl("splicing", clean_filtered$Func.refGene) |
+                                   grepl("exonic", clean_filtered$Func.ensGene) | 
+                                   grepl("splicing", clean_filtered$Func.ensGene), ]   
 clean_filtered <- clean_filtered[!(clean_filtered$ExonicFunc.refGene=="synonymous_SNV"),]
 
 all_depth<-clean_filtered[,grep("*_AD$", colnames(clean_filtered))]

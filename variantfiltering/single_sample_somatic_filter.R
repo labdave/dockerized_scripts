@@ -216,8 +216,11 @@ single.sample.all$Sample_ID<-samp
 
 clean_filtered<-all_filt_variants
 print(paste("clean_filtered size in the beginning:", dim(clean_filtered)))
-clean_filtered <- clean_filtered[clean_filtered$Func.refGene %in% c("exonic", "exonic=splicing", "splicing"),]
-print(paste("clean_filtered size after exonic:", dim(clean_filtered)))
+clean_filtered <- clean_filtered[grepl("exonic", clean_filtered$Func.refGene) | 
+                                   grepl("splicing", clean_filtered$Func.refGene) |
+                                   grepl("exonic", clean_filtered$Func.ensGene) | 
+                                   grepl("splicing", clean_filtered$Func.ensGene), ]
+print(paste("clean_filtered size after exonic & splicing:", dim(clean_filtered)))
 clean_filtered <- clean_filtered[!(clean_filtered$ExonicFunc.refGene=="synonymous_SNV"),]
 print(paste("clean_filtered size after synonymous_SNV:", dim(clean_filtered)))
 
