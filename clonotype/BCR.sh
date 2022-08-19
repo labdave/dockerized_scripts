@@ -111,8 +111,8 @@ echo "parse output started"
 cat "$sample".IG.clones.tsv | grep -v 'TRA' | grep -v 'TRB' | grep -v 'TRG' | grep -v 'TRD' > tmp.txt
 
 # get all outputs
-head -1 tmp.txt | sed -e "s/^/sample	/" tmp.txt > "$all_output"
-tail -n +1 tmp.txt | sed -e "s/^/$id	/" tmp.txt >> "$all_output"
+head -1 tmp.txt | sed -e "s/^/sample	/" > "$all_output"
+tail -n +1 tmp.txt | sed -e "s/^/$id	/" >> "$all_output"
 
 # get header
 head -1 "$all_output" > "$sample".IG.clones.tsv.head1
