@@ -118,13 +118,13 @@ tail -n +1 tmp.txt | sed -e "s/^/$id	/" tmp.txt >> "$all_output"
 head -1 "$all_output" > "$sample".IG.clones.tsv.head1
 
 # get top igh line
-grep -m 1 "IGH" tmp.txt > "$sample".IG.clones.tsv.IGH
+grep -m 1 "IGH" "$all_output" > "$sample".IG.clones.tsv.IGH
 
 # get top igk line 
-grep -m 1 "IGK" tmp.txt > "$sample".IG.clones.tsv.IGK
+grep -m 1 "IGK" "$all_output" > "$sample".IG.clones.tsv.IGK
 
 # get top igl line
-grep -m 1 "IGL" tmp.txt > "$sample".IG.clones.tsv.IGL
+grep -m 1 "IGL" "$all_output" > "$sample".IG.clones.tsv.IGL
 
 # cat all files together
 cat "$sample".IG.clones.tsv.head1 "$sample".IG.clones.tsv.IGH "$sample".IG.clones.tsv.IGK "$sample".IG.clones.tsv.IGL > "$top_output"
