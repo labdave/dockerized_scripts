@@ -114,31 +114,29 @@ echo "mixcr done"
 echo "parse output started"
 
 # parse output
-cat "$sample".T.clones.tsv | grep -v 'IGH' | grep -v 'IGK' | grep -v 'IGL' > "$all_output"
+cat "$sample".T.clones.tsv | grep -v 'IGH' | grep -v 'IGK' | grep -v 'IGL' > tmp.txt
+
+# get all outputs
+head -1 tmp.txt | sed -e "s/^/sample	/" tmp.txt > "$all_output"
+tail -n +1 tmp.txt | sed -e "s/^/$id	/" tmp.txt >> "$all_output"
+
 # get header
 head -1 "$all_output" > "$sample".T.clones.tsv.head1
-# add sample info header
-sed -i -e "s/^/sample	/" "$sample".T.clones.tsv.head1
+
 # get top tra line
 grep -m 1 "TRA" "$all_output" > "$sample".T.clones.tsv.TRA
-# add sample info
-sed -i -e "s/^/$id	/" "$sample".T.clones.tsv.TRA
+
 # get top trb line 
 grep -m 1 "TRB" "$all_output" > "$sample".T.clones.tsv.TRB
-# add sample info
-sed -i -e "s/^/$id	/" "$sample".T.clones.tsv.TRB
+
 # get top trg line
 grep -m 1 "TRG" "$all_output" > "$sample".T.clones.tsv.TRG
-# add sample info
-sed -i -e "s/^/$id	/" "$sample".T.clones.tsv.TRG
+
 # get top trd line
 grep -m 1 "TRD" "$all_output" > "$sample".T.clones.tsv.TRD
-# add sample info
-sed -i -e "s/^/$id	/" "$sample".T.clones.tsv.TRD
+
 # cat all files together
 cat "$sample".T.clones.tsv.head1 "$sample".T.clones.tsv.TRA "$sample".T.clones.tsv.TRB "$sample".T.clones.tsv.TRG "$sample".T.clones.tsv.TRD > "$top_output"
-# cut -f 2,3,4,6,7,8,9 "$sample".IG.clones.tsv.filter2 > "$sample".IG.clones.tsv.filter3
-# sed 's/[(][^)]*[)]//g' "$sample".IG.clones.tsv.filter3 > "$output"
 
 sleep 5
 echo "parse output done"

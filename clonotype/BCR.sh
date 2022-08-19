@@ -108,27 +108,26 @@ echo "mixcr done"
 echo "parse output started"
 
 # parse output
-cat "$sample".IG.clones.tsv | grep -v 'TRA' | grep -v 'TRB' | grep -v 'TRG' | grep -v 'TRD' > "$all_output"
+cat "$sample".IG.clones.tsv | grep -v 'TRA' | grep -v 'TRB' | grep -v 'TRG' | grep -v 'TRD' > tmp.txt
+
+# get all outputs
+head -1 tmp.txt | sed -e "s/^/sample	/" tmp.txt > "$all_output"
+tail -n +1 tmp.txt | sed -e "s/^/$id	/" tmp.txt >> "$all_output"
+
 # get header
 head -1 "$all_output" > "$sample".IG.clones.tsv.head1
-# add sample info header
-sed -i -e "s/^/sample	/" "$sample".IG.clones.tsv.head1
+
 # get top igh line
-grep -m 1 "IGH" "$all_output" > "$sample".IG.clones.tsv.IGH
-# add sample info
-sed -i -e "s/^/$id	/" "$sample".IG.clones.tsv.IGH
+grep -m 1 "IGH" tmp.txt > "$sample".IG.clones.tsv.IGH
+
 # get top igk line 
-grep -m 1 "IGK" "$all_output" > "$sample".IG.clones.tsv.IGK
-# add sample info
-sed -i -e "s/^/$id	/" "$sample".IG.clones.tsv.IGK
+grep -m 1 "IGK" tmp.txt > "$sample".IG.clones.tsv.IGK
+
 # get top igl line
-grep -m 1 "IGL" "$all_output" > "$sample".IG.clones.tsv.IGL
-# add sample info
-sed -i -e "s/^/$id	/" "$sample".IG.clones.tsv.IGL
+grep -m 1 "IGL" tmp.txt > "$sample".IG.clones.tsv.IGL
+
 # cat all files together
 cat "$sample".IG.clones.tsv.head1 "$sample".IG.clones.tsv.IGH "$sample".IG.clones.tsv.IGK "$sample".IG.clones.tsv.IGL > "$top_output"
-# cut -f 2,3,4,6,7,8,9 "$sample".IG.clones.tsv.filter2 > "$sample".IG.clones.tsv.filter3
-# sed 's/[(][^)]*[)]//g' "$sample".IG.clones.tsv.filter3 > "$output"
 
 sleep 5
 echo "parse output done"
