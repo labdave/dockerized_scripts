@@ -101,7 +101,7 @@ echo "mixcr assemble"
 mixcr assemble --write-alignments -f "$sample".T.rescued2.vdjca "$sample".T.clna
 
 echo "mixcr contig assembly"
-mixcr assembleContigs "$sample".IG.clna "$sample".IG.clns
+mixcr assembleContigs "$sample".T.clna "$sample".T.clns
 
 echo "mixcr exportClones"
 # mixcr exportClones
