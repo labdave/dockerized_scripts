@@ -118,7 +118,7 @@ cat "$sample".T.clones.tsv | grep -v 'IGH' | grep -v 'IGK' | grep -v 'IGL' > tmp
 
 # get all outputs
 head -1 tmp.txt | sed -e "s/^/sample	/" > "$all_output"
-tail -n +1 tmp.txt | sed -e "s/^/$id	/" >> "$all_output"
+tail -n +2 tmp.txt | sed -e "s/^/$id	/" >> "$all_output"
 
 # get header
 head -1 "$all_output" > "$sample".T.clones.tsv.head1
