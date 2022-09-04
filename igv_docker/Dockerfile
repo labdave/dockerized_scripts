@@ -36,12 +36,16 @@ RUN apt-get update -y && apt-get install -y \
     libxtst6 \
     x11-utils
 
-# get igv
-RUN wget http://data.broadinstitute.org/igv/projects/downloads/2.3/IGV_2.3.81.zip && unzip IGV_2.3.81.zip
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
 RUN cp -r dockerized_scripts/igv_docker/* .
+
+# get igv
+RUN wget http://data.broadinstitute.org/igv/projects/downloads/2.3/IGV_2.3.81.zip && unzip IGV_2.3.81.zip
 RUN cp dockerized_scripts/igv_docker/prefs.properties IGV_2.3.81/
+
+RUN wget http://data.broadinstitute.org/igv/projects/downloads/2.14/IGV_2.14.1.zip && unzip IGV_2.14.1.zip
+RUN cp dockerized_scripts/igv_docker/prefs.properties IGV_2.14.1/
 
 #add pil
 RUN pip3 install pillow
