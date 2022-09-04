@@ -1,5 +1,5 @@
 # work from latest LTS ubuntu release
-FROM openjdk:8-jdk-slim
+FROM openjdk:18-jdk-slim
 
 # run update and install necessary tools
 RUN apt-get update -y && apt-get install -y \
