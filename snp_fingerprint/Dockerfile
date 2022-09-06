@@ -19,7 +19,7 @@ WORKDIR /usr/local/bin
 RUN R --vanilla -e 'install.packages(c("stringr"), repos="http://cran.us.r-project.org")'
 
 # clone repo
-ADD https://api.github.com/repos/devangthakkar/dockerized_scripts/snp_fingerprint/git/refs/heads/ version.json
+ADD https://api.github.com/repos/devangthakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/devangthakkar/dockerized_scripts.git
 
 # add repo to SYSPATH
