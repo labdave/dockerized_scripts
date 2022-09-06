@@ -6,35 +6,11 @@ MAINTAINER DaveLab <lab.dave@gmail.com>
 
 # update the OS related packages
 RUN apt-get update -y && apt-get install -y \
-    build-essential \
-    libc6-dev \
-    libnss-sss \
-    curl \
-    vim \
-    devscripts \
     less \
     wget \
     unzip \
-    cmake \
-    python3 \
-    gawk \
-    zlib1g-dev \
-    libncurses5-dev \
-    libncursesw5-dev \
-    libbz2-dev \
-    liblzma-dev \
     bzip2 \
-    libssl-dev \
-    git \
-    autoconf \
-    bsdmainutils \
-    bedtools \
-    samtools \
-    bedops \
-    tabix \
-    libcurl4-gnutls-dev \
-    libxml2-dev \
-    parallel 	
+    git
 # install Python libraries
 WORKDIR /usr/local/bin
 
@@ -44,11 +20,11 @@ RUN R --vanilla -e 'install.packages(c("stringr"), repos="http://cran.us.r-proje
 
 # clone repo
 ADD https://api.github.com/repos/devangthakkar/dockerized_scripts/snp_fingerprint/git/refs/heads/ version.json
-RUN git clone https://github.com/devangthakkar/dockerized_scripts/snp_fingerprint.git
+RUN git clone https://github.com/devangthakkar/dockerized_scripts.git
 
 # add repo to SYSPATH
-ENV PATH snp_fingerprint:$PATH
+ENV PATH dockerized_scripts/snp_fingerprint:$PATH
 
 # change the permission of the repo
-RUN chmod 777 -R snp_fingerprint
-WORKDIR /usr/local/bin/snp_fingerprint
+RUN chmod 777 -R dockerized_scripts/snp_fingerprint
+WORKDIR /usr/local/bin/dockerized_scripts/snp_fingerprint
