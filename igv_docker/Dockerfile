@@ -56,6 +56,11 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 ENTRYPOINT ["/tini", "--"]
 
+# Copy session file
+COPY hg38_session.xml /data/hg38_session.xml
+COPY Twist_8MB_panel_with_ERCCs.maskPAR.bed /data/Twist_8MB_panel_with_ERCCs.maskPAR.bed
+COPY Twist_exome.maskPAR.bed /data/Twist_exome.maskPAR.bed
+
 # work from latest LTS ubuntu release
 #FROM ubuntu:18.04
 
