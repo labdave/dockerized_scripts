@@ -29,8 +29,6 @@ RUN apt-get update -y && apt-get install -y \
     autoconf \
     bsdmainutils \
     bedtools \
-    gcc-8 \
-    g++-8 \
     samtools \
     bedops \
     tabix \
