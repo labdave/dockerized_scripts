@@ -1,5 +1,5 @@
 # Base Image
-FROM r-base:3.5.2
+FROM r-base:4.2.1
 
 # Maintainer
 MAINTAINER DaveLab <lab.dave@gmail.com>
@@ -29,8 +29,8 @@ RUN apt-get update -y && apt-get install -y \
     autoconf \
     bsdmainutils \
     bedtools \
-    gcc-8-base \
-    libmpx2 \
+    gcc-8 \
+    g++-8 \
     samtools \
     bedops \
     tabix \
