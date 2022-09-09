@@ -57,14 +57,14 @@ echo "merge done"
 
 # sort IG reads
 echo "sort started"
-samtools sort -@ $threads -n "$sample".IG.bam "$sample".IG.sorted
+samtools sort -@ $threads -n "$sample".IG.bam -o "$sample".IG.sorted
 sleep 5
 echo "sort done"
 
 echo "more processing started"
 
 # sort unmapped reads
-samtools sort -@ $threads -n "$sample".unmapped.bam "$sample".unmapped.sorted
+samtools sort -@ $threads -n "$sample".unmapped.bam -o "$sample".unmapped.sorted
 
 # get unmapped fastq
 bedtools bamtofastq -i "$sample".unmapped.sorted.bam -fq "$sample".unmapped.R1.fastq -fq2 "$sample".unmapped.R2.fastq 2> tmp

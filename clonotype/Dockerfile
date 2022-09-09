@@ -1,15 +1,10 @@
 ################################################################################
 ##################### Set Inital Image to work from ############################
-FROM ubuntu:16.04
+FROM ghcr.io/milaboratory/mixcr/mixcr:4.0.0-68-develop
 
 ################################################################################
 ##################### Add Container Labels #####################################
 LABEL "Description"="Software toolkit for T/B cell repertoire"
-
-################################################################################
-############## set environment variables #######################################
-
-ENV version 3.0.3
 
 ################################################################################
 ##################### Install System Dependencies ##############################
@@ -21,18 +16,6 @@ RUN apt-get update -y && apt-get install -y \
     unzip \
     samtools \
     bedtools
-
-################################################################################
-##################### Install MIXCR    #########################################
-
-# set inital WORKDIR
-WORKDIR /mixcr/
-
-# download the source
-RUN wget https://github.com/milaboratory/mixcr/releases/download/v${version}/mixcr-${version}.zip
-
-# unzip the source
-RUN unzip mixcr-${version}.zip
 
 ################################################################################
 ##################### download clonotype calling scripts #######################
@@ -47,7 +30,9 @@ RUN mv dockerized_scripts/clonotype/BCR.sh .
 RUN mv dockerized_scripts/clonotype/TCR.sh .
 
 ################################################################################
-###################### set environment path    #################################
+############################# copy license #####################################
 
-# add mixcr executable to path
-ENV PATH="/mixcr/mixcr-${version}/:${PATH}"
+# copy license
+COPY mi.license /opt/mixcr/mi.license
+
+ENTRYPOINT ["/bin/bash", "-c"]
