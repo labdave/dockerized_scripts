@@ -20,10 +20,10 @@ echo "========="
 echo
 
 # get index
-# echo "indexing started"
-#samtools index -@ $threads "$sample"
-# sleep 5
-# echo "indexing done"
+echo "indexing started"
+samtools index -@ $threads "$sample"
+sleep 5
+echo "indexing done"
 
 # get unmapped reads
 echo "unmapped started"
@@ -77,6 +77,9 @@ bedtools bamtofastq -i "$sample".unmapped.sorted.bam -fq "$sample".unmapped.R1.f
 
 # get TR fastq
 bedtools bamtofastq -i "$sample".TR.sorted.bam -fq "$sample".TR.R1.fastq -fq2 "$sample".TR.R2.fastq 2> tmp
+
+# debug
+ls -l
 
 # get combined fastq
 cat "$sample".unmapped.R1.fastq "$sample".TR.R1.fastq > "$sample".combined.T.R1.fastq
