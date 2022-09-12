@@ -81,6 +81,9 @@ echo "more processing done"
 
 echo "mixcr started"
 
+echo "copy license"
+cp /data/mi.license /opt/mixcr/mi.license
+
 echo "mixcr align"
 # mixcr align
 mixcr align -f -r "$report" -s human -t $threads -p rna-seq -OallowPartialAlignments=true -OvParameters.geneFeatureToAlign=VGeneWithP "$sample".combined.IG.R1.fastq "$sample".combined.IG.R2.fastq "$sample".IG.vdjca
