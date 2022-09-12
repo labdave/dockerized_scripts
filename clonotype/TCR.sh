@@ -78,9 +78,6 @@ bedtools bamtofastq -i "$sample".unmapped.sorted.bam -fq "$sample".unmapped.R1.f
 # get TR fastq
 bedtools bamtofastq -i "$sample".TR.sorted.bam -fq "$sample".TR.R1.fastq -fq2 "$sample".TR.R2.fastq 2> tmp
 
-# debug
-ls -l /data
-
 # get combined fastq
 cat "$sample".unmapped.R1.fastq "$sample".TR.R1.fastq > "$sample".combined.T.R1.fastq
 cat "$sample".unmapped.R2.fastq "$sample".TR.R2.fastq > "$sample".combined.T.R2.fastq

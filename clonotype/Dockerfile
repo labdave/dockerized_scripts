@@ -29,10 +29,5 @@ RUN mv dockerized_scripts/clonotype/BCR.sh .
 # download TCR script
 RUN mv dockerized_scripts/clonotype/TCR.sh .
 
-################################################################################
-############################# copy license #####################################
-
-# copy license
-COPY mi.license /opt/mixcr/mi.license
-
+# change entrypoint
 ENTRYPOINT ["/bin/bash", "-c"]

@@ -67,15 +67,10 @@ echo "more processing started"
 samtools sort -@ $threads -n "$sample".unmapped.bam -o "$sample".unmapped.sorted.bam
 
 # get unmapped fastq
-bedtools bamtofastq -i "$sample".unmapped.sorted.bam -fq "$sample".unmapped.R1.fastq -fq2 "$sample".unmapped.R2.fastq 2> /data/log/tmp1.log
+bedtools bamtofastq -i "$sample".unmapped.sorted.bam -fq "$sample".unmapped.R1.fastq -fq2 "$sample".unmapped.R2.fastq 2> tmp
 
 # get IG fastq
-bedtools bamtofastq -i "$sample".IG.sorted.bam -fq "$sample".IG.R1.fastq -fq2 "$sample".IG.R2.fastq 2> /data/log/tmp1.log
-
-# debug
-#ls -l /data
-#grep -v "next to it in your BAM file" /data/tmp.log
-
+bedtools bamtofastq -i "$sample".IG.sorted.bam -fq "$sample".IG.R1.fastq -fq2 "$sample".IG.R2.fastq 2> tmp
 
 # get combined fastq
 cat "$sample".unmapped.R1.fastq "$sample".IG.R1.fastq > "$sample".combined.IG.R1.fastq
