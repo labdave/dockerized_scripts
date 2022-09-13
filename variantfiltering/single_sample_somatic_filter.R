@@ -229,6 +229,13 @@ print(paste("clean_filtered size before max depth:", dim(clean_filtered)))
 clean_filtered<-clean_filtered[alt_depth>=5,]
 print(paste("clean_filtered size after max depth:", dim(clean_filtered)))
 
+########put problem columns at end of file
+bad_cols<-c("SVTYPE", "MATEID", "SOMATIC", "HC_BaseQRankSumPS", "HC_ClippingRankSumPS", "HC_MQRankSumPS")
+
+single.sample.all<-cbind(single.sample.all[,!(colnames(single.sample.all) %in% bad_cols)], single.sample.all[,colnames(single.sample.all) %in% bad_cols])
+single.sample.sv<-cbind(single.sample.sv[,!(colnames(single.sample.sv) %in% bad_cols)], single.sample.sv[,colnames(single.sample.sv) %in% bad_cols])
+clean_filtered<-cbind(clean_filtered[,!(colnames(cleaned_filtered) %in% bad_cols)], cleaned_filtered[,colnames(cleaned_filtered) %in% bad_cols])
+
 
 write.table(single.sample.all, file=args[3], row.names  =FALSE, quote=FALSE, sep = "\t")
 write.table(single.sample.sv, file=args[4], row.names  =FALSE, quote=FALSE, sep = "\t")
