@@ -234,9 +234,9 @@ print(paste("clean_filtered size after max depth:", dim(clean_filtered)))
 ########put problem columns at end of file
 bad_cols<-c("SVTYPE", "MATEID", "SOMATIC", "HC_BaseQRankSumPS", "HC_ClippingRankSumPS", "HC_MQRankSumPS")
 
-single.sample.all<-cbind(single.sample.all[,!(colnames(single.sample.all) %in% bad_cols)], single.sample.all[,colnames(single.sample.all) %in% bad_cols])
-single.sample.sv<-cbind(single.sample.sv[,!(colnames(single.sample.sv) %in% bad_cols)], single.sample.sv[,colnames(single.sample.sv) %in% bad_cols])
-clean_filtered<-cbind(clean_filtered[,!(colnames(clean_filtered) %in% bad_cols)], clean_filtered[,colnames(clean_filtered) %in% bad_cols])
+single.sample.all<-cbind(single.sample.all[,!(colnames(single.sample.all) %in% bad_cols)], single.sample.all[,bad_cols])
+single.sample.sv<-cbind(single.sample.sv[,!(colnames(single.sample.sv) %in% bad_cols)], single.sample.sv[,bad_cols])
+clean_filtered<-cbind(clean_filtered[,!(colnames(clean_filtered) %in% bad_cols)], clean_filtered[, bad_cols])
 
 
 write.table(single.sample.all, file=args[3], row.names  =FALSE, quote=FALSE, sep = "\t")
