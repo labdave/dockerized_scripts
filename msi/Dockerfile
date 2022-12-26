@@ -42,7 +42,7 @@ RUN pip3 install pysam
 RUN R --vanilla -e 'install.packages(c("tibble"), repos="http://cran.us.r-project.org")'
 
 # add proper davrelab docker GitHub resources
-ADD https://api.github.com/repos/vsrussell/davelab_viral_detection/git/refs/heads/ version.json
-RUN git clone https://github.com/vsrussell/davelab_viral_detection.git
+ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
 #add script for aggregating MSI
-RUN cp -r davelab_viral_detection/Aggregate_MSI.R .
+RUN cp dockerized_scripts/MSI/Aggregate_MSI.R /home/
