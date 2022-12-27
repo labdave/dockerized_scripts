@@ -44,5 +44,5 @@ RUN R --vanilla -e 'install.packages(c("tibble"), repos="http://cran.us.r-projec
 # add proper davrelab docker GitHub resources
 ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
-#add script for aggregating MSI
-RUN cp dockerized_scripts/MSI/Aggregate_MSI.R /home/
+#add script for aggregating msi
+RUN cp dockerized_scripts/msi/Aggregate_MSI.R /home/
