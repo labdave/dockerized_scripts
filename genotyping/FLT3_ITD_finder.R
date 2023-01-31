@@ -1,4 +1,7 @@
 #!/usr/bin/env Rscript
+
+library(ggplot2)
+
 args = commandArgs(trailingOnly=TRUE)
 
 samp<-args[1]

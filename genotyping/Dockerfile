@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y \
     parallel 
 WORKDIR /usr/local/bin
 
+# install R required dependencies
+RUN R --vanilla -e 'install.packages(c("ggplot2"), repos="http://cran.us.r-project.org")'
+
 # clone genotyping repo
 ADD https://api.github.com/repos/devangthakkar/dockerized_scripts/git/refs/heads/ version.json
 RUN git clone https://github.com/devangthakkar/dockerized_scripts.git
