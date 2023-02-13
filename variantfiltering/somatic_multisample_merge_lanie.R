@@ -44,4 +44,4 @@ for( i in 1:length(mpileup.file.list)){
 all_vars<-rbind(all_vars, curr.samp)
 }
 
-write.table(all_vars. file=merged_file, sep="\t", row.names=FALSE, quote=FALSE)
+write.table(all_vars, file=merged_file, sep="\t", row.names=FALSE, quote=FALSE)
