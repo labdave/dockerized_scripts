@@ -39,8 +39,8 @@ RUN R --vanilla -e 'devtools::install_github(repo="knausb/vcfR")'
 RUN pip3 install pandas
 
 # clone variantfiltering repo
-ADD https://api.github.com/repos/devangthakkar/dockerized_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/devangthakkar/dockerized_scripts.git
+ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 
 # add variantfiltering repo to SYSPATH
 ENV PATH dockerized_scripts/variantfiltering:$PATH
