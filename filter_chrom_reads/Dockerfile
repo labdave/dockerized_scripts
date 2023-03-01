@@ -45,8 +45,8 @@ RUN wget https://github.com/broadinstitute/picard/releases/download/2.23.2/picar
 RUN ls -l
 
 # get filter chrom reads script
-ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 RUN cp dockerized_scripts/filter_chrom_reads/filter_chrom_reads.sh .
 RUN cp dockerized_scripts/filter_chrom_reads/filter_chrom_reads.sh /home/filter_chrom_reads.sh
 RUN chmod +x filter_chrom_reads.sh

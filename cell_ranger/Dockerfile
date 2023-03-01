@@ -37,5 +37,5 @@ RUN apt-get update -y && apt-get install -y \
     libxtst6 \
     x11-utils
 
-RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 RUN cp dockerized_scripts/cell_ranger/.env.json .

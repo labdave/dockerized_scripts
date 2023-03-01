@@ -34,7 +34,7 @@ RUN pip3 install numpy
 RUN pip3 install pandas
 
 # get purity scripts
-ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 RUN cp dockerized_scripts/purity/new_format_parser.py .
 RUN cp dockerized_scripts/purity/new_format_parser.py /home/

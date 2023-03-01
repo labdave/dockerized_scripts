@@ -20,8 +20,8 @@ RUN apt-get update -y && apt-get install -y \
 ################################################################################
 ##################### download clonotype calling scripts #######################
 
-ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 
 # download BCR script
 RUN mv dockerized_scripts/clonotype/BCR.sh .

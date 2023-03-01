@@ -36,8 +36,8 @@ RUN apt-get update -y && apt-get install -y \
     libxtst6 \
     x11-utils
 
-ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 RUN cp -r dockerized_scripts/igv_docker/* .
 
 # get igv
@@ -101,8 +101,8 @@ COPY Twist_exome.maskPAR.bed /data/Twist_exome.maskPAR.bed
 
 # get igv
 #RUN wget https://data.broadinstitute.org/igv/projects/downloads/2.8/IGV_Linux_2.8.6.zip && unzip IGV_Linux_2.8.6.zip
-#ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
-#RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+#ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+#RUN git clone https://github.com/labdave/dockerized_scripts.git
 #RUN cp dockerized_scripts/igv_docker/filter_rows.py .
 #RUN cp dockerized_scripts/igv_docker/test.script .
 #RUN cp dockerized_scripts/igv_docker/igv_script_creator_lanie.py .

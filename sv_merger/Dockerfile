@@ -25,6 +25,6 @@ RUN pip3 install pandas
 RUN R --vanilla -e 'install.packages(c("optparse", "dplyr", "readr", "purrr", "stringr"), repos="http://cran.us.r-project.org")'
 
 # get SV aggregator scripts
-ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 RUN cp dockerized_scripts/sv_merger/* .

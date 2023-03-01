@@ -47,8 +47,8 @@ RUN pip3 install numpy
 RUN pip3 install pandas
 
 # get script
-ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 RUN cp dockerized_scripts/anno_merger/merge_D_L_with_DW.py .
 RUN cp dockerized_scripts/anno_merger/merge_D_L_with_DW.py /home/merge_D_L_with_DW.py
 RUN cp dockerized_scripts/anno_merger/multisample_merge_D_L_with_DW.py .

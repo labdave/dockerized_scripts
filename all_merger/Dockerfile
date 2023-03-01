@@ -48,8 +48,8 @@ RUN pip3 install -I pandas==1.3.0
 RUN pip3 install -I pybedtools==0.8.2
 
 # get lumpy script
-ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 RUN cp dockerized_scripts/all_merger/merge_delly_lumpy_pandas.py .
 RUN cp dockerized_scripts/all_merger/merge_delly_lumpy_pandas.py /home/merge_delly_lumpy_pandas.py
 RUN chmod +x merge_delly_lumpy_pandas.py

@@ -31,8 +31,8 @@ RUN apt-get update && apt-get install -y \
 RUN R --vanilla -e 'install.packages(c("optparse", "dplyr", "readr", "magrittr"), repos="http://cran.us.r-project.org")'
 
 # get script
-ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 RUN cp -r dockerized_scripts/filter_translocations/* .
 RUN chmod +x filter_translocations.R
 

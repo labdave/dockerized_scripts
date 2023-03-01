@@ -44,6 +44,6 @@ RUN R -e "install.packages('BiocManager',dependencies=TRUE, repos='http://cran.r
 RUN R -e "requireNamespace('BiocManager'); BiocManager::install('GenVisR');"
 
 # get cnv aggregator scripts
-ADD https://api.github.com/repos/DevangThakkar/dockerized_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/DevangThakkar/dockerized_scripts.git
+ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 RUN cp dockerized_scripts/cnv_merger/* .
