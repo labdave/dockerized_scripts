@@ -21,8 +21,8 @@ WORKDIR /usr/local/bin
 RUN R --vanilla -e 'install.packages(c("ggplot2"), repos="http://cran.us.r-project.org")'
 
 # clone genotyping repo
-ADD https://api.github.com/repos/devangthakkar/dockerized_scripts/git/refs/heads/ version.json
-RUN git clone https://github.com/devangthakkar/dockerized_scripts.git
+ADD https://api.github.com/repos/labdave/dockerized_scripts/git/refs/heads/ version.json
+RUN git clone https://github.com/labdave/dockerized_scripts.git
 
 # add genotyping repo to SYSPATH
 ENV PATH dockerized_scripts/genotyping:$PATH
