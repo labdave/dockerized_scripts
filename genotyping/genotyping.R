@@ -114,3 +114,11 @@ print(dim(hotspots))
 
 write.table(hotspots, file=genotype_out, row.names=FALSE, quote = FALSE, sep="\t")
 
+all_genotype<-hotspots
+
+all_genotype$CHROM_POS_REF_ALT<-paste0(all_genotype$Chrom, "-", all_genotype$Start, "-", all_genotype$Ref, "-", all_genotype$Alt)
+
+
+
+
+

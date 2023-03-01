@@ -1,0 +1,3509 @@
+chr	pos	moldx	gene	variant
+chr20	32434639	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr20	32434640	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr20	32434641	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr20	32434642	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr20	32434643	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr20	32434644	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr20	32434645	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr20	32434646	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr20	32434647	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr20	32434648	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr20	32434649	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr20	32434650	"ASXL1-G645,G646"	ASXL1	"G645,G646"
+chr19	12943713	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943714	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943715	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943716	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943717	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943718	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943719	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943720	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943721	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943722	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943723	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943724	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943725	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943726	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943727	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943728	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943729	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943730	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943731	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943732	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943733	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943734	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943735	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943736	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943737	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943738	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943739	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943740	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943741	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943742	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943743	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943744	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943745	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943746	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943747	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943748	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943749	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943750	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943751	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943752	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943753	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943754	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943755	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943756	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943757	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943758	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943759	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943760	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943761	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943762	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943763	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943764	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943765	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943766	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943767	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943768	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943769	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943770	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943771	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943772	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943773	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943774	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943775	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943776	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943777	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943778	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943779	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943780	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943781	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943782	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943783	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943784	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943785	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943786	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943787	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943788	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943789	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943790	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943791	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943792	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943793	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943794	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943795	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943796	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943797	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943798	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943799	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943800	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943801	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943802	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943803	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943804	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943805	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943806	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943807	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943808	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943809	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943810	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943811	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943812	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943813	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943814	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943815	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943816	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943817	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943818	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943819	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943820	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943821	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943822	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943823	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943824	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943825	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943826	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943827	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943828	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943829	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943830	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943831	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943832	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943833	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943834	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943835	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943836	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943837	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943838	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943839	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943840	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943841	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943842	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943843	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943844	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943845	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943846	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943847	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943848	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943849	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943850	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943851	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943852	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943853	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943854	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943855	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943856	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943857	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943858	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943859	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943860	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943861	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943862	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943863	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943864	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943865	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943866	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943867	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943868	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943869	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943870	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943871	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943872	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943873	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943874	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943875	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943876	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943877	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943878	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943879	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943880	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943881	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943882	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943883	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943884	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943885	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943886	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943887	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943888	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943889	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943890	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943891	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943892	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943893	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943894	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943895	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943896	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943897	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943898	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943899	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943900	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943901	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943902	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943903	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943904	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943905	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943906	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943907	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943908	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943909	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943910	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943911	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943912	CALR-exon9 indel	CALR	exon9 indel
+chr19	12943913	CALR-exon9 indel	CALR	exon9 indel
+chr11	119278181	CBL-Y371	CBL	Y371
+chr11	119278182	CBL-Y371	CBL	Y371
+chr11	119278183	CBL-Y371	CBL	Y371
+chr11	119278220	CBL-C384	CBL	C384
+chr11	119278221	CBL-C384	CBL	C384
+chr11	119278222	CBL-C384	CBL	C384
+chr19	33299934	CEBPA-full gene	CEBPA	full gene
+chr19	33299935	CEBPA-full gene	CEBPA	full gene
+chr19	33299936	CEBPA-full gene	CEBPA	full gene
+chr19	33299937	CEBPA-full gene	CEBPA	full gene
+chr19	33299938	CEBPA-full gene	CEBPA	full gene
+chr19	33299939	CEBPA-full gene	CEBPA	full gene
+chr19	33299940	CEBPA-full gene	CEBPA	full gene
+chr19	33299941	CEBPA-full gene	CEBPA	full gene
+chr19	33299942	CEBPA-full gene	CEBPA	full gene
+chr19	33299943	CEBPA-full gene	CEBPA	full gene
+chr19	33299944	CEBPA-full gene	CEBPA	full gene
+chr19	33299945	CEBPA-full gene	CEBPA	full gene
+chr19	33299946	CEBPA-full gene	CEBPA	full gene
+chr19	33299947	CEBPA-full gene	CEBPA	full gene
+chr19	33299948	CEBPA-full gene	CEBPA	full gene
+chr19	33299949	CEBPA-full gene	CEBPA	full gene
+chr19	33299950	CEBPA-full gene	CEBPA	full gene
+chr19	33299951	CEBPA-full gene	CEBPA	full gene
+chr19	33299952	CEBPA-full gene	CEBPA	full gene
+chr19	33299953	CEBPA-full gene	CEBPA	full gene
+chr19	33299954	CEBPA-full gene	CEBPA	full gene
+chr19	33299955	CEBPA-full gene	CEBPA	full gene
+chr19	33299956	CEBPA-full gene	CEBPA	full gene
+chr19	33299957	CEBPA-full gene	CEBPA	full gene
+chr19	33299958	CEBPA-full gene	CEBPA	full gene
+chr19	33299959	CEBPA-full gene	CEBPA	full gene
+chr19	33299960	CEBPA-full gene	CEBPA	full gene
+chr19	33299961	CEBPA-full gene	CEBPA	full gene
+chr19	33299962	CEBPA-full gene	CEBPA	full gene
+chr19	33299963	CEBPA-full gene	CEBPA	full gene
+chr19	33299964	CEBPA-full gene	CEBPA	full gene
+chr19	33299965	CEBPA-full gene	CEBPA	full gene
+chr19	33299966	CEBPA-full gene	CEBPA	full gene
+chr19	33299967	CEBPA-full gene	CEBPA	full gene
+chr19	33299968	CEBPA-full gene	CEBPA	full gene
+chr19	33299969	CEBPA-full gene	CEBPA	full gene
+chr19	33299970	CEBPA-full gene	CEBPA	full gene
+chr19	33299971	CEBPA-full gene	CEBPA	full gene
+chr19	33299972	CEBPA-full gene	CEBPA	full gene
+chr19	33299973	CEBPA-full gene	CEBPA	full gene
+chr19	33299974	CEBPA-full gene	CEBPA	full gene
+chr19	33299975	CEBPA-full gene	CEBPA	full gene
+chr19	33299976	CEBPA-full gene	CEBPA	full gene
+chr19	33299977	CEBPA-full gene	CEBPA	full gene
+chr19	33299978	CEBPA-full gene	CEBPA	full gene
+chr19	33299979	CEBPA-full gene	CEBPA	full gene
+chr19	33299980	CEBPA-full gene	CEBPA	full gene
+chr19	33299981	CEBPA-full gene	CEBPA	full gene
+chr19	33299982	CEBPA-full gene	CEBPA	full gene
+chr19	33299983	CEBPA-full gene	CEBPA	full gene
+chr19	33299984	CEBPA-full gene	CEBPA	full gene
+chr19	33299985	CEBPA-full gene	CEBPA	full gene
+chr19	33299986	CEBPA-full gene	CEBPA	full gene
+chr19	33299987	CEBPA-full gene	CEBPA	full gene
+chr19	33299988	CEBPA-full gene	CEBPA	full gene
+chr19	33299989	CEBPA-full gene	CEBPA	full gene
+chr19	33299990	CEBPA-full gene	CEBPA	full gene
+chr19	33299991	CEBPA-full gene	CEBPA	full gene
+chr19	33299992	CEBPA-full gene	CEBPA	full gene
+chr19	33299993	CEBPA-full gene	CEBPA	full gene
+chr19	33299994	CEBPA-full gene	CEBPA	full gene
+chr19	33299995	CEBPA-full gene	CEBPA	full gene
+chr19	33299996	CEBPA-full gene	CEBPA	full gene
+chr19	33299997	CEBPA-full gene	CEBPA	full gene
+chr19	33299998	CEBPA-full gene	CEBPA	full gene
+chr19	33299999	CEBPA-full gene	CEBPA	full gene
+chr19	33300000	CEBPA-full gene	CEBPA	full gene
+chr19	33300001	CEBPA-full gene	CEBPA	full gene
+chr19	33300002	CEBPA-full gene	CEBPA	full gene
+chr19	33300003	CEBPA-full gene	CEBPA	full gene
+chr19	33300004	CEBPA-full gene	CEBPA	full gene
+chr19	33300005	CEBPA-full gene	CEBPA	full gene
+chr19	33300006	CEBPA-full gene	CEBPA	full gene
+chr19	33300007	CEBPA-full gene	CEBPA	full gene
+chr19	33300008	CEBPA-full gene	CEBPA	full gene
+chr19	33300009	CEBPA-full gene	CEBPA	full gene
+chr19	33300010	CEBPA-full gene	CEBPA	full gene
+chr19	33300011	CEBPA-full gene	CEBPA	full gene
+chr19	33300012	CEBPA-full gene	CEBPA	full gene
+chr19	33300013	CEBPA-full gene	CEBPA	full gene
+chr19	33300014	CEBPA-full gene	CEBPA	full gene
+chr19	33300015	CEBPA-full gene	CEBPA	full gene
+chr19	33300016	CEBPA-full gene	CEBPA	full gene
+chr19	33300017	CEBPA-full gene	CEBPA	full gene
+chr19	33300018	CEBPA-full gene	CEBPA	full gene
+chr19	33300019	CEBPA-full gene	CEBPA	full gene
+chr19	33300020	CEBPA-full gene	CEBPA	full gene
+chr19	33300021	CEBPA-full gene	CEBPA	full gene
+chr19	33300022	CEBPA-full gene	CEBPA	full gene
+chr19	33300023	CEBPA-full gene	CEBPA	full gene
+chr19	33300024	CEBPA-full gene	CEBPA	full gene
+chr19	33300025	CEBPA-full gene	CEBPA	full gene
+chr19	33300026	CEBPA-full gene	CEBPA	full gene
+chr19	33300027	CEBPA-full gene	CEBPA	full gene
+chr19	33300028	CEBPA-full gene	CEBPA	full gene
+chr19	33300029	CEBPA-full gene	CEBPA	full gene
+chr19	33300030	CEBPA-full gene	CEBPA	full gene
+chr19	33300031	CEBPA-full gene	CEBPA	full gene
+chr19	33300032	CEBPA-full gene	CEBPA	full gene
+chr19	33300033	CEBPA-full gene	CEBPA	full gene
+chr19	33300034	CEBPA-full gene	CEBPA	full gene
+chr19	33300035	CEBPA-full gene	CEBPA	full gene
+chr19	33300036	CEBPA-full gene	CEBPA	full gene
+chr19	33300037	CEBPA-full gene	CEBPA	full gene
+chr19	33300038	CEBPA-full gene	CEBPA	full gene
+chr19	33300039	CEBPA-full gene	CEBPA	full gene
+chr19	33300040	CEBPA-full gene	CEBPA	full gene
+chr19	33300041	CEBPA-full gene	CEBPA	full gene
+chr19	33300042	CEBPA-full gene	CEBPA	full gene
+chr19	33300043	CEBPA-full gene	CEBPA	full gene
+chr19	33300044	CEBPA-full gene	CEBPA	full gene
+chr19	33300045	CEBPA-full gene	CEBPA	full gene
+chr19	33300046	CEBPA-full gene	CEBPA	full gene
+chr19	33300047	CEBPA-full gene	CEBPA	full gene
+chr19	33300048	CEBPA-full gene	CEBPA	full gene
+chr19	33300049	CEBPA-full gene	CEBPA	full gene
+chr19	33300050	CEBPA-full gene	CEBPA	full gene
+chr19	33300051	CEBPA-full gene	CEBPA	full gene
+chr19	33300052	CEBPA-full gene	CEBPA	full gene
+chr19	33300053	CEBPA-full gene	CEBPA	full gene
+chr19	33300054	CEBPA-full gene	CEBPA	full gene
+chr19	33300055	CEBPA-full gene	CEBPA	full gene
+chr19	33300056	CEBPA-full gene	CEBPA	full gene
+chr19	33300057	CEBPA-full gene	CEBPA	full gene
+chr19	33300058	CEBPA-full gene	CEBPA	full gene
+chr19	33300059	CEBPA-full gene	CEBPA	full gene
+chr19	33300060	CEBPA-full gene	CEBPA	full gene
+chr19	33300061	CEBPA-full gene	CEBPA	full gene
+chr19	33300062	CEBPA-full gene	CEBPA	full gene
+chr19	33300063	CEBPA-full gene	CEBPA	full gene
+chr19	33300064	CEBPA-full gene	CEBPA	full gene
+chr19	33300065	CEBPA-full gene	CEBPA	full gene
+chr19	33300066	CEBPA-full gene	CEBPA	full gene
+chr19	33300067	CEBPA-full gene	CEBPA	full gene
+chr19	33300068	CEBPA-full gene	CEBPA	full gene
+chr19	33300069	CEBPA-full gene	CEBPA	full gene
+chr19	33300070	CEBPA-full gene	CEBPA	full gene
+chr19	33300071	CEBPA-full gene	CEBPA	full gene
+chr19	33300072	CEBPA-full gene	CEBPA	full gene
+chr19	33300073	CEBPA-full gene	CEBPA	full gene
+chr19	33300074	CEBPA-full gene	CEBPA	full gene
+chr19	33300075	CEBPA-full gene	CEBPA	full gene
+chr19	33300076	CEBPA-full gene	CEBPA	full gene
+chr19	33300077	CEBPA-full gene	CEBPA	full gene
+chr19	33300078	CEBPA-full gene	CEBPA	full gene
+chr19	33300079	CEBPA-full gene	CEBPA	full gene
+chr19	33300080	CEBPA-full gene	CEBPA	full gene
+chr19	33300081	CEBPA-full gene	CEBPA	full gene
+chr19	33300082	CEBPA-full gene	CEBPA	full gene
+chr19	33300083	CEBPA-full gene	CEBPA	full gene
+chr19	33300084	CEBPA-full gene	CEBPA	full gene
+chr19	33300085	CEBPA-full gene	CEBPA	full gene
+chr19	33300086	CEBPA-full gene	CEBPA	full gene
+chr19	33300087	CEBPA-full gene	CEBPA	full gene
+chr19	33300088	CEBPA-full gene	CEBPA	full gene
+chr19	33300089	CEBPA-full gene	CEBPA	full gene
+chr19	33300090	CEBPA-full gene	CEBPA	full gene
+chr19	33300091	CEBPA-full gene	CEBPA	full gene
+chr19	33300092	CEBPA-full gene	CEBPA	full gene
+chr19	33300093	CEBPA-full gene	CEBPA	full gene
+chr19	33300094	CEBPA-full gene	CEBPA	full gene
+chr19	33300095	CEBPA-full gene	CEBPA	full gene
+chr19	33300096	CEBPA-full gene	CEBPA	full gene
+chr19	33300097	CEBPA-full gene	CEBPA	full gene
+chr19	33300098	CEBPA-full gene	CEBPA	full gene
+chr19	33300099	CEBPA-full gene	CEBPA	full gene
+chr19	33300100	CEBPA-full gene	CEBPA	full gene
+chr19	33300101	CEBPA-full gene	CEBPA	full gene
+chr19	33300102	CEBPA-full gene	CEBPA	full gene
+chr19	33300103	CEBPA-full gene	CEBPA	full gene
+chr19	33300104	CEBPA-full gene	CEBPA	full gene
+chr19	33300105	CEBPA-full gene	CEBPA	full gene
+chr19	33300106	CEBPA-full gene	CEBPA	full gene
+chr19	33300107	CEBPA-full gene	CEBPA	full gene
+chr19	33300108	CEBPA-full gene	CEBPA	full gene
+chr19	33300109	CEBPA-full gene	CEBPA	full gene
+chr19	33300110	CEBPA-full gene	CEBPA	full gene
+chr19	33300111	CEBPA-full gene	CEBPA	full gene
+chr19	33300112	CEBPA-full gene	CEBPA	full gene
+chr19	33300113	CEBPA-full gene	CEBPA	full gene
+chr19	33300114	CEBPA-full gene	CEBPA	full gene
+chr19	33300115	CEBPA-full gene	CEBPA	full gene
+chr19	33300116	CEBPA-full gene	CEBPA	full gene
+chr19	33300117	CEBPA-full gene	CEBPA	full gene
+chr19	33300118	CEBPA-full gene	CEBPA	full gene
+chr19	33300119	CEBPA-full gene	CEBPA	full gene
+chr19	33300120	CEBPA-full gene	CEBPA	full gene
+chr19	33300121	CEBPA-full gene	CEBPA	full gene
+chr19	33300122	CEBPA-full gene	CEBPA	full gene
+chr19	33300123	CEBPA-full gene	CEBPA	full gene
+chr19	33300124	CEBPA-full gene	CEBPA	full gene
+chr19	33300125	CEBPA-full gene	CEBPA	full gene
+chr19	33300126	CEBPA-full gene	CEBPA	full gene
+chr19	33300127	CEBPA-full gene	CEBPA	full gene
+chr19	33300128	CEBPA-full gene	CEBPA	full gene
+chr19	33300129	CEBPA-full gene	CEBPA	full gene
+chr19	33300130	CEBPA-full gene	CEBPA	full gene
+chr19	33300131	CEBPA-full gene	CEBPA	full gene
+chr19	33300132	CEBPA-full gene	CEBPA	full gene
+chr19	33300133	CEBPA-full gene	CEBPA	full gene
+chr19	33300134	CEBPA-full gene	CEBPA	full gene
+chr19	33300135	CEBPA-full gene	CEBPA	full gene
+chr19	33300136	CEBPA-full gene	CEBPA	full gene
+chr19	33300137	CEBPA-full gene	CEBPA	full gene
+chr19	33300138	CEBPA-full gene	CEBPA	full gene
+chr19	33300139	CEBPA-full gene	CEBPA	full gene
+chr19	33300140	CEBPA-full gene	CEBPA	full gene
+chr19	33300141	CEBPA-full gene	CEBPA	full gene
+chr19	33300142	CEBPA-full gene	CEBPA	full gene
+chr19	33300143	CEBPA-full gene	CEBPA	full gene
+chr19	33300144	CEBPA-full gene	CEBPA	full gene
+chr19	33300145	CEBPA-full gene	CEBPA	full gene
+chr19	33300146	CEBPA-full gene	CEBPA	full gene
+chr19	33300147	CEBPA-full gene	CEBPA	full gene
+chr19	33300148	CEBPA-full gene	CEBPA	full gene
+chr19	33300149	CEBPA-full gene	CEBPA	full gene
+chr19	33300150	CEBPA-full gene	CEBPA	full gene
+chr19	33300151	CEBPA-full gene	CEBPA	full gene
+chr19	33300152	CEBPA-full gene	CEBPA	full gene
+chr19	33300153	CEBPA-full gene	CEBPA	full gene
+chr19	33300154	CEBPA-full gene	CEBPA	full gene
+chr19	33300155	CEBPA-full gene	CEBPA	full gene
+chr19	33300156	CEBPA-full gene	CEBPA	full gene
+chr19	33300157	CEBPA-full gene	CEBPA	full gene
+chr19	33300158	CEBPA-full gene	CEBPA	full gene
+chr19	33300159	CEBPA-full gene	CEBPA	full gene
+chr19	33300160	CEBPA-full gene	CEBPA	full gene
+chr19	33300161	CEBPA-full gene	CEBPA	full gene
+chr19	33300162	CEBPA-full gene	CEBPA	full gene
+chr19	33300163	CEBPA-full gene	CEBPA	full gene
+chr19	33300164	CEBPA-full gene	CEBPA	full gene
+chr19	33300165	CEBPA-full gene	CEBPA	full gene
+chr19	33300166	CEBPA-full gene	CEBPA	full gene
+chr19	33300167	CEBPA-full gene	CEBPA	full gene
+chr19	33300168	CEBPA-full gene	CEBPA	full gene
+chr19	33300169	CEBPA-full gene	CEBPA	full gene
+chr19	33300170	CEBPA-full gene	CEBPA	full gene
+chr19	33300171	CEBPA-full gene	CEBPA	full gene
+chr19	33300172	CEBPA-full gene	CEBPA	full gene
+chr19	33300173	CEBPA-full gene	CEBPA	full gene
+chr19	33300174	CEBPA-full gene	CEBPA	full gene
+chr19	33300175	CEBPA-full gene	CEBPA	full gene
+chr19	33300176	CEBPA-full gene	CEBPA	full gene
+chr19	33300177	CEBPA-full gene	CEBPA	full gene
+chr19	33300178	CEBPA-full gene	CEBPA	full gene
+chr19	33300179	CEBPA-full gene	CEBPA	full gene
+chr19	33300180	CEBPA-full gene	CEBPA	full gene
+chr19	33300181	CEBPA-full gene	CEBPA	full gene
+chr19	33300182	CEBPA-full gene	CEBPA	full gene
+chr19	33300183	CEBPA-full gene	CEBPA	full gene
+chr19	33300184	CEBPA-full gene	CEBPA	full gene
+chr19	33300185	CEBPA-full gene	CEBPA	full gene
+chr19	33300186	CEBPA-full gene	CEBPA	full gene
+chr19	33300187	CEBPA-full gene	CEBPA	full gene
+chr19	33300188	CEBPA-full gene	CEBPA	full gene
+chr19	33300189	CEBPA-full gene	CEBPA	full gene
+chr19	33300190	CEBPA-full gene	CEBPA	full gene
+chr19	33300191	CEBPA-full gene	CEBPA	full gene
+chr19	33300192	CEBPA-full gene	CEBPA	full gene
+chr19	33300193	CEBPA-full gene	CEBPA	full gene
+chr19	33300194	CEBPA-full gene	CEBPA	full gene
+chr19	33300195	CEBPA-full gene	CEBPA	full gene
+chr19	33300196	CEBPA-full gene	CEBPA	full gene
+chr19	33300197	CEBPA-full gene	CEBPA	full gene
+chr19	33300198	CEBPA-full gene	CEBPA	full gene
+chr19	33300199	CEBPA-full gene	CEBPA	full gene
+chr19	33300200	CEBPA-full gene	CEBPA	full gene
+chr19	33300201	CEBPA-full gene	CEBPA	full gene
+chr19	33300202	CEBPA-full gene	CEBPA	full gene
+chr19	33300203	CEBPA-full gene	CEBPA	full gene
+chr19	33300204	CEBPA-full gene	CEBPA	full gene
+chr19	33300205	CEBPA-full gene	CEBPA	full gene
+chr19	33300206	CEBPA-full gene	CEBPA	full gene
+chr19	33300207	CEBPA-full gene	CEBPA	full gene
+chr19	33300208	CEBPA-full gene	CEBPA	full gene
+chr19	33300209	CEBPA-full gene	CEBPA	full gene
+chr19	33300210	CEBPA-full gene	CEBPA	full gene
+chr19	33300211	CEBPA-full gene	CEBPA	full gene
+chr19	33300212	CEBPA-full gene	CEBPA	full gene
+chr19	33300213	CEBPA-full gene	CEBPA	full gene
+chr19	33300214	CEBPA-full gene	CEBPA	full gene
+chr19	33300215	CEBPA-full gene	CEBPA	full gene
+chr19	33300216	CEBPA-full gene	CEBPA	full gene
+chr19	33300217	CEBPA-full gene	CEBPA	full gene
+chr19	33300218	CEBPA-full gene	CEBPA	full gene
+chr19	33300219	CEBPA-full gene	CEBPA	full gene
+chr19	33300220	CEBPA-full gene	CEBPA	full gene
+chr19	33300221	CEBPA-full gene	CEBPA	full gene
+chr19	33300222	CEBPA-full gene	CEBPA	full gene
+chr19	33300223	CEBPA-full gene	CEBPA	full gene
+chr19	33300224	CEBPA-full gene	CEBPA	full gene
+chr19	33300225	CEBPA-full gene	CEBPA	full gene
+chr19	33300226	CEBPA-full gene	CEBPA	full gene
+chr19	33300227	CEBPA-full gene	CEBPA	full gene
+chr19	33300228	CEBPA-full gene	CEBPA	full gene
+chr19	33300229	CEBPA-full gene	CEBPA	full gene
+chr19	33300230	CEBPA-full gene	CEBPA	full gene
+chr19	33300231	CEBPA-full gene	CEBPA	full gene
+chr19	33300232	CEBPA-full gene	CEBPA	full gene
+chr19	33300233	CEBPA-full gene	CEBPA	full gene
+chr19	33300234	CEBPA-full gene	CEBPA	full gene
+chr19	33300235	CEBPA-full gene	CEBPA	full gene
+chr19	33300236	CEBPA-full gene	CEBPA	full gene
+chr19	33300237	CEBPA-full gene	CEBPA	full gene
+chr19	33300238	CEBPA-full gene	CEBPA	full gene
+chr19	33300239	CEBPA-full gene	CEBPA	full gene
+chr19	33300240	CEBPA-full gene	CEBPA	full gene
+chr19	33300241	CEBPA-full gene	CEBPA	full gene
+chr19	33300242	CEBPA-full gene	CEBPA	full gene
+chr19	33300243	CEBPA-full gene	CEBPA	full gene
+chr19	33300244	CEBPA-full gene	CEBPA	full gene
+chr19	33300245	CEBPA-full gene	CEBPA	full gene
+chr19	33300246	CEBPA-full gene	CEBPA	full gene
+chr19	33300247	CEBPA-full gene	CEBPA	full gene
+chr19	33300248	CEBPA-full gene	CEBPA	full gene
+chr19	33300249	CEBPA-full gene	CEBPA	full gene
+chr19	33300250	CEBPA-full gene	CEBPA	full gene
+chr19	33300251	CEBPA-full gene	CEBPA	full gene
+chr19	33300252	CEBPA-full gene	CEBPA	full gene
+chr19	33300253	CEBPA-full gene	CEBPA	full gene
+chr19	33300254	CEBPA-full gene	CEBPA	full gene
+chr19	33300255	CEBPA-full gene	CEBPA	full gene
+chr19	33300256	CEBPA-full gene	CEBPA	full gene
+chr19	33300257	CEBPA-full gene	CEBPA	full gene
+chr19	33300258	CEBPA-full gene	CEBPA	full gene
+chr19	33300259	CEBPA-full gene	CEBPA	full gene
+chr19	33300260	CEBPA-full gene	CEBPA	full gene
+chr19	33300261	CEBPA-full gene	CEBPA	full gene
+chr19	33300262	CEBPA-full gene	CEBPA	full gene
+chr19	33300263	CEBPA-full gene	CEBPA	full gene
+chr19	33300264	CEBPA-full gene	CEBPA	full gene
+chr19	33300265	CEBPA-full gene	CEBPA	full gene
+chr19	33300266	CEBPA-full gene	CEBPA	full gene
+chr19	33300267	CEBPA-full gene	CEBPA	full gene
+chr19	33300268	CEBPA-full gene	CEBPA	full gene
+chr19	33300269	CEBPA-full gene	CEBPA	full gene
+chr19	33300270	CEBPA-full gene	CEBPA	full gene
+chr19	33300271	CEBPA-full gene	CEBPA	full gene
+chr19	33300272	CEBPA-full gene	CEBPA	full gene
+chr19	33300273	CEBPA-full gene	CEBPA	full gene
+chr19	33300274	CEBPA-full gene	CEBPA	full gene
+chr19	33300275	CEBPA-full gene	CEBPA	full gene
+chr19	33300276	CEBPA-full gene	CEBPA	full gene
+chr19	33300277	CEBPA-full gene	CEBPA	full gene
+chr19	33300278	CEBPA-full gene	CEBPA	full gene
+chr19	33300279	CEBPA-full gene	CEBPA	full gene
+chr19	33300280	CEBPA-full gene	CEBPA	full gene
+chr19	33300281	CEBPA-full gene	CEBPA	full gene
+chr19	33300282	CEBPA-full gene	CEBPA	full gene
+chr19	33300283	CEBPA-full gene	CEBPA	full gene
+chr19	33300284	CEBPA-full gene	CEBPA	full gene
+chr19	33300285	CEBPA-full gene	CEBPA	full gene
+chr19	33300286	CEBPA-full gene	CEBPA	full gene
+chr19	33300287	CEBPA-full gene	CEBPA	full gene
+chr19	33300288	CEBPA-full gene	CEBPA	full gene
+chr19	33300289	CEBPA-full gene	CEBPA	full gene
+chr19	33300290	CEBPA-full gene	CEBPA	full gene
+chr19	33300291	CEBPA-full gene	CEBPA	full gene
+chr19	33300292	CEBPA-full gene	CEBPA	full gene
+chr19	33300293	CEBPA-full gene	CEBPA	full gene
+chr19	33300294	CEBPA-full gene	CEBPA	full gene
+chr19	33300295	CEBPA-full gene	CEBPA	full gene
+chr19	33300296	CEBPA-full gene	CEBPA	full gene
+chr19	33300297	CEBPA-full gene	CEBPA	full gene
+chr19	33300298	CEBPA-full gene	CEBPA	full gene
+chr19	33300299	CEBPA-full gene	CEBPA	full gene
+chr19	33300300	CEBPA-full gene	CEBPA	full gene
+chr19	33300301	CEBPA-full gene	CEBPA	full gene
+chr19	33300302	CEBPA-full gene	CEBPA	full gene
+chr19	33300303	CEBPA-full gene	CEBPA	full gene
+chr19	33300304	CEBPA-full gene	CEBPA	full gene
+chr19	33300305	CEBPA-full gene	CEBPA	full gene
+chr19	33300306	CEBPA-full gene	CEBPA	full gene
+chr19	33300307	CEBPA-full gene	CEBPA	full gene
+chr19	33300308	CEBPA-full gene	CEBPA	full gene
+chr19	33300309	CEBPA-full gene	CEBPA	full gene
+chr19	33300310	CEBPA-full gene	CEBPA	full gene
+chr19	33300311	CEBPA-full gene	CEBPA	full gene
+chr19	33300312	CEBPA-full gene	CEBPA	full gene
+chr19	33300313	CEBPA-full gene	CEBPA	full gene
+chr19	33300314	CEBPA-full gene	CEBPA	full gene
+chr19	33300315	CEBPA-full gene	CEBPA	full gene
+chr19	33300316	CEBPA-full gene	CEBPA	full gene
+chr19	33300317	CEBPA-full gene	CEBPA	full gene
+chr19	33300318	CEBPA-full gene	CEBPA	full gene
+chr19	33300319	CEBPA-full gene	CEBPA	full gene
+chr19	33300320	CEBPA-full gene	CEBPA	full gene
+chr19	33300321	CEBPA-full gene	CEBPA	full gene
+chr19	33300322	CEBPA-full gene	CEBPA	full gene
+chr19	33300323	CEBPA-full gene	CEBPA	full gene
+chr19	33300324	CEBPA-full gene	CEBPA	full gene
+chr19	33300325	CEBPA-full gene	CEBPA	full gene
+chr19	33300326	CEBPA-full gene	CEBPA	full gene
+chr19	33300327	CEBPA-full gene	CEBPA	full gene
+chr19	33300328	CEBPA-full gene	CEBPA	full gene
+chr19	33300329	CEBPA-full gene	CEBPA	full gene
+chr19	33300330	CEBPA-full gene	CEBPA	full gene
+chr19	33300331	CEBPA-full gene	CEBPA	full gene
+chr19	33300332	CEBPA-full gene	CEBPA	full gene
+chr19	33300333	CEBPA-full gene	CEBPA	full gene
+chr19	33300334	CEBPA-full gene	CEBPA	full gene
+chr19	33300335	CEBPA-full gene	CEBPA	full gene
+chr19	33300336	CEBPA-full gene	CEBPA	full gene
+chr19	33300337	CEBPA-full gene	CEBPA	full gene
+chr19	33300338	CEBPA-full gene	CEBPA	full gene
+chr19	33300339	CEBPA-full gene	CEBPA	full gene
+chr19	33300340	CEBPA-full gene	CEBPA	full gene
+chr19	33300341	CEBPA-full gene	CEBPA	full gene
+chr19	33300342	CEBPA-full gene	CEBPA	full gene
+chr19	33300343	CEBPA-full gene	CEBPA	full gene
+chr19	33300344	CEBPA-full gene	CEBPA	full gene
+chr19	33300345	CEBPA-full gene	CEBPA	full gene
+chr19	33300346	CEBPA-full gene	CEBPA	full gene
+chr19	33300347	CEBPA-full gene	CEBPA	full gene
+chr19	33300348	CEBPA-full gene	CEBPA	full gene
+chr19	33300349	CEBPA-full gene	CEBPA	full gene
+chr19	33300350	CEBPA-full gene	CEBPA	full gene
+chr19	33300351	CEBPA-full gene	CEBPA	full gene
+chr19	33300352	CEBPA-full gene	CEBPA	full gene
+chr19	33300353	CEBPA-full gene	CEBPA	full gene
+chr19	33300354	CEBPA-full gene	CEBPA	full gene
+chr19	33300355	CEBPA-full gene	CEBPA	full gene
+chr19	33300356	CEBPA-full gene	CEBPA	full gene
+chr19	33300357	CEBPA-full gene	CEBPA	full gene
+chr19	33300358	CEBPA-full gene	CEBPA	full gene
+chr19	33300359	CEBPA-full gene	CEBPA	full gene
+chr19	33300360	CEBPA-full gene	CEBPA	full gene
+chr19	33300361	CEBPA-full gene	CEBPA	full gene
+chr19	33300362	CEBPA-full gene	CEBPA	full gene
+chr19	33300363	CEBPA-full gene	CEBPA	full gene
+chr19	33300364	CEBPA-full gene	CEBPA	full gene
+chr19	33300365	CEBPA-full gene	CEBPA	full gene
+chr19	33300366	CEBPA-full gene	CEBPA	full gene
+chr19	33300367	CEBPA-full gene	CEBPA	full gene
+chr19	33300368	CEBPA-full gene	CEBPA	full gene
+chr19	33300369	CEBPA-full gene	CEBPA	full gene
+chr19	33300370	CEBPA-full gene	CEBPA	full gene
+chr19	33300371	CEBPA-full gene	CEBPA	full gene
+chr19	33300372	CEBPA-full gene	CEBPA	full gene
+chr19	33300373	CEBPA-full gene	CEBPA	full gene
+chr19	33300374	CEBPA-full gene	CEBPA	full gene
+chr19	33300375	CEBPA-full gene	CEBPA	full gene
+chr19	33300376	CEBPA-full gene	CEBPA	full gene
+chr19	33300377	CEBPA-full gene	CEBPA	full gene
+chr19	33300378	CEBPA-full gene	CEBPA	full gene
+chr19	33300379	CEBPA-full gene	CEBPA	full gene
+chr19	33300380	CEBPA-full gene	CEBPA	full gene
+chr19	33300381	CEBPA-full gene	CEBPA	full gene
+chr19	33300382	CEBPA-full gene	CEBPA	full gene
+chr19	33300383	CEBPA-full gene	CEBPA	full gene
+chr19	33300384	CEBPA-full gene	CEBPA	full gene
+chr19	33300385	CEBPA-full gene	CEBPA	full gene
+chr19	33300386	CEBPA-full gene	CEBPA	full gene
+chr19	33300387	CEBPA-full gene	CEBPA	full gene
+chr19	33300388	CEBPA-full gene	CEBPA	full gene
+chr19	33300389	CEBPA-full gene	CEBPA	full gene
+chr19	33300390	CEBPA-full gene	CEBPA	full gene
+chr19	33300391	CEBPA-full gene	CEBPA	full gene
+chr19	33300392	CEBPA-full gene	CEBPA	full gene
+chr19	33300393	CEBPA-full gene	CEBPA	full gene
+chr19	33300394	CEBPA-full gene	CEBPA	full gene
+chr19	33300395	CEBPA-full gene	CEBPA	full gene
+chr19	33300396	CEBPA-full gene	CEBPA	full gene
+chr19	33300397	CEBPA-full gene	CEBPA	full gene
+chr19	33300398	CEBPA-full gene	CEBPA	full gene
+chr19	33300399	CEBPA-full gene	CEBPA	full gene
+chr19	33300400	CEBPA-full gene	CEBPA	full gene
+chr19	33300401	CEBPA-full gene	CEBPA	full gene
+chr19	33300402	CEBPA-full gene	CEBPA	full gene
+chr19	33300403	CEBPA-full gene	CEBPA	full gene
+chr19	33300404	CEBPA-full gene	CEBPA	full gene
+chr19	33300405	CEBPA-full gene	CEBPA	full gene
+chr19	33300406	CEBPA-full gene	CEBPA	full gene
+chr19	33300407	CEBPA-full gene	CEBPA	full gene
+chr19	33300408	CEBPA-full gene	CEBPA	full gene
+chr19	33300409	CEBPA-full gene	CEBPA	full gene
+chr19	33300410	CEBPA-full gene	CEBPA	full gene
+chr19	33300411	CEBPA-full gene	CEBPA	full gene
+chr19	33300412	CEBPA-full gene	CEBPA	full gene
+chr19	33300413	CEBPA-full gene	CEBPA	full gene
+chr19	33300414	CEBPA-full gene	CEBPA	full gene
+chr19	33300415	CEBPA-full gene	CEBPA	full gene
+chr19	33300416	CEBPA-full gene	CEBPA	full gene
+chr19	33300417	CEBPA-full gene	CEBPA	full gene
+chr19	33300418	CEBPA-full gene	CEBPA	full gene
+chr19	33300419	CEBPA-full gene	CEBPA	full gene
+chr19	33300420	CEBPA-full gene	CEBPA	full gene
+chr19	33300421	CEBPA-full gene	CEBPA	full gene
+chr19	33300422	CEBPA-full gene	CEBPA	full gene
+chr19	33300423	CEBPA-full gene	CEBPA	full gene
+chr19	33300424	CEBPA-full gene	CEBPA	full gene
+chr19	33300425	CEBPA-full gene	CEBPA	full gene
+chr19	33300426	CEBPA-full gene	CEBPA	full gene
+chr19	33300427	CEBPA-full gene	CEBPA	full gene
+chr19	33300428	CEBPA-full gene	CEBPA	full gene
+chr19	33300429	CEBPA-full gene	CEBPA	full gene
+chr19	33300430	CEBPA-full gene	CEBPA	full gene
+chr19	33300431	CEBPA-full gene	CEBPA	full gene
+chr19	33300432	CEBPA-full gene	CEBPA	full gene
+chr19	33300433	CEBPA-full gene	CEBPA	full gene
+chr19	33300434	CEBPA-full gene	CEBPA	full gene
+chr19	33300435	CEBPA-full gene	CEBPA	full gene
+chr19	33300436	CEBPA-full gene	CEBPA	full gene
+chr19	33300437	CEBPA-full gene	CEBPA	full gene
+chr19	33300438	CEBPA-full gene	CEBPA	full gene
+chr19	33300439	CEBPA-full gene	CEBPA	full gene
+chr19	33300440	CEBPA-full gene	CEBPA	full gene
+chr19	33300441	CEBPA-full gene	CEBPA	full gene
+chr19	33300442	CEBPA-full gene	CEBPA	full gene
+chr19	33300443	CEBPA-full gene	CEBPA	full gene
+chr19	33300444	CEBPA-full gene	CEBPA	full gene
+chr19	33300445	CEBPA-full gene	CEBPA	full gene
+chr19	33300446	CEBPA-full gene	CEBPA	full gene
+chr19	33300447	CEBPA-full gene	CEBPA	full gene
+chr19	33300448	CEBPA-full gene	CEBPA	full gene
+chr19	33300449	CEBPA-full gene	CEBPA	full gene
+chr19	33300450	CEBPA-full gene	CEBPA	full gene
+chr19	33300451	CEBPA-full gene	CEBPA	full gene
+chr19	33300452	CEBPA-full gene	CEBPA	full gene
+chr19	33300453	CEBPA-full gene	CEBPA	full gene
+chr19	33300454	CEBPA-full gene	CEBPA	full gene
+chr19	33300455	CEBPA-full gene	CEBPA	full gene
+chr19	33300456	CEBPA-full gene	CEBPA	full gene
+chr19	33300457	CEBPA-full gene	CEBPA	full gene
+chr19	33300458	CEBPA-full gene	CEBPA	full gene
+chr19	33300459	CEBPA-full gene	CEBPA	full gene
+chr19	33300460	CEBPA-full gene	CEBPA	full gene
+chr19	33300461	CEBPA-full gene	CEBPA	full gene
+chr19	33300462	CEBPA-full gene	CEBPA	full gene
+chr19	33300463	CEBPA-full gene	CEBPA	full gene
+chr19	33300464	CEBPA-full gene	CEBPA	full gene
+chr19	33300465	CEBPA-full gene	CEBPA	full gene
+chr19	33300466	CEBPA-full gene	CEBPA	full gene
+chr19	33300467	CEBPA-full gene	CEBPA	full gene
+chr19	33300468	CEBPA-full gene	CEBPA	full gene
+chr19	33300469	CEBPA-full gene	CEBPA	full gene
+chr19	33300470	CEBPA-full gene	CEBPA	full gene
+chr19	33300471	CEBPA-full gene	CEBPA	full gene
+chr19	33300472	CEBPA-full gene	CEBPA	full gene
+chr19	33300473	CEBPA-full gene	CEBPA	full gene
+chr19	33300474	CEBPA-full gene	CEBPA	full gene
+chr19	33300475	CEBPA-full gene	CEBPA	full gene
+chr19	33300476	CEBPA-full gene	CEBPA	full gene
+chr19	33300477	CEBPA-full gene	CEBPA	full gene
+chr19	33300478	CEBPA-full gene	CEBPA	full gene
+chr19	33300479	CEBPA-full gene	CEBPA	full gene
+chr19	33300480	CEBPA-full gene	CEBPA	full gene
+chr19	33300481	CEBPA-full gene	CEBPA	full gene
+chr19	33300482	CEBPA-full gene	CEBPA	full gene
+chr19	33300483	CEBPA-full gene	CEBPA	full gene
+chr19	33300484	CEBPA-full gene	CEBPA	full gene
+chr19	33300485	CEBPA-full gene	CEBPA	full gene
+chr19	33300486	CEBPA-full gene	CEBPA	full gene
+chr19	33300487	CEBPA-full gene	CEBPA	full gene
+chr19	33300488	CEBPA-full gene	CEBPA	full gene
+chr19	33300489	CEBPA-full gene	CEBPA	full gene
+chr19	33300490	CEBPA-full gene	CEBPA	full gene
+chr19	33300491	CEBPA-full gene	CEBPA	full gene
+chr19	33300492	CEBPA-full gene	CEBPA	full gene
+chr19	33300493	CEBPA-full gene	CEBPA	full gene
+chr19	33300494	CEBPA-full gene	CEBPA	full gene
+chr19	33300495	CEBPA-full gene	CEBPA	full gene
+chr19	33300496	CEBPA-full gene	CEBPA	full gene
+chr19	33300497	CEBPA-full gene	CEBPA	full gene
+chr19	33300498	CEBPA-full gene	CEBPA	full gene
+chr19	33300499	CEBPA-full gene	CEBPA	full gene
+chr19	33300500	CEBPA-full gene	CEBPA	full gene
+chr19	33300501	CEBPA-full gene	CEBPA	full gene
+chr19	33300502	CEBPA-full gene	CEBPA	full gene
+chr19	33300503	CEBPA-full gene	CEBPA	full gene
+chr19	33300504	CEBPA-full gene	CEBPA	full gene
+chr19	33300505	CEBPA-full gene	CEBPA	full gene
+chr19	33300506	CEBPA-full gene	CEBPA	full gene
+chr19	33300507	CEBPA-full gene	CEBPA	full gene
+chr19	33300508	CEBPA-full gene	CEBPA	full gene
+chr19	33300509	CEBPA-full gene	CEBPA	full gene
+chr19	33300510	CEBPA-full gene	CEBPA	full gene
+chr19	33300511	CEBPA-full gene	CEBPA	full gene
+chr19	33300512	CEBPA-full gene	CEBPA	full gene
+chr19	33300513	CEBPA-full gene	CEBPA	full gene
+chr19	33300514	CEBPA-full gene	CEBPA	full gene
+chr19	33300515	CEBPA-full gene	CEBPA	full gene
+chr19	33300516	CEBPA-full gene	CEBPA	full gene
+chr19	33300517	CEBPA-full gene	CEBPA	full gene
+chr19	33300518	CEBPA-full gene	CEBPA	full gene
+chr19	33300519	CEBPA-full gene	CEBPA	full gene
+chr19	33300520	CEBPA-full gene	CEBPA	full gene
+chr19	33300521	CEBPA-full gene	CEBPA	full gene
+chr19	33300522	CEBPA-full gene	CEBPA	full gene
+chr19	33300523	CEBPA-full gene	CEBPA	full gene
+chr19	33300524	CEBPA-full gene	CEBPA	full gene
+chr19	33300525	CEBPA-full gene	CEBPA	full gene
+chr19	33300526	CEBPA-full gene	CEBPA	full gene
+chr19	33300527	CEBPA-full gene	CEBPA	full gene
+chr19	33300528	CEBPA-full gene	CEBPA	full gene
+chr19	33300529	CEBPA-full gene	CEBPA	full gene
+chr19	33300530	CEBPA-full gene	CEBPA	full gene
+chr19	33300531	CEBPA-full gene	CEBPA	full gene
+chr19	33300532	CEBPA-full gene	CEBPA	full gene
+chr19	33300533	CEBPA-full gene	CEBPA	full gene
+chr19	33300534	CEBPA-full gene	CEBPA	full gene
+chr19	33300535	CEBPA-full gene	CEBPA	full gene
+chr19	33300536	CEBPA-full gene	CEBPA	full gene
+chr19	33300537	CEBPA-full gene	CEBPA	full gene
+chr19	33300538	CEBPA-full gene	CEBPA	full gene
+chr19	33300539	CEBPA-full gene	CEBPA	full gene
+chr19	33300540	CEBPA-full gene	CEBPA	full gene
+chr19	33300541	CEBPA-full gene	CEBPA	full gene
+chr19	33300542	CEBPA-full gene	CEBPA	full gene
+chr19	33300543	CEBPA-full gene	CEBPA	full gene
+chr19	33300544	CEBPA-full gene	CEBPA	full gene
+chr19	33300545	CEBPA-full gene	CEBPA	full gene
+chr19	33300546	CEBPA-full gene	CEBPA	full gene
+chr19	33300547	CEBPA-full gene	CEBPA	full gene
+chr19	33300548	CEBPA-full gene	CEBPA	full gene
+chr19	33300549	CEBPA-full gene	CEBPA	full gene
+chr19	33300550	CEBPA-full gene	CEBPA	full gene
+chr19	33300551	CEBPA-full gene	CEBPA	full gene
+chr19	33300552	CEBPA-full gene	CEBPA	full gene
+chr19	33300553	CEBPA-full gene	CEBPA	full gene
+chr19	33300554	CEBPA-full gene	CEBPA	full gene
+chr19	33300555	CEBPA-full gene	CEBPA	full gene
+chr19	33300556	CEBPA-full gene	CEBPA	full gene
+chr19	33300557	CEBPA-full gene	CEBPA	full gene
+chr19	33300558	CEBPA-full gene	CEBPA	full gene
+chr19	33300559	CEBPA-full gene	CEBPA	full gene
+chr19	33300560	CEBPA-full gene	CEBPA	full gene
+chr19	33300561	CEBPA-full gene	CEBPA	full gene
+chr19	33300562	CEBPA-full gene	CEBPA	full gene
+chr19	33300563	CEBPA-full gene	CEBPA	full gene
+chr19	33300564	CEBPA-full gene	CEBPA	full gene
+chr19	33300565	CEBPA-full gene	CEBPA	full gene
+chr19	33300566	CEBPA-full gene	CEBPA	full gene
+chr19	33300567	CEBPA-full gene	CEBPA	full gene
+chr19	33300568	CEBPA-full gene	CEBPA	full gene
+chr19	33300569	CEBPA-full gene	CEBPA	full gene
+chr19	33300570	CEBPA-full gene	CEBPA	full gene
+chr19	33300571	CEBPA-full gene	CEBPA	full gene
+chr19	33300572	CEBPA-full gene	CEBPA	full gene
+chr19	33300573	CEBPA-full gene	CEBPA	full gene
+chr19	33300574	CEBPA-full gene	CEBPA	full gene
+chr19	33300575	CEBPA-full gene	CEBPA	full gene
+chr19	33300576	CEBPA-full gene	CEBPA	full gene
+chr19	33300577	CEBPA-full gene	CEBPA	full gene
+chr19	33300578	CEBPA-full gene	CEBPA	full gene
+chr19	33300579	CEBPA-full gene	CEBPA	full gene
+chr19	33300580	CEBPA-full gene	CEBPA	full gene
+chr19	33300581	CEBPA-full gene	CEBPA	full gene
+chr19	33300582	CEBPA-full gene	CEBPA	full gene
+chr19	33300583	CEBPA-full gene	CEBPA	full gene
+chr19	33300584	CEBPA-full gene	CEBPA	full gene
+chr19	33300585	CEBPA-full gene	CEBPA	full gene
+chr19	33300586	CEBPA-full gene	CEBPA	full gene
+chr19	33300587	CEBPA-full gene	CEBPA	full gene
+chr19	33300588	CEBPA-full gene	CEBPA	full gene
+chr19	33300589	CEBPA-full gene	CEBPA	full gene
+chr19	33300590	CEBPA-full gene	CEBPA	full gene
+chr19	33300591	CEBPA-full gene	CEBPA	full gene
+chr19	33300592	CEBPA-full gene	CEBPA	full gene
+chr19	33300593	CEBPA-full gene	CEBPA	full gene
+chr19	33300594	CEBPA-full gene	CEBPA	full gene
+chr19	33300595	CEBPA-full gene	CEBPA	full gene
+chr19	33300596	CEBPA-full gene	CEBPA	full gene
+chr19	33300597	CEBPA-full gene	CEBPA	full gene
+chr19	33300598	CEBPA-full gene	CEBPA	full gene
+chr19	33300599	CEBPA-full gene	CEBPA	full gene
+chr19	33300600	CEBPA-full gene	CEBPA	full gene
+chr19	33300601	CEBPA-full gene	CEBPA	full gene
+chr19	33300602	CEBPA-full gene	CEBPA	full gene
+chr19	33300603	CEBPA-full gene	CEBPA	full gene
+chr19	33300604	CEBPA-full gene	CEBPA	full gene
+chr19	33300605	CEBPA-full gene	CEBPA	full gene
+chr19	33300606	CEBPA-full gene	CEBPA	full gene
+chr19	33300607	CEBPA-full gene	CEBPA	full gene
+chr19	33300608	CEBPA-full gene	CEBPA	full gene
+chr19	33300609	CEBPA-full gene	CEBPA	full gene
+chr19	33300610	CEBPA-full gene	CEBPA	full gene
+chr19	33300611	CEBPA-full gene	CEBPA	full gene
+chr19	33300612	CEBPA-full gene	CEBPA	full gene
+chr19	33300613	CEBPA-full gene	CEBPA	full gene
+chr19	33300614	CEBPA-full gene	CEBPA	full gene
+chr19	33300615	CEBPA-full gene	CEBPA	full gene
+chr19	33300616	CEBPA-full gene	CEBPA	full gene
+chr19	33300617	CEBPA-full gene	CEBPA	full gene
+chr19	33300618	CEBPA-full gene	CEBPA	full gene
+chr19	33300619	CEBPA-full gene	CEBPA	full gene
+chr19	33300620	CEBPA-full gene	CEBPA	full gene
+chr19	33300621	CEBPA-full gene	CEBPA	full gene
+chr19	33300622	CEBPA-full gene	CEBPA	full gene
+chr19	33300623	CEBPA-full gene	CEBPA	full gene
+chr19	33300624	CEBPA-full gene	CEBPA	full gene
+chr19	33300625	CEBPA-full gene	CEBPA	full gene
+chr19	33300626	CEBPA-full gene	CEBPA	full gene
+chr19	33300627	CEBPA-full gene	CEBPA	full gene
+chr19	33300628	CEBPA-full gene	CEBPA	full gene
+chr19	33300629	CEBPA-full gene	CEBPA	full gene
+chr19	33300630	CEBPA-full gene	CEBPA	full gene
+chr19	33300631	CEBPA-full gene	CEBPA	full gene
+chr19	33300632	CEBPA-full gene	CEBPA	full gene
+chr19	33300633	CEBPA-full gene	CEBPA	full gene
+chr19	33300634	CEBPA-full gene	CEBPA	full gene
+chr19	33300635	CEBPA-full gene	CEBPA	full gene
+chr19	33300636	CEBPA-full gene	CEBPA	full gene
+chr19	33300637	CEBPA-full gene	CEBPA	full gene
+chr19	33300638	CEBPA-full gene	CEBPA	full gene
+chr19	33300639	CEBPA-full gene	CEBPA	full gene
+chr19	33300640	CEBPA-full gene	CEBPA	full gene
+chr19	33300641	CEBPA-full gene	CEBPA	full gene
+chr19	33300642	CEBPA-full gene	CEBPA	full gene
+chr19	33300643	CEBPA-full gene	CEBPA	full gene
+chr19	33300644	CEBPA-full gene	CEBPA	full gene
+chr19	33300645	CEBPA-full gene	CEBPA	full gene
+chr19	33300646	CEBPA-full gene	CEBPA	full gene
+chr19	33300647	CEBPA-full gene	CEBPA	full gene
+chr19	33300648	CEBPA-full gene	CEBPA	full gene
+chr19	33300649	CEBPA-full gene	CEBPA	full gene
+chr19	33300650	CEBPA-full gene	CEBPA	full gene
+chr19	33300651	CEBPA-full gene	CEBPA	full gene
+chr19	33300652	CEBPA-full gene	CEBPA	full gene
+chr19	33300653	CEBPA-full gene	CEBPA	full gene
+chr19	33300654	CEBPA-full gene	CEBPA	full gene
+chr19	33300655	CEBPA-full gene	CEBPA	full gene
+chr19	33300656	CEBPA-full gene	CEBPA	full gene
+chr19	33300657	CEBPA-full gene	CEBPA	full gene
+chr19	33300658	CEBPA-full gene	CEBPA	full gene
+chr19	33300659	CEBPA-full gene	CEBPA	full gene
+chr19	33300660	CEBPA-full gene	CEBPA	full gene
+chr19	33300661	CEBPA-full gene	CEBPA	full gene
+chr19	33300662	CEBPA-full gene	CEBPA	full gene
+chr19	33300663	CEBPA-full gene	CEBPA	full gene
+chr19	33300664	CEBPA-full gene	CEBPA	full gene
+chr19	33300665	CEBPA-full gene	CEBPA	full gene
+chr19	33300666	CEBPA-full gene	CEBPA	full gene
+chr19	33300667	CEBPA-full gene	CEBPA	full gene
+chr19	33300668	CEBPA-full gene	CEBPA	full gene
+chr19	33300669	CEBPA-full gene	CEBPA	full gene
+chr19	33300670	CEBPA-full gene	CEBPA	full gene
+chr19	33300671	CEBPA-full gene	CEBPA	full gene
+chr19	33300672	CEBPA-full gene	CEBPA	full gene
+chr19	33300673	CEBPA-full gene	CEBPA	full gene
+chr19	33300674	CEBPA-full gene	CEBPA	full gene
+chr19	33300675	CEBPA-full gene	CEBPA	full gene
+chr19	33300676	CEBPA-full gene	CEBPA	full gene
+chr19	33300677	CEBPA-full gene	CEBPA	full gene
+chr19	33300678	CEBPA-full gene	CEBPA	full gene
+chr19	33300679	CEBPA-full gene	CEBPA	full gene
+chr19	33300680	CEBPA-full gene	CEBPA	full gene
+chr19	33300681	CEBPA-full gene	CEBPA	full gene
+chr19	33300682	CEBPA-full gene	CEBPA	full gene
+chr19	33300683	CEBPA-full gene	CEBPA	full gene
+chr19	33300684	CEBPA-full gene	CEBPA	full gene
+chr19	33300685	CEBPA-full gene	CEBPA	full gene
+chr19	33300686	CEBPA-full gene	CEBPA	full gene
+chr19	33300687	CEBPA-full gene	CEBPA	full gene
+chr19	33300688	CEBPA-full gene	CEBPA	full gene
+chr19	33300689	CEBPA-full gene	CEBPA	full gene
+chr19	33300690	CEBPA-full gene	CEBPA	full gene
+chr19	33300691	CEBPA-full gene	CEBPA	full gene
+chr19	33300692	CEBPA-full gene	CEBPA	full gene
+chr19	33300693	CEBPA-full gene	CEBPA	full gene
+chr19	33300694	CEBPA-full gene	CEBPA	full gene
+chr19	33300695	CEBPA-full gene	CEBPA	full gene
+chr19	33300696	CEBPA-full gene	CEBPA	full gene
+chr19	33300697	CEBPA-full gene	CEBPA	full gene
+chr19	33300698	CEBPA-full gene	CEBPA	full gene
+chr19	33300699	CEBPA-full gene	CEBPA	full gene
+chr19	33300700	CEBPA-full gene	CEBPA	full gene
+chr19	33300701	CEBPA-full gene	CEBPA	full gene
+chr19	33300702	CEBPA-full gene	CEBPA	full gene
+chr19	33300703	CEBPA-full gene	CEBPA	full gene
+chr19	33300704	CEBPA-full gene	CEBPA	full gene
+chr19	33300705	CEBPA-full gene	CEBPA	full gene
+chr19	33300706	CEBPA-full gene	CEBPA	full gene
+chr19	33300707	CEBPA-full gene	CEBPA	full gene
+chr19	33300708	CEBPA-full gene	CEBPA	full gene
+chr19	33300709	CEBPA-full gene	CEBPA	full gene
+chr19	33300710	CEBPA-full gene	CEBPA	full gene
+chr19	33300711	CEBPA-full gene	CEBPA	full gene
+chr19	33300712	CEBPA-full gene	CEBPA	full gene
+chr19	33300713	CEBPA-full gene	CEBPA	full gene
+chr19	33300714	CEBPA-full gene	CEBPA	full gene
+chr19	33300715	CEBPA-full gene	CEBPA	full gene
+chr19	33300716	CEBPA-full gene	CEBPA	full gene
+chr19	33300717	CEBPA-full gene	CEBPA	full gene
+chr19	33300718	CEBPA-full gene	CEBPA	full gene
+chr19	33300719	CEBPA-full gene	CEBPA	full gene
+chr19	33300720	CEBPA-full gene	CEBPA	full gene
+chr19	33300721	CEBPA-full gene	CEBPA	full gene
+chr19	33300722	CEBPA-full gene	CEBPA	full gene
+chr19	33300723	CEBPA-full gene	CEBPA	full gene
+chr19	33300724	CEBPA-full gene	CEBPA	full gene
+chr19	33300725	CEBPA-full gene	CEBPA	full gene
+chr19	33300726	CEBPA-full gene	CEBPA	full gene
+chr19	33300727	CEBPA-full gene	CEBPA	full gene
+chr19	33300728	CEBPA-full gene	CEBPA	full gene
+chr19	33300729	CEBPA-full gene	CEBPA	full gene
+chr19	33300730	CEBPA-full gene	CEBPA	full gene
+chr19	33300731	CEBPA-full gene	CEBPA	full gene
+chr19	33300732	CEBPA-full gene	CEBPA	full gene
+chr19	33300733	CEBPA-full gene	CEBPA	full gene
+chr19	33300734	CEBPA-full gene	CEBPA	full gene
+chr19	33300735	CEBPA-full gene	CEBPA	full gene
+chr19	33300736	CEBPA-full gene	CEBPA	full gene
+chr19	33300737	CEBPA-full gene	CEBPA	full gene
+chr19	33300738	CEBPA-full gene	CEBPA	full gene
+chr19	33300739	CEBPA-full gene	CEBPA	full gene
+chr19	33300740	CEBPA-full gene	CEBPA	full gene
+chr19	33300741	CEBPA-full gene	CEBPA	full gene
+chr19	33300742	CEBPA-full gene	CEBPA	full gene
+chr19	33300743	CEBPA-full gene	CEBPA	full gene
+chr19	33300744	CEBPA-full gene	CEBPA	full gene
+chr19	33300745	CEBPA-full gene	CEBPA	full gene
+chr19	33300746	CEBPA-full gene	CEBPA	full gene
+chr19	33300747	CEBPA-full gene	CEBPA	full gene
+chr19	33300748	CEBPA-full gene	CEBPA	full gene
+chr19	33300749	CEBPA-full gene	CEBPA	full gene
+chr19	33300750	CEBPA-full gene	CEBPA	full gene
+chr19	33300751	CEBPA-full gene	CEBPA	full gene
+chr19	33300752	CEBPA-full gene	CEBPA	full gene
+chr19	33300753	CEBPA-full gene	CEBPA	full gene
+chr19	33300754	CEBPA-full gene	CEBPA	full gene
+chr19	33300755	CEBPA-full gene	CEBPA	full gene
+chr19	33300756	CEBPA-full gene	CEBPA	full gene
+chr19	33300757	CEBPA-full gene	CEBPA	full gene
+chr19	33300758	CEBPA-full gene	CEBPA	full gene
+chr19	33300759	CEBPA-full gene	CEBPA	full gene
+chr19	33300760	CEBPA-full gene	CEBPA	full gene
+chr19	33300761	CEBPA-full gene	CEBPA	full gene
+chr19	33300762	CEBPA-full gene	CEBPA	full gene
+chr19	33300763	CEBPA-full gene	CEBPA	full gene
+chr19	33300764	CEBPA-full gene	CEBPA	full gene
+chr19	33300765	CEBPA-full gene	CEBPA	full gene
+chr19	33300766	CEBPA-full gene	CEBPA	full gene
+chr19	33300767	CEBPA-full gene	CEBPA	full gene
+chr19	33300768	CEBPA-full gene	CEBPA	full gene
+chr19	33300769	CEBPA-full gene	CEBPA	full gene
+chr19	33300770	CEBPA-full gene	CEBPA	full gene
+chr19	33300771	CEBPA-full gene	CEBPA	full gene
+chr19	33300772	CEBPA-full gene	CEBPA	full gene
+chr19	33300773	CEBPA-full gene	CEBPA	full gene
+chr19	33300774	CEBPA-full gene	CEBPA	full gene
+chr19	33300775	CEBPA-full gene	CEBPA	full gene
+chr19	33300776	CEBPA-full gene	CEBPA	full gene
+chr19	33300777	CEBPA-full gene	CEBPA	full gene
+chr19	33300778	CEBPA-full gene	CEBPA	full gene
+chr19	33300779	CEBPA-full gene	CEBPA	full gene
+chr19	33300780	CEBPA-full gene	CEBPA	full gene
+chr19	33300781	CEBPA-full gene	CEBPA	full gene
+chr19	33300782	CEBPA-full gene	CEBPA	full gene
+chr19	33300783	CEBPA-full gene	CEBPA	full gene
+chr19	33300784	CEBPA-full gene	CEBPA	full gene
+chr19	33300785	CEBPA-full gene	CEBPA	full gene
+chr19	33300786	CEBPA-full gene	CEBPA	full gene
+chr19	33300787	CEBPA-full gene	CEBPA	full gene
+chr19	33300788	CEBPA-full gene	CEBPA	full gene
+chr19	33300789	CEBPA-full gene	CEBPA	full gene
+chr19	33300790	CEBPA-full gene	CEBPA	full gene
+chr19	33300791	CEBPA-full gene	CEBPA	full gene
+chr19	33300792	CEBPA-full gene	CEBPA	full gene
+chr19	33300793	CEBPA-full gene	CEBPA	full gene
+chr19	33300794	CEBPA-full gene	CEBPA	full gene
+chr19	33300795	CEBPA-full gene	CEBPA	full gene
+chr19	33300796	CEBPA-full gene	CEBPA	full gene
+chr19	33300797	CEBPA-full gene	CEBPA	full gene
+chr19	33300798	CEBPA-full gene	CEBPA	full gene
+chr19	33300799	CEBPA-full gene	CEBPA	full gene
+chr19	33300800	CEBPA-full gene	CEBPA	full gene
+chr19	33300801	CEBPA-full gene	CEBPA	full gene
+chr19	33300802	CEBPA-full gene	CEBPA	full gene
+chr19	33300803	CEBPA-full gene	CEBPA	full gene
+chr19	33300804	CEBPA-full gene	CEBPA	full gene
+chr19	33300805	CEBPA-full gene	CEBPA	full gene
+chr19	33300806	CEBPA-full gene	CEBPA	full gene
+chr19	33300807	CEBPA-full gene	CEBPA	full gene
+chr19	33300808	CEBPA-full gene	CEBPA	full gene
+chr19	33300809	CEBPA-full gene	CEBPA	full gene
+chr19	33300810	CEBPA-full gene	CEBPA	full gene
+chr19	33300811	CEBPA-full gene	CEBPA	full gene
+chr19	33300812	CEBPA-full gene	CEBPA	full gene
+chr19	33300813	CEBPA-full gene	CEBPA	full gene
+chr19	33300814	CEBPA-full gene	CEBPA	full gene
+chr19	33300815	CEBPA-full gene	CEBPA	full gene
+chr19	33300816	CEBPA-full gene	CEBPA	full gene
+chr19	33300817	CEBPA-full gene	CEBPA	full gene
+chr19	33300818	CEBPA-full gene	CEBPA	full gene
+chr19	33300819	CEBPA-full gene	CEBPA	full gene
+chr19	33300820	CEBPA-full gene	CEBPA	full gene
+chr19	33300821	CEBPA-full gene	CEBPA	full gene
+chr19	33300822	CEBPA-full gene	CEBPA	full gene
+chr19	33300823	CEBPA-full gene	CEBPA	full gene
+chr19	33300824	CEBPA-full gene	CEBPA	full gene
+chr19	33300825	CEBPA-full gene	CEBPA	full gene
+chr19	33300826	CEBPA-full gene	CEBPA	full gene
+chr19	33300827	CEBPA-full gene	CEBPA	full gene
+chr19	33300828	CEBPA-full gene	CEBPA	full gene
+chr19	33300829	CEBPA-full gene	CEBPA	full gene
+chr19	33300830	CEBPA-full gene	CEBPA	full gene
+chr19	33300831	CEBPA-full gene	CEBPA	full gene
+chr19	33300832	CEBPA-full gene	CEBPA	full gene
+chr19	33300833	CEBPA-full gene	CEBPA	full gene
+chr19	33300834	CEBPA-full gene	CEBPA	full gene
+chr19	33300835	CEBPA-full gene	CEBPA	full gene
+chr19	33300836	CEBPA-full gene	CEBPA	full gene
+chr19	33300837	CEBPA-full gene	CEBPA	full gene
+chr19	33300838	CEBPA-full gene	CEBPA	full gene
+chr19	33300839	CEBPA-full gene	CEBPA	full gene
+chr19	33300840	CEBPA-full gene	CEBPA	full gene
+chr19	33300841	CEBPA-full gene	CEBPA	full gene
+chr19	33300842	CEBPA-full gene	CEBPA	full gene
+chr19	33300843	CEBPA-full gene	CEBPA	full gene
+chr19	33300844	CEBPA-full gene	CEBPA	full gene
+chr19	33300845	CEBPA-full gene	CEBPA	full gene
+chr19	33300846	CEBPA-full gene	CEBPA	full gene
+chr19	33300847	CEBPA-full gene	CEBPA	full gene
+chr19	33300848	CEBPA-full gene	CEBPA	full gene
+chr19	33300849	CEBPA-full gene	CEBPA	full gene
+chr19	33300850	CEBPA-full gene	CEBPA	full gene
+chr19	33300851	CEBPA-full gene	CEBPA	full gene
+chr19	33300852	CEBPA-full gene	CEBPA	full gene
+chr19	33300853	CEBPA-full gene	CEBPA	full gene
+chr19	33300854	CEBPA-full gene	CEBPA	full gene
+chr19	33300855	CEBPA-full gene	CEBPA	full gene
+chr19	33300856	CEBPA-full gene	CEBPA	full gene
+chr19	33300857	CEBPA-full gene	CEBPA	full gene
+chr19	33300858	CEBPA-full gene	CEBPA	full gene
+chr19	33300859	CEBPA-full gene	CEBPA	full gene
+chr19	33300860	CEBPA-full gene	CEBPA	full gene
+chr19	33300861	CEBPA-full gene	CEBPA	full gene
+chr19	33300862	CEBPA-full gene	CEBPA	full gene
+chr19	33300863	CEBPA-full gene	CEBPA	full gene
+chr19	33300864	CEBPA-full gene	CEBPA	full gene
+chr19	33300865	CEBPA-full gene	CEBPA	full gene
+chr19	33300866	CEBPA-full gene	CEBPA	full gene
+chr19	33300867	CEBPA-full gene	CEBPA	full gene
+chr19	33300868	CEBPA-full gene	CEBPA	full gene
+chr19	33300869	CEBPA-full gene	CEBPA	full gene
+chr19	33300870	CEBPA-full gene	CEBPA	full gene
+chr19	33300871	CEBPA-full gene	CEBPA	full gene
+chr19	33300872	CEBPA-full gene	CEBPA	full gene
+chr19	33300873	CEBPA-full gene	CEBPA	full gene
+chr19	33300874	CEBPA-full gene	CEBPA	full gene
+chr19	33300875	CEBPA-full gene	CEBPA	full gene
+chr19	33300876	CEBPA-full gene	CEBPA	full gene
+chr19	33300877	CEBPA-full gene	CEBPA	full gene
+chr19	33300878	CEBPA-full gene	CEBPA	full gene
+chr19	33300879	CEBPA-full gene	CEBPA	full gene
+chr19	33300880	CEBPA-full gene	CEBPA	full gene
+chr19	33300881	CEBPA-full gene	CEBPA	full gene
+chr19	33300882	CEBPA-full gene	CEBPA	full gene
+chr19	33300883	CEBPA-full gene	CEBPA	full gene
+chr19	33300884	CEBPA-full gene	CEBPA	full gene
+chr19	33300885	CEBPA-full gene	CEBPA	full gene
+chr19	33300886	CEBPA-full gene	CEBPA	full gene
+chr19	33300887	CEBPA-full gene	CEBPA	full gene
+chr19	33300888	CEBPA-full gene	CEBPA	full gene
+chr19	33300889	CEBPA-full gene	CEBPA	full gene
+chr19	33300890	CEBPA-full gene	CEBPA	full gene
+chr19	33300891	CEBPA-full gene	CEBPA	full gene
+chr19	33300892	CEBPA-full gene	CEBPA	full gene
+chr19	33300893	CEBPA-full gene	CEBPA	full gene
+chr19	33300894	CEBPA-full gene	CEBPA	full gene
+chr19	33300895	CEBPA-full gene	CEBPA	full gene
+chr19	33300896	CEBPA-full gene	CEBPA	full gene
+chr19	33300897	CEBPA-full gene	CEBPA	full gene
+chr19	33300898	CEBPA-full gene	CEBPA	full gene
+chr19	33300899	CEBPA-full gene	CEBPA	full gene
+chr19	33300900	CEBPA-full gene	CEBPA	full gene
+chr19	33300901	CEBPA-full gene	CEBPA	full gene
+chr19	33300902	CEBPA-full gene	CEBPA	full gene
+chr19	33300903	CEBPA-full gene	CEBPA	full gene
+chr19	33300904	CEBPA-full gene	CEBPA	full gene
+chr19	33300905	CEBPA-full gene	CEBPA	full gene
+chr19	33300906	CEBPA-full gene	CEBPA	full gene
+chr19	33300907	CEBPA-full gene	CEBPA	full gene
+chr19	33300908	CEBPA-full gene	CEBPA	full gene
+chr19	33300909	CEBPA-full gene	CEBPA	full gene
+chr19	33300910	CEBPA-full gene	CEBPA	full gene
+chr19	33300911	CEBPA-full gene	CEBPA	full gene
+chr19	33300912	CEBPA-full gene	CEBPA	full gene
+chr19	33300913	CEBPA-full gene	CEBPA	full gene
+chr19	33300914	CEBPA-full gene	CEBPA	full gene
+chr19	33300915	CEBPA-full gene	CEBPA	full gene
+chr19	33300916	CEBPA-full gene	CEBPA	full gene
+chr19	33300917	CEBPA-full gene	CEBPA	full gene
+chr19	33300918	CEBPA-full gene	CEBPA	full gene
+chr19	33300919	CEBPA-full gene	CEBPA	full gene
+chr19	33300920	CEBPA-full gene	CEBPA	full gene
+chr19	33300921	CEBPA-full gene	CEBPA	full gene
+chr19	33300922	CEBPA-full gene	CEBPA	full gene
+chr19	33300923	CEBPA-full gene	CEBPA	full gene
+chr19	33300924	CEBPA-full gene	CEBPA	full gene
+chr19	33300925	CEBPA-full gene	CEBPA	full gene
+chr19	33300926	CEBPA-full gene	CEBPA	full gene
+chr19	33300927	CEBPA-full gene	CEBPA	full gene
+chr19	33300928	CEBPA-full gene	CEBPA	full gene
+chr19	33300929	CEBPA-full gene	CEBPA	full gene
+chr19	33300930	CEBPA-full gene	CEBPA	full gene
+chr19	33300931	CEBPA-full gene	CEBPA	full gene
+chr19	33300932	CEBPA-full gene	CEBPA	full gene
+chr19	33300933	CEBPA-full gene	CEBPA	full gene
+chr19	33300934	CEBPA-full gene	CEBPA	full gene
+chr19	33300935	CEBPA-full gene	CEBPA	full gene
+chr19	33300936	CEBPA-full gene	CEBPA	full gene
+chr19	33300937	CEBPA-full gene	CEBPA	full gene
+chr19	33300938	CEBPA-full gene	CEBPA	full gene
+chr19	33300939	CEBPA-full gene	CEBPA	full gene
+chr19	33300940	CEBPA-full gene	CEBPA	full gene
+chr19	33300941	CEBPA-full gene	CEBPA	full gene
+chr19	33300942	CEBPA-full gene	CEBPA	full gene
+chr19	33300943	CEBPA-full gene	CEBPA	full gene
+chr19	33300944	CEBPA-full gene	CEBPA	full gene
+chr19	33300945	CEBPA-full gene	CEBPA	full gene
+chr19	33300946	CEBPA-full gene	CEBPA	full gene
+chr19	33300947	CEBPA-full gene	CEBPA	full gene
+chr19	33300948	CEBPA-full gene	CEBPA	full gene
+chr19	33300949	CEBPA-full gene	CEBPA	full gene
+chr19	33300950	CEBPA-full gene	CEBPA	full gene
+chr19	33300951	CEBPA-full gene	CEBPA	full gene
+chr19	33300952	CEBPA-full gene	CEBPA	full gene
+chr19	33300953	CEBPA-full gene	CEBPA	full gene
+chr19	33300954	CEBPA-full gene	CEBPA	full gene
+chr19	33300955	CEBPA-full gene	CEBPA	full gene
+chr19	33300956	CEBPA-full gene	CEBPA	full gene
+chr19	33300957	CEBPA-full gene	CEBPA	full gene
+chr19	33300958	CEBPA-full gene	CEBPA	full gene
+chr19	33300959	CEBPA-full gene	CEBPA	full gene
+chr19	33300960	CEBPA-full gene	CEBPA	full gene
+chr19	33300961	CEBPA-full gene	CEBPA	full gene
+chr19	33300962	CEBPA-full gene	CEBPA	full gene
+chr19	33300963	CEBPA-full gene	CEBPA	full gene
+chr19	33300964	CEBPA-full gene	CEBPA	full gene
+chr19	33300965	CEBPA-full gene	CEBPA	full gene
+chr19	33300966	CEBPA-full gene	CEBPA	full gene
+chr19	33300967	CEBPA-full gene	CEBPA	full gene
+chr19	33300968	CEBPA-full gene	CEBPA	full gene
+chr19	33300969	CEBPA-full gene	CEBPA	full gene
+chr19	33300970	CEBPA-full gene	CEBPA	full gene
+chr19	33300971	CEBPA-full gene	CEBPA	full gene
+chr19	33300972	CEBPA-full gene	CEBPA	full gene
+chr19	33300973	CEBPA-full gene	CEBPA	full gene
+chr19	33300974	CEBPA-full gene	CEBPA	full gene
+chr19	33300975	CEBPA-full gene	CEBPA	full gene
+chr19	33300976	CEBPA-full gene	CEBPA	full gene
+chr19	33300977	CEBPA-full gene	CEBPA	full gene
+chr19	33300978	CEBPA-full gene	CEBPA	full gene
+chr19	33300979	CEBPA-full gene	CEBPA	full gene
+chr19	33300980	CEBPA-full gene	CEBPA	full gene
+chr19	33300981	CEBPA-full gene	CEBPA	full gene
+chr19	33300982	CEBPA-full gene	CEBPA	full gene
+chr19	33300983	CEBPA-full gene	CEBPA	full gene
+chr19	33300984	CEBPA-full gene	CEBPA	full gene
+chr19	33300985	CEBPA-full gene	CEBPA	full gene
+chr19	33300986	CEBPA-full gene	CEBPA	full gene
+chr19	33300987	CEBPA-full gene	CEBPA	full gene
+chr19	33300988	CEBPA-full gene	CEBPA	full gene
+chr19	33300989	CEBPA-full gene	CEBPA	full gene
+chr19	33300990	CEBPA-full gene	CEBPA	full gene
+chr19	33300991	CEBPA-full gene	CEBPA	full gene
+chr19	33300992	CEBPA-full gene	CEBPA	full gene
+chr19	33300993	CEBPA-full gene	CEBPA	full gene
+chr19	33300994	CEBPA-full gene	CEBPA	full gene
+chr19	33300995	CEBPA-full gene	CEBPA	full gene
+chr19	33300996	CEBPA-full gene	CEBPA	full gene
+chr19	33300997	CEBPA-full gene	CEBPA	full gene
+chr19	33300998	CEBPA-full gene	CEBPA	full gene
+chr19	33300999	CEBPA-full gene	CEBPA	full gene
+chr19	33301000	CEBPA-full gene	CEBPA	full gene
+chr19	33301001	CEBPA-full gene	CEBPA	full gene
+chr19	33301002	CEBPA-full gene	CEBPA	full gene
+chr19	33301003	CEBPA-full gene	CEBPA	full gene
+chr19	33301004	CEBPA-full gene	CEBPA	full gene
+chr19	33301005	CEBPA-full gene	CEBPA	full gene
+chr19	33301006	CEBPA-full gene	CEBPA	full gene
+chr19	33301007	CEBPA-full gene	CEBPA	full gene
+chr19	33301008	CEBPA-full gene	CEBPA	full gene
+chr19	33301009	CEBPA-full gene	CEBPA	full gene
+chr19	33301010	CEBPA-full gene	CEBPA	full gene
+chr19	33301011	CEBPA-full gene	CEBPA	full gene
+chr19	33301012	CEBPA-full gene	CEBPA	full gene
+chr19	33301013	CEBPA-full gene	CEBPA	full gene
+chr19	33301014	CEBPA-full gene	CEBPA	full gene
+chr19	33301015	CEBPA-full gene	CEBPA	full gene
+chr19	33301016	CEBPA-full gene	CEBPA	full gene
+chr19	33301017	CEBPA-full gene	CEBPA	full gene
+chr19	33301018	CEBPA-full gene	CEBPA	full gene
+chr19	33301019	CEBPA-full gene	CEBPA	full gene
+chr19	33301020	CEBPA-full gene	CEBPA	full gene
+chr19	33301021	CEBPA-full gene	CEBPA	full gene
+chr19	33301022	CEBPA-full gene	CEBPA	full gene
+chr19	33301023	CEBPA-full gene	CEBPA	full gene
+chr19	33301024	CEBPA-full gene	CEBPA	full gene
+chr19	33301025	CEBPA-full gene	CEBPA	full gene
+chr19	33301026	CEBPA-full gene	CEBPA	full gene
+chr19	33301027	CEBPA-full gene	CEBPA	full gene
+chr19	33301028	CEBPA-full gene	CEBPA	full gene
+chr19	33301029	CEBPA-full gene	CEBPA	full gene
+chr19	33301030	CEBPA-full gene	CEBPA	full gene
+chr19	33301031	CEBPA-full gene	CEBPA	full gene
+chr19	33301032	CEBPA-full gene	CEBPA	full gene
+chr19	33301033	CEBPA-full gene	CEBPA	full gene
+chr19	33301034	CEBPA-full gene	CEBPA	full gene
+chr19	33301035	CEBPA-full gene	CEBPA	full gene
+chr19	33301036	CEBPA-full gene	CEBPA	full gene
+chr19	33301037	CEBPA-full gene	CEBPA	full gene
+chr19	33301038	CEBPA-full gene	CEBPA	full gene
+chr19	33301039	CEBPA-full gene	CEBPA	full gene
+chr19	33301040	CEBPA-full gene	CEBPA	full gene
+chr19	33301041	CEBPA-full gene	CEBPA	full gene
+chr19	33301042	CEBPA-full gene	CEBPA	full gene
+chr19	33301043	CEBPA-full gene	CEBPA	full gene
+chr19	33301044	CEBPA-full gene	CEBPA	full gene
+chr19	33301045	CEBPA-full gene	CEBPA	full gene
+chr19	33301046	CEBPA-full gene	CEBPA	full gene
+chr19	33301047	CEBPA-full gene	CEBPA	full gene
+chr19	33301048	CEBPA-full gene	CEBPA	full gene
+chr19	33301049	CEBPA-full gene	CEBPA	full gene
+chr19	33301050	CEBPA-full gene	CEBPA	full gene
+chr19	33301051	CEBPA-full gene	CEBPA	full gene
+chr19	33301052	CEBPA-full gene	CEBPA	full gene
+chr19	33301053	CEBPA-full gene	CEBPA	full gene
+chr19	33301054	CEBPA-full gene	CEBPA	full gene
+chr19	33301055	CEBPA-full gene	CEBPA	full gene
+chr19	33301056	CEBPA-full gene	CEBPA	full gene
+chr19	33301057	CEBPA-full gene	CEBPA	full gene
+chr19	33301058	CEBPA-full gene	CEBPA	full gene
+chr19	33301059	CEBPA-full gene	CEBPA	full gene
+chr19	33301060	CEBPA-full gene	CEBPA	full gene
+chr19	33301061	CEBPA-full gene	CEBPA	full gene
+chr19	33301062	CEBPA-full gene	CEBPA	full gene
+chr19	33301063	CEBPA-full gene	CEBPA	full gene
+chr19	33301064	CEBPA-full gene	CEBPA	full gene
+chr19	33301065	CEBPA-full gene	CEBPA	full gene
+chr19	33301066	CEBPA-full gene	CEBPA	full gene
+chr19	33301067	CEBPA-full gene	CEBPA	full gene
+chr19	33301068	CEBPA-full gene	CEBPA	full gene
+chr19	33301069	CEBPA-full gene	CEBPA	full gene
+chr19	33301070	CEBPA-full gene	CEBPA	full gene
+chr19	33301071	CEBPA-full gene	CEBPA	full gene
+chr19	33301072	CEBPA-full gene	CEBPA	full gene
+chr19	33301073	CEBPA-full gene	CEBPA	full gene
+chr19	33301074	CEBPA-full gene	CEBPA	full gene
+chr19	33301075	CEBPA-full gene	CEBPA	full gene
+chr19	33301076	CEBPA-full gene	CEBPA	full gene
+chr19	33301077	CEBPA-full gene	CEBPA	full gene
+chr19	33301078	CEBPA-full gene	CEBPA	full gene
+chr19	33301079	CEBPA-full gene	CEBPA	full gene
+chr19	33301080	CEBPA-full gene	CEBPA	full gene
+chr19	33301081	CEBPA-full gene	CEBPA	full gene
+chr19	33301082	CEBPA-full gene	CEBPA	full gene
+chr19	33301083	CEBPA-full gene	CEBPA	full gene
+chr19	33301084	CEBPA-full gene	CEBPA	full gene
+chr19	33301085	CEBPA-full gene	CEBPA	full gene
+chr19	33301086	CEBPA-full gene	CEBPA	full gene
+chr19	33301087	CEBPA-full gene	CEBPA	full gene
+chr19	33301088	CEBPA-full gene	CEBPA	full gene
+chr19	33301089	CEBPA-full gene	CEBPA	full gene
+chr19	33301090	CEBPA-full gene	CEBPA	full gene
+chr19	33301091	CEBPA-full gene	CEBPA	full gene
+chr19	33301092	CEBPA-full gene	CEBPA	full gene
+chr19	33301093	CEBPA-full gene	CEBPA	full gene
+chr19	33301094	CEBPA-full gene	CEBPA	full gene
+chr19	33301095	CEBPA-full gene	CEBPA	full gene
+chr19	33301096	CEBPA-full gene	CEBPA	full gene
+chr19	33301097	CEBPA-full gene	CEBPA	full gene
+chr19	33301098	CEBPA-full gene	CEBPA	full gene
+chr19	33301099	CEBPA-full gene	CEBPA	full gene
+chr19	33301100	CEBPA-full gene	CEBPA	full gene
+chr19	33301101	CEBPA-full gene	CEBPA	full gene
+chr19	33301102	CEBPA-full gene	CEBPA	full gene
+chr19	33301103	CEBPA-full gene	CEBPA	full gene
+chr19	33301104	CEBPA-full gene	CEBPA	full gene
+chr19	33301105	CEBPA-full gene	CEBPA	full gene
+chr19	33301106	CEBPA-full gene	CEBPA	full gene
+chr19	33301107	CEBPA-full gene	CEBPA	full gene
+chr19	33301108	CEBPA-full gene	CEBPA	full gene
+chr19	33301109	CEBPA-full gene	CEBPA	full gene
+chr19	33301110	CEBPA-full gene	CEBPA	full gene
+chr19	33301111	CEBPA-full gene	CEBPA	full gene
+chr19	33301112	CEBPA-full gene	CEBPA	full gene
+chr19	33301113	CEBPA-full gene	CEBPA	full gene
+chr19	33301114	CEBPA-full gene	CEBPA	full gene
+chr19	33301115	CEBPA-full gene	CEBPA	full gene
+chr19	33301116	CEBPA-full gene	CEBPA	full gene
+chr19	33301117	CEBPA-full gene	CEBPA	full gene
+chr19	33301118	CEBPA-full gene	CEBPA	full gene
+chr19	33301119	CEBPA-full gene	CEBPA	full gene
+chr19	33301120	CEBPA-full gene	CEBPA	full gene
+chr19	33301121	CEBPA-full gene	CEBPA	full gene
+chr19	33301122	CEBPA-full gene	CEBPA	full gene
+chr19	33301123	CEBPA-full gene	CEBPA	full gene
+chr19	33301124	CEBPA-full gene	CEBPA	full gene
+chr19	33301125	CEBPA-full gene	CEBPA	full gene
+chr19	33301126	CEBPA-full gene	CEBPA	full gene
+chr19	33301127	CEBPA-full gene	CEBPA	full gene
+chr19	33301128	CEBPA-full gene	CEBPA	full gene
+chr19	33301129	CEBPA-full gene	CEBPA	full gene
+chr19	33301130	CEBPA-full gene	CEBPA	full gene
+chr19	33301131	CEBPA-full gene	CEBPA	full gene
+chr19	33301132	CEBPA-full gene	CEBPA	full gene
+chr19	33301133	CEBPA-full gene	CEBPA	full gene
+chr19	33301134	CEBPA-full gene	CEBPA	full gene
+chr19	33301135	CEBPA-full gene	CEBPA	full gene
+chr19	33301136	CEBPA-full gene	CEBPA	full gene
+chr19	33301137	CEBPA-full gene	CEBPA	full gene
+chr19	33301138	CEBPA-full gene	CEBPA	full gene
+chr19	33301139	CEBPA-full gene	CEBPA	full gene
+chr19	33301140	CEBPA-full gene	CEBPA	full gene
+chr19	33301141	CEBPA-full gene	CEBPA	full gene
+chr19	33301142	CEBPA-full gene	CEBPA	full gene
+chr19	33301143	CEBPA-full gene	CEBPA	full gene
+chr19	33301144	CEBPA-full gene	CEBPA	full gene
+chr19	33301145	CEBPA-full gene	CEBPA	full gene
+chr19	33301146	CEBPA-full gene	CEBPA	full gene
+chr19	33301147	CEBPA-full gene	CEBPA	full gene
+chr19	33301148	CEBPA-full gene	CEBPA	full gene
+chr19	33301149	CEBPA-full gene	CEBPA	full gene
+chr19	33301150	CEBPA-full gene	CEBPA	full gene
+chr19	33301151	CEBPA-full gene	CEBPA	full gene
+chr19	33301152	CEBPA-full gene	CEBPA	full gene
+chr19	33301153	CEBPA-full gene	CEBPA	full gene
+chr19	33301154	CEBPA-full gene	CEBPA	full gene
+chr19	33301155	CEBPA-full gene	CEBPA	full gene
+chr19	33301156	CEBPA-full gene	CEBPA	full gene
+chr19	33301157	CEBPA-full gene	CEBPA	full gene
+chr19	33301158	CEBPA-full gene	CEBPA	full gene
+chr19	33301159	CEBPA-full gene	CEBPA	full gene
+chr19	33301160	CEBPA-full gene	CEBPA	full gene
+chr19	33301161	CEBPA-full gene	CEBPA	full gene
+chr19	33301162	CEBPA-full gene	CEBPA	full gene
+chr19	33301163	CEBPA-full gene	CEBPA	full gene
+chr19	33301164	CEBPA-full gene	CEBPA	full gene
+chr19	33301165	CEBPA-full gene	CEBPA	full gene
+chr19	33301166	CEBPA-full gene	CEBPA	full gene
+chr19	33301167	CEBPA-full gene	CEBPA	full gene
+chr19	33301168	CEBPA-full gene	CEBPA	full gene
+chr19	33301169	CEBPA-full gene	CEBPA	full gene
+chr19	33301170	CEBPA-full gene	CEBPA	full gene
+chr19	33301171	CEBPA-full gene	CEBPA	full gene
+chr19	33301172	CEBPA-full gene	CEBPA	full gene
+chr19	33301173	CEBPA-full gene	CEBPA	full gene
+chr19	33301174	CEBPA-full gene	CEBPA	full gene
+chr19	33301175	CEBPA-full gene	CEBPA	full gene
+chr19	33301176	CEBPA-full gene	CEBPA	full gene
+chr19	33301177	CEBPA-full gene	CEBPA	full gene
+chr19	33301178	CEBPA-full gene	CEBPA	full gene
+chr19	33301179	CEBPA-full gene	CEBPA	full gene
+chr19	33301180	CEBPA-full gene	CEBPA	full gene
+chr19	33301181	CEBPA-full gene	CEBPA	full gene
+chr19	33301182	CEBPA-full gene	CEBPA	full gene
+chr19	33301183	CEBPA-full gene	CEBPA	full gene
+chr19	33301184	CEBPA-full gene	CEBPA	full gene
+chr19	33301185	CEBPA-full gene	CEBPA	full gene
+chr19	33301186	CEBPA-full gene	CEBPA	full gene
+chr19	33301187	CEBPA-full gene	CEBPA	full gene
+chr19	33301188	CEBPA-full gene	CEBPA	full gene
+chr19	33301189	CEBPA-full gene	CEBPA	full gene
+chr19	33301190	CEBPA-full gene	CEBPA	full gene
+chr19	33301191	CEBPA-full gene	CEBPA	full gene
+chr19	33301192	CEBPA-full gene	CEBPA	full gene
+chr19	33301193	CEBPA-full gene	CEBPA	full gene
+chr19	33301194	CEBPA-full gene	CEBPA	full gene
+chr19	33301195	CEBPA-full gene	CEBPA	full gene
+chr19	33301196	CEBPA-full gene	CEBPA	full gene
+chr19	33301197	CEBPA-full gene	CEBPA	full gene
+chr19	33301198	CEBPA-full gene	CEBPA	full gene
+chr19	33301199	CEBPA-full gene	CEBPA	full gene
+chr19	33301200	CEBPA-full gene	CEBPA	full gene
+chr19	33301201	CEBPA-full gene	CEBPA	full gene
+chr19	33301202	CEBPA-full gene	CEBPA	full gene
+chr19	33301203	CEBPA-full gene	CEBPA	full gene
+chr19	33301204	CEBPA-full gene	CEBPA	full gene
+chr19	33301205	CEBPA-full gene	CEBPA	full gene
+chr19	33301206	CEBPA-full gene	CEBPA	full gene
+chr19	33301207	CEBPA-full gene	CEBPA	full gene
+chr19	33301208	CEBPA-full gene	CEBPA	full gene
+chr19	33301209	CEBPA-full gene	CEBPA	full gene
+chr19	33301210	CEBPA-full gene	CEBPA	full gene
+chr19	33301211	CEBPA-full gene	CEBPA	full gene
+chr19	33301212	CEBPA-full gene	CEBPA	full gene
+chr19	33301213	CEBPA-full gene	CEBPA	full gene
+chr19	33301214	CEBPA-full gene	CEBPA	full gene
+chr19	33301215	CEBPA-full gene	CEBPA	full gene
+chr19	33301216	CEBPA-full gene	CEBPA	full gene
+chr19	33301217	CEBPA-full gene	CEBPA	full gene
+chr19	33301218	CEBPA-full gene	CEBPA	full gene
+chr19	33301219	CEBPA-full gene	CEBPA	full gene
+chr19	33301220	CEBPA-full gene	CEBPA	full gene
+chr19	33301221	CEBPA-full gene	CEBPA	full gene
+chr19	33301222	CEBPA-full gene	CEBPA	full gene
+chr19	33301223	CEBPA-full gene	CEBPA	full gene
+chr19	33301224	CEBPA-full gene	CEBPA	full gene
+chr19	33301225	CEBPA-full gene	CEBPA	full gene
+chr19	33301226	CEBPA-full gene	CEBPA	full gene
+chr19	33301227	CEBPA-full gene	CEBPA	full gene
+chr19	33301228	CEBPA-full gene	CEBPA	full gene
+chr19	33301229	CEBPA-full gene	CEBPA	full gene
+chr19	33301230	CEBPA-full gene	CEBPA	full gene
+chr19	33301231	CEBPA-full gene	CEBPA	full gene
+chr19	33301232	CEBPA-full gene	CEBPA	full gene
+chr19	33301233	CEBPA-full gene	CEBPA	full gene
+chr19	33301234	CEBPA-full gene	CEBPA	full gene
+chr19	33301235	CEBPA-full gene	CEBPA	full gene
+chr19	33301236	CEBPA-full gene	CEBPA	full gene
+chr19	33301237	CEBPA-full gene	CEBPA	full gene
+chr19	33301238	CEBPA-full gene	CEBPA	full gene
+chr19	33301239	CEBPA-full gene	CEBPA	full gene
+chr19	33301240	CEBPA-full gene	CEBPA	full gene
+chr19	33301241	CEBPA-full gene	CEBPA	full gene
+chr19	33301242	CEBPA-full gene	CEBPA	full gene
+chr19	33301243	CEBPA-full gene	CEBPA	full gene
+chr19	33301244	CEBPA-full gene	CEBPA	full gene
+chr19	33301245	CEBPA-full gene	CEBPA	full gene
+chr19	33301246	CEBPA-full gene	CEBPA	full gene
+chr19	33301247	CEBPA-full gene	CEBPA	full gene
+chr19	33301248	CEBPA-full gene	CEBPA	full gene
+chr19	33301249	CEBPA-full gene	CEBPA	full gene
+chr19	33301250	CEBPA-full gene	CEBPA	full gene
+chr19	33301251	CEBPA-full gene	CEBPA	full gene
+chr19	33301252	CEBPA-full gene	CEBPA	full gene
+chr19	33301253	CEBPA-full gene	CEBPA	full gene
+chr19	33301254	CEBPA-full gene	CEBPA	full gene
+chr19	33301255	CEBPA-full gene	CEBPA	full gene
+chr19	33301256	CEBPA-full gene	CEBPA	full gene
+chr19	33301257	CEBPA-full gene	CEBPA	full gene
+chr19	33301258	CEBPA-full gene	CEBPA	full gene
+chr19	33301259	CEBPA-full gene	CEBPA	full gene
+chr19	33301260	CEBPA-full gene	CEBPA	full gene
+chr19	33301261	CEBPA-full gene	CEBPA	full gene
+chr19	33301262	CEBPA-full gene	CEBPA	full gene
+chr19	33301263	CEBPA-full gene	CEBPA	full gene
+chr19	33301264	CEBPA-full gene	CEBPA	full gene
+chr19	33301265	CEBPA-full gene	CEBPA	full gene
+chr19	33301266	CEBPA-full gene	CEBPA	full gene
+chr19	33301267	CEBPA-full gene	CEBPA	full gene
+chr19	33301268	CEBPA-full gene	CEBPA	full gene
+chr19	33301269	CEBPA-full gene	CEBPA	full gene
+chr19	33301270	CEBPA-full gene	CEBPA	full gene
+chr19	33301271	CEBPA-full gene	CEBPA	full gene
+chr19	33301272	CEBPA-full gene	CEBPA	full gene
+chr19	33301273	CEBPA-full gene	CEBPA	full gene
+chr19	33301274	CEBPA-full gene	CEBPA	full gene
+chr19	33301275	CEBPA-full gene	CEBPA	full gene
+chr19	33301276	CEBPA-full gene	CEBPA	full gene
+chr19	33301277	CEBPA-full gene	CEBPA	full gene
+chr19	33301278	CEBPA-full gene	CEBPA	full gene
+chr19	33301279	CEBPA-full gene	CEBPA	full gene
+chr19	33301280	CEBPA-full gene	CEBPA	full gene
+chr19	33301281	CEBPA-full gene	CEBPA	full gene
+chr19	33301282	CEBPA-full gene	CEBPA	full gene
+chr19	33301283	CEBPA-full gene	CEBPA	full gene
+chr19	33301284	CEBPA-full gene	CEBPA	full gene
+chr19	33301285	CEBPA-full gene	CEBPA	full gene
+chr19	33301286	CEBPA-full gene	CEBPA	full gene
+chr19	33301287	CEBPA-full gene	CEBPA	full gene
+chr19	33301288	CEBPA-full gene	CEBPA	full gene
+chr19	33301289	CEBPA-full gene	CEBPA	full gene
+chr19	33301290	CEBPA-full gene	CEBPA	full gene
+chr19	33301291	CEBPA-full gene	CEBPA	full gene
+chr19	33301292	CEBPA-full gene	CEBPA	full gene
+chr19	33301293	CEBPA-full gene	CEBPA	full gene
+chr19	33301294	CEBPA-full gene	CEBPA	full gene
+chr19	33301295	CEBPA-full gene	CEBPA	full gene
+chr19	33301296	CEBPA-full gene	CEBPA	full gene
+chr19	33301297	CEBPA-full gene	CEBPA	full gene
+chr19	33301298	CEBPA-full gene	CEBPA	full gene
+chr19	33301299	CEBPA-full gene	CEBPA	full gene
+chr19	33301300	CEBPA-full gene	CEBPA	full gene
+chr19	33301301	CEBPA-full gene	CEBPA	full gene
+chr19	33301302	CEBPA-full gene	CEBPA	full gene
+chr19	33301303	CEBPA-full gene	CEBPA	full gene
+chr19	33301304	CEBPA-full gene	CEBPA	full gene
+chr19	33301305	CEBPA-full gene	CEBPA	full gene
+chr19	33301306	CEBPA-full gene	CEBPA	full gene
+chr19	33301307	CEBPA-full gene	CEBPA	full gene
+chr19	33301308	CEBPA-full gene	CEBPA	full gene
+chr19	33301309	CEBPA-full gene	CEBPA	full gene
+chr19	33301310	CEBPA-full gene	CEBPA	full gene
+chr19	33301311	CEBPA-full gene	CEBPA	full gene
+chr19	33301312	CEBPA-full gene	CEBPA	full gene
+chr19	33301313	CEBPA-full gene	CEBPA	full gene
+chr19	33301314	CEBPA-full gene	CEBPA	full gene
+chr19	33301315	CEBPA-full gene	CEBPA	full gene
+chr19	33301316	CEBPA-full gene	CEBPA	full gene
+chr19	33301317	CEBPA-full gene	CEBPA	full gene
+chr19	33301318	CEBPA-full gene	CEBPA	full gene
+chr19	33301319	CEBPA-full gene	CEBPA	full gene
+chr19	33301320	CEBPA-full gene	CEBPA	full gene
+chr19	33301321	CEBPA-full gene	CEBPA	full gene
+chr19	33301322	CEBPA-full gene	CEBPA	full gene
+chr19	33301323	CEBPA-full gene	CEBPA	full gene
+chr19	33301324	CEBPA-full gene	CEBPA	full gene
+chr19	33301325	CEBPA-full gene	CEBPA	full gene
+chr19	33301326	CEBPA-full gene	CEBPA	full gene
+chr19	33301327	CEBPA-full gene	CEBPA	full gene
+chr19	33301328	CEBPA-full gene	CEBPA	full gene
+chr19	33301329	CEBPA-full gene	CEBPA	full gene
+chr19	33301330	CEBPA-full gene	CEBPA	full gene
+chr19	33301331	CEBPA-full gene	CEBPA	full gene
+chr19	33301332	CEBPA-full gene	CEBPA	full gene
+chr19	33301333	CEBPA-full gene	CEBPA	full gene
+chr19	33301334	CEBPA-full gene	CEBPA	full gene
+chr19	33301335	CEBPA-full gene	CEBPA	full gene
+chr19	33301336	CEBPA-full gene	CEBPA	full gene
+chr19	33301337	CEBPA-full gene	CEBPA	full gene
+chr19	33301338	CEBPA-full gene	CEBPA	full gene
+chr19	33301339	CEBPA-full gene	CEBPA	full gene
+chr19	33301340	CEBPA-full gene	CEBPA	full gene
+chr19	33301341	CEBPA-full gene	CEBPA	full gene
+chr19	33301342	CEBPA-full gene	CEBPA	full gene
+chr19	33301343	CEBPA-full gene	CEBPA	full gene
+chr19	33301344	CEBPA-full gene	CEBPA	full gene
+chr19	33301345	CEBPA-full gene	CEBPA	full gene
+chr19	33301346	CEBPA-full gene	CEBPA	full gene
+chr19	33301347	CEBPA-full gene	CEBPA	full gene
+chr19	33301348	CEBPA-full gene	CEBPA	full gene
+chr19	33301349	CEBPA-full gene	CEBPA	full gene
+chr19	33301350	CEBPA-full gene	CEBPA	full gene
+chr19	33301351	CEBPA-full gene	CEBPA	full gene
+chr19	33301352	CEBPA-full gene	CEBPA	full gene
+chr19	33301353	CEBPA-full gene	CEBPA	full gene
+chr19	33301354	CEBPA-full gene	CEBPA	full gene
+chr19	33301355	CEBPA-full gene	CEBPA	full gene
+chr19	33301356	CEBPA-full gene	CEBPA	full gene
+chr19	33301357	CEBPA-full gene	CEBPA	full gene
+chr19	33301358	CEBPA-full gene	CEBPA	full gene
+chr19	33301359	CEBPA-full gene	CEBPA	full gene
+chr19	33301360	CEBPA-full gene	CEBPA	full gene
+chr19	33301361	CEBPA-full gene	CEBPA	full gene
+chr19	33301362	CEBPA-full gene	CEBPA	full gene
+chr19	33301363	CEBPA-full gene	CEBPA	full gene
+chr19	33301364	CEBPA-full gene	CEBPA	full gene
+chr19	33301365	CEBPA-full gene	CEBPA	full gene
+chr19	33301366	CEBPA-full gene	CEBPA	full gene
+chr19	33301367	CEBPA-full gene	CEBPA	full gene
+chr19	33301368	CEBPA-full gene	CEBPA	full gene
+chr19	33301369	CEBPA-full gene	CEBPA	full gene
+chr19	33301370	CEBPA-full gene	CEBPA	full gene
+chr19	33301371	CEBPA-full gene	CEBPA	full gene
+chr19	33301372	CEBPA-full gene	CEBPA	full gene
+chr19	33301373	CEBPA-full gene	CEBPA	full gene
+chr19	33301374	CEBPA-full gene	CEBPA	full gene
+chr19	33301375	CEBPA-full gene	CEBPA	full gene
+chr19	33301376	CEBPA-full gene	CEBPA	full gene
+chr19	33301377	CEBPA-full gene	CEBPA	full gene
+chr19	33301378	CEBPA-full gene	CEBPA	full gene
+chr19	33301379	CEBPA-full gene	CEBPA	full gene
+chr19	33301380	CEBPA-full gene	CEBPA	full gene
+chr19	33301381	CEBPA-full gene	CEBPA	full gene
+chr19	33301382	CEBPA-full gene	CEBPA	full gene
+chr19	33301383	CEBPA-full gene	CEBPA	full gene
+chr19	33301384	CEBPA-full gene	CEBPA	full gene
+chr19	33301385	CEBPA-full gene	CEBPA	full gene
+chr19	33301386	CEBPA-full gene	CEBPA	full gene
+chr19	33301387	CEBPA-full gene	CEBPA	full gene
+chr19	33301388	CEBPA-full gene	CEBPA	full gene
+chr19	33301389	CEBPA-full gene	CEBPA	full gene
+chr19	33301390	CEBPA-full gene	CEBPA	full gene
+chr19	33301391	CEBPA-full gene	CEBPA	full gene
+chr19	33301392	CEBPA-full gene	CEBPA	full gene
+chr19	33301393	CEBPA-full gene	CEBPA	full gene
+chr19	33301394	CEBPA-full gene	CEBPA	full gene
+chr19	33301395	CEBPA-full gene	CEBPA	full gene
+chr19	33301396	CEBPA-full gene	CEBPA	full gene
+chr19	33301397	CEBPA-full gene	CEBPA	full gene
+chr19	33301398	CEBPA-full gene	CEBPA	full gene
+chr19	33301399	CEBPA-full gene	CEBPA	full gene
+chr19	33301400	CEBPA-full gene	CEBPA	full gene
+chr19	33301401	CEBPA-full gene	CEBPA	full gene
+chr19	33301402	CEBPA-full gene	CEBPA	full gene
+chr19	33301403	CEBPA-full gene	CEBPA	full gene
+chr19	33301404	CEBPA-full gene	CEBPA	full gene
+chr19	33301405	CEBPA-full gene	CEBPA	full gene
+chr19	33301406	CEBPA-full gene	CEBPA	full gene
+chr19	33301407	CEBPA-full gene	CEBPA	full gene
+chr19	33301408	CEBPA-full gene	CEBPA	full gene
+chr19	33301409	CEBPA-full gene	CEBPA	full gene
+chr19	33301410	CEBPA-full gene	CEBPA	full gene
+chr19	33301411	CEBPA-full gene	CEBPA	full gene
+chr19	33301412	CEBPA-full gene	CEBPA	full gene
+chr19	33301413	CEBPA-full gene	CEBPA	full gene
+chr19	33301414	CEBPA-full gene	CEBPA	full gene
+chr19	33301415	CEBPA-full gene	CEBPA	full gene
+chr19	33301416	CEBPA-full gene	CEBPA	full gene
+chr19	33301417	CEBPA-full gene	CEBPA	full gene
+chr19	33301418	CEBPA-full gene	CEBPA	full gene
+chr19	33301419	CEBPA-full gene	CEBPA	full gene
+chr19	33301420	CEBPA-full gene	CEBPA	full gene
+chr19	33301421	CEBPA-full gene	CEBPA	full gene
+chr19	33301422	CEBPA-full gene	CEBPA	full gene
+chr19	33301423	CEBPA-full gene	CEBPA	full gene
+chr19	33301424	CEBPA-full gene	CEBPA	full gene
+chr19	33301425	CEBPA-full gene	CEBPA	full gene
+chr19	33301426	CEBPA-full gene	CEBPA	full gene
+chr19	33301427	CEBPA-full gene	CEBPA	full gene
+chr19	33301428	CEBPA-full gene	CEBPA	full gene
+chr19	33301429	CEBPA-full gene	CEBPA	full gene
+chr19	33301430	CEBPA-full gene	CEBPA	full gene
+chr19	33301431	CEBPA-full gene	CEBPA	full gene
+chr19	33301432	CEBPA-full gene	CEBPA	full gene
+chr19	33301433	CEBPA-full gene	CEBPA	full gene
+chr19	33301434	CEBPA-full gene	CEBPA	full gene
+chr19	33301435	CEBPA-full gene	CEBPA	full gene
+chr19	33301436	CEBPA-full gene	CEBPA	full gene
+chr19	33301437	CEBPA-full gene	CEBPA	full gene
+chr19	33301438	CEBPA-full gene	CEBPA	full gene
+chr19	33301439	CEBPA-full gene	CEBPA	full gene
+chr19	33301440	CEBPA-full gene	CEBPA	full gene
+chr19	33301441	CEBPA-full gene	CEBPA	full gene
+chr19	33301442	CEBPA-full gene	CEBPA	full gene
+chr19	33301443	CEBPA-full gene	CEBPA	full gene
+chr19	33301444	CEBPA-full gene	CEBPA	full gene
+chr19	33301445	CEBPA-full gene	CEBPA	full gene
+chr19	33301446	CEBPA-full gene	CEBPA	full gene
+chr19	33301447	CEBPA-full gene	CEBPA	full gene
+chr19	33301448	CEBPA-full gene	CEBPA	full gene
+chr19	33301449	CEBPA-full gene	CEBPA	full gene
+chr19	33301450	CEBPA-full gene	CEBPA	full gene
+chr19	33301451	CEBPA-full gene	CEBPA	full gene
+chr19	33301452	CEBPA-full gene	CEBPA	full gene
+chr19	33301453	CEBPA-full gene	CEBPA	full gene
+chr19	33301454	CEBPA-full gene	CEBPA	full gene
+chr19	33301455	CEBPA-full gene	CEBPA	full gene
+chr19	33301456	CEBPA-full gene	CEBPA	full gene
+chr19	33301457	CEBPA-full gene	CEBPA	full gene
+chr19	33301458	CEBPA-full gene	CEBPA	full gene
+chr19	33301459	CEBPA-full gene	CEBPA	full gene
+chr19	33301460	CEBPA-full gene	CEBPA	full gene
+chr19	33301461	CEBPA-full gene	CEBPA	full gene
+chr19	33301462	CEBPA-full gene	CEBPA	full gene
+chr19	33301463	CEBPA-full gene	CEBPA	full gene
+chr19	33301464	CEBPA-full gene	CEBPA	full gene
+chr19	33301465	CEBPA-full gene	CEBPA	full gene
+chr19	33301466	CEBPA-full gene	CEBPA	full gene
+chr19	33301467	CEBPA-full gene	CEBPA	full gene
+chr19	33301468	CEBPA-full gene	CEBPA	full gene
+chr19	33301469	CEBPA-full gene	CEBPA	full gene
+chr19	33301470	CEBPA-full gene	CEBPA	full gene
+chr19	33301471	CEBPA-full gene	CEBPA	full gene
+chr19	33301472	CEBPA-full gene	CEBPA	full gene
+chr19	33301473	CEBPA-full gene	CEBPA	full gene
+chr19	33301474	CEBPA-full gene	CEBPA	full gene
+chr19	33301475	CEBPA-full gene	CEBPA	full gene
+chr19	33301476	CEBPA-full gene	CEBPA	full gene
+chr19	33301477	CEBPA-full gene	CEBPA	full gene
+chr19	33301478	CEBPA-full gene	CEBPA	full gene
+chr19	33301479	CEBPA-full gene	CEBPA	full gene
+chr19	33301480	CEBPA-full gene	CEBPA	full gene
+chr19	33301481	CEBPA-full gene	CEBPA	full gene
+chr19	33301482	CEBPA-full gene	CEBPA	full gene
+chr19	33301483	CEBPA-full gene	CEBPA	full gene
+chr19	33301484	CEBPA-full gene	CEBPA	full gene
+chr19	33301485	CEBPA-full gene	CEBPA	full gene
+chr19	33301486	CEBPA-full gene	CEBPA	full gene
+chr19	33301487	CEBPA-full gene	CEBPA	full gene
+chr19	33301488	CEBPA-full gene	CEBPA	full gene
+chr19	33301489	CEBPA-full gene	CEBPA	full gene
+chr19	33301490	CEBPA-full gene	CEBPA	full gene
+chr19	33301491	CEBPA-full gene	CEBPA	full gene
+chr19	33301492	CEBPA-full gene	CEBPA	full gene
+chr19	33301493	CEBPA-full gene	CEBPA	full gene
+chr19	33301494	CEBPA-full gene	CEBPA	full gene
+chr19	33301495	CEBPA-full gene	CEBPA	full gene
+chr19	33301496	CEBPA-full gene	CEBPA	full gene
+chr19	33301497	CEBPA-full gene	CEBPA	full gene
+chr19	33301498	CEBPA-full gene	CEBPA	full gene
+chr19	33301499	CEBPA-full gene	CEBPA	full gene
+chr19	33301500	CEBPA-full gene	CEBPA	full gene
+chr19	33301501	CEBPA-full gene	CEBPA	full gene
+chr19	33301502	CEBPA-full gene	CEBPA	full gene
+chr19	33301503	CEBPA-full gene	CEBPA	full gene
+chr19	33301504	CEBPA-full gene	CEBPA	full gene
+chr19	33301505	CEBPA-full gene	CEBPA	full gene
+chr19	33301506	CEBPA-full gene	CEBPA	full gene
+chr19	33301507	CEBPA-full gene	CEBPA	full gene
+chr19	33301508	CEBPA-full gene	CEBPA	full gene
+chr19	33301509	CEBPA-full gene	CEBPA	full gene
+chr19	33301510	CEBPA-full gene	CEBPA	full gene
+chr19	33301511	CEBPA-full gene	CEBPA	full gene
+chr19	33301512	CEBPA-full gene	CEBPA	full gene
+chr19	33301513	CEBPA-full gene	CEBPA	full gene
+chr19	33301514	CEBPA-full gene	CEBPA	full gene
+chr19	33301515	CEBPA-full gene	CEBPA	full gene
+chr19	33301516	CEBPA-full gene	CEBPA	full gene
+chr19	33301517	CEBPA-full gene	CEBPA	full gene
+chr19	33301518	CEBPA-full gene	CEBPA	full gene
+chr19	33301519	CEBPA-full gene	CEBPA	full gene
+chr19	33301520	CEBPA-full gene	CEBPA	full gene
+chr19	33301521	CEBPA-full gene	CEBPA	full gene
+chr19	33301522	CEBPA-full gene	CEBPA	full gene
+chr19	33301523	CEBPA-full gene	CEBPA	full gene
+chr19	33301524	CEBPA-full gene	CEBPA	full gene
+chr19	33301525	CEBPA-full gene	CEBPA	full gene
+chr19	33301526	CEBPA-full gene	CEBPA	full gene
+chr19	33301527	CEBPA-full gene	CEBPA	full gene
+chr19	33301528	CEBPA-full gene	CEBPA	full gene
+chr19	33301529	CEBPA-full gene	CEBPA	full gene
+chr19	33301530	CEBPA-full gene	CEBPA	full gene
+chr19	33301531	CEBPA-full gene	CEBPA	full gene
+chr19	33301532	CEBPA-full gene	CEBPA	full gene
+chr19	33301533	CEBPA-full gene	CEBPA	full gene
+chr19	33301534	CEBPA-full gene	CEBPA	full gene
+chr19	33301535	CEBPA-full gene	CEBPA	full gene
+chr19	33301536	CEBPA-full gene	CEBPA	full gene
+chr19	33301537	CEBPA-full gene	CEBPA	full gene
+chr19	33301538	CEBPA-full gene	CEBPA	full gene
+chr19	33301539	CEBPA-full gene	CEBPA	full gene
+chr19	33301540	CEBPA-full gene	CEBPA	full gene
+chr19	33301541	CEBPA-full gene	CEBPA	full gene
+chr19	33301542	CEBPA-full gene	CEBPA	full gene
+chr19	33301543	CEBPA-full gene	CEBPA	full gene
+chr19	33301544	CEBPA-full gene	CEBPA	full gene
+chr19	33301545	CEBPA-full gene	CEBPA	full gene
+chr19	33301546	CEBPA-full gene	CEBPA	full gene
+chr19	33301547	CEBPA-full gene	CEBPA	full gene
+chr19	33301548	CEBPA-full gene	CEBPA	full gene
+chr19	33301549	CEBPA-full gene	CEBPA	full gene
+chr19	33301550	CEBPA-full gene	CEBPA	full gene
+chr19	33301551	CEBPA-full gene	CEBPA	full gene
+chr19	33301552	CEBPA-full gene	CEBPA	full gene
+chr19	33301553	CEBPA-full gene	CEBPA	full gene
+chr19	33301554	CEBPA-full gene	CEBPA	full gene
+chr19	33301555	CEBPA-full gene	CEBPA	full gene
+chr19	33301556	CEBPA-full gene	CEBPA	full gene
+chr19	33301557	CEBPA-full gene	CEBPA	full gene
+chr19	33301558	CEBPA-full gene	CEBPA	full gene
+chr19	33301559	CEBPA-full gene	CEBPA	full gene
+chr19	33301560	CEBPA-full gene	CEBPA	full gene
+chr19	33301561	CEBPA-full gene	CEBPA	full gene
+chr19	33301562	CEBPA-full gene	CEBPA	full gene
+chr19	33301563	CEBPA-full gene	CEBPA	full gene
+chr19	33301564	CEBPA-full gene	CEBPA	full gene
+chr19	33301565	CEBPA-full gene	CEBPA	full gene
+chr19	33301566	CEBPA-full gene	CEBPA	full gene
+chr19	33301567	CEBPA-full gene	CEBPA	full gene
+chr19	33301568	CEBPA-full gene	CEBPA	full gene
+chr19	33301569	CEBPA-full gene	CEBPA	full gene
+chr19	33301570	CEBPA-full gene	CEBPA	full gene
+chr19	33301571	CEBPA-full gene	CEBPA	full gene
+chr19	33301572	CEBPA-full gene	CEBPA	full gene
+chr19	33301573	CEBPA-full gene	CEBPA	full gene
+chr19	33301574	CEBPA-full gene	CEBPA	full gene
+chr19	33301575	CEBPA-full gene	CEBPA	full gene
+chr19	33301576	CEBPA-full gene	CEBPA	full gene
+chr19	33301577	CEBPA-full gene	CEBPA	full gene
+chr19	33301578	CEBPA-full gene	CEBPA	full gene
+chr19	33301579	CEBPA-full gene	CEBPA	full gene
+chr19	33301580	CEBPA-full gene	CEBPA	full gene
+chr19	33301581	CEBPA-full gene	CEBPA	full gene
+chr19	33301582	CEBPA-full gene	CEBPA	full gene
+chr19	33301583	CEBPA-full gene	CEBPA	full gene
+chr19	33301584	CEBPA-full gene	CEBPA	full gene
+chr19	33301585	CEBPA-full gene	CEBPA	full gene
+chr19	33301586	CEBPA-full gene	CEBPA	full gene
+chr19	33301587	CEBPA-full gene	CEBPA	full gene
+chr19	33301588	CEBPA-full gene	CEBPA	full gene
+chr19	33301589	CEBPA-full gene	CEBPA	full gene
+chr19	33301590	CEBPA-full gene	CEBPA	full gene
+chr19	33301591	CEBPA-full gene	CEBPA	full gene
+chr19	33301592	CEBPA-full gene	CEBPA	full gene
+chr19	33301593	CEBPA-full gene	CEBPA	full gene
+chr19	33301594	CEBPA-full gene	CEBPA	full gene
+chr19	33301595	CEBPA-full gene	CEBPA	full gene
+chr19	33301596	CEBPA-full gene	CEBPA	full gene
+chr19	33301597	CEBPA-full gene	CEBPA	full gene
+chr19	33301598	CEBPA-full gene	CEBPA	full gene
+chr19	33301599	CEBPA-full gene	CEBPA	full gene
+chr19	33301600	CEBPA-full gene	CEBPA	full gene
+chr19	33301601	CEBPA-full gene	CEBPA	full gene
+chr19	33301602	CEBPA-full gene	CEBPA	full gene
+chr19	33301603	CEBPA-full gene	CEBPA	full gene
+chr19	33301604	CEBPA-full gene	CEBPA	full gene
+chr19	33301605	CEBPA-full gene	CEBPA	full gene
+chr19	33301606	CEBPA-full gene	CEBPA	full gene
+chr19	33301607	CEBPA-full gene	CEBPA	full gene
+chr19	33301608	CEBPA-full gene	CEBPA	full gene
+chr19	33301609	CEBPA-full gene	CEBPA	full gene
+chr19	33301610	CEBPA-full gene	CEBPA	full gene
+chr19	33301611	CEBPA-full gene	CEBPA	full gene
+chr19	33301612	CEBPA-full gene	CEBPA	full gene
+chr19	33301613	CEBPA-full gene	CEBPA	full gene
+chr19	33301614	CEBPA-full gene	CEBPA	full gene
+chr19	33301615	CEBPA-full gene	CEBPA	full gene
+chr19	33301616	CEBPA-full gene	CEBPA	full gene
+chr19	33301617	CEBPA-full gene	CEBPA	full gene
+chr19	33301618	CEBPA-full gene	CEBPA	full gene
+chr19	33301619	CEBPA-full gene	CEBPA	full gene
+chr19	33301620	CEBPA-full gene	CEBPA	full gene
+chr19	33301621	CEBPA-full gene	CEBPA	full gene
+chr19	33301622	CEBPA-full gene	CEBPA	full gene
+chr19	33301623	CEBPA-full gene	CEBPA	full gene
+chr19	33301624	CEBPA-full gene	CEBPA	full gene
+chr19	33301625	CEBPA-full gene	CEBPA	full gene
+chr19	33301626	CEBPA-full gene	CEBPA	full gene
+chr19	33301627	CEBPA-full gene	CEBPA	full gene
+chr19	33301628	CEBPA-full gene	CEBPA	full gene
+chr19	33301629	CEBPA-full gene	CEBPA	full gene
+chr19	33301630	CEBPA-full gene	CEBPA	full gene
+chr19	33301631	CEBPA-full gene	CEBPA	full gene
+chr19	33301632	CEBPA-full gene	CEBPA	full gene
+chr19	33301633	CEBPA-full gene	CEBPA	full gene
+chr19	33301634	CEBPA-full gene	CEBPA	full gene
+chr19	33301635	CEBPA-full gene	CEBPA	full gene
+chr19	33301636	CEBPA-full gene	CEBPA	full gene
+chr19	33301637	CEBPA-full gene	CEBPA	full gene
+chr19	33301638	CEBPA-full gene	CEBPA	full gene
+chr19	33301639	CEBPA-full gene	CEBPA	full gene
+chr19	33301640	CEBPA-full gene	CEBPA	full gene
+chr19	33301641	CEBPA-full gene	CEBPA	full gene
+chr19	33301642	CEBPA-full gene	CEBPA	full gene
+chr19	33301643	CEBPA-full gene	CEBPA	full gene
+chr19	33301644	CEBPA-full gene	CEBPA	full gene
+chr19	33301645	CEBPA-full gene	CEBPA	full gene
+chr19	33301646	CEBPA-full gene	CEBPA	full gene
+chr19	33301647	CEBPA-full gene	CEBPA	full gene
+chr19	33301648	CEBPA-full gene	CEBPA	full gene
+chr19	33301649	CEBPA-full gene	CEBPA	full gene
+chr19	33301650	CEBPA-full gene	CEBPA	full gene
+chr19	33301651	CEBPA-full gene	CEBPA	full gene
+chr19	33301652	CEBPA-full gene	CEBPA	full gene
+chr19	33301653	CEBPA-full gene	CEBPA	full gene
+chr19	33301654	CEBPA-full gene	CEBPA	full gene
+chr19	33301655	CEBPA-full gene	CEBPA	full gene
+chr19	33301656	CEBPA-full gene	CEBPA	full gene
+chr19	33301657	CEBPA-full gene	CEBPA	full gene
+chr19	33301658	CEBPA-full gene	CEBPA	full gene
+chr19	33301659	CEBPA-full gene	CEBPA	full gene
+chr19	33301660	CEBPA-full gene	CEBPA	full gene
+chr19	33301661	CEBPA-full gene	CEBPA	full gene
+chr19	33301662	CEBPA-full gene	CEBPA	full gene
+chr19	33301663	CEBPA-full gene	CEBPA	full gene
+chr19	33301664	CEBPA-full gene	CEBPA	full gene
+chr19	33301665	CEBPA-full gene	CEBPA	full gene
+chr19	33301666	CEBPA-full gene	CEBPA	full gene
+chr19	33301667	CEBPA-full gene	CEBPA	full gene
+chr19	33301668	CEBPA-full gene	CEBPA	full gene
+chr19	33301669	CEBPA-full gene	CEBPA	full gene
+chr19	33301670	CEBPA-full gene	CEBPA	full gene
+chr19	33301671	CEBPA-full gene	CEBPA	full gene
+chr19	33301672	CEBPA-full gene	CEBPA	full gene
+chr19	33301673	CEBPA-full gene	CEBPA	full gene
+chr19	33301674	CEBPA-full gene	CEBPA	full gene
+chr19	33301675	CEBPA-full gene	CEBPA	full gene
+chr19	33301676	CEBPA-full gene	CEBPA	full gene
+chr19	33301677	CEBPA-full gene	CEBPA	full gene
+chr19	33301678	CEBPA-full gene	CEBPA	full gene
+chr19	33301679	CEBPA-full gene	CEBPA	full gene
+chr19	33301680	CEBPA-full gene	CEBPA	full gene
+chr19	33301681	CEBPA-full gene	CEBPA	full gene
+chr19	33301682	CEBPA-full gene	CEBPA	full gene
+chr19	33301683	CEBPA-full gene	CEBPA	full gene
+chr19	33301684	CEBPA-full gene	CEBPA	full gene
+chr19	33301685	CEBPA-full gene	CEBPA	full gene
+chr19	33301686	CEBPA-full gene	CEBPA	full gene
+chr19	33301687	CEBPA-full gene	CEBPA	full gene
+chr19	33301688	CEBPA-full gene	CEBPA	full gene
+chr19	33301689	CEBPA-full gene	CEBPA	full gene
+chr19	33301690	CEBPA-full gene	CEBPA	full gene
+chr19	33301691	CEBPA-full gene	CEBPA	full gene
+chr19	33301692	CEBPA-full gene	CEBPA	full gene
+chr19	33301693	CEBPA-full gene	CEBPA	full gene
+chr19	33301694	CEBPA-full gene	CEBPA	full gene
+chr19	33301695	CEBPA-full gene	CEBPA	full gene
+chr19	33301696	CEBPA-full gene	CEBPA	full gene
+chr19	33301697	CEBPA-full gene	CEBPA	full gene
+chr19	33301698	CEBPA-full gene	CEBPA	full gene
+chr19	33301699	CEBPA-full gene	CEBPA	full gene
+chr19	33301700	CEBPA-full gene	CEBPA	full gene
+chr19	33301701	CEBPA-full gene	CEBPA	full gene
+chr19	33301702	CEBPA-full gene	CEBPA	full gene
+chr19	33301703	CEBPA-full gene	CEBPA	full gene
+chr19	33301704	CEBPA-full gene	CEBPA	full gene
+chr19	33301705	CEBPA-full gene	CEBPA	full gene
+chr19	33301706	CEBPA-full gene	CEBPA	full gene
+chr19	33301707	CEBPA-full gene	CEBPA	full gene
+chr19	33301708	CEBPA-full gene	CEBPA	full gene
+chr19	33301709	CEBPA-full gene	CEBPA	full gene
+chr19	33301710	CEBPA-full gene	CEBPA	full gene
+chr19	33301711	CEBPA-full gene	CEBPA	full gene
+chr19	33301712	CEBPA-full gene	CEBPA	full gene
+chr19	33301713	CEBPA-full gene	CEBPA	full gene
+chr19	33301714	CEBPA-full gene	CEBPA	full gene
+chr19	33301715	CEBPA-full gene	CEBPA	full gene
+chr19	33301716	CEBPA-full gene	CEBPA	full gene
+chr19	33301717	CEBPA-full gene	CEBPA	full gene
+chr19	33301718	CEBPA-full gene	CEBPA	full gene
+chr19	33301719	CEBPA-full gene	CEBPA	full gene
+chr19	33301720	CEBPA-full gene	CEBPA	full gene
+chr19	33301721	CEBPA-full gene	CEBPA	full gene
+chr19	33301722	CEBPA-full gene	CEBPA	full gene
+chr19	33301723	CEBPA-full gene	CEBPA	full gene
+chr19	33301724	CEBPA-full gene	CEBPA	full gene
+chr19	33301725	CEBPA-full gene	CEBPA	full gene
+chr19	33301726	CEBPA-full gene	CEBPA	full gene
+chr19	33301727	CEBPA-full gene	CEBPA	full gene
+chr19	33301728	CEBPA-full gene	CEBPA	full gene
+chr19	33301729	CEBPA-full gene	CEBPA	full gene
+chr19	33301730	CEBPA-full gene	CEBPA	full gene
+chr19	33301731	CEBPA-full gene	CEBPA	full gene
+chr19	33301732	CEBPA-full gene	CEBPA	full gene
+chr19	33301733	CEBPA-full gene	CEBPA	full gene
+chr19	33301734	CEBPA-full gene	CEBPA	full gene
+chr19	33301735	CEBPA-full gene	CEBPA	full gene
+chr19	33301736	CEBPA-full gene	CEBPA	full gene
+chr19	33301737	CEBPA-full gene	CEBPA	full gene
+chr19	33301738	CEBPA-full gene	CEBPA	full gene
+chr19	33301739	CEBPA-full gene	CEBPA	full gene
+chr19	33301740	CEBPA-full gene	CEBPA	full gene
+chr19	33301741	CEBPA-full gene	CEBPA	full gene
+chr19	33301742	CEBPA-full gene	CEBPA	full gene
+chr19	33301743	CEBPA-full gene	CEBPA	full gene
+chr19	33301744	CEBPA-full gene	CEBPA	full gene
+chr19	33301745	CEBPA-full gene	CEBPA	full gene
+chr19	33301746	CEBPA-full gene	CEBPA	full gene
+chr19	33301747	CEBPA-full gene	CEBPA	full gene
+chr19	33301748	CEBPA-full gene	CEBPA	full gene
+chr19	33301749	CEBPA-full gene	CEBPA	full gene
+chr19	33301750	CEBPA-full gene	CEBPA	full gene
+chr19	33301751	CEBPA-full gene	CEBPA	full gene
+chr19	33301752	CEBPA-full gene	CEBPA	full gene
+chr19	33301753	CEBPA-full gene	CEBPA	full gene
+chr19	33301754	CEBPA-full gene	CEBPA	full gene
+chr19	33301755	CEBPA-full gene	CEBPA	full gene
+chr19	33301756	CEBPA-full gene	CEBPA	full gene
+chr19	33301757	CEBPA-full gene	CEBPA	full gene
+chr19	33301758	CEBPA-full gene	CEBPA	full gene
+chr19	33301759	CEBPA-full gene	CEBPA	full gene
+chr19	33301760	CEBPA-full gene	CEBPA	full gene
+chr19	33301761	CEBPA-full gene	CEBPA	full gene
+chr19	33301762	CEBPA-full gene	CEBPA	full gene
+chr19	33301763	CEBPA-full gene	CEBPA	full gene
+chr19	33301764	CEBPA-full gene	CEBPA	full gene
+chr19	33301765	CEBPA-full gene	CEBPA	full gene
+chr19	33301766	CEBPA-full gene	CEBPA	full gene
+chr19	33301767	CEBPA-full gene	CEBPA	full gene
+chr19	33301768	CEBPA-full gene	CEBPA	full gene
+chr19	33301769	CEBPA-full gene	CEBPA	full gene
+chr19	33301770	CEBPA-full gene	CEBPA	full gene
+chr19	33301771	CEBPA-full gene	CEBPA	full gene
+chr19	33301772	CEBPA-full gene	CEBPA	full gene
+chr19	33301773	CEBPA-full gene	CEBPA	full gene
+chr19	33301774	CEBPA-full gene	CEBPA	full gene
+chr19	33301775	CEBPA-full gene	CEBPA	full gene
+chr19	33301776	CEBPA-full gene	CEBPA	full gene
+chr19	33301777	CEBPA-full gene	CEBPA	full gene
+chr19	33301778	CEBPA-full gene	CEBPA	full gene
+chr19	33301779	CEBPA-full gene	CEBPA	full gene
+chr19	33301780	CEBPA-full gene	CEBPA	full gene
+chr19	33301781	CEBPA-full gene	CEBPA	full gene
+chr19	33301782	CEBPA-full gene	CEBPA	full gene
+chr19	33301783	CEBPA-full gene	CEBPA	full gene
+chr19	33301784	CEBPA-full gene	CEBPA	full gene
+chr19	33301785	CEBPA-full gene	CEBPA	full gene
+chr19	33301786	CEBPA-full gene	CEBPA	full gene
+chr19	33301787	CEBPA-full gene	CEBPA	full gene
+chr19	33301788	CEBPA-full gene	CEBPA	full gene
+chr19	33301789	CEBPA-full gene	CEBPA	full gene
+chr19	33301790	CEBPA-full gene	CEBPA	full gene
+chr19	33301791	CEBPA-full gene	CEBPA	full gene
+chr19	33301792	CEBPA-full gene	CEBPA	full gene
+chr19	33301793	CEBPA-full gene	CEBPA	full gene
+chr19	33301794	CEBPA-full gene	CEBPA	full gene
+chr19	33301795	CEBPA-full gene	CEBPA	full gene
+chr19	33301796	CEBPA-full gene	CEBPA	full gene
+chr19	33301797	CEBPA-full gene	CEBPA	full gene
+chr19	33301798	CEBPA-full gene	CEBPA	full gene
+chr19	33301799	CEBPA-full gene	CEBPA	full gene
+chr19	33301800	CEBPA-full gene	CEBPA	full gene
+chr19	33301801	CEBPA-full gene	CEBPA	full gene
+chr19	33301802	CEBPA-full gene	CEBPA	full gene
+chr19	33301803	CEBPA-full gene	CEBPA	full gene
+chr19	33301804	CEBPA-full gene	CEBPA	full gene
+chr19	33301805	CEBPA-full gene	CEBPA	full gene
+chr19	33301806	CEBPA-full gene	CEBPA	full gene
+chr19	33301807	CEBPA-full gene	CEBPA	full gene
+chr19	33301808	CEBPA-full gene	CEBPA	full gene
+chr19	33301809	CEBPA-full gene	CEBPA	full gene
+chr19	33301810	CEBPA-full gene	CEBPA	full gene
+chr19	33301811	CEBPA-full gene	CEBPA	full gene
+chr19	33301812	CEBPA-full gene	CEBPA	full gene
+chr19	33301813	CEBPA-full gene	CEBPA	full gene
+chr19	33301814	CEBPA-full gene	CEBPA	full gene
+chr19	33301815	CEBPA-full gene	CEBPA	full gene
+chr19	33301816	CEBPA-full gene	CEBPA	full gene
+chr19	33301817	CEBPA-full gene	CEBPA	full gene
+chr19	33301818	CEBPA-full gene	CEBPA	full gene
+chr19	33301819	CEBPA-full gene	CEBPA	full gene
+chr19	33301820	CEBPA-full gene	CEBPA	full gene
+chr19	33301821	CEBPA-full gene	CEBPA	full gene
+chr19	33301822	CEBPA-full gene	CEBPA	full gene
+chr19	33301823	CEBPA-full gene	CEBPA	full gene
+chr19	33301824	CEBPA-full gene	CEBPA	full gene
+chr19	33301825	CEBPA-full gene	CEBPA	full gene
+chr19	33301826	CEBPA-full gene	CEBPA	full gene
+chr19	33301827	CEBPA-full gene	CEBPA	full gene
+chr19	33301828	CEBPA-full gene	CEBPA	full gene
+chr19	33301829	CEBPA-full gene	CEBPA	full gene
+chr19	33301830	CEBPA-full gene	CEBPA	full gene
+chr19	33301831	CEBPA-full gene	CEBPA	full gene
+chr19	33301832	CEBPA-full gene	CEBPA	full gene
+chr19	33301833	CEBPA-full gene	CEBPA	full gene
+chr19	33301834	CEBPA-full gene	CEBPA	full gene
+chr19	33301835	CEBPA-full gene	CEBPA	full gene
+chr19	33301836	CEBPA-full gene	CEBPA	full gene
+chr19	33301837	CEBPA-full gene	CEBPA	full gene
+chr19	33301838	CEBPA-full gene	CEBPA	full gene
+chr19	33301839	CEBPA-full gene	CEBPA	full gene
+chr19	33301840	CEBPA-full gene	CEBPA	full gene
+chr19	33301841	CEBPA-full gene	CEBPA	full gene
+chr19	33301842	CEBPA-full gene	CEBPA	full gene
+chr19	33301843	CEBPA-full gene	CEBPA	full gene
+chr19	33301844	CEBPA-full gene	CEBPA	full gene
+chr19	33301845	CEBPA-full gene	CEBPA	full gene
+chr19	33301846	CEBPA-full gene	CEBPA	full gene
+chr19	33301847	CEBPA-full gene	CEBPA	full gene
+chr19	33301848	CEBPA-full gene	CEBPA	full gene
+chr19	33301849	CEBPA-full gene	CEBPA	full gene
+chr19	33301850	CEBPA-full gene	CEBPA	full gene
+chr19	33301851	CEBPA-full gene	CEBPA	full gene
+chr19	33301852	CEBPA-full gene	CEBPA	full gene
+chr19	33301853	CEBPA-full gene	CEBPA	full gene
+chr19	33301854	CEBPA-full gene	CEBPA	full gene
+chr19	33301855	CEBPA-full gene	CEBPA	full gene
+chr19	33301856	CEBPA-full gene	CEBPA	full gene
+chr19	33301857	CEBPA-full gene	CEBPA	full gene
+chr19	33301858	CEBPA-full gene	CEBPA	full gene
+chr19	33301859	CEBPA-full gene	CEBPA	full gene
+chr19	33301860	CEBPA-full gene	CEBPA	full gene
+chr19	33301861	CEBPA-full gene	CEBPA	full gene
+chr19	33301862	CEBPA-full gene	CEBPA	full gene
+chr19	33301863	CEBPA-full gene	CEBPA	full gene
+chr19	33301864	CEBPA-full gene	CEBPA	full gene
+chr19	33301865	CEBPA-full gene	CEBPA	full gene
+chr19	33301866	CEBPA-full gene	CEBPA	full gene
+chr19	33301867	CEBPA-full gene	CEBPA	full gene
+chr19	33301868	CEBPA-full gene	CEBPA	full gene
+chr19	33301869	CEBPA-full gene	CEBPA	full gene
+chr19	33301870	CEBPA-full gene	CEBPA	full gene
+chr19	33301871	CEBPA-full gene	CEBPA	full gene
+chr19	33301872	CEBPA-full gene	CEBPA	full gene
+chr19	33301873	CEBPA-full gene	CEBPA	full gene
+chr19	33301874	CEBPA-full gene	CEBPA	full gene
+chr19	33301875	CEBPA-full gene	CEBPA	full gene
+chr19	33301876	CEBPA-full gene	CEBPA	full gene
+chr19	33301877	CEBPA-full gene	CEBPA	full gene
+chr19	33301878	CEBPA-full gene	CEBPA	full gene
+chr19	33301879	CEBPA-full gene	CEBPA	full gene
+chr19	33301880	CEBPA-full gene	CEBPA	full gene
+chr19	33301881	CEBPA-full gene	CEBPA	full gene
+chr19	33301882	CEBPA-full gene	CEBPA	full gene
+chr19	33301883	CEBPA-full gene	CEBPA	full gene
+chr19	33301884	CEBPA-full gene	CEBPA	full gene
+chr19	33301885	CEBPA-full gene	CEBPA	full gene
+chr19	33301886	CEBPA-full gene	CEBPA	full gene
+chr19	33301887	CEBPA-full gene	CEBPA	full gene
+chr19	33301888	CEBPA-full gene	CEBPA	full gene
+chr19	33301889	CEBPA-full gene	CEBPA	full gene
+chr19	33301890	CEBPA-full gene	CEBPA	full gene
+chr19	33301891	CEBPA-full gene	CEBPA	full gene
+chr19	33301892	CEBPA-full gene	CEBPA	full gene
+chr19	33301893	CEBPA-full gene	CEBPA	full gene
+chr19	33301894	CEBPA-full gene	CEBPA	full gene
+chr19	33301895	CEBPA-full gene	CEBPA	full gene
+chr19	33301896	CEBPA-full gene	CEBPA	full gene
+chr19	33301897	CEBPA-full gene	CEBPA	full gene
+chr19	33301898	CEBPA-full gene	CEBPA	full gene
+chr19	33301899	CEBPA-full gene	CEBPA	full gene
+chr19	33301900	CEBPA-full gene	CEBPA	full gene
+chr19	33301901	CEBPA-full gene	CEBPA	full gene
+chr19	33301902	CEBPA-full gene	CEBPA	full gene
+chr19	33301903	CEBPA-full gene	CEBPA	full gene
+chr19	33301904	CEBPA-full gene	CEBPA	full gene
+chr19	33301905	CEBPA-full gene	CEBPA	full gene
+chr19	33301906	CEBPA-full gene	CEBPA	full gene
+chr19	33301907	CEBPA-full gene	CEBPA	full gene
+chr19	33301908	CEBPA-full gene	CEBPA	full gene
+chr19	33301909	CEBPA-full gene	CEBPA	full gene
+chr19	33301910	CEBPA-full gene	CEBPA	full gene
+chr19	33301911	CEBPA-full gene	CEBPA	full gene
+chr19	33301912	CEBPA-full gene	CEBPA	full gene
+chr19	33301913	CEBPA-full gene	CEBPA	full gene
+chr19	33301914	CEBPA-full gene	CEBPA	full gene
+chr19	33301915	CEBPA-full gene	CEBPA	full gene
+chr19	33301916	CEBPA-full gene	CEBPA	full gene
+chr19	33301917	CEBPA-full gene	CEBPA	full gene
+chr19	33301918	CEBPA-full gene	CEBPA	full gene
+chr19	33301919	CEBPA-full gene	CEBPA	full gene
+chr19	33301920	CEBPA-full gene	CEBPA	full gene
+chr19	33301921	CEBPA-full gene	CEBPA	full gene
+chr19	33301922	CEBPA-full gene	CEBPA	full gene
+chr19	33301923	CEBPA-full gene	CEBPA	full gene
+chr19	33301924	CEBPA-full gene	CEBPA	full gene
+chr19	33301925	CEBPA-full gene	CEBPA	full gene
+chr19	33301926	CEBPA-full gene	CEBPA	full gene
+chr19	33301927	CEBPA-full gene	CEBPA	full gene
+chr19	33301928	CEBPA-full gene	CEBPA	full gene
+chr19	33301929	CEBPA-full gene	CEBPA	full gene
+chr19	33301930	CEBPA-full gene	CEBPA	full gene
+chr19	33301931	CEBPA-full gene	CEBPA	full gene
+chr19	33301932	CEBPA-full gene	CEBPA	full gene
+chr19	33301933	CEBPA-full gene	CEBPA	full gene
+chr19	33301934	CEBPA-full gene	CEBPA	full gene
+chr19	33301935	CEBPA-full gene	CEBPA	full gene
+chr19	33301936	CEBPA-full gene	CEBPA	full gene
+chr19	33301937	CEBPA-full gene	CEBPA	full gene
+chr19	33301938	CEBPA-full gene	CEBPA	full gene
+chr19	33301939	CEBPA-full gene	CEBPA	full gene
+chr19	33301940	CEBPA-full gene	CEBPA	full gene
+chr19	33301941	CEBPA-full gene	CEBPA	full gene
+chr19	33301942	CEBPA-full gene	CEBPA	full gene
+chr19	33301943	CEBPA-full gene	CEBPA	full gene
+chr19	33301944	CEBPA-full gene	CEBPA	full gene
+chr19	33301945	CEBPA-full gene	CEBPA	full gene
+chr19	33301946	CEBPA-full gene	CEBPA	full gene
+chr19	33301947	CEBPA-full gene	CEBPA	full gene
+chr19	33301948	CEBPA-full gene	CEBPA	full gene
+chr19	33301949	CEBPA-full gene	CEBPA	full gene
+chr19	33301950	CEBPA-full gene	CEBPA	full gene
+chr19	33301951	CEBPA-full gene	CEBPA	full gene
+chr19	33301952	CEBPA-full gene	CEBPA	full gene
+chr19	33301953	CEBPA-full gene	CEBPA	full gene
+chr19	33301954	CEBPA-full gene	CEBPA	full gene
+chr19	33301955	CEBPA-full gene	CEBPA	full gene
+chr19	33301956	CEBPA-full gene	CEBPA	full gene
+chr19	33301957	CEBPA-full gene	CEBPA	full gene
+chr19	33301958	CEBPA-full gene	CEBPA	full gene
+chr19	33301959	CEBPA-full gene	CEBPA	full gene
+chr19	33301960	CEBPA-full gene	CEBPA	full gene
+chr19	33301961	CEBPA-full gene	CEBPA	full gene
+chr19	33301962	CEBPA-full gene	CEBPA	full gene
+chr19	33301963	CEBPA-full gene	CEBPA	full gene
+chr19	33301964	CEBPA-full gene	CEBPA	full gene
+chr19	33301965	CEBPA-full gene	CEBPA	full gene
+chr19	33301966	CEBPA-full gene	CEBPA	full gene
+chr19	33301967	CEBPA-full gene	CEBPA	full gene
+chr19	33301968	CEBPA-full gene	CEBPA	full gene
+chr19	33301969	CEBPA-full gene	CEBPA	full gene
+chr19	33301970	CEBPA-full gene	CEBPA	full gene
+chr19	33301971	CEBPA-full gene	CEBPA	full gene
+chr19	33301972	CEBPA-full gene	CEBPA	full gene
+chr19	33301973	CEBPA-full gene	CEBPA	full gene
+chr19	33301974	CEBPA-full gene	CEBPA	full gene
+chr19	33301975	CEBPA-full gene	CEBPA	full gene
+chr19	33301976	CEBPA-full gene	CEBPA	full gene
+chr19	33301977	CEBPA-full gene	CEBPA	full gene
+chr19	33301978	CEBPA-full gene	CEBPA	full gene
+chr19	33301979	CEBPA-full gene	CEBPA	full gene
+chr19	33301980	CEBPA-full gene	CEBPA	full gene
+chr19	33301981	CEBPA-full gene	CEBPA	full gene
+chr19	33301982	CEBPA-full gene	CEBPA	full gene
+chr19	33301983	CEBPA-full gene	CEBPA	full gene
+chr19	33301984	CEBPA-full gene	CEBPA	full gene
+chr19	33301985	CEBPA-full gene	CEBPA	full gene
+chr19	33301986	CEBPA-full gene	CEBPA	full gene
+chr19	33301987	CEBPA-full gene	CEBPA	full gene
+chr19	33301988	CEBPA-full gene	CEBPA	full gene
+chr19	33301989	CEBPA-full gene	CEBPA	full gene
+chr19	33301990	CEBPA-full gene	CEBPA	full gene
+chr19	33301991	CEBPA-full gene	CEBPA	full gene
+chr19	33301992	CEBPA-full gene	CEBPA	full gene
+chr19	33301993	CEBPA-full gene	CEBPA	full gene
+chr19	33301994	CEBPA-full gene	CEBPA	full gene
+chr19	33301995	CEBPA-full gene	CEBPA	full gene
+chr19	33301996	CEBPA-full gene	CEBPA	full gene
+chr19	33301997	CEBPA-full gene	CEBPA	full gene
+chr19	33301998	CEBPA-full gene	CEBPA	full gene
+chr19	33301999	CEBPA-full gene	CEBPA	full gene
+chr19	33302000	CEBPA-full gene	CEBPA	full gene
+chr19	33302001	CEBPA-full gene	CEBPA	full gene
+chr19	33302002	CEBPA-full gene	CEBPA	full gene
+chr19	33302003	CEBPA-full gene	CEBPA	full gene
+chr19	33302004	CEBPA-full gene	CEBPA	full gene
+chr19	33302005	CEBPA-full gene	CEBPA	full gene
+chr19	33302006	CEBPA-full gene	CEBPA	full gene
+chr19	33302007	CEBPA-full gene	CEBPA	full gene
+chr19	33302008	CEBPA-full gene	CEBPA	full gene
+chr19	33302009	CEBPA-full gene	CEBPA	full gene
+chr19	33302010	CEBPA-full gene	CEBPA	full gene
+chr19	33302011	CEBPA-full gene	CEBPA	full gene
+chr19	33302012	CEBPA-full gene	CEBPA	full gene
+chr19	33302013	CEBPA-full gene	CEBPA	full gene
+chr19	33302014	CEBPA-full gene	CEBPA	full gene
+chr19	33302015	CEBPA-full gene	CEBPA	full gene
+chr19	33302016	CEBPA-full gene	CEBPA	full gene
+chr19	33302017	CEBPA-full gene	CEBPA	full gene
+chr19	33302018	CEBPA-full gene	CEBPA	full gene
+chr19	33302019	CEBPA-full gene	CEBPA	full gene
+chr19	33302020	CEBPA-full gene	CEBPA	full gene
+chr19	33302021	CEBPA-full gene	CEBPA	full gene
+chr19	33302022	CEBPA-full gene	CEBPA	full gene
+chr19	33302023	CEBPA-full gene	CEBPA	full gene
+chr19	33302024	CEBPA-full gene	CEBPA	full gene
+chr19	33302025	CEBPA-full gene	CEBPA	full gene
+chr19	33302026	CEBPA-full gene	CEBPA	full gene
+chr19	33302027	CEBPA-full gene	CEBPA	full gene
+chr19	33302028	CEBPA-full gene	CEBPA	full gene
+chr19	33302029	CEBPA-full gene	CEBPA	full gene
+chr19	33302030	CEBPA-full gene	CEBPA	full gene
+chr19	33302031	CEBPA-full gene	CEBPA	full gene
+chr19	33302032	CEBPA-full gene	CEBPA	full gene
+chr19	33302033	CEBPA-full gene	CEBPA	full gene
+chr19	33302034	CEBPA-full gene	CEBPA	full gene
+chr19	33302035	CEBPA-full gene	CEBPA	full gene
+chr19	33302036	CEBPA-full gene	CEBPA	full gene
+chr19	33302037	CEBPA-full gene	CEBPA	full gene
+chr19	33302038	CEBPA-full gene	CEBPA	full gene
+chr19	33302039	CEBPA-full gene	CEBPA	full gene
+chr19	33302040	CEBPA-full gene	CEBPA	full gene
+chr19	33302041	CEBPA-full gene	CEBPA	full gene
+chr19	33302042	CEBPA-full gene	CEBPA	full gene
+chr19	33302043	CEBPA-full gene	CEBPA	full gene
+chr19	33302044	CEBPA-full gene	CEBPA	full gene
+chr19	33302045	CEBPA-full gene	CEBPA	full gene
+chr19	33302046	CEBPA-full gene	CEBPA	full gene
+chr19	33302047	CEBPA-full gene	CEBPA	full gene
+chr19	33302048	CEBPA-full gene	CEBPA	full gene
+chr19	33302049	CEBPA-full gene	CEBPA	full gene
+chr19	33302050	CEBPA-full gene	CEBPA	full gene
+chr19	33302051	CEBPA-full gene	CEBPA	full gene
+chr19	33302052	CEBPA-full gene	CEBPA	full gene
+chr19	33302053	CEBPA-full gene	CEBPA	full gene
+chr19	33302054	CEBPA-full gene	CEBPA	full gene
+chr19	33302055	CEBPA-full gene	CEBPA	full gene
+chr19	33302056	CEBPA-full gene	CEBPA	full gene
+chr19	33302057	CEBPA-full gene	CEBPA	full gene
+chr19	33302058	CEBPA-full gene	CEBPA	full gene
+chr19	33302059	CEBPA-full gene	CEBPA	full gene
+chr19	33302060	CEBPA-full gene	CEBPA	full gene
+chr19	33302061	CEBPA-full gene	CEBPA	full gene
+chr19	33302062	CEBPA-full gene	CEBPA	full gene
+chr19	33302063	CEBPA-full gene	CEBPA	full gene
+chr19	33302064	CEBPA-full gene	CEBPA	full gene
+chr19	33302065	CEBPA-full gene	CEBPA	full gene
+chr19	33302066	CEBPA-full gene	CEBPA	full gene
+chr19	33302067	CEBPA-full gene	CEBPA	full gene
+chr19	33302068	CEBPA-full gene	CEBPA	full gene
+chr19	33302069	CEBPA-full gene	CEBPA	full gene
+chr19	33302070	CEBPA-full gene	CEBPA	full gene
+chr19	33302071	CEBPA-full gene	CEBPA	full gene
+chr19	33302072	CEBPA-full gene	CEBPA	full gene
+chr19	33302073	CEBPA-full gene	CEBPA	full gene
+chr19	33302074	CEBPA-full gene	CEBPA	full gene
+chr19	33302075	CEBPA-full gene	CEBPA	full gene
+chr19	33302076	CEBPA-full gene	CEBPA	full gene
+chr19	33302077	CEBPA-full gene	CEBPA	full gene
+chr19	33302078	CEBPA-full gene	CEBPA	full gene
+chr19	33302079	CEBPA-full gene	CEBPA	full gene
+chr19	33302080	CEBPA-full gene	CEBPA	full gene
+chr19	33302081	CEBPA-full gene	CEBPA	full gene
+chr19	33302082	CEBPA-full gene	CEBPA	full gene
+chr19	33302083	CEBPA-full gene	CEBPA	full gene
+chr19	33302084	CEBPA-full gene	CEBPA	full gene
+chr19	33302085	CEBPA-full gene	CEBPA	full gene
+chr19	33302086	CEBPA-full gene	CEBPA	full gene
+chr19	33302087	CEBPA-full gene	CEBPA	full gene
+chr19	33302088	CEBPA-full gene	CEBPA	full gene
+chr19	33302089	CEBPA-full gene	CEBPA	full gene
+chr19	33302090	CEBPA-full gene	CEBPA	full gene
+chr19	33302091	CEBPA-full gene	CEBPA	full gene
+chr19	33302092	CEBPA-full gene	CEBPA	full gene
+chr19	33302093	CEBPA-full gene	CEBPA	full gene
+chr19	33302094	CEBPA-full gene	CEBPA	full gene
+chr19	33302095	CEBPA-full gene	CEBPA	full gene
+chr19	33302096	CEBPA-full gene	CEBPA	full gene
+chr19	33302097	CEBPA-full gene	CEBPA	full gene
+chr19	33302098	CEBPA-full gene	CEBPA	full gene
+chr19	33302099	CEBPA-full gene	CEBPA	full gene
+chr19	33302100	CEBPA-full gene	CEBPA	full gene
+chr19	33302101	CEBPA-full gene	CEBPA	full gene
+chr19	33302102	CEBPA-full gene	CEBPA	full gene
+chr19	33302103	CEBPA-full gene	CEBPA	full gene
+chr19	33302104	CEBPA-full gene	CEBPA	full gene
+chr19	33302105	CEBPA-full gene	CEBPA	full gene
+chr19	33302106	CEBPA-full gene	CEBPA	full gene
+chr19	33302107	CEBPA-full gene	CEBPA	full gene
+chr19	33302108	CEBPA-full gene	CEBPA	full gene
+chr19	33302109	CEBPA-full gene	CEBPA	full gene
+chr19	33302110	CEBPA-full gene	CEBPA	full gene
+chr19	33302111	CEBPA-full gene	CEBPA	full gene
+chr19	33302112	CEBPA-full gene	CEBPA	full gene
+chr19	33302113	CEBPA-full gene	CEBPA	full gene
+chr19	33302114	CEBPA-full gene	CEBPA	full gene
+chr19	33302115	CEBPA-full gene	CEBPA	full gene
+chr19	33302116	CEBPA-full gene	CEBPA	full gene
+chr19	33302117	CEBPA-full gene	CEBPA	full gene
+chr19	33302118	CEBPA-full gene	CEBPA	full gene
+chr19	33302119	CEBPA-full gene	CEBPA	full gene
+chr19	33302120	CEBPA-full gene	CEBPA	full gene
+chr19	33302121	CEBPA-full gene	CEBPA	full gene
+chr19	33302122	CEBPA-full gene	CEBPA	full gene
+chr19	33302123	CEBPA-full gene	CEBPA	full gene
+chr19	33302124	CEBPA-full gene	CEBPA	full gene
+chr19	33302125	CEBPA-full gene	CEBPA	full gene
+chr19	33302126	CEBPA-full gene	CEBPA	full gene
+chr19	33302127	CEBPA-full gene	CEBPA	full gene
+chr19	33302128	CEBPA-full gene	CEBPA	full gene
+chr19	33302129	CEBPA-full gene	CEBPA	full gene
+chr19	33302130	CEBPA-full gene	CEBPA	full gene
+chr19	33302131	CEBPA-full gene	CEBPA	full gene
+chr19	33302132	CEBPA-full gene	CEBPA	full gene
+chr19	33302133	CEBPA-full gene	CEBPA	full gene
+chr19	33302134	CEBPA-full gene	CEBPA	full gene
+chr19	33302135	CEBPA-full gene	CEBPA	full gene
+chr19	33302136	CEBPA-full gene	CEBPA	full gene
+chr19	33302137	CEBPA-full gene	CEBPA	full gene
+chr19	33302138	CEBPA-full gene	CEBPA	full gene
+chr19	33302139	CEBPA-full gene	CEBPA	full gene
+chr19	33302140	CEBPA-full gene	CEBPA	full gene
+chr19	33302141	CEBPA-full gene	CEBPA	full gene
+chr19	33302142	CEBPA-full gene	CEBPA	full gene
+chr19	33302143	CEBPA-full gene	CEBPA	full gene
+chr19	33302144	CEBPA-full gene	CEBPA	full gene
+chr19	33302145	CEBPA-full gene	CEBPA	full gene
+chr19	33302146	CEBPA-full gene	CEBPA	full gene
+chr19	33302147	CEBPA-full gene	CEBPA	full gene
+chr19	33302148	CEBPA-full gene	CEBPA	full gene
+chr19	33302149	CEBPA-full gene	CEBPA	full gene
+chr19	33302150	CEBPA-full gene	CEBPA	full gene
+chr19	33302151	CEBPA-full gene	CEBPA	full gene
+chr19	33302152	CEBPA-full gene	CEBPA	full gene
+chr19	33302153	CEBPA-full gene	CEBPA	full gene
+chr19	33302154	CEBPA-full gene	CEBPA	full gene
+chr19	33302155	CEBPA-full gene	CEBPA	full gene
+chr19	33302156	CEBPA-full gene	CEBPA	full gene
+chr19	33302157	CEBPA-full gene	CEBPA	full gene
+chr19	33302158	CEBPA-full gene	CEBPA	full gene
+chr19	33302159	CEBPA-full gene	CEBPA	full gene
+chr19	33302160	CEBPA-full gene	CEBPA	full gene
+chr19	33302161	CEBPA-full gene	CEBPA	full gene
+chr19	33302162	CEBPA-full gene	CEBPA	full gene
+chr19	33302163	CEBPA-full gene	CEBPA	full gene
+chr19	33302164	CEBPA-full gene	CEBPA	full gene
+chr19	33302165	CEBPA-full gene	CEBPA	full gene
+chr19	33302166	CEBPA-full gene	CEBPA	full gene
+chr19	33302167	CEBPA-full gene	CEBPA	full gene
+chr19	33302168	CEBPA-full gene	CEBPA	full gene
+chr19	33302169	CEBPA-full gene	CEBPA	full gene
+chr19	33302170	CEBPA-full gene	CEBPA	full gene
+chr19	33302171	CEBPA-full gene	CEBPA	full gene
+chr19	33302172	CEBPA-full gene	CEBPA	full gene
+chr19	33302173	CEBPA-full gene	CEBPA	full gene
+chr19	33302174	CEBPA-full gene	CEBPA	full gene
+chr19	33302175	CEBPA-full gene	CEBPA	full gene
+chr19	33302176	CEBPA-full gene	CEBPA	full gene
+chr19	33302177	CEBPA-full gene	CEBPA	full gene
+chr19	33302178	CEBPA-full gene	CEBPA	full gene
+chr19	33302179	CEBPA-full gene	CEBPA	full gene
+chr19	33302180	CEBPA-full gene	CEBPA	full gene
+chr19	33302181	CEBPA-full gene	CEBPA	full gene
+chr19	33302182	CEBPA-full gene	CEBPA	full gene
+chr19	33302183	CEBPA-full gene	CEBPA	full gene
+chr19	33302184	CEBPA-full gene	CEBPA	full gene
+chr19	33302185	CEBPA-full gene	CEBPA	full gene
+chr19	33302186	CEBPA-full gene	CEBPA	full gene
+chr19	33302187	CEBPA-full gene	CEBPA	full gene
+chr19	33302188	CEBPA-full gene	CEBPA	full gene
+chr19	33302189	CEBPA-full gene	CEBPA	full gene
+chr19	33302190	CEBPA-full gene	CEBPA	full gene
+chr19	33302191	CEBPA-full gene	CEBPA	full gene
+chr19	33302192	CEBPA-full gene	CEBPA	full gene
+chr19	33302193	CEBPA-full gene	CEBPA	full gene
+chr19	33302194	CEBPA-full gene	CEBPA	full gene
+chr19	33302195	CEBPA-full gene	CEBPA	full gene
+chr19	33302196	CEBPA-full gene	CEBPA	full gene
+chr19	33302197	CEBPA-full gene	CEBPA	full gene
+chr19	33302198	CEBPA-full gene	CEBPA	full gene
+chr19	33302199	CEBPA-full gene	CEBPA	full gene
+chr19	33302200	CEBPA-full gene	CEBPA	full gene
+chr19	33302201	CEBPA-full gene	CEBPA	full gene
+chr19	33302202	CEBPA-full gene	CEBPA	full gene
+chr19	33302203	CEBPA-full gene	CEBPA	full gene
+chr19	33302204	CEBPA-full gene	CEBPA	full gene
+chr19	33302205	CEBPA-full gene	CEBPA	full gene
+chr19	33302206	CEBPA-full gene	CEBPA	full gene
+chr19	33302207	CEBPA-full gene	CEBPA	full gene
+chr19	33302208	CEBPA-full gene	CEBPA	full gene
+chr19	33302209	CEBPA-full gene	CEBPA	full gene
+chr19	33302210	CEBPA-full gene	CEBPA	full gene
+chr19	33302211	CEBPA-full gene	CEBPA	full gene
+chr19	33302212	CEBPA-full gene	CEBPA	full gene
+chr19	33302213	CEBPA-full gene	CEBPA	full gene
+chr19	33302214	CEBPA-full gene	CEBPA	full gene
+chr19	33302215	CEBPA-full gene	CEBPA	full gene
+chr19	33302216	CEBPA-full gene	CEBPA	full gene
+chr19	33302217	CEBPA-full gene	CEBPA	full gene
+chr19	33302218	CEBPA-full gene	CEBPA	full gene
+chr19	33302219	CEBPA-full gene	CEBPA	full gene
+chr19	33302220	CEBPA-full gene	CEBPA	full gene
+chr19	33302221	CEBPA-full gene	CEBPA	full gene
+chr19	33302222	CEBPA-full gene	CEBPA	full gene
+chr19	33302223	CEBPA-full gene	CEBPA	full gene
+chr19	33302224	CEBPA-full gene	CEBPA	full gene
+chr19	33302225	CEBPA-full gene	CEBPA	full gene
+chr19	33302226	CEBPA-full gene	CEBPA	full gene
+chr19	33302227	CEBPA-full gene	CEBPA	full gene
+chr19	33302228	CEBPA-full gene	CEBPA	full gene
+chr19	33302229	CEBPA-full gene	CEBPA	full gene
+chr19	33302230	CEBPA-full gene	CEBPA	full gene
+chr19	33302231	CEBPA-full gene	CEBPA	full gene
+chr19	33302232	CEBPA-full gene	CEBPA	full gene
+chr19	33302233	CEBPA-full gene	CEBPA	full gene
+chr19	33302234	CEBPA-full gene	CEBPA	full gene
+chr19	33302235	CEBPA-full gene	CEBPA	full gene
+chr19	33302236	CEBPA-full gene	CEBPA	full gene
+chr19	33302237	CEBPA-full gene	CEBPA	full gene
+chr19	33302238	CEBPA-full gene	CEBPA	full gene
+chr19	33302239	CEBPA-full gene	CEBPA	full gene
+chr19	33302240	CEBPA-full gene	CEBPA	full gene
+chr19	33302241	CEBPA-full gene	CEBPA	full gene
+chr19	33302242	CEBPA-full gene	CEBPA	full gene
+chr19	33302243	CEBPA-full gene	CEBPA	full gene
+chr19	33302244	CEBPA-full gene	CEBPA	full gene
+chr19	33302245	CEBPA-full gene	CEBPA	full gene
+chr19	33302246	CEBPA-full gene	CEBPA	full gene
+chr19	33302247	CEBPA-full gene	CEBPA	full gene
+chr19	33302248	CEBPA-full gene	CEBPA	full gene
+chr19	33302249	CEBPA-full gene	CEBPA	full gene
+chr19	33302250	CEBPA-full gene	CEBPA	full gene
+chr19	33302251	CEBPA-full gene	CEBPA	full gene
+chr19	33302252	CEBPA-full gene	CEBPA	full gene
+chr19	33302253	CEBPA-full gene	CEBPA	full gene
+chr19	33302254	CEBPA-full gene	CEBPA	full gene
+chr19	33302255	CEBPA-full gene	CEBPA	full gene
+chr19	33302256	CEBPA-full gene	CEBPA	full gene
+chr19	33302257	CEBPA-full gene	CEBPA	full gene
+chr19	33302258	CEBPA-full gene	CEBPA	full gene
+chr19	33302259	CEBPA-full gene	CEBPA	full gene
+chr19	33302260	CEBPA-full gene	CEBPA	full gene
+chr19	33302261	CEBPA-full gene	CEBPA	full gene
+chr19	33302262	CEBPA-full gene	CEBPA	full gene
+chr19	33302263	CEBPA-full gene	CEBPA	full gene
+chr19	33302264	CEBPA-full gene	CEBPA	full gene
+chr19	33302265	CEBPA-full gene	CEBPA	full gene
+chr19	33302266	CEBPA-full gene	CEBPA	full gene
+chr19	33302267	CEBPA-full gene	CEBPA	full gene
+chr19	33302268	CEBPA-full gene	CEBPA	full gene
+chr19	33302269	CEBPA-full gene	CEBPA	full gene
+chr19	33302270	CEBPA-full gene	CEBPA	full gene
+chr19	33302271	CEBPA-full gene	CEBPA	full gene
+chr19	33302272	CEBPA-full gene	CEBPA	full gene
+chr19	33302273	CEBPA-full gene	CEBPA	full gene
+chr19	33302274	CEBPA-full gene	CEBPA	full gene
+chr19	33302275	CEBPA-full gene	CEBPA	full gene
+chr19	33302276	CEBPA-full gene	CEBPA	full gene
+chr19	33302277	CEBPA-full gene	CEBPA	full gene
+chr19	33302278	CEBPA-full gene	CEBPA	full gene
+chr19	33302279	CEBPA-full gene	CEBPA	full gene
+chr19	33302280	CEBPA-full gene	CEBPA	full gene
+chr19	33302281	CEBPA-full gene	CEBPA	full gene
+chr19	33302282	CEBPA-full gene	CEBPA	full gene
+chr19	33302283	CEBPA-full gene	CEBPA	full gene
+chr19	33302284	CEBPA-full gene	CEBPA	full gene
+chr19	33302285	CEBPA-full gene	CEBPA	full gene
+chr19	33302286	CEBPA-full gene	CEBPA	full gene
+chr19	33302287	CEBPA-full gene	CEBPA	full gene
+chr19	33302288	CEBPA-full gene	CEBPA	full gene
+chr19	33302289	CEBPA-full gene	CEBPA	full gene
+chr19	33302290	CEBPA-full gene	CEBPA	full gene
+chr19	33302291	CEBPA-full gene	CEBPA	full gene
+chr19	33302292	CEBPA-full gene	CEBPA	full gene
+chr19	33302293	CEBPA-full gene	CEBPA	full gene
+chr19	33302294	CEBPA-full gene	CEBPA	full gene
+chr19	33302295	CEBPA-full gene	CEBPA	full gene
+chr19	33302296	CEBPA-full gene	CEBPA	full gene
+chr19	33302297	CEBPA-full gene	CEBPA	full gene
+chr19	33302298	CEBPA-full gene	CEBPA	full gene
+chr19	33302299	CEBPA-full gene	CEBPA	full gene
+chr19	33302300	CEBPA-full gene	CEBPA	full gene
+chr19	33302301	CEBPA-full gene	CEBPA	full gene
+chr19	33302302	CEBPA-full gene	CEBPA	full gene
+chr19	33302303	CEBPA-full gene	CEBPA	full gene
+chr19	33302304	CEBPA-full gene	CEBPA	full gene
+chr19	33302305	CEBPA-full gene	CEBPA	full gene
+chr19	33302306	CEBPA-full gene	CEBPA	full gene
+chr19	33302307	CEBPA-full gene	CEBPA	full gene
+chr19	33302308	CEBPA-full gene	CEBPA	full gene
+chr19	33302309	CEBPA-full gene	CEBPA	full gene
+chr19	33302310	CEBPA-full gene	CEBPA	full gene
+chr19	33302311	CEBPA-full gene	CEBPA	full gene
+chr19	33302312	CEBPA-full gene	CEBPA	full gene
+chr19	33302313	CEBPA-full gene	CEBPA	full gene
+chr19	33302314	CEBPA-full gene	CEBPA	full gene
+chr19	33302315	CEBPA-full gene	CEBPA	full gene
+chr19	33302316	CEBPA-full gene	CEBPA	full gene
+chr19	33302317	CEBPA-full gene	CEBPA	full gene
+chr19	33302318	CEBPA-full gene	CEBPA	full gene
+chr19	33302319	CEBPA-full gene	CEBPA	full gene
+chr19	33302320	CEBPA-full gene	CEBPA	full gene
+chr19	33302321	CEBPA-full gene	CEBPA	full gene
+chr19	33302322	CEBPA-full gene	CEBPA	full gene
+chr19	33302323	CEBPA-full gene	CEBPA	full gene
+chr19	33302324	CEBPA-full gene	CEBPA	full gene
+chr19	33302325	CEBPA-full gene	CEBPA	full gene
+chr19	33302326	CEBPA-full gene	CEBPA	full gene
+chr19	33302327	CEBPA-full gene	CEBPA	full gene
+chr19	33302328	CEBPA-full gene	CEBPA	full gene
+chr19	33302329	CEBPA-full gene	CEBPA	full gene
+chr19	33302330	CEBPA-full gene	CEBPA	full gene
+chr19	33302331	CEBPA-full gene	CEBPA	full gene
+chr19	33302332	CEBPA-full gene	CEBPA	full gene
+chr19	33302333	CEBPA-full gene	CEBPA	full gene
+chr19	33302334	CEBPA-full gene	CEBPA	full gene
+chr19	33302335	CEBPA-full gene	CEBPA	full gene
+chr19	33302336	CEBPA-full gene	CEBPA	full gene
+chr19	33302337	CEBPA-full gene	CEBPA	full gene
+chr19	33302338	CEBPA-full gene	CEBPA	full gene
+chr19	33302339	CEBPA-full gene	CEBPA	full gene
+chr19	33302340	CEBPA-full gene	CEBPA	full gene
+chr19	33302341	CEBPA-full gene	CEBPA	full gene
+chr19	33302342	CEBPA-full gene	CEBPA	full gene
+chr19	33302343	CEBPA-full gene	CEBPA	full gene
+chr19	33302344	CEBPA-full gene	CEBPA	full gene
+chr19	33302345	CEBPA-full gene	CEBPA	full gene
+chr19	33302346	CEBPA-full gene	CEBPA	full gene
+chr19	33302347	CEBPA-full gene	CEBPA	full gene
+chr19	33302348	CEBPA-full gene	CEBPA	full gene
+chr19	33302349	CEBPA-full gene	CEBPA	full gene
+chr19	33302350	CEBPA-full gene	CEBPA	full gene
+chr19	33302351	CEBPA-full gene	CEBPA	full gene
+chr19	33302352	CEBPA-full gene	CEBPA	full gene
+chr19	33302353	CEBPA-full gene	CEBPA	full gene
+chr19	33302354	CEBPA-full gene	CEBPA	full gene
+chr19	33302355	CEBPA-full gene	CEBPA	full gene
+chr19	33302356	CEBPA-full gene	CEBPA	full gene
+chr19	33302357	CEBPA-full gene	CEBPA	full gene
+chr19	33302358	CEBPA-full gene	CEBPA	full gene
+chr19	33302359	CEBPA-full gene	CEBPA	full gene
+chr19	33302360	CEBPA-full gene	CEBPA	full gene
+chr19	33302361	CEBPA-full gene	CEBPA	full gene
+chr19	33302362	CEBPA-full gene	CEBPA	full gene
+chr19	33302363	CEBPA-full gene	CEBPA	full gene
+chr19	33302364	CEBPA-full gene	CEBPA	full gene
+chr19	33302365	CEBPA-full gene	CEBPA	full gene
+chr19	33302366	CEBPA-full gene	CEBPA	full gene
+chr19	33302367	CEBPA-full gene	CEBPA	full gene
+chr19	33302368	CEBPA-full gene	CEBPA	full gene
+chr19	33302369	CEBPA-full gene	CEBPA	full gene
+chr19	33302370	CEBPA-full gene	CEBPA	full gene
+chr19	33302371	CEBPA-full gene	CEBPA	full gene
+chr19	33302372	CEBPA-full gene	CEBPA	full gene
+chr19	33302373	CEBPA-full gene	CEBPA	full gene
+chr19	33302374	CEBPA-full gene	CEBPA	full gene
+chr19	33302375	CEBPA-full gene	CEBPA	full gene
+chr19	33302376	CEBPA-full gene	CEBPA	full gene
+chr19	33302377	CEBPA-full gene	CEBPA	full gene
+chr19	33302378	CEBPA-full gene	CEBPA	full gene
+chr19	33302379	CEBPA-full gene	CEBPA	full gene
+chr19	33302380	CEBPA-full gene	CEBPA	full gene
+chr19	33302381	CEBPA-full gene	CEBPA	full gene
+chr19	33302382	CEBPA-full gene	CEBPA	full gene
+chr19	33302383	CEBPA-full gene	CEBPA	full gene
+chr19	33302384	CEBPA-full gene	CEBPA	full gene
+chr19	33302385	CEBPA-full gene	CEBPA	full gene
+chr19	33302386	CEBPA-full gene	CEBPA	full gene
+chr19	33302387	CEBPA-full gene	CEBPA	full gene
+chr19	33302388	CEBPA-full gene	CEBPA	full gene
+chr19	33302389	CEBPA-full gene	CEBPA	full gene
+chr19	33302390	CEBPA-full gene	CEBPA	full gene
+chr19	33302391	CEBPA-full gene	CEBPA	full gene
+chr19	33302392	CEBPA-full gene	CEBPA	full gene
+chr19	33302393	CEBPA-full gene	CEBPA	full gene
+chr19	33302394	CEBPA-full gene	CEBPA	full gene
+chr19	33302395	CEBPA-full gene	CEBPA	full gene
+chr19	33302396	CEBPA-full gene	CEBPA	full gene
+chr19	33302397	CEBPA-full gene	CEBPA	full gene
+chr19	33302398	CEBPA-full gene	CEBPA	full gene
+chr19	33302399	CEBPA-full gene	CEBPA	full gene
+chr19	33302400	CEBPA-full gene	CEBPA	full gene
+chr19	33302401	CEBPA-full gene	CEBPA	full gene
+chr19	33302402	CEBPA-full gene	CEBPA	full gene
+chr19	33302403	CEBPA-full gene	CEBPA	full gene
+chr19	33302404	CEBPA-full gene	CEBPA	full gene
+chr19	33302405	CEBPA-full gene	CEBPA	full gene
+chr19	33302406	CEBPA-full gene	CEBPA	full gene
+chr19	33302407	CEBPA-full gene	CEBPA	full gene
+chr19	33302408	CEBPA-full gene	CEBPA	full gene
+chr19	33302409	CEBPA-full gene	CEBPA	full gene
+chr19	33302410	CEBPA-full gene	CEBPA	full gene
+chr19	33302411	CEBPA-full gene	CEBPA	full gene
+chr19	33302412	CEBPA-full gene	CEBPA	full gene
+chr19	33302413	CEBPA-full gene	CEBPA	full gene
+chr19	33302414	CEBPA-full gene	CEBPA	full gene
+chr19	33302415	CEBPA-full gene	CEBPA	full gene
+chr19	33302416	CEBPA-full gene	CEBPA	full gene
+chr19	33302417	CEBPA-full gene	CEBPA	full gene
+chr19	33302418	CEBPA-full gene	CEBPA	full gene
+chr19	33302419	CEBPA-full gene	CEBPA	full gene
+chr19	33302420	CEBPA-full gene	CEBPA	full gene
+chr19	33302421	CEBPA-full gene	CEBPA	full gene
+chr19	33302422	CEBPA-full gene	CEBPA	full gene
+chr19	33302423	CEBPA-full gene	CEBPA	full gene
+chr19	33302424	CEBPA-full gene	CEBPA	full gene
+chr19	33302425	CEBPA-full gene	CEBPA	full gene
+chr19	33302426	CEBPA-full gene	CEBPA	full gene
+chr19	33302427	CEBPA-full gene	CEBPA	full gene
+chr19	33302428	CEBPA-full gene	CEBPA	full gene
+chr19	33302429	CEBPA-full gene	CEBPA	full gene
+chr19	33302430	CEBPA-full gene	CEBPA	full gene
+chr19	33302431	CEBPA-full gene	CEBPA	full gene
+chr19	33302432	CEBPA-full gene	CEBPA	full gene
+chr19	33302433	CEBPA-full gene	CEBPA	full gene
+chr19	33302434	CEBPA-full gene	CEBPA	full gene
+chr19	33302435	CEBPA-full gene	CEBPA	full gene
+chr19	33302436	CEBPA-full gene	CEBPA	full gene
+chr19	33302437	CEBPA-full gene	CEBPA	full gene
+chr19	33302438	CEBPA-full gene	CEBPA	full gene
+chr19	33302439	CEBPA-full gene	CEBPA	full gene
+chr19	33302440	CEBPA-full gene	CEBPA	full gene
+chr19	33302441	CEBPA-full gene	CEBPA	full gene
+chr19	33302442	CEBPA-full gene	CEBPA	full gene
+chr19	33302443	CEBPA-full gene	CEBPA	full gene
+chr19	33302444	CEBPA-full gene	CEBPA	full gene
+chr19	33302445	CEBPA-full gene	CEBPA	full gene
+chr19	33302446	CEBPA-full gene	CEBPA	full gene
+chr19	33302447	CEBPA-full gene	CEBPA	full gene
+chr19	33302448	CEBPA-full gene	CEBPA	full gene
+chr19	33302449	CEBPA-full gene	CEBPA	full gene
+chr19	33302450	CEBPA-full gene	CEBPA	full gene
+chr19	33302451	CEBPA-full gene	CEBPA	full gene
+chr19	33302452	CEBPA-full gene	CEBPA	full gene
+chr19	33302453	CEBPA-full gene	CEBPA	full gene
+chr19	33302454	CEBPA-full gene	CEBPA	full gene
+chr19	33302455	CEBPA-full gene	CEBPA	full gene
+chr19	33302456	CEBPA-full gene	CEBPA	full gene
+chr19	33302457	CEBPA-full gene	CEBPA	full gene
+chr19	33302458	CEBPA-full gene	CEBPA	full gene
+chr19	33302459	CEBPA-full gene	CEBPA	full gene
+chr19	33302460	CEBPA-full gene	CEBPA	full gene
+chr19	33302461	CEBPA-full gene	CEBPA	full gene
+chr19	33302462	CEBPA-full gene	CEBPA	full gene
+chr19	33302463	CEBPA-full gene	CEBPA	full gene
+chr19	33302464	CEBPA-full gene	CEBPA	full gene
+chr19	33302465	CEBPA-full gene	CEBPA	full gene
+chr19	33302466	CEBPA-full gene	CEBPA	full gene
+chr19	33302467	CEBPA-full gene	CEBPA	full gene
+chr19	33302468	CEBPA-full gene	CEBPA	full gene
+chr19	33302469	CEBPA-full gene	CEBPA	full gene
+chr19	33302470	CEBPA-full gene	CEBPA	full gene
+chr19	33302471	CEBPA-full gene	CEBPA	full gene
+chr19	33302472	CEBPA-full gene	CEBPA	full gene
+chr19	33302473	CEBPA-full gene	CEBPA	full gene
+chr19	33302474	CEBPA-full gene	CEBPA	full gene
+chr19	33302475	CEBPA-full gene	CEBPA	full gene
+chr19	33302476	CEBPA-full gene	CEBPA	full gene
+chr19	33302477	CEBPA-full gene	CEBPA	full gene
+chr19	33302478	CEBPA-full gene	CEBPA	full gene
+chr19	33302479	CEBPA-full gene	CEBPA	full gene
+chr19	33302480	CEBPA-full gene	CEBPA	full gene
+chr19	33302481	CEBPA-full gene	CEBPA	full gene
+chr19	33302482	CEBPA-full gene	CEBPA	full gene
+chr19	33302483	CEBPA-full gene	CEBPA	full gene
+chr19	33302484	CEBPA-full gene	CEBPA	full gene
+chr19	33302485	CEBPA-full gene	CEBPA	full gene
+chr19	33302486	CEBPA-full gene	CEBPA	full gene
+chr19	33302487	CEBPA-full gene	CEBPA	full gene
+chr19	33302488	CEBPA-full gene	CEBPA	full gene
+chr19	33302489	CEBPA-full gene	CEBPA	full gene
+chr19	33302490	CEBPA-full gene	CEBPA	full gene
+chr19	33302491	CEBPA-full gene	CEBPA	full gene
+chr19	33302492	CEBPA-full gene	CEBPA	full gene
+chr19	33302493	CEBPA-full gene	CEBPA	full gene
+chr19	33302494	CEBPA-full gene	CEBPA	full gene
+chr19	33302495	CEBPA-full gene	CEBPA	full gene
+chr19	33302496	CEBPA-full gene	CEBPA	full gene
+chr19	33302497	CEBPA-full gene	CEBPA	full gene
+chr19	33302498	CEBPA-full gene	CEBPA	full gene
+chr19	33302499	CEBPA-full gene	CEBPA	full gene
+chr19	33302500	CEBPA-full gene	CEBPA	full gene
+chr19	33302501	CEBPA-full gene	CEBPA	full gene
+chr19	33302502	CEBPA-full gene	CEBPA	full gene
+chr19	33302503	CEBPA-full gene	CEBPA	full gene
+chr19	33302504	CEBPA-full gene	CEBPA	full gene
+chr19	33302505	CEBPA-full gene	CEBPA	full gene
+chr19	33302506	CEBPA-full gene	CEBPA	full gene
+chr19	33302507	CEBPA-full gene	CEBPA	full gene
+chr19	33302508	CEBPA-full gene	CEBPA	full gene
+chr19	33302509	CEBPA-full gene	CEBPA	full gene
+chr19	33302510	CEBPA-full gene	CEBPA	full gene
+chr19	33302511	CEBPA-full gene	CEBPA	full gene
+chr19	33302512	CEBPA-full gene	CEBPA	full gene
+chr19	33302513	CEBPA-full gene	CEBPA	full gene
+chr19	33302514	CEBPA-full gene	CEBPA	full gene
+chr19	33302515	CEBPA-full gene	CEBPA	full gene
+chr19	33302516	CEBPA-full gene	CEBPA	full gene
+chr19	33302517	CEBPA-full gene	CEBPA	full gene
+chr19	33302518	CEBPA-full gene	CEBPA	full gene
+chr19	33302519	CEBPA-full gene	CEBPA	full gene
+chr19	33302520	CEBPA-full gene	CEBPA	full gene
+chr19	33302521	CEBPA-full gene	CEBPA	full gene
+chr19	33302522	CEBPA-full gene	CEBPA	full gene
+chr19	33302523	CEBPA-full gene	CEBPA	full gene
+chr19	33302524	CEBPA-full gene	CEBPA	full gene
+chr19	33302525	CEBPA-full gene	CEBPA	full gene
+chr19	33302526	CEBPA-full gene	CEBPA	full gene
+chr19	33302527	CEBPA-full gene	CEBPA	full gene
+chr19	33302528	CEBPA-full gene	CEBPA	full gene
+chr19	33302529	CEBPA-full gene	CEBPA	full gene
+chr19	33302530	CEBPA-full gene	CEBPA	full gene
+chr19	33302531	CEBPA-full gene	CEBPA	full gene
+chr19	33302532	CEBPA-full gene	CEBPA	full gene
+chr19	33302533	CEBPA-full gene	CEBPA	full gene
+chr19	33302534	CEBPA-full gene	CEBPA	full gene
+chr1	36467833	"CSF3R-T170,T618"	CSF3R	"T170,T618"
+chr1	36467834	"CSF3R-T170,T618"	CSF3R	"T170,T618"
+chr2	25234373	"DNMT3A-R659,R693,R882"	DNMT3A	"R659,R693,R882"
+chr2	25234374	"DNMT3A-R659,R693,R882"	DNMT3A	"R659,R693,R882"
+chr2	25241668	"DNMT3A-R659,R693,R882"	DNMT3A	"R659,R693,R882"
+chr2	25241669	"DNMT3A-R659,R693,R882"	DNMT3A	"R659,R693,R882"
+chr19	33301994	"DNMT3A-P681,P715,P904"	DNMT3A	"P681,P715,P904"
+chr19	33301995	"DNMT3A-P681,P715,P904"	DNMT3A	"P681,P715,P904"
+chr19	33301996	"DNMT3A-P681,P715,P904"	DNMT3A	"P681,P715,P904"
+chr19	33301997	"DNMT3A-P681,P715,P904"	DNMT3A	"P681,P715,P904"
+chr19	33301998	"DNMT3A-P681,P715,P904"	DNMT3A	"P681,P715,P904"
+chr19	33301999	"DNMT3A-P681,P715,P904"	DNMT3A	"P681,P715,P904"
+chr2	25243930	"DNMT3A-R412,R446,R635"	DNMT3A	"R412,R446,R635"
+chr2	25243930	"DNMT3A-R412,R446,R635"	DNMT3A	"R412,R446,R635"
+chr2	25243930	"DNMT3A-R412,R446,R635"	DNMT3A	"R412,R446,R635"
+chr2	25243931	"DNMT3A-R412,R446,R635"	DNMT3A	"R412,R446,R635"
+chr2	25243931	"DNMT3A-R412,R446,R635"	DNMT3A	"R412,R446,R635"
+chr7	148811634	"EZH2-Y590,Y602,Y632,Y641,Y646"	EZH2	"Y590,Y602,Y632,Y641,Y646"
+chr7	148811635	"EZH2-Y590,Y602,Y632,Y641,Y646"	EZH2	"Y590,Y602,Y632,Y641,Y646"
+chr7	148811636	"EZH2-Y590,Y602,Y632,Y641,Y646"	EZH2	"Y590,Y602,Y632,Y641,Y646"
+chr13	28018491	FLT3-D839	FLT3	D839
+chr13	28018492	FLT3-D839	FLT3	D839
+chr13	28018493	FLT3-D839	FLT3	D839
+chr13	28018503	FLT3-D835	FLT3	D835
+chr13	28018504	FLT3-D835	FLT3	D835
+chr13	28018505	FLT3-D835	FLT3	D835
+chr13	28033887	FLT3-ITD	FLT3	ITD
+chr13	28033888	FLT3-ITD	FLT3	ITD
+chr13	28033889	FLT3-ITD	FLT3	ITD
+chr13	28033890	FLT3-ITD	FLT3	ITD
+chr13	28033891	FLT3-ITD	FLT3	ITD
+chr13	28033892	FLT3-ITD	FLT3	ITD
+chr13	28033893	FLT3-ITD	FLT3	ITD
+chr13	28033894	FLT3-ITD	FLT3	ITD
+chr13	28033895	FLT3-ITD	FLT3	ITD
+chr13	28033896	FLT3-ITD	FLT3	ITD
+chr13	28033897	FLT3-ITD	FLT3	ITD
+chr13	28033898	FLT3-ITD	FLT3	ITD
+chr13	28033899	FLT3-ITD	FLT3	ITD
+chr13	28033900	FLT3-ITD	FLT3	ITD
+chr13	28033901	FLT3-ITD	FLT3	ITD
+chr13	28033902	FLT3-ITD	FLT3	ITD
+chr13	28033903	FLT3-ITD	FLT3	ITD
+chr13	28033904	FLT3-ITD	FLT3	ITD
+chr13	28033905	FLT3-ITD	FLT3	ITD
+chr13	28033906	FLT3-ITD	FLT3	ITD
+chr13	28033907	FLT3-ITD	FLT3	ITD
+chr13	28033908	FLT3-ITD	FLT3	ITD
+chr13	28033909	FLT3-ITD	FLT3	ITD
+chr13	28033910	FLT3-ITD	FLT3	ITD
+chr13	28033911	FLT3-ITD	FLT3	ITD
+chr13	28033912	FLT3-ITD	FLT3	ITD
+chr13	28033913	FLT3-ITD	FLT3	ITD
+chr13	28033914	FLT3-ITD	FLT3	ITD
+chr13	28033915	FLT3-ITD	FLT3	ITD
+chr13	28033916	FLT3-ITD	FLT3	ITD
+chr13	28033917	FLT3-ITD	FLT3	ITD
+chr13	28033918	FLT3-ITD	FLT3	ITD
+chr13	28033919	FLT3-ITD	FLT3	ITD
+chr13	28033920	FLT3-ITD	FLT3	ITD
+chr13	28033921	FLT3-ITD	FLT3	ITD
+chr13	28033922	FLT3-ITD	FLT3	ITD
+chr13	28033923	FLT3-ITD	FLT3	ITD
+chr13	28033924	FLT3-ITD	FLT3	ITD
+chr13	28033925	FLT3-ITD	FLT3	ITD
+chr13	28033926	FLT3-ITD	FLT3	ITD
+chr13	28033927	FLT3-ITD	FLT3	ITD
+chr13	28033928	FLT3-ITD	FLT3	ITD
+chr13	28033929	FLT3-ITD	FLT3	ITD
+chr13	28033930	FLT3-ITD	FLT3	ITD
+chr13	28033931	FLT3-ITD	FLT3	ITD
+chr13	28033932	FLT3-ITD	FLT3	ITD
+chr13	28033933	FLT3-ITD	FLT3	ITD
+chr13	28033934	FLT3-ITD	FLT3	ITD
+chr13	28033935	FLT3-ITD	FLT3	ITD
+chr13	28033936	FLT3-ITD	FLT3	ITD
+chr13	28033937	FLT3-ITD	FLT3	ITD
+chr13	28033938	FLT3-ITD	FLT3	ITD
+chr13	28033939	FLT3-ITD	FLT3	ITD
+chr13	28033940	FLT3-ITD	FLT3	ITD
+chr13	28033941	FLT3-ITD	FLT3	ITD
+chr13	28033942	FLT3-ITD	FLT3	ITD
+chr13	28033943	FLT3-ITD	FLT3	ITD
+chr13	28033944	FLT3-ITD	FLT3	ITD
+chr13	28033945	FLT3-ITD	FLT3	ITD
+chr13	28033946	FLT3-ITD	FLT3	ITD
+chr13	28033947	FLT3-ITD	FLT3	ITD
+chr13	28033948	FLT3-ITD	FLT3	ITD
+chr13	28033949	FLT3-ITD	FLT3	ITD
+chr13	28033950	FLT3-ITD	FLT3	ITD
+chr13	28033951	FLT3-ITD	FLT3	ITD
+chr13	28033952	FLT3-ITD	FLT3	ITD
+chr13	28033953	FLT3-ITD	FLT3	ITD
+chr13	28033954	FLT3-ITD	FLT3	ITD
+chr13	28033955	FLT3-ITD	FLT3	ITD
+chr13	28033956	FLT3-ITD	FLT3	ITD
+chr13	28033957	FLT3-ITD	FLT3	ITD
+chr13	28033958	FLT3-ITD	FLT3	ITD
+chr13	28033959	FLT3-ITD	FLT3	ITD
+chr13	28033960	FLT3-ITD	FLT3	ITD
+chr13	28033961	FLT3-ITD	FLT3	ITD
+chr13	28033962	FLT3-ITD	FLT3	ITD
+chr13	28033963	FLT3-ITD	FLT3	ITD
+chr13	28033964	FLT3-ITD	FLT3	ITD
+chr13	28033965	FLT3-ITD	FLT3	ITD
+chr13	28033966	FLT3-ITD	FLT3	ITD
+chr13	28033967	FLT3-ITD	FLT3	ITD
+chr13	28033968	FLT3-ITD	FLT3	ITD
+chr13	28033969	FLT3-ITD	FLT3	ITD
+chr13	28033970	FLT3-ITD	FLT3	ITD
+chr13	28033971	FLT3-ITD	FLT3	ITD
+chr13	28033972	FLT3-ITD	FLT3	ITD
+chr13	28033973	FLT3-ITD	FLT3	ITD
+chr13	28033974	FLT3-ITD	FLT3	ITD
+chr13	28033975	FLT3-ITD	FLT3	ITD
+chr13	28033976	FLT3-ITD	FLT3	ITD
+chr13	28033977	FLT3-ITD	FLT3	ITD
+chr13	28033978	FLT3-ITD	FLT3	ITD
+chr13	28033979	FLT3-ITD	FLT3	ITD
+chr13	28033980	FLT3-ITD	FLT3	ITD
+chr13	28033981	FLT3-ITD	FLT3	ITD
+chr13	28033982	FLT3-ITD	FLT3	ITD
+chr13	28033983	FLT3-ITD	FLT3	ITD
+chr13	28033984	FLT3-ITD	FLT3	ITD
+chr13	28033985	FLT3-ITD	FLT3	ITD
+chr13	28033986	FLT3-ITD	FLT3	ITD
+chr13	28033987	FLT3-ITD	FLT3	ITD
+chr13	28033988	FLT3-ITD	FLT3	ITD
+chr13	28033989	FLT3-ITD	FLT3	ITD
+chr13	28033990	FLT3-ITD	FLT3	ITD
+chr13	28033991	FLT3-ITD	FLT3	ITD
+chr13	28033992	FLT3-ITD	FLT3	ITD
+chr13	28033993	FLT3-ITD	FLT3	ITD
+chr13	28033994	FLT3-ITD	FLT3	ITD
+chr13	28033995	FLT3-ITD	FLT3	ITD
+chr13	28033996	FLT3-ITD	FLT3	ITD
+chr13	28033997	FLT3-ITD	FLT3	ITD
+chr13	28033998	FLT3-ITD	FLT3	ITD
+chr13	28033999	FLT3-ITD	FLT3	ITD
+chr13	28034000	FLT3-ITD	FLT3	ITD
+chr13	28034001	FLT3-ITD	FLT3	ITD
+chr13	28034002	FLT3-ITD	FLT3	ITD
+chr13	28034003	FLT3-ITD	FLT3	ITD
+chr13	28034004	FLT3-ITD	FLT3	ITD
+chr13	28034005	FLT3-ITD	FLT3	ITD
+chr13	28034006	FLT3-ITD	FLT3	ITD
+chr13	28034007	FLT3-ITD	FLT3	ITD
+chr13	28034008	FLT3-ITD	FLT3	ITD
+chr13	28034009	FLT3-ITD	FLT3	ITD
+chr13	28034010	FLT3-ITD	FLT3	ITD
+chr13	28034011	FLT3-ITD	FLT3	ITD
+chr13	28034012	FLT3-ITD	FLT3	ITD
+chr13	28034013	FLT3-ITD	FLT3	ITD
+chr13	28034014	FLT3-ITD	FLT3	ITD
+chr13	28034015	FLT3-ITD	FLT3	ITD
+chr13	28034016	FLT3-ITD	FLT3	ITD
+chr13	28034017	FLT3-ITD	FLT3	ITD
+chr13	28034018	FLT3-ITD	FLT3	ITD
+chr13	28034019	FLT3-ITD	FLT3	ITD
+chr13	28034020	FLT3-ITD	FLT3	ITD
+chr13	28034021	FLT3-ITD	FLT3	ITD
+chr13	28034022	FLT3-ITD	FLT3	ITD
+chr13	28034023	FLT3-ITD	FLT3	ITD
+chr13	28034024	FLT3-ITD	FLT3	ITD
+chr13	28034025	FLT3-ITD	FLT3	ITD
+chr13	28034026	FLT3-ITD	FLT3	ITD
+chr13	28034027	FLT3-ITD	FLT3	ITD
+chr13	28034028	FLT3-ITD	FLT3	ITD
+chr13	28034029	FLT3-ITD	FLT3	ITD
+chr13	28034030	FLT3-ITD	FLT3	ITD
+chr13	28034031	FLT3-ITD	FLT3	ITD
+chr13	28034032	FLT3-ITD	FLT3	ITD
+chr13	28034033	FLT3-ITD	FLT3	ITD
+chr13	28034034	FLT3-ITD	FLT3	ITD
+chr13	28034035	FLT3-ITD	FLT3	ITD
+chr13	28034036	FLT3-ITD	FLT3	ITD
+chr13	28034037	FLT3-ITD	FLT3	ITD
+chr13	28034038	FLT3-ITD	FLT3	ITD
+chr13	28034039	FLT3-ITD	FLT3	ITD
+chr13	28034040	FLT3-ITD	FLT3	ITD
+chr13	28034041	FLT3-ITD	FLT3	ITD
+chr13	28034042	FLT3-ITD	FLT3	ITD
+chr13	28034043	FLT3-ITD	FLT3	ITD
+chr13	28034044	FLT3-ITD	FLT3	ITD
+chr13	28034045	FLT3-ITD	FLT3	ITD
+chr13	28034046	FLT3-ITD	FLT3	ITD
+chr13	28034047	FLT3-ITD	FLT3	ITD
+chr13	28034048	FLT3-ITD	FLT3	ITD
+chr13	28034049	FLT3-ITD	FLT3	ITD
+chr13	28034050	FLT3-ITD	FLT3	ITD
+chr13	28034051	FLT3-ITD	FLT3	ITD
+chr13	28034052	FLT3-ITD	FLT3	ITD
+chr13	28034053	FLT3-ITD	FLT3	ITD
+chr13	28034054	FLT3-ITD	FLT3	ITD
+chr13	28034055	FLT3-ITD	FLT3	ITD
+chr13	28034056	FLT3-ITD	FLT3	ITD
+chr13	28034057	FLT3-ITD	FLT3	ITD
+chr13	28034058	FLT3-ITD	FLT3	ITD
+chr13	28034059	FLT3-ITD	FLT3	ITD
+chr13	28034060	FLT3-ITD	FLT3	ITD
+chr13	28034061	FLT3-ITD	FLT3	ITD
+chr13	28034062	FLT3-ITD	FLT3	ITD
+chr13	28034063	FLT3-ITD	FLT3	ITD
+chr13	28034064	FLT3-ITD	FLT3	ITD
+chr13	28034065	FLT3-ITD	FLT3	ITD
+chr13	28034066	FLT3-ITD	FLT3	ITD
+chr13	28034067	FLT3-ITD	FLT3	ITD
+chr13	28034068	FLT3-ITD	FLT3	ITD
+chr13	28034069	FLT3-ITD	FLT3	ITD
+chr13	28034070	FLT3-ITD	FLT3	ITD
+chr13	28034071	FLT3-ITD	FLT3	ITD
+chr13	28034072	FLT3-ITD	FLT3	ITD
+chr13	28034073	FLT3-ITD	FLT3	ITD
+chr13	28034074	FLT3-ITD	FLT3	ITD
+chr13	28034075	FLT3-ITD	FLT3	ITD
+chr13	28034076	FLT3-ITD	FLT3	ITD
+chr13	28034077	FLT3-ITD	FLT3	ITD
+chr13	28034078	FLT3-ITD	FLT3	ITD
+chr13	28034079	FLT3-ITD	FLT3	ITD
+chr13	28034080	FLT3-ITD	FLT3	ITD
+chr13	28034081	FLT3-ITD	FLT3	ITD
+chr13	28034082	FLT3-ITD	FLT3	ITD
+chr13	28034083	FLT3-ITD	FLT3	ITD
+chr13	28034084	FLT3-ITD	FLT3	ITD
+chr13	28034085	FLT3-ITD	FLT3	ITD
+chr13	28034086	FLT3-ITD	FLT3	ITD
+chr13	28034087	FLT3-ITD	FLT3	ITD
+chr13	28034088	FLT3-ITD	FLT3	ITD
+chr13	28034089	FLT3-ITD	FLT3	ITD
+chr13	28034090	FLT3-ITD	FLT3	ITD
+chr13	28034091	FLT3-ITD	FLT3	ITD
+chr13	28034092	FLT3-ITD	FLT3	ITD
+chr13	28034093	FLT3-ITD	FLT3	ITD
+chr13	28034094	FLT3-ITD	FLT3	ITD
+chr13	28034095	FLT3-ITD	FLT3	ITD
+chr13	28034096	FLT3-ITD	FLT3	ITD
+chr13	28034097	FLT3-ITD	FLT3	ITD
+chr13	28034098	FLT3-ITD	FLT3	ITD
+chr13	28034099	FLT3-ITD	FLT3	ITD
+chr13	28034100	FLT3-ITD	FLT3	ITD
+chr13	28034101	FLT3-ITD	FLT3	ITD
+chr13	28034102	FLT3-ITD	FLT3	ITD
+chr13	28034103	FLT3-ITD	FLT3	ITD
+chr13	28034104	FLT3-ITD	FLT3	ITD
+chr13	28034105	FLT3-ITD	FLT3	ITD
+chr13	28034106	FLT3-ITD	FLT3	ITD
+chr13	28034107	FLT3-ITD	FLT3	ITD
+chr13	28034108	FLT3-ITD	FLT3	ITD
+chr13	28034109	FLT3-ITD	FLT3	ITD
+chr13	28034110	FLT3-ITD	FLT3	ITD
+chr13	28034111	FLT3-ITD	FLT3	ITD
+chr13	28034112	FLT3-ITD	FLT3	ITD
+chr13	28034113	FLT3-ITD	FLT3	ITD
+chr13	28034114	FLT3-ITD	FLT3	ITD
+chr13	28034115	FLT3-ITD	FLT3	ITD
+chr13	28034116	FLT3-ITD	FLT3	ITD
+chr13	28034117	FLT3-ITD	FLT3	ITD
+chr13	28034118	FLT3-ITD	FLT3	ITD
+chr13	28034119	FLT3-ITD	FLT3	ITD
+chr13	28034120	FLT3-ITD	FLT3	ITD
+chr13	28034121	FLT3-ITD	FLT3	ITD
+chr13	28034122	FLT3-ITD	FLT3	ITD
+chr13	28034123	FLT3-ITD	FLT3	ITD
+chr13	28034124	FLT3-ITD	FLT3	ITD
+chr13	28034125	FLT3-ITD	FLT3	ITD
+chr13	28034126	FLT3-ITD	FLT3	ITD
+chr13	28034127	FLT3-ITD	FLT3	ITD
+chr13	28034128	FLT3-ITD	FLT3	ITD
+chr13	28034129	FLT3-ITD	FLT3	ITD
+chr13	28034130	FLT3-ITD	FLT3	ITD
+chr13	28034131	FLT3-ITD	FLT3	ITD
+chr13	28034132	FLT3-ITD	FLT3	ITD
+chr13	28034133	FLT3-ITD	FLT3	ITD
+chr13	28034134	FLT3-ITD	FLT3	ITD
+chr13	28034135	FLT3-ITD	FLT3	ITD
+chr13	28034136	FLT3-ITD	FLT3	ITD
+chr13	28034137	FLT3-ITD	FLT3	ITD
+chr13	28034138	FLT3-ITD	FLT3	ITD
+chr13	28034139	FLT3-ITD	FLT3	ITD
+chr13	28034140	FLT3-ITD	FLT3	ITD
+chr13	28034141	FLT3-ITD	FLT3	ITD
+chr13	28034142	FLT3-ITD	FLT3	ITD
+chr13	28034143	FLT3-ITD	FLT3	ITD
+chr13	28034144	FLT3-ITD	FLT3	ITD
+chr13	28034145	FLT3-ITD	FLT3	ITD
+chr13	28034146	FLT3-ITD	FLT3	ITD
+chr13	28034147	FLT3-ITD	FLT3	ITD
+chr13	28034148	FLT3-ITD	FLT3	ITD
+chr13	28034149	FLT3-ITD	FLT3	ITD
+chr13	28034150	FLT3-ITD	FLT3	ITD
+chr13	28034151	FLT3-ITD	FLT3	ITD
+chr13	28034152	FLT3-ITD	FLT3	ITD
+chr13	28034153	FLT3-ITD	FLT3	ITD
+chr13	28034154	FLT3-ITD	FLT3	ITD
+chr13	28034155	FLT3-ITD	FLT3	ITD
+chr13	28034156	FLT3-ITD	FLT3	ITD
+chr13	28034157	FLT3-ITD	FLT3	ITD
+chr13	28034158	FLT3-ITD	FLT3	ITD
+chr13	28034159	FLT3-ITD	FLT3	ITD
+chr13	28034160	FLT3-ITD	FLT3	ITD
+chr13	28034161	FLT3-ITD	FLT3	ITD
+chr13	28034162	FLT3-ITD	FLT3	ITD
+chr13	28034163	FLT3-ITD	FLT3	ITD
+chr13	28034164	FLT3-ITD	FLT3	ITD
+chr13	28034165	FLT3-ITD	FLT3	ITD
+chr13	28034166	FLT3-ITD	FLT3	ITD
+chr13	28034167	FLT3-ITD	FLT3	ITD
+chr13	28034168	FLT3-ITD	FLT3	ITD
+chr13	28034169	FLT3-ITD	FLT3	ITD
+chr13	28034170	FLT3-ITD	FLT3	ITD
+chr13	28034171	FLT3-ITD	FLT3	ITD
+chr13	28034172	FLT3-ITD	FLT3	ITD
+chr13	28034173	FLT3-ITD	FLT3	ITD
+chr13	28034174	FLT3-ITD	FLT3	ITD
+chr13	28034175	FLT3-ITD	FLT3	ITD
+chr13	28034176	FLT3-ITD	FLT3	ITD
+chr13	28034177	FLT3-ITD	FLT3	ITD
+chr13	28034178	FLT3-ITD	FLT3	ITD
+chr13	28034179	FLT3-ITD	FLT3	ITD
+chr13	28034180	FLT3-ITD	FLT3	ITD
+chr13	28034181	FLT3-ITD	FLT3	ITD
+chr13	28034182	FLT3-ITD	FLT3	ITD
+chr13	28034183	FLT3-ITD	FLT3	ITD
+chr13	28034184	FLT3-ITD	FLT3	ITD
+chr13	28034185	FLT3-ITD	FLT3	ITD
+chr13	28034186	FLT3-ITD	FLT3	ITD
+chr13	28034187	FLT3-ITD	FLT3	ITD
+chr13	28034188	FLT3-ITD	FLT3	ITD
+chr13	28034189	FLT3-ITD	FLT3	ITD
+chr13	28034190	FLT3-ITD	FLT3	ITD
+chr13	28034191	FLT3-ITD	FLT3	ITD
+chr13	28034192	FLT3-ITD	FLT3	ITD
+chr13	28034193	FLT3-ITD	FLT3	ITD
+chr13	28034194	FLT3-ITD	FLT3	ITD
+chr13	28034195	FLT3-ITD	FLT3	ITD
+chr13	28034196	FLT3-ITD	FLT3	ITD
+chr13	28034197	FLT3-ITD	FLT3	ITD
+chr13	28034198	FLT3-ITD	FLT3	ITD
+chr13	28034199	FLT3-ITD	FLT3	ITD
+chr13	28034200	FLT3-ITD	FLT3	ITD
+chr13	28034201	FLT3-ITD	FLT3	ITD
+chr13	28034202	FLT3-ITD	FLT3	ITD
+chr13	28034203	FLT3-ITD	FLT3	ITD
+chr13	28034204	FLT3-ITD	FLT3	ITD
+chr13	28034205	FLT3-ITD	FLT3	ITD
+chr13	28034206	FLT3-ITD	FLT3	ITD
+chr13	28034207	FLT3-ITD	FLT3	ITD
+chr13	28034208	FLT3-ITD	FLT3	ITD
+chr13	28034209	FLT3-ITD	FLT3	ITD
+chr13	28034210	FLT3-ITD	FLT3	ITD
+chr13	28034211	FLT3-ITD	FLT3	ITD
+chr13	28034212	FLT3-ITD	FLT3	ITD
+chr13	28034213	FLT3-ITD	FLT3	ITD
+chr13	28034214	FLT3-ITD	FLT3	ITD
+chr13	28034215	FLT3-ITD	FLT3	ITD
+chr13	28034216	FLT3-ITD	FLT3	ITD
+chr13	28034217	FLT3-ITD	FLT3	ITD
+chr13	28034218	FLT3-ITD	FLT3	ITD
+chr13	28034219	FLT3-ITD	FLT3	ITD
+chr13	28034220	FLT3-ITD	FLT3	ITD
+chr13	28034221	FLT3-ITD	FLT3	ITD
+chr13	28034222	FLT3-ITD	FLT3	ITD
+chr13	28034223	FLT3-ITD	FLT3	ITD
+chr13	28034224	FLT3-ITD	FLT3	ITD
+chr13	28034225	FLT3-ITD	FLT3	ITD
+chr13	28034226	FLT3-ITD	FLT3	ITD
+chr13	28034227	FLT3-ITD	FLT3	ITD
+chr13	28034228	FLT3-ITD	FLT3	ITD
+chr13	28034229	FLT3-ITD	FLT3	ITD
+chr13	28034230	FLT3-ITD	FLT3	ITD
+chr13	28034231	FLT3-ITD	FLT3	ITD
+chr13	28034232	FLT3-ITD	FLT3	ITD
+chr13	28034233	FLT3-ITD	FLT3	ITD
+chr13	28034234	FLT3-ITD	FLT3	ITD
+chr13	28034235	FLT3-ITD	FLT3	ITD
+chr13	28034236	FLT3-ITD	FLT3	ITD
+chr13	28034237	FLT3-ITD	FLT3	ITD
+chr13	28034238	FLT3-ITD	FLT3	ITD
+chr13	28034239	FLT3-ITD	FLT3	ITD
+chr13	28034240	FLT3-ITD	FLT3	ITD
+chr13	28034241	FLT3-ITD	FLT3	ITD
+chr13	28034242	FLT3-ITD	FLT3	ITD
+chr13	28034243	FLT3-ITD	FLT3	ITD
+chr13	28034244	FLT3-ITD	FLT3	ITD
+chr13	28034245	FLT3-ITD	FLT3	ITD
+chr13	28034246	FLT3-ITD	FLT3	ITD
+chr13	28034247	FLT3-ITD	FLT3	ITD
+chr13	28034248	FLT3-ITD	FLT3	ITD
+chr13	28034249	FLT3-ITD	FLT3	ITD
+chr13	28034250	FLT3-ITD	FLT3	ITD
+chr13	28034251	FLT3-ITD	FLT3	ITD
+chr13	28034252	FLT3-ITD	FLT3	ITD
+chr13	28034253	FLT3-ITD	FLT3	ITD
+chr13	28034254	FLT3-ITD	FLT3	ITD
+chr13	28034255	FLT3-ITD	FLT3	ITD
+chr13	28034256	FLT3-ITD	FLT3	ITD
+chr13	28034257	FLT3-ITD	FLT3	ITD
+chr13	28034258	FLT3-ITD	FLT3	ITD
+chr13	28034259	FLT3-ITD	FLT3	ITD
+chr13	28034260	FLT3-ITD	FLT3	ITD
+chr13	28034261	FLT3-ITD	FLT3	ITD
+chr13	28034262	FLT3-ITD	FLT3	ITD
+chr13	28034263	FLT3-ITD	FLT3	ITD
+chr13	28034264	FLT3-ITD	FLT3	ITD
+chr13	28034265	FLT3-ITD	FLT3	ITD
+chr13	28034266	FLT3-ITD	FLT3	ITD
+chr13	28034267	FLT3-ITD	FLT3	ITD
+chr13	28034268	FLT3-ITD	FLT3	ITD
+chr13	28034269	FLT3-ITD	FLT3	ITD
+chr13	28034270	FLT3-ITD	FLT3	ITD
+chr13	28034271	FLT3-ITD	FLT3	ITD
+chr13	28034272	FLT3-ITD	FLT3	ITD
+chr13	28034273	FLT3-ITD	FLT3	ITD
+chr13	28034274	FLT3-ITD	FLT3	ITD
+chr13	28034275	FLT3-ITD	FLT3	ITD
+chr13	28034276	FLT3-ITD	FLT3	ITD
+chr13	28034277	FLT3-ITD	FLT3	ITD
+chr13	28034278	FLT3-ITD	FLT3	ITD
+chr13	28034279	FLT3-ITD	FLT3	ITD
+chr13	28034280	FLT3-ITD	FLT3	ITD
+chr13	28034281	FLT3-ITD	FLT3	ITD
+chr13	28034282	FLT3-ITD	FLT3	ITD
+chr13	28034283	FLT3-ITD	FLT3	ITD
+chr13	28034284	FLT3-ITD	FLT3	ITD
+chr13	28034285	FLT3-ITD	FLT3	ITD
+chr13	28034286	FLT3-ITD	FLT3	ITD
+chr13	28034287	FLT3-ITD	FLT3	ITD
+chr13	28034288	FLT3-ITD	FLT3	ITD
+chr13	28034289	FLT3-ITD	FLT3	ITD
+chr13	28034290	FLT3-ITD	FLT3	ITD
+chr13	28034291	FLT3-ITD	FLT3	ITD
+chr13	28034292	FLT3-ITD	FLT3	ITD
+chr13	28034293	FLT3-ITD	FLT3	ITD
+chr13	28034294	FLT3-ITD	FLT3	ITD
+chr13	28034295	FLT3-ITD	FLT3	ITD
+chr13	28034296	FLT3-ITD	FLT3	ITD
+chr13	28034297	FLT3-ITD	FLT3	ITD
+chr13	28034298	FLT3-ITD	FLT3	ITD
+chr13	28034299	FLT3-ITD	FLT3	ITD
+chr13	28034300	FLT3-ITD	FLT3	ITD
+chr13	28034301	FLT3-ITD	FLT3	ITD
+chr13	28034302	FLT3-ITD	FLT3	ITD
+chr13	28034303	FLT3-ITD	FLT3	ITD
+chr13	28034304	FLT3-ITD	FLT3	ITD
+chr13	28034305	FLT3-ITD	FLT3	ITD
+chr13	28034306	FLT3-ITD	FLT3	ITD
+chr13	28034307	FLT3-ITD	FLT3	ITD
+chr13	28034308	FLT3-ITD	FLT3	ITD
+chr13	28034309	FLT3-ITD	FLT3	ITD
+chr13	28034310	FLT3-ITD	FLT3	ITD
+chr13	28034311	FLT3-ITD	FLT3	ITD
+chr13	28034312	FLT3-ITD	FLT3	ITD
+chr13	28034313	FLT3-ITD	FLT3	ITD
+chr13	28034314	FLT3-ITD	FLT3	ITD
+chr13	28034315	FLT3-ITD	FLT3	ITD
+chr13	28034316	FLT3-ITD	FLT3	ITD
+chr13	28034317	FLT3-ITD	FLT3	ITD
+chr13	28034318	FLT3-ITD	FLT3	ITD
+chr13	28034319	FLT3-ITD	FLT3	ITD
+chr13	28034320	FLT3-ITD	FLT3	ITD
+chr13	28034321	FLT3-ITD	FLT3	ITD
+chr13	28034322	FLT3-ITD	FLT3	ITD
+chr13	28034323	FLT3-ITD	FLT3	ITD
+chr13	28034324	FLT3-ITD	FLT3	ITD
+chr13	28034325	FLT3-ITD	FLT3	ITD
+chr13	28034326	FLT3-ITD	FLT3	ITD
+chr13	28034327	FLT3-ITD	FLT3	ITD
+chr13	28034328	FLT3-ITD	FLT3	ITD
+chr13	28034329	FLT3-ITD	FLT3	ITD
+chr13	28034330	FLT3-ITD	FLT3	ITD
+chr13	28034331	FLT3-ITD	FLT3	ITD
+chr13	28034332	FLT3-ITD	FLT3	ITD
+chr13	28034333	FLT3-ITD	FLT3	ITD
+chr13	28034334	FLT3-ITD	FLT3	ITD
+chr13	28034335	FLT3-ITD	FLT3	ITD
+chr13	28034336	FLT3-ITD	FLT3	ITD
+chr13	28034337	FLT3-ITD	FLT3	ITD
+chr13	28034338	FLT3-ITD	FLT3	ITD
+chr13	28034339	FLT3-ITD	FLT3	ITD
+chr13	28034340	FLT3-ITD	FLT3	ITD
+chr13	28034341	FLT3-ITD	FLT3	ITD
+chr13	28034342	FLT3-ITD	FLT3	ITD
+chr13	28034343	FLT3-ITD	FLT3	ITD
+chr13	28034344	FLT3-ITD	FLT3	ITD
+chr13	28034345	FLT3-ITD	FLT3	ITD
+chr13	28034346	FLT3-ITD	FLT3	ITD
+chr13	28034347	FLT3-ITD	FLT3	ITD
+chr13	28034348	FLT3-ITD	FLT3	ITD
+chr13	28034349	FLT3-ITD	FLT3	ITD
+chr13	28034350	FLT3-ITD	FLT3	ITD
+chr13	28034351	FLT3-ITD	FLT3	ITD
+chr13	28034352	FLT3-ITD	FLT3	ITD
+chr13	28034353	FLT3-ITD	FLT3	ITD
+chr13	28034354	FLT3-ITD	FLT3	ITD
+chr13	28034355	FLT3-ITD	FLT3	ITD
+chr13	28034356	FLT3-ITD	FLT3	ITD
+chr13	28034357	FLT3-ITD	FLT3	ITD
+chr13	28034358	FLT3-ITD	FLT3	ITD
+chr13	28034359	FLT3-ITD	FLT3	ITD
+chr13	28034360	FLT3-ITD	FLT3	ITD
+chr13	28034361	FLT3-ITD	FLT3	ITD
+chr13	28034362	FLT3-ITD	FLT3	ITD
+chr13	28034363	FLT3-ITD	FLT3	ITD
+chr13	28034364	FLT3-ITD	FLT3	ITD
+chr13	28034365	FLT3-ITD	FLT3	ITD
+chr13	28034366	FLT3-ITD	FLT3	ITD
+chr13	28034367	FLT3-ITD	FLT3	ITD
+chr13	28034368	FLT3-ITD	FLT3	ITD
+chr13	28034369	FLT3-ITD	FLT3	ITD
+chr13	28034370	FLT3-ITD	FLT3	ITD
+chr13	28034371	FLT3-ITD	FLT3	ITD
+chr13	28034372	FLT3-ITD	FLT3	ITD
+chr13	28034373	FLT3-ITD	FLT3	ITD
+chr13	28034374	FLT3-ITD	FLT3	ITD
+chr13	28034375	FLT3-ITD	FLT3	ITD
+chr13	28034376	FLT3-ITD	FLT3	ITD
+chr13	28034377	FLT3-ITD	FLT3	ITD
+chr13	28034378	FLT3-ITD	FLT3	ITD
+chr13	28034379	FLT3-ITD	FLT3	ITD
+chr13	28034380	FLT3-ITD	FLT3	ITD
+chr13	28034381	FLT3-ITD	FLT3	ITD
+chr13	28034382	FLT3-ITD	FLT3	ITD
+chr13	28034383	FLT3-ITD	FLT3	ITD
+chr13	28034384	FLT3-ITD	FLT3	ITD
+chr13	28034385	FLT3-ITD	FLT3	ITD
+chr13	28034386	FLT3-ITD	FLT3	ITD
+chr13	28034387	FLT3-ITD	FLT3	ITD
+chr13	28034388	FLT3-ITD	FLT3	ITD
+chr13	28034389	FLT3-ITD	FLT3	ITD
+chr13	28034390	FLT3-ITD	FLT3	ITD
+chr13	28034391	FLT3-ITD	FLT3	ITD
+chr13	28034392	FLT3-ITD	FLT3	ITD
+chr13	28034393	FLT3-ITD	FLT3	ITD
+chr13	28034394	FLT3-ITD	FLT3	ITD
+chr13	28034395	FLT3-ITD	FLT3	ITD
+chr13	28034396	FLT3-ITD	FLT3	ITD
+chr13	28034397	FLT3-ITD	FLT3	ITD
+chr13	28034398	FLT3-ITD	FLT3	ITD
+chr13	28034399	FLT3-ITD	FLT3	ITD
+chr13	28034400	FLT3-ITD	FLT3	ITD
+chr13	28034401	FLT3-ITD	FLT3	ITD
+chr13	28034402	FLT3-ITD	FLT3	ITD
+chr13	28034403	FLT3-ITD	FLT3	ITD
+chr13	28034404	FLT3-ITD	FLT3	ITD
+chr13	28034405	FLT3-ITD	FLT3	ITD
+chr13	28034406	FLT3-ITD	FLT3	ITD
+chr13	28034407	FLT3-ITD	FLT3	ITD
+chr2	208248387	IDH1-R132	IDH1	R132
+chr2	208248388	IDH1-R132	IDH1	R132
+chr2	208248389	IDH1-R132	IDH1	R132
+chr15	90088605	"IDH2-R120,R172,R42"	IDH2	"R120,R172,R42"
+chr15	90088606	"IDH2-R120,R172,R42"	IDH2	"R120,R172,R42"
+chr15	90088607	"IDH2-R120,R172,R42"	IDH2	"R120,R172,R42"
+chr15	90088645	"IDH2-R10,R140,R88"	IDH2	"R10,R140,R88"
+chr15	90088646	"IDH2-R10,R140,R88"	IDH2	"R10,R140,R88"
+chr15	90088702	"IDH2-R10,R140,R88"	IDH2	"R10,R140,R88"
+chr15	90088703	"IDH2-R10,R140,R88"	IDH2	"R10,R140,R88"
+chr9	5073769	"JAK2-V468,V617"	JAK2	"V468,V617"
+chr9	5073770	"JAK2-V468,V617"	JAK2	"V468,V617"
+chr9	5073771	"JAK2-V468,V617"	JAK2	"V468,V617"
+chr4	54733154	"KIT-D812,D816"	KIT	"D812,D816"
+chr4	54733155	"KIT-D812,D816"	KIT	"D812,D816"
+chr4	54733156	"KIT-D812,D816"	KIT	"D812,D816"
+chr4	54733166	"KIT-D812,D816"	KIT	"D812,D816"
+chr4	54733167	"KIT-D812,D816"	KIT	"D812,D816"
+chr4	54733168	"KIT-D812,D816"	KIT	"D812,D816"
+chr12	25227341	KRAS-Q61	KRAS	Q61
+chr12	25227342	KRAS-Q61	KRAS	Q61
+chr12	25227343	KRAS-Q61	KRAS	Q61
+chr12	25227344	KRAS-Q61	KRAS	Q61
+chr12	25209910	"KRAS-G12,G13"	KRAS	"G12,G13"
+chr12	25209911	"KRAS-G12,G13"	KRAS	"G12,G13"
+chr12	25245349	"KRAS-G12,G13"	KRAS	"G12,G13"
+chr12	25245350	"KRAS-G12,G13"	KRAS	"G12,G13"
+chr12	25245351	"KRAS-G12,G13"	KRAS	"G12,G13"
+chr12	25225651	"KRAS-G12,G13"	KRAS	"G12,G13"
+chr12	25225652	"KRAS-G12,G13"	KRAS	"G12,G13"
+chr12	25245346	"KRAS-G12,G13"	KRAS	"G12,G13"
+chr12	25245347	"KRAS-G12,G13"	KRAS	"G12,G13"
+chr12	25245348	"KRAS-G12,G13"	KRAS	"G12,G13"
+chr1	43349337	MPL-W515	MPL	W515
+chr1	43349338	MPL-W515	MPL	W515
+chr1	43349339	MPL-W515	MPL	W515
+chr5	171410539	"NPM1-L258,L287"	NPM1	"L258,L287"
+chr5	171410540	"NPM1-L258,L287"	NPM1	"L258,L287"
+chr5	171410541	"NPM1-L258,L287"	NPM1	"L258,L287"
+chr5	171410542	"NPM1-W259,W288"	NPM1	"W259,W288"
+chr5	171410542	"NPM1-W259,W288"	NPM1	"W259,W288"
+chr5	171410542	"NPM1-W259,W288"	NPM1	"W259,W288"
+chr5	171410543	"NPM1-W259,W288"	NPM1	"W259,W288"
+chr5	171410543	"NPM1-W259,W288"	NPM1	"W259,W288"
+chr5	171410543	"NPM1-W259,W288"	NPM1	"W259,W288"
+chr5	171410544	"NPM1-W259,W288"	NPM1	"W259,W288"
+chr5	171410544	"NPM1-W259,W288"	NPM1	"W259,W288"
+chr5	171410544	"NPM1-W259,W288"	NPM1	"W259,W288"
+chr1	114713907	NRAS-Q61	NRAS	Q61
+chr1	114713908	NRAS-Q61	NRAS	Q61
+chr1	114713909	NRAS-Q61	NRAS	Q61
+chr1	114713910	NRAS-Q61	NRAS	Q61
+chr1	114716126	"NRAS-G12,G13"	NRAS	"G12,G13"
+chr1	114716127	"NRAS-G12,G13"	NRAS	"G12,G13"
+chr1	114709606	"NRAS-G12,G13"	NRAS	"G12,G13"
+chr1	114709607	"NRAS-G12,G13"	NRAS	"G12,G13"
+chr1	114716122	"NRAS-G12,G13"	NRAS	"G12,G13"
+chr1	114716123	"NRAS-G12,G13"	NRAS	"G12,G13"
+chr1	114716124	"NRAS-G12,G13"	NRAS	"G12,G13"
+chr1	114716125	"NRAS-G12,G13"	NRAS	"G12,G13"
+chr21	34859485	"RUNX1-R174,R177,R189,R201"	RUNX1	"R174,R177,R189,R201"
+chr21	34859486	"RUNX1-R174,R177,R189,R201"	RUNX1	"R174,R177,R189,R201"
+chr21	34859476	"RUNX1-R174,R177,R189,R201"	RUNX1	"R174,R177,R189,R201"
+chr21	34859477	"RUNX1-R174,R177,R189,R201"	RUNX1	"R174,R177,R189,R201"
+chr21	34880579	"RUNX1-R135,R138,R150,R162"	RUNX1	"R135,R138,R150,R162"
+chr21	34880580	"RUNX1-R135,R138,R150,R162"	RUNX1	"R135,R138,R150,R162"
+chr21	34880581	"RUNX1-R135,R138,R150,R162"	RUNX1	"R135,R138,R150,R162"
+chr18	44951942	SETBP1-D868	SETBP1	D868
+chr18	44951943	SETBP1-D868	SETBP1	D868
+chr18	44951944	SETBP1-D868	SETBP1	D868
+chr18	44951945	SETBP1-S869	SETBP1	S869
+chr18	44951946	SETBP1-S869	SETBP1	S869
+chr18	44951947	SETBP1-S869	SETBP1	S869
+chr18	44951948	SETBP1-G870	SETBP1	G870
+chr18	44951949	SETBP1-G870	SETBP1	G870
+chr2	197402108	SF3B1-K700	SF3B1	K700
+chr2	197402109	SF3B1-K700	SF3B1	K700
+chr2	197402110	SF3B1-K700	SF3B1	K700
+chr2	197402635	SF3B1-K666	SF3B1	K666
+chr2	197402636	SF3B1-K666	SF3B1	K666
+chr2	197402637	SF3B1-K666	SF3B1	K666
+chr2	197402647	SF3B1-H662	SF3B1	H662
+chr2	197402648	SF3B1-H662	SF3B1	H662
+chr2	197402649	SF3B1-H662	SF3B1	H662
+chr2	197402759	SF3B1-R625	SF3B1	R625
+chr2	197402760	SF3B1-R625	SF3B1	R625
+chr2	197402767	SF3B1-E662	SF3B1	E662
+chr2	197402768	SF3B1-E662	SF3B1	E662
+chr2	197402769	SF3B1-E662	SF3B1	E662
+chr17	76736877	SRSF2-P95	SRSF2	P95
+chr17	76736878	SRSF2-P95	SRSF2	P95
+chr4	105234015	"TET2-C25,C46"	TET2	"C25,C46"
+chr4	105234016	"TET2-C25,C46"	TET2	"C25,C46"
+chr4	105234017	"TET2-C25,C46"	TET2	"C25,C46"
+chr4	105234651	"TET2-C25,C46"	TET2	"C25,C46"
+chr4	105234652	"TET2-C25,C46"	TET2	"C25,C46"
+chr4	105234653	"TET2-C25,C46"	TET2	"C25,C46"
+chr4	105235572	"TET2-R544,R565"	TET2	"R544,R565"
+chr4	105235573	"TET2-R544,R565"	TET2	"R544,R565"
+chr4	105235590	"TET2-R550,R571"	TET2	"R550,R571"
+chr4	105235591	"TET2-R550,R571"	TET2	"R550,R571"
+chr4	105235653	"TET2-R550,R571"	TET2	"R550,R571"
+chr4	105235654	"TET2-R550,R571"	TET2	"R550,R571"
+chr4	105236688	"TET2-Q916,Q937"	TET2	"Q916,Q937"
+chr4	105236689	"TET2-Q916,Q937"	TET2	"Q916,Q937"
+chr4	105236690	"TET2-Q916,Q937"	TET2	"Q916,Q937"
+chr4	105272774	"TET2-R1465,R1486"	TET2	"R1465,R1486"
+chr4	105272775	"TET2-R1465,R1486"	TET2	"R1465,R1486"
+chr4	105276127	"TET2-I1873,I1894"	TET2	"I1873,I1894"
+chr4	105276128	"TET2-I1873,I1894"	TET2	"I1873,I1894"
+chr4	105276129	"TET2-I1873,I1894"	TET2	"I1873,I1894"
+chr17	7673802	"TP53-R141,R273"	TP53	"R141,R273"
+chr17	7673803	"TP53-R141,R273"	TP53	"R141,R273"
+chr17	7674216	"TP53-R117,R249"	TP53	"R117,R249"
+chr17	7674217	"TP53-R117,R249"	TP53	"R117,R249"
+chr17	7674218	"TP53-R117,R249"	TP53	"R117,R249"
+chr17	7675145	"TP53-R117,R249"	TP53	"R117,R249"
+chr17	7675146	"TP53-R117,R249"	TP53	"R117,R249"
+chr17	7674220	"TP53-R116,R155,R248"	TP53	"R116,R155,R248"
+chr17	7674221	"TP53-R116,R155,R248"	TP53	"R116,R155,R248"
+chr17	7674904	"TP53-R116,R155,R248"	TP53	"R116,R155,R248"
+chr17	7674905	"TP53-R116,R155,R248"	TP53	"R116,R155,R248"
+chr17	7674906	"TP53-R116,R155,R248"	TP53	"R116,R155,R248"
+chr17	7674871	"TP53-Y127,Y220,Y88"	TP53	"Y127,Y220,Y88"
+chr17	7674872	"TP53-Y127,Y220,Y88"	TP53	"Y127,Y220,Y88"
+chr17	7674873	"TP53-Y127,Y220,Y88"	TP53	"Y127,Y220,Y88"
+chr17	7675094	"TP53-V173,V41,V80"	TP53	"V173,V41,V80"
+chr17	7675095	"TP53-V173,V41,V80"	TP53	"V173,V41,V80"
+chr21	43094666	"U2AF1-Q157,Q84"	U2AF1	"Q157,Q84"
+chr21	43094667	"U2AF1-Q157,Q84"	U2AF1	"Q157,Q84"
+chr21	43094668	"U2AF1-Q157,Q84"	U2AF1	"Q157,Q84"
+chr21	43104346	U2AF1-S34	U2AF1	S34
+chr21	43104347	U2AF1-S34	U2AF1	S34
+chr11	32396361	"WT1-A153,A170,A365,A382,A73"	WT1	"A153,A170,A365,A382,A73"
+chr11	32396362	"WT1-A153,A170,A365,A382,A73"	WT1	"A153,A170,A365,A382,A73"
+chr11	32396325	"WT1-A153,A170,A365,A382,A73"	WT1	"A153,A170,A365,A382,A73"
+chr11	32396326	"WT1-A153,A170,A365,A382,A73"	WT1	"A153,A170,A365,A382,A73"
+chr11	32396364	"WT1-S152,S169,S364,S381,S72"	WT1	"S152,S169,S364,S381,S72"
+chr11	32396365	"WT1-S152,S169,S364,S381,S72"	WT1	"S152,S169,S364,S381,S72"
+chrX	15809266	ZRSR2-R169	ZRSR2	R169
+chrX	15809267	ZRSR2-R169	ZRSR2	R169
